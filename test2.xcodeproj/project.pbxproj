@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2988F68F2040A91600189989 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2988F68D2040A91600189989 /* GameScene.swift */; };
+		2988F6902040A91600189989 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2988F68E2040A91600189989 /* GameViewController.swift */; };
 		29C8D6C72040A72600E4C122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6C62040A72600E4C122 /* AppDelegate.swift */; };
 		29C8D6C92040A72600E4C122 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6C82040A72600E4C122 /* ViewController.swift */; };
 		29C8D6CC2040A72600E4C122 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29C8D6CA2040A72600E4C122 /* Main.storyboard */; };
 		29C8D6CE2040A72600E4C122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29C8D6CD2040A72600E4C122 /* Assets.xcassets */; };
-		29C8D6D12040A72600E4C122 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29C8D6CF2040A72600E4C122 /* LaunchScreen.storyboard */; };
 		29C8D6DC2040A72700E4C122 /* test2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6DB2040A72700E4C122 /* test2Tests.swift */; };
 		29C8D6E72040A72700E4C122 /* test2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6E62040A72700E4C122 /* test2UITests.swift */; };
 /* End PBXBuildFile section */
@@ -34,12 +35,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2988F68D2040A91600189989 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = ../../draganddrop1/draganddrop1/GameScene.swift; sourceTree = "<group>"; };
+		2988F68E2040A91600189989 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = ../../draganddrop1/draganddrop1/GameViewController.swift; sourceTree = "<group>"; };
 		29C8D6C32040A72600E4C122 /* test2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C8D6C62040A72600E4C122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29C8D6C82040A72600E4C122 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		29C8D6CB2040A72600E4C122 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		29C8D6CD2040A72600E4C122 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		29C8D6D02040A72600E4C122 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29C8D6D22040A72700E4C122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29C8D6D72040A72700E4C122 /* test2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C8D6DB2040A72700E4C122 /* test2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test2Tests.swift; sourceTree = "<group>"; };
@@ -98,10 +100,11 @@
 			isa = PBXGroup;
 			children = (
 				29C8D6C62040A72600E4C122 /* AppDelegate.swift */,
-				29C8D6C82040A72600E4C122 /* ViewController.swift */,
 				29C8D6CA2040A72600E4C122 /* Main.storyboard */,
+				29C8D6C82040A72600E4C122 /* ViewController.swift */,
+				2988F68D2040A91600189989 /* GameScene.swift */,
+				2988F68E2040A91600189989 /* GameViewController.swift */,
 				29C8D6CD2040A72600E4C122 /* Assets.xcassets */,
-				29C8D6CF2040A72600E4C122 /* LaunchScreen.storyboard */,
 				29C8D6D22040A72700E4C122 /* Info.plist */,
 			);
 			path = test2;
@@ -232,7 +235,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29C8D6D12040A72600E4C122 /* LaunchScreen.storyboard in Resources */,
 				29C8D6CE2040A72600E4C122 /* Assets.xcassets in Resources */,
 				29C8D6CC2040A72600E4C122 /* Main.storyboard in Resources */,
 			);
@@ -259,6 +261,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2988F6902040A91600189989 /* GameViewController.swift in Sources */,
+				2988F68F2040A91600189989 /* GameScene.swift in Sources */,
 				29C8D6C92040A72600E4C122 /* ViewController.swift in Sources */,
 				29C8D6C72040A72600E4C122 /* AppDelegate.swift in Sources */,
 			);
@@ -302,14 +306,6 @@
 				29C8D6CB2040A72600E4C122 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		29C8D6CF2040A72600E4C122 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				29C8D6D02040A72600E4C122 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -429,8 +425,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7TZH87BWL;
 				INFOPLIST_FILE = test2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = oscar.test2;
+				PRODUCT_BUNDLE_IDENTIFIER = oscar.test3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -444,8 +441,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7TZH87BWL;
 				INFOPLIST_FILE = test2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = oscar.test2;
+				PRODUCT_BUNDLE_IDENTIFIER = oscar.test3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
