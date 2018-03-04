@@ -8,6 +8,7 @@
 
 import SpriteKit
 import UIKit
+import AVFoundation //John
 
 struct ColliderType{
     static let Object:UInt32 = 1
@@ -19,6 +20,7 @@ struct ColliderType{
 private let movableName = "movable"
 private let staticName = "not-movable"
 private let staticImages = ["bucket2"]
+private let Speaker = AVSpeechSynthesizer() //John
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     let scoreText = SKLabelNode(fontNamed: "Arial")
@@ -110,6 +112,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (contact.bodyA.categoryBitMask == ColliderType.Object && contact.bodyB.categoryBitMask == ColliderType.Bucket) {
             score += 1
             scoreText.text = String(score)
+            SpeakString(text: score.description)
             contact.bodyA.node?.removeFromParent()
             print(score)
         }
@@ -156,6 +159,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let translation = CGPoint(x: positionInScene.x - previousPosition.x, y: positionInScene.y - previousPosition.y)
             panForTranslation(translation: translation)
         }
+    }
+    
+    func SpeakString(text: String) { //JOHN
+            let Utterance = AVSpeechUtterance(string: text)
+            Speaker.speak(Utterance)
     }
 }
 

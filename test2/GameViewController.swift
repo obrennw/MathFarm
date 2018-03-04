@@ -56,8 +56,8 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    @IBAction func PressedStart(_ sender: UIButton) {
+    /*@IBAction func PressedStart(_ sender: UIButton) {
         let next = self.storyboard?.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
         self.present(next, animated: true, completion: nil)
-    }
+    } */
 }
