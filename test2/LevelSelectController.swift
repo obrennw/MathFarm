@@ -11,17 +11,20 @@ import UIKit
 class LevelSelectController: UIViewController {
 
     @IBOutlet weak var CountingBtn: UIButton!
+    
+    /// Do any additional setup after loading the view.
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
+    /// Dispose of any resources that can be recreated.
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    /// Transitions to GameViewController to present counting level
+    ///
+    /// - Parameter sender: Component that triggers function on action
     @IBAction func toCountingLevel(_ sender: UIButton) {
         let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController1") as! GameViewController
         self.present(viewController, animated: true, completion: nil)

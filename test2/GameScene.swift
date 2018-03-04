@@ -10,15 +10,19 @@ import SpriteKit
 import UIKit
 import AVFoundation //John
 
+/// Describes object for collision type
 struct ColliderType{
     static let Object:UInt32 = 1
-    //1 << 0
     static let Bucket:UInt32 = 2
-    //1 << 1
 }
 
-private let movableName = "movable"
-private let staticName = "not-movable"
+/// Describes whether object is movable or static
+struct MoveType {
+    static let Movable:UInt32 = 1
+    static let Static:UInt32 = 2
+}
+
+/// A list of any objects that have static MoveType
 private let staticImages = ["bucket2"]
 private let Speaker = AVSpeechSynthesizer() //John
 
@@ -39,40 +43,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    /// Called when scene is presented
+    ///
+    /// - Parameter view: The SKView rendering the scene
     override func didMove(to view: SKView) {
+        
         self.physicsWorld.contactDelegate = self
         self.backgroundColor = SKColor.cyan
+        
         print("height:"+String(describing: size.height))
         scoreText.fontSize = size.height/7.5
         scoreText.text = String(score)
         scoreText.fontColor = SKColor.black
-        // 1
-        //self.background.name = "background"
-        //self.background.anchorPoint = CGPoint(x:0,y:0)
-        // 2
-        //self.addChild(background)
-        // 3
+        
         let imageNames = ["apple","apple","apple","apple","apple","bucket2"]
         
         for i in 0..<imageNames.count {
                 let imageName = imageNames[i]
                 
                 let sprite = SKSpriteNode(imageNamed: imageName)
-//                if #available(iOS 10.0, *) {
-//                    sprite.scale(to: CGSize(width:55,height:55))
-//                } else {
-//                    // Fallback on earlier versions
-//                    sprite.setScale(CGFloat(0.5))
-//                }
+                sprite.name = imageName
                 sprite.isAccessibilityElement = true
                 sprite.physicsBody = SKPhysicsBody(circleOfRadius: max(sprite.size.width / 2,
                                                                        sprite.size.height / 2))
                 sprite.physicsBody?.affectedByGravity = false
-                //sprite.physicsBody?.isDynamic = false
-//                sprite.position = CGPoint(x: size.width * offsetFraction, y: (size.height / 2)-(50*CGFloat(i)))
+
                 
                 if !staticImages.contains(imageName){
-                    sprite.name = movableName
                     sprite.accessibilityLabel = "apple"
                     sprite.physicsBody?.categoryBitMask = ColliderType.Object
                     sprite.physicsBody?.collisionBitMask = 0
@@ -108,7 +105,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        print("HERE!")
         if (contact.bodyA.categoryBitMask == ColliderType.Object && contact.bodyB.categoryBitMask == ColliderType.Bucket) {
             score += 1
             scoreText.text = String(score)
