@@ -13,10 +13,8 @@
 		29C8D6CE2040A72600E4C122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29C8D6CD2040A72600E4C122 /* Assets.xcassets */; };
 		29C8D6DC2040A72700E4C122 /* test2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6DB2040A72700E4C122 /* test2Tests.swift */; };
 		29C8D6E72040A72700E4C122 /* test2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6E62040A72700E4C122 /* test2UITests.swift */; };
-		B2B14365204BA26300C2D7E7 /* thumbs_cartoon-farm-vector3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2B14364204BA26300C2D7E7 /* thumbs_cartoon-farm-vector3.jpg */; };
 		B2E2B65B204B813A00AF12E0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2B65A204B813A00AF12E0 /* GameScene.swift */; };
 		B2E2B65D204B814F00AF12E0 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2B65C204B814F00AF12E0 /* GameViewController.swift */; };
-		B2E2B65F204B894100AF12E0 /* thumbs_cartoon-farm-vector1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2E2B65E204B894100AF12E0 /* thumbs_cartoon-farm-vector1.jpg */; };
 		B2E2B662204B908500AF12E0 /* LevelSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2B661204B908500AF12E0 /* LevelSelectController.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,10 +48,8 @@
 		29C8D6E22040A72700E4C122 /* test2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C8D6E62040A72700E4C122 /* test2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test2UITests.swift; sourceTree = "<group>"; };
 		29C8D6E82040A72700E4C122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B2B14364204BA26300C2D7E7 /* thumbs_cartoon-farm-vector3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "thumbs_cartoon-farm-vector3.jpg"; sourceTree = "<group>"; };
 		B2E2B65A204B813A00AF12E0 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		B2E2B65C204B814F00AF12E0 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		B2E2B65E204B894100AF12E0 /* thumbs_cartoon-farm-vector1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "thumbs_cartoon-farm-vector1.jpg"; sourceTree = "<group>"; };
 		B2E2B661204B908500AF12E0 /* LevelSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,7 +101,6 @@
 		29C8D6C52040A72600E4C122 /* test2 */ = {
 			isa = PBXGroup;
 			children = (
-				B2E2B660204B894900AF12E0 /* Images */,
 				29C8D6C62040A72600E4C122 /* AppDelegate.swift */,
 				29C8D6CA2040A72600E4C122 /* Main.storyboard */,
 				B2E2B661204B908500AF12E0 /* LevelSelectController.swift */,
@@ -134,15 +129,6 @@
 				29C8D6E82040A72700E4C122 /* Info.plist */,
 			);
 			path = test2UITests;
-			sourceTree = "<group>";
-		};
-		B2E2B660204B894900AF12E0 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				B2B14364204BA26300C2D7E7 /* thumbs_cartoon-farm-vector3.jpg */,
-				B2E2B65E204B894100AF12E0 /* thumbs_cartoon-farm-vector1.jpg */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,8 +238,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2B14365204BA26300C2D7E7 /* thumbs_cartoon-farm-vector3.jpg in Resources */,
-				B2E2B65F204B894100AF12E0 /* thumbs_cartoon-farm-vector1.jpg in Resources */,
 				29C8D6CE2040A72600E4C122 /* Assets.xcassets in Resources */,
 				29C8D6CC2040A72600E4C122 /* Main.storyboard in Resources */,
 			);
@@ -443,11 +427,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 424R4YGP7H;
+				DEVELOPMENT_TEAM = P7TZH87BWL;
 				INFOPLIST_FILE = test2/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = oscar.test2.com;
+				PRODUCT_BUNDLE_IDENTIFIER = oscar.test.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -459,11 +443,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 424R4YGP7H;
+				DEVELOPMENT_TEAM = P7TZH87BWL;
 				INFOPLIST_FILE = test2/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = oscar.test2.com;
+				PRODUCT_BUNDLE_IDENTIFIER = oscar.test.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

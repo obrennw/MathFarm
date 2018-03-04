@@ -40,7 +40,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="thumbs_cartoon-farm-vector1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="o5B-Ie-H9t">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="thumbs_cartoon-farm-vector1" translatesAutoresizingMaskIntoConstraints="NO" id="o5B-Ie-H9t">
                                 <rect key="frame" x="0.0" y="-33" width="1024" height="801"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -91,7 +91,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="thumbs_cartoon-farm-vector3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="TZq-Pt-0MM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="thumbs_cartoon-farm-vector3" translatesAutoresizingMaskIntoConstraints="NO" id="TZq-Pt-0MM">
                                 <rect key="frame" x="0.0" y="-33" width="1024" height="801"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -141,8 +141,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="thumbs_cartoon-farm-vector1.jpg" width="436" height="300"/>
-        <image name="thumbs_cartoon-farm-vector3.jpg" width="374" height="300"/>
+        <image name="thumbs_cartoon-farm-vector1" width="436" height="300"/>
+        <image name="thumbs_cartoon-farm-vector3" width="374" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HxL-U7-FRf"/>
