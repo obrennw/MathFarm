@@ -12,7 +12,9 @@ import AVFoundation
 
 /// Describes object for collision type
 struct ColliderType{
+    /// Object causing the collision
     static let Object:UInt32 = 1
+    /// Bucket that recieves the collision
     static let Bucket:UInt32 = 2
 }
 
@@ -20,21 +22,28 @@ struct ColliderType{
 private let staticImages = ["bucket2"]
 /// A list of movable objects
 private let movableImages = ["apple"]
+/// Object that allows device to speek to user
+private let speaker = AVSpeechSynthesizer()
 
-private let Speaker = AVSpeechSynthesizer()
-
+/// Module that renders a level’s current state and maintains its corresponding game logic
 class GameScene: SKScene, SKPhysicsContactDelegate {
+    /// Sprite that presents the current score
     let scoreText = SKLabelNode(fontNamed: "Arial")
-    let background = SKSpriteNode(imageNamed: "blue-shooting-stars")
+    /// Variable that keeps track of the current store
     var score = 0
-    
-    //The sprite currently being touched (if any)
+    /// The sprite that is currently being touched (if any)
     var selectedNode = SKSpriteNode()
     
+    /// Initialize the scene by NSCoder
+    ///
+    /// - Parameter coder: coder used to initialize the scene
     required init?(coder aDecorder: NSCoder){
         fatalError("init(coder: has not been implemented")
     }
     
+    /// Initialize the scene by size
+    ///
+    /// - Parameter size: size used to initialize the scene
     override init(size: CGSize) {
         super.init(size: size)
         
@@ -168,7 +177,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     /// - Parameter text: text to be spoken
     func SpeakString(text: String) {
             let Utterance = AVSpeechUtterance(string: text)
-            Speaker.speak(Utterance)
+            speaker.speak(Utterance)
     }
 }
 
