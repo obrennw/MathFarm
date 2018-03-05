@@ -10,14 +10,16 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
+/// Controller responsible for presenting a given level
 class GameViewController: UIViewController {
     
+    /// Called when view is ready to be loaded into contorller
     override func loadView() {
         self.view = SKView()
     }
     
     
-    /// Set properties of the Controller
+    /// Set properties of the Controller once the view is loaded
     override func viewDidLoad() {
         super.viewDidLoad()
         let value = UIInterfaceOrientation.landscapeRight.rawValue

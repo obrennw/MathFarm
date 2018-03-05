@@ -8,8 +8,10 @@
 
 import UIKit
 
+/// ViewController for level selector
 class LevelSelectController: UIViewController {
 
+    /// Button that links to couting level
     @IBOutlet weak var CountingBtn: UIButton!
     
     /// Do any additional setup after loading the view.
