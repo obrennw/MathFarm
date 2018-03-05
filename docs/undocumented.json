@@ -1,0 +1,12 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/oqbrennw/test2/test2/AppDelegate.swift",
+      "line": 13,
+      "symbol": "AppDelegate",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/oqbrennw/test2"
+}
