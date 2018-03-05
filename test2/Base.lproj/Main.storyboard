@@ -32,10 +32,10 @@
             </objects>
             <point key="canvasLocation" x="-644" y="111"/>
         </scene>
-        <!--View Controller-->
+        <!--Main Menu Controller-->
         <scene sceneID="F8n-Rc-rrB">
             <objects>
-                <viewController id="xvl-TD-cQ0" customClass="ViewController" customModule="test2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xvl-TD-cQ0" customClass="MainMenuController" customModule="test2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zsf-ig-fbk">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

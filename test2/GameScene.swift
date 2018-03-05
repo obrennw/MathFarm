@@ -8,7 +8,7 @@
 
 import SpriteKit
 import UIKit
-import AVFoundation //John
+import AVFoundation
 
 /// Describes object for collision type
 struct ColliderType{
@@ -16,13 +16,11 @@ struct ColliderType{
     static let Bucket:UInt32 = 2
 }
 
-
 /// A list of static objects
 private let staticImages = ["bucket2"]
 /// A list of movable objects
 private let movableImages = ["apple"]
 
-private let moveTypeKey = "moveType"
 private let Speaker = AVSpeechSynthesizer()
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -36,8 +34,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     required init?(coder aDecorder: NSCoder){
         fatalError("init(coder: has not been implemented")
     }
-    
-    
     
     override init(size: CGSize) {
         super.init(size: size)
