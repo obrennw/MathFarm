@@ -26,13 +26,15 @@ private let movableImages = ["apple"]
 private let speaker = AVSpeechSynthesizer()
 
 /// Module that renders a level’s current state and maintains its corresponding game logic
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {
     /// Sprite that presents the current score
     let scoreText = SKLabelNode(fontNamed: "Arial")
     /// Variable that keeps track of the current store
     var score = 0
     /// The sprite that is currently being touched (if any)
     var selectedNode = SKSpriteNode()
+    
+    var contactFlag = false
     
     /// Initialize the scene by NSCoder
     ///
@@ -53,7 +55,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     ///
     /// - Parameter view: The SKView rendering the scene
     override func didMove(to view: SKView) {
-        
+        speakString(text: "")
         self.physicsWorld.contactDelegate = self
         self.backgroundColor = SKColor.cyan
         
@@ -62,7 +64,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreText.text = String(score)
         scoreText.fontColor = SKColor.black
         
-        let imageNames = ["apple","apple","apple","apple","apple","bucket2"]
+        let imageNames = ["bucket2","apple","apple","apple","apple","apple"]
         
         for i in 0..<imageNames.count {
                 let imageName = imageNames[i]
@@ -70,8 +72,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 let sprite = SKSpriteNode(imageNamed: imageName)
                 sprite.isAccessibilityElement = true
                 sprite.name = imageName
-                sprite.physicsBody = SKPhysicsBody(circleOfRadius: max(sprite.size.width / 2,
-                                                                       sprite.size.height / 2))
+                sprite.physicsBody = SKPhysicsBody(circleOfRadius: max(sprite.size.width/4,
+                                                                       sprite.size.height/4))
                 sprite.physicsBody?.affectedByGravity = false
 
                 
@@ -82,7 +84,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     sprite.physicsBody?.contactTestBitMask = 0
                     sprite.setScale(CGFloat(1.5))
                     let offsetFraction = (CGFloat(1) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
-                    sprite.position = CGPoint(x: size.width * offsetFraction, y: (size.height/(1.25))-(1.5*(sprite.size.height)*CGFloat(i)))
+                    sprite.position = CGPoint(x: size.width * offsetFraction, y: (size.height/(1.25))-(1.5*(sprite.size.height)*CGFloat(i-1)))
                 }
                 else{
                     sprite.accessibilityLabel = "bucket"
@@ -90,7 +92,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     sprite.physicsBody?.collisionBitMask = 0
                     sprite.physicsBody?.contactTestBitMask = ColliderType.Object
                     sprite.setScale(0.225)
-                    let offsetFraction = (CGFloat(i) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
+                    let offsetFraction = (CGFloat(imageNames.count-1) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
                     sprite.position = CGPoint(x: size.width * offsetFraction, y: (size.height / 2))
                     
                 }
@@ -121,14 +123,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     ///
     /// - Parameter contact: The object that refers to the contact caused by the two objects
     func didBegin(_ contact: SKPhysicsContact) {
-        if (contact.bodyA.categoryBitMask == ColliderType.Object && contact.bodyB.categoryBitMask == ColliderType.Bucket) {
-            score += 1
-            scoreText.text = String(score)
-            SpeakString(text: score.description)
-            contact.bodyA.node?.removeFromParent()
-            print(score)
+        if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
+            print("On bucket")
+            speakString(text: "On bucket")
+            contactFlag = true
         }
     }
+    
+    func didEnd(_ contact: SKPhysicsContact) {
+        if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
+            print("Left bucket")
+            speakString(text: "Left bucket")
+            contactFlag = false
+        }
+    }
+    
+    func incrementScore(){
+        score += 1
+        scoreText.text = String(score)
+        print("Added apple")
+        print(score.description + " apples")
+        speakString(text: "Added apple")
+        speakString(text: score.description + " apples")
+        contactFlag = false
+        selectedNode.removeFromParent()
+        print(score)
+    }
+    
+    
+    
     
     /// Converts degrees to radians
     ///
@@ -172,10 +195,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if(contactFlag){
+            incrementScore()
+        }
+    }
+    
     /// Prompts text to be spoken out by device
     ///
     /// - Parameter text: text to be spoken
-    func SpeakString(text: String) {
+    func speakString(text: String) {
             let Utterance = AVSpeechUtterance(string: text)
             speaker.speak(Utterance)
     }
