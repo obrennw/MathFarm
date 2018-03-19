@@ -138,6 +138,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         }
     }
     
+    
+    /// Update 
     func incrementScore(){
         score += 1
         scoreText.text = String(score)
