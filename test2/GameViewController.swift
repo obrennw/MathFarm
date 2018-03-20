@@ -39,16 +39,6 @@ class GameViewController: UIViewController {
         skView.presentScene(scene)
     }
     
-    /// Whether device should rotate or not on promt
-    override var shouldAutorotate: Bool {
-        return false
-    }
-    
-    /// Set supported orientations of device for the application
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.landscape
-    }
-    
     /// Release any cached data, images, etc that aren't in use.
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

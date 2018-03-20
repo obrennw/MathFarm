@@ -75,9 +75,6 @@
                         <viewLayoutGuide key="safeArea" id="9W9-q6-bIU"/>
                     </view>
                     <navigationItem key="navigationItem" id="vao-4R-gaC"/>
-                    <connections>
-                        <segue destination="fZs-Np-QL8" kind="show" action="showDetailViewController:sender:" id="qQ7-uv-zIy"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZNS-8y-9ZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,6 +116,17 @@
                                     <action selector="toCountingLevel:" destination="fZs-Np-QL8" eventType="touchUpInside" id="A8f-UC-NcK"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9h-mm-sd0">
+                                <rect key="frame" x="43" y="74" width="193" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.1058595615915966" blue="0.19783650418752019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Go back to start page!"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="xvl-TD-cQ0" kind="show" id="cyl-Xf-buc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ftl-Mg-n4Z"/>
@@ -129,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnr-PA-MBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="443.55468749999994" y="1006.25"/>
+            <point key="canvasLocation" x="445" y="979"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="ujK-g4-fdG">
@@ -145,6 +153,6 @@
         <image name="thumbs_cartoon-farm-vector3" width="374" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HxL-U7-FRf"/>
+        <segue reference="cyl-Xf-buc"/>
     </inferredMetricsTieBreakers>
 </document>
