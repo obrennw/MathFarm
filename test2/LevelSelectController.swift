@@ -32,6 +32,10 @@ class LevelSelectController: UIViewController {
         self.present(viewController, animated: true, completion: nil)
     }
     
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -22,8 +22,8 @@ class GameViewController: UIViewController {
     /// Set properties of the Controller once the view is loaded
     override func viewDidLoad() {
         super.viewDidLoad()
-        let value = UIInterfaceOrientation.landscapeRight.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
+        //let value = UIInterfaceOrientation.landscapeRight.rawValue
+       // UIDevice.current.setValue(value, forKey: "orientation")
     }
     
     /// Configure view and subviews
@@ -41,7 +41,7 @@ class GameViewController: UIViewController {
     
     /// Whether device should rotate or not on promt
     override var shouldAutorotate: Bool {
-        return true
+        return false
     }
     
     /// Set supported orientations of device for the application

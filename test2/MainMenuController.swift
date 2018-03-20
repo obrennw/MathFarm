@@ -22,6 +22,10 @@ class MainMenuController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
    
     
 
