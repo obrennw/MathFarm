@@ -30,7 +30,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sDa-uK-LTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-644" y="111"/>
+            <point key="canvasLocation" x="-302" y="113"/>
         </scene>
         <!--Main Menu Controller-->
         <scene sceneID="F8n-Rc-rrB">
@@ -129,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnr-PA-MBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="443.55468749999994" y="1006.25"/>
+            <point key="canvasLocation" x="445" y="863"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="ujK-g4-fdG">
@@ -137,7 +137,7 @@
                 <viewController storyboardIdentifier="GameViewController1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ucJ-tZ-mF5" customClass="GameViewController" customModule="test2" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldH-EI-I7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1512" y="113"/>
+            <point key="canvasLocation" x="1130" y="112"/>
         </scene>
     </scenes>
     <resources>
