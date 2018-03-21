@@ -10,18 +10,20 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
+/// Controller responsible for presenting a given level
 class GameViewController: UIViewController {
     
+    /// Called when view is ready to be loaded into contorller
     override func loadView() {
         self.view = SKView()
     }
     
     
-    /// Set properties of the Controller
+    /// Set properties of the Controller once the view is loaded
     override func viewDidLoad() {
         super.viewDidLoad()
-        let value = UIInterfaceOrientation.landscapeRight.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
+        //let value = UIInterfaceOrientation.landscapeRight.rawValue
+       // UIDevice.current.setValue(value, forKey: "orientation")
     }
     
     /// Configure view and subviews
@@ -35,16 +37,6 @@ class GameViewController: UIViewController {
         let scene = GameScene(size: skView.frame.size)
         scene.scaleMode = .aspectFill
         skView.presentScene(scene)
-    }
-    
-    /// Whether device should rotate or not on promt
-    override var shouldAutorotate: Bool {
-        return true
-    }
-    
-    /// Set supported orientations of device for the application
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.landscape
     }
     
     /// Release any cached data, images, etc that aren't in use.

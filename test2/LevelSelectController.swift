@@ -8,8 +8,10 @@
 
 import UIKit
 
+/// ViewController for level selector
 class LevelSelectController: UIViewController {
 
+    /// Button that links to couting level
     @IBOutlet weak var CountingBtn: UIButton!
     
     /// Do any additional setup after loading the view.
@@ -28,6 +30,10 @@ class LevelSelectController: UIViewController {
     @IBAction func toCountingLevel(_ sender: UIButton) {
         let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController1") as! GameViewController
         self.present(viewController, animated: true, completion: nil)
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
     }
     
     /*

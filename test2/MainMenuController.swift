@@ -9,6 +9,7 @@
 
 import UIKit
 
+/// ViewController for main menu
 class MainMenuController: UIViewController {
     
     /// Do any additional setup after loading the view, typically from a nib.
@@ -19,6 +20,10 @@ class MainMenuController: UIViewController {
     /// Dispose of any resources that can be recreated.
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
     }
     
    
