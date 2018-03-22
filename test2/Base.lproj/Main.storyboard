@@ -83,7 +83,7 @@
         <!--Level Select Controller-->
         <scene sceneID="cfT-Nv-j9R">
             <objects>
-                <viewController id="fZs-Np-QL8" customClass="LevelSelectController" customModule="test2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="levelSelectController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fZs-Np-QL8" customClass="LevelSelectController" customModule="test2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j05-1k-G3h">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,6 +127,16 @@
                                     <segue destination="xvl-TD-cQ0" kind="show" id="cyl-Xf-buc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zab-kf-EeT">
+                                <rect key="frame" x="369" y="307" width="183" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.085231731150000004" blue="0.078863051640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Addition"/>
+                                <connections>
+                                    <action selector="toAdditionLevel:" destination="fZs-Np-QL8" eventType="touchUpInside" id="QO8-Va-sEo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ftl-Mg-n4Z"/>
@@ -142,7 +152,11 @@
         <!--Game View Controller-->
         <scene sceneID="ujK-g4-fdG">
             <objects>
-                <viewController storyboardIdentifier="GameViewController1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ucJ-tZ-mF5" customClass="GameViewController" customModule="test2" customModuleProvider="target" sceneMemberID="viewController"/>
+                <viewController storyboardIdentifier="GameViewController1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ucJ-tZ-mF5" customClass="GameViewController" customModule="test2" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="fZs-Np-QL8" kind="show" identifier="backToLevel" id="HXx-BY-7pG"/>
+                    </connections>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldH-EI-I7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1512" y="113"/>
@@ -153,6 +167,7 @@
         <image name="thumbs_cartoon-farm-vector3" width="374" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="HXx-BY-7pG"/>
         <segue reference="cyl-Xf-buc"/>
     </inferredMetricsTieBreakers>
 </document>

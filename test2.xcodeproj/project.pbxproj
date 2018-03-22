@@ -16,6 +16,8 @@
 		B2E2B65B204B813A00AF12E0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2B65A204B813A00AF12E0 /* GameScene.swift */; };
 		B2E2B65D204B814F00AF12E0 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2B65C204B814F00AF12E0 /* GameViewController.swift */; };
 		B2E2B662204B908500AF12E0 /* LevelSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2B661204B908500AF12E0 /* LevelSelectController.swift */; };
+		FA1077E02062597D001CC811 /* AdditionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1077DF2062597D001CC811 /* AdditionScene.swift */; };
+		FA8360DE20636A4A0058CBD1 /* AdditionScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		B2E2B65A204B813A00AF12E0 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		B2E2B65C204B814F00AF12E0 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		B2E2B661204B908500AF12E0 /* LevelSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectController.swift; sourceTree = "<group>"; };
+		FA1077DF2062597D001CC811 /* AdditionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionScene.swift; sourceTree = "<group>"; };
+		FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AdditionScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +105,13 @@
 		29C8D6C52040A72600E4C122 /* test2 */ = {
 			isa = PBXGroup;
 			children = (
+				FA1077DF2062597D001CC811 /* AdditionScene.swift */,
 				29C8D6C62040A72600E4C122 /* AppDelegate.swift */,
 				29C8D6CA2040A72600E4C122 /* Main.storyboard */,
 				29C8D6C82040A72600E4C122 /* MainMenuController.swift */,
 				B2E2B661204B908500AF12E0 /* LevelSelectController.swift */,
 				B2E2B65C204B814F00AF12E0 /* GameViewController.swift */,
+				FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */,
 				B2E2B65A204B813A00AF12E0 /* GameScene.swift */,
 				29C8D6CD2040A72600E4C122 /* Assets.xcassets */,
 				29C8D6D22040A72700E4C122 /* Info.plist */,
@@ -240,6 +246,7 @@
 			files = (
 				29C8D6CE2040A72600E4C122 /* Assets.xcassets in Resources */,
 				29C8D6CC2040A72600E4C122 /* Main.storyboard in Resources */,
+				FA8360DE20636A4A0058CBD1 /* AdditionScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +275,7 @@
 				B2E2B65B204B813A00AF12E0 /* GameScene.swift in Sources */,
 				29C8D6C92040A72600E4C122 /* MainMenuController.swift in Sources */,
 				B2E2B65D204B814F00AF12E0 /* GameViewController.swift in Sources */,
+				FA1077E02062597D001CC811 /* AdditionScene.swift in Sources */,
 				29C8D6C72040A72600E4C122 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
