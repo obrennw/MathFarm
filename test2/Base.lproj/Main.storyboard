@@ -235,7 +235,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M01-QW-nzZ" userLabel="Pig">
                                 <rect key="frame" x="526" y="327" width="153" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" label="Cow">
+                                <accessibility key="accessibilityConfiguration" label="Pig">
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
                                 <state key="normal" title="Button" image="pig-308577_960_720"/>
