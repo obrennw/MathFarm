@@ -13,6 +13,8 @@ class LevelSelectController: UIViewController {
 
     /// Button that links to couting level
     @IBOutlet weak var CountingBtn: UIButton!
+    //button that links to pattern level
+    @IBOutlet weak var PatternBtn: UIButton!
     
     /// Do any additional setup after loading the view.
     override func viewDidLoad() {

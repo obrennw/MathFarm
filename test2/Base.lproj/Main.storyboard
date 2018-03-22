@@ -113,7 +113,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="toCountingLevel:" destination="fZs-Np-QL8" eventType="touchUpInside" id="A8f-UC-NcK"/>
+                                    <action selector="toCountingLevel:" destination="fZs-Np-QL8" eventType="touchUpInside" id="M5W-Wf-f0H"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9h-mm-sd0">
@@ -127,12 +127,29 @@
                                     <segue destination="xvl-TD-cQ0" kind="show" id="cyl-Xf-buc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNn-h5-y6U" userLabel="PatternBtn">
+                                <rect key="frame" x="43" y="412" width="193" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Pattern Recognition"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Pattern"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="DxF-3k-27O" kind="show" id="ODL-jQ-d9q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ftl-Mg-n4Z"/>
                     </view>
                     <connections>
                         <outlet property="CountingBtn" destination="kVq-mv-i34" id="JGP-2a-HCq"/>
+                        <outlet property="PatternBtn" destination="ZNn-h5-y6U" id="Wx8-pr-Jzz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnr-PA-MBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -147,8 +164,157 @@
             </objects>
             <point key="canvasLocation" x="1130" y="112"/>
         </scene>
+        <!--Pattern View Controller-->
+        <scene sceneID="pQE-nA-58p">
+            <objects>
+                <viewController id="DxF-3k-27O" customClass="PatternViewController" customModule="test2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IdP-jt-gC9">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d30-QP-DDe" userLabel="Green Square">
+                                <rect key="frame" x="834" y="312" width="170" height="158"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ola-3f-RLZ">
+                                        <rect key="frame" x="34" y="13" width="102" height="132"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <accessibility key="accessibilityConfiguration" label="What comes next?"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.077069251332482214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfx-hc-SYp" userLabel="Cow">
+                                <rect key="frame" x="41" y="319" width="139" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Cow">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <state key="normal" title="Button" image="49-Free-Cartoon-Cow-Clip-Art"/>
+                                <connections>
+                                    <action selector="PlayCowSound:" destination="DxF-3k-27O" eventType="touchUpInside" id="ZzP-X1-XJi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXa-Sc-wKe" userLabel="Cow">
+                                <rect key="frame" x="687" y="319" width="139" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Cow">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <state key="normal" title="Button" image="49-Free-Cartoon-Cow-Clip-Art"/>
+                                <connections>
+                                    <action selector="PlayCowSound:" destination="DxF-3k-27O" eventType="touchUpInside" id="KfK-Mm-Lhk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXf-Pf-IYk" userLabel="Cow">
+                                <rect key="frame" x="374" y="319" width="139" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Cow">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <state key="normal" title="Button" image="49-Free-Cartoon-Cow-Clip-Art"/>
+                                <connections>
+                                    <action selector="PlayCowSound:" destination="DxF-3k-27O" eventType="touchUpInside" id="cAS-uL-mkZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlC-2l-lE5" userLabel="Pig">
+                                <rect key="frame" x="196" y="327" width="153" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Cow">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <state key="normal" title="Button" image="pig-308577_960_720"/>
+                                <connections>
+                                    <action selector="PlayCowSound:" destination="DxF-3k-27O" eventType="touchUpInside" id="EiQ-mA-tcv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M01-QW-nzZ" userLabel="Pig">
+                                <rect key="frame" x="526" y="327" width="153" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Cow">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <state key="normal" title="Button" image="pig-308577_960_720"/>
+                                <connections>
+                                    <action selector="PlayCowSound:" destination="DxF-3k-27O" eventType="touchUpInside" id="eqq-M0-8Ed"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <viewLayoutGuide key="safeArea" id="ZK3-F9-IWR"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zaR-fx-dig" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="49-Free-Cartoon-Cow-Clip-Art" id="u5f-71-H4G">
+                    <rect key="frame" x="0.0" y="0.0" width="139" height="144"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <accessibility key="accessibilityConfiguration" label="Cow">
+                        <accessibilityTraits key="traits" none="YES"/>
+                        <bool key="isElement" value="YES"/>
+                    </accessibility>
+                    <gestureRecognizers/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="49-Free-Cartoon-Cow-Clip-Art" id="x4j-KW-mXu">
+                    <rect key="frame" x="0.0" y="0.0" width="139" height="144"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <accessibility key="accessibilityConfiguration" label="Cow">
+                        <accessibilityTraits key="traits" none="YES"/>
+                        <bool key="isElement" value="YES"/>
+                    </accessibility>
+                    <gestureRecognizers/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="49-Free-Cartoon-Cow-Clip-Art" id="scl-79-Zdg">
+                    <rect key="frame" x="0.0" y="0.0" width="139" height="144"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <accessibility key="accessibilityConfiguration" label="Cow">
+                        <accessibilityTraits key="traits" none="YES"/>
+                        <bool key="isElement" value="YES"/>
+                    </accessibility>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pig-308577_960_720" id="zdO-XL-7Mn">
+                    <rect key="frame" x="0.0" y="0.0" width="153" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <accessibility key="accessibilityConfiguration" label="Pig">
+                        <accessibilityTraits key="traits" none="YES"/>
+                        <bool key="isElement" value="YES"/>
+                    </accessibility>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pig-308577_960_720" id="xd2-qT-zfL">
+                    <rect key="frame" x="0.0" y="0.0" width="153" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <accessibility key="accessibilityConfiguration" label="Pig">
+                        <accessibilityTraits key="traits" none="YES"/>
+                        <bool key="isElement" value="YES"/>
+                    </accessibility>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pig-308577_960_720" id="miY-uT-aDd">
+                    <rect key="frame" x="0.0" y="0.0" width="153" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <accessibility key="accessibilityConfiguration" label="Pig">
+                        <accessibilityTraits key="traits" none="YES"/>
+                        <bool key="isElement" value="YES"/>
+                    </accessibility>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="49-Free-Cartoon-Cow-Clip-Art" id="lFS-mP-SPo">
+                    <rect key="frame" x="0.0" y="0.0" width="139" height="144"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <accessibility key="accessibilityConfiguration" label="Cow">
+                        <accessibilityTraits key="traits" none="YES"/>
+                        <bool key="isElement" value="YES"/>
+                    </accessibility>
+                </imageView>
+            </objects>
+            <point key="canvasLocation" x="1129.6875" y="862.5"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="49-Free-Cartoon-Cow-Clip-Art" width="2827" height="3200"/>
+        <image name="pig-308577_960_720" width="791" height="720"/>
         <image name="thumbs_cartoon-farm-vector1" width="436" height="300"/>
         <image name="thumbs_cartoon-farm-vector3" width="374" height="300"/>
     </resources>
