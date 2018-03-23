@@ -10,9 +10,13 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
+protocol gameDelegate {
+    func backToLevel()
+}
+
 /// Controller responsible for presenting a given level
-class GameViewController: UIViewController {
-    
+class GameViewController: UIViewController, gameDelegate {
+    var gameType: String = ""
     /// Called when view is ready to be loaded into contorller
     override func loadView() {
         self.view = SKView()
@@ -22,21 +26,38 @@ class GameViewController: UIViewController {
     /// Set properties of the Controller once the view is loaded
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let value = UIInterfaceOrientation.landscapeRight.rawValue
-       // UIDevice.current.setValue(value, forKey: "orientation")
+
     }
     
     /// Configure view and subviews
     override func viewWillLayoutSubviews() {
-        let skView = self.view as! SKView
-        skView.showsFPS = true
-        skView.showsNodeCount = true
-        skView.ignoresSiblingOrder = true
+//        let skView = self.view as! SKView
+//        skView.showsFPS = true
+//        skView.showsNodeCount = true
+//        skView.ignoresSiblingOrder = true
         
-        //Set scene and load it into the view
-        let scene = GameScene(size: skView.frame.size)
-        scene.scaleMode = .aspectFill
-        skView.presentScene(scene)
+        //Set scene and accordingly & load it into the view
+        if let skView = self.view as! SKView? {
+            skView.showsFPS = true
+            skView.showsNodeCount = true
+            skView.ignoresSiblingOrder = true
+            switch gameType {
+            case "addition":
+                let scene = AdditionScene(size: skView.frame.size)
+                scene.game_delegate = self
+                scene.winningStreak = 0
+                scene.scaleMode = .aspectFill
+                skView.presentScene(scene)
+            case "counting":
+                let scene = GameScene(size: skView.frame.size)
+                scene.game_delegate = self
+                scene.scaleMode = .aspectFill
+                skView.presentScene(scene)
+            default: break
+            }
+            
+            
+        }
     }
     
     /// Release any cached data, images, etc that aren't in use.
@@ -48,5 +69,12 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    //MARK: game delegate
+    func backToLevel() {
+        self.performSegue(withIdentifier: "backToLevel", sender: nil)
+    }
+    
+
 }
 

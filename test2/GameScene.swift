@@ -26,7 +26,9 @@ private let movableImages = ["apple"]
 private let speaker = AVSpeechSynthesizer()
 
 /// Module that renders a level’s current state and maintains its corresponding game logic
-class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {
+class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {    
+    var game_delegate: gameDelegate?
+
     /// Sprite that presents the current score
     let scoreText = SKLabelNode(fontNamed: "Arial")
     /// Variable that keeps track of the current store
@@ -35,6 +37,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
     var selectedNode = SKSpriteNode()
     
     var contactFlag = false
+    
+    let button = SKSpriteNode(imageNamed: "turtle")
+
     
     /// Initialize the scene by NSCoder
     ///
@@ -63,6 +68,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         scoreText.fontSize = size.height/7.5
         scoreText.text = String(score)
         scoreText.fontColor = SKColor.black
+        
+        button.position = CGPoint(x: size.width * 0.1, y: size.height * 0.1)
+        button.name = "settingsButton"
         
         let imageNames = ["bucket2","apple","apple","apple","apple","apple"]
         
@@ -101,6 +109,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         let offsetFraction = (CGFloat(imageNames.count) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
         scoreText.position = CGPoint(x: size.width * offsetFraction, y: size.height / 2)
         self.addChild(scoreText)
+        self.addChild(button)
     }
     
     /// Called when screen is touched
@@ -114,7 +123,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
             let positionInScene = touch.location(in: self)
             let touchedNode = self.atPoint(_:positionInScene)
             if (touchedNode is SKSpriteNode){
-                onSpriteTouch(touchedNode: touchedNode as! SKSpriteNode)
+                if(touchedNode.name == "settingsButton") {
+                    self.game_delegate?.backToLevel()
+                }
+                else {
+                    onSpriteTouch(touchedNode: touchedNode as! SKSpriteNode)
+                }
             }
         }
     }
@@ -210,6 +224,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
             let Utterance = AVSpeechUtterance(string: text)
             speaker.speak(Utterance)
     }
+    
 }
 
 

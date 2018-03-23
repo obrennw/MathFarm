@@ -30,9 +30,17 @@ class LevelSelectController: UIViewController {
     ///
     /// - Parameter sender: Component that triggers function on action
     @IBAction func toCountingLevel(_ sender: UIButton) {
-        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController1") as! GameViewController
+        let viewController:GameViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController1") as! GameViewController
+        viewController.gameType = "counting"
         self.present(viewController, animated: true, completion: nil)
     }
+    
+    @IBAction func toAdditionLevel(_ sender: UIButton) {
+        let viewController:GameViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController1") as! GameViewController
+        viewController.gameType = "addition"
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
     
     override var shouldAutorotate: Bool {
         return false
