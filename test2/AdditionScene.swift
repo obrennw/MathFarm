@@ -12,21 +12,28 @@ import AVFoundation
 
 
 private let staticImages = ["bucket2"]
-private let movableImages = ["apple"]
+private let movableImages = ["apple", "bird", "cat", "dog"]
 private let speaker = AVSpeechSynthesizer()
 
 class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {
     // reference to the scene's controller, used for calling back to level selection button
     
     var game_delegate: gameDelegate?
-    var correctNum = arc4random_uniform(9)+1
+    var correctNum = arc4random_uniform(4)+1
     var answer = 0
     var contactFlag = false
     var selectedNode = SKSpriteNode()
     var winningStreak: Int?
+    var nodeOriginalPosition: CGPoint?
+    var winningStreakText: String?
+    
+    
+    let rightObjectType = movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))]
+   
+    
 
 
-    let question = SKLabelNode(fontNamed: "Arial")
+//    let question = SKLabelNode(fontNamed: "Arial")
     
     let answerText = SKLabelNode(fontNamed: "Arial")
     let button = SKSpriteNode(imageNamed: "turtle")
@@ -41,24 +48,37 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     }
 
     override func didMove(to view: SKView) {
-        print(winningStreak!)
+        //print("width: ", frame.size.width, " height: ", frame.size.height)
+        print(rightObjectType)
         self.backgroundColor = .red
         self.physicsWorld.contactDelegate = self
 
-        let numA = arc4random_uniform(correctNum)+1
+        let numA = arc4random_uniform(correctNum)
         answerText.fontSize = size.height/7.5
         answerText.text = String(answer)
         answerText.fontColor = .black
-
-        let questionText = String(numA) + " + " + String(correctNum-numA) + " = ?"
-        question.text = questionText
+        
+        
+        let question = SKLabelNode(fontNamed: "Arial")
+        let questionTextSpoken = String(numA) + rightObjectType + " + " + String(correctNum-numA) + rightObjectType + " = ?"
+        let questionTextWriiten = String(numA) + " + " + String(correctNum-numA) + " = ?"
+        question.text = questionTextWriiten
+        question.physicsBody?.categoryBitMask = ColliderType.Bucket
+        question.physicsBody?.collisionBitMask = 0
+        question.physicsBody?.contactTestBitMask = ColliderType.Object
         question.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
         
         button.position = CGPoint(x: size.width * 0.1, y: size.height * 0.1)
-        button.name = "settingsButton"
+        button.name = "back to level selection"
         button.accessibilityLabel = "back to level selection"
         
-        let imageNames = ["bucket2","apple","apple","apple","apple","apple"]
+        winningStreakText = "You've aced this " + String(winningStreak!) + "time in a roll"
+        
+        generateStreakBar()
+        
+
+        
+        let imageNames = generateObjectList()
         for i in 0..<imageNames.count {
             let imageName = imageNames[i]
             
@@ -71,13 +91,15 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             
             
             if !staticImages.contains(imageName){
-                sprite.accessibilityLabel = "apple"
+                sprite.accessibilityLabel = imageName
                 sprite.physicsBody?.categoryBitMask = ColliderType.Object
                 sprite.physicsBody?.collisionBitMask = 0
                 sprite.physicsBody?.contactTestBitMask = 0
-                sprite.setScale(CGFloat(1.5))
+                sprite.size = CGSize(width: 84.0, height: 73.5)
+                //print("height: ",sprite.size.height, " width: ", sprite.size.width)
                 let offsetFraction = (CGFloat(1) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
                 sprite.position = CGPoint(x: size.width * offsetFraction, y: (size.height/(1.25))-(1.5*(sprite.size.height)*CGFloat(i-1)))
+                //print("x: ",size.width * offsetFraction, " y: ", (size.height/(1.25))-(1.5*(sprite.size.height)*CGFloat(i-1)))
             }
             else{
                 sprite.accessibilityLabel = "bucket"
@@ -87,7 +109,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                 sprite.setScale(0.225)
                 let offsetFraction = (CGFloat(imageNames.count-1) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
                 sprite.position = CGPoint(x: size.width * offsetFraction, y: (size.height / 2))
-                
+                //print("bucket x: ",size.width * offsetFraction, " bucket y: ", (size.height/(1.25))-(1.5*(sprite.size.height)*CGFloat(i-1)))
             }
             self.addChild(sprite)
         }
@@ -99,18 +121,31 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         self.addChild(answerText)
         self.addChild(button)
         
-        speakString(text: questionText)
+        speakString(text: questionTextSpoken)
     }
+    
+    
+    
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let positionInScene = touch.location(in:self)
             let touchedNode = self.atPoint(_:positionInScene)
+            //print("x: ", positionInScene.x, ", y: ", positionInScene.y)
+            print(touchedNode.name!)
+            
             if(touchedNode is SKSpriteNode) {
-                if(touchedNode.name == "settingsButton") {
+                if(touchedNode.name == "back to level selection") {
+                    speakString(text: "moving to level selection")
                     self.game_delegate?.backToLevel()
                 }
+                else if (touchedNode.name == "greenlight") {
+                    speakString(text: winningStreakText!)
+                }
                 else {
+                    nodeOriginalPosition = touchedNode.position
+                    //print("set original position")
                     onSpriteTouch(touchedNode: touchedNode as! SKSpriteNode)
                 }
             }
@@ -121,6 +156,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         for touch in touches {
             //Drag sprite to new position if it is being touched
             let nodePosition = selectedNode.position
+            
             let currentPosition = touch.location(in: self)
             let previousPosition = touch.previousLocation(in: self)
             let translation = CGPoint(x: currentPosition.x - previousPosition.x, y: currentPosition.y - previousPosition.y)
@@ -132,26 +168,58 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if(contactFlag){
-            incrementAnswer()
-        }
+            if(contactFlag){
+                if(selectedNode.name == rightObjectType) {
+                    incrementAnswer()
+                } else {
+                    speakString(text: "wrong type of object")
+                    contactFlag = false
+                    selectedNode.position = nodeOriginalPosition!
+                }
+            }
+        
     }
     
     
     
     func didBegin(_ contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
-            print("On bucket")
-            speakString(text: "On bucket")
             contactFlag = true
         }
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
-            print("Left bucket")
-            speakString(text: "Left bucket")
             contactFlag = false
+        }
+    }
+    
+    private func generateObjectList() -> [String] {
+        var objList = ["bucket2"]
+        for i in 1...5 {
+            if(i<=correctNum) {
+                objList.append(rightObjectType)
+            } else {
+                objList.append(movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))])
+            }
+        }
+        return objList
+    }
+    
+    private func generateStreakBar() {
+        for i in 0 ..< winningStreak! {
+            if(i<3) {
+                //print("i: ", i)
+                let sprite = SKSpriteNode(imageNamed: "greenlight")
+                sprite.isAccessibilityElement = true
+                sprite.accessibilityLabel = winningStreakText
+                sprite.name = "greenlight"
+                sprite.size = CGSize(width: 70, height: 70)
+                let offset = frame.size.width*0.4 + CGFloat(i)*frame.size.width/10
+                //print(offset, " ", frame.size.height*0.9)
+                sprite.position = CGPoint(x:offset, y: frame.size.height*0.9)
+                self.addChild(sprite)
+            }
         }
     }
     
@@ -159,10 +227,9 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     private func incrementAnswer(){
         answer += 1
         answerText.text = String(answer)
-        print("Added apple")
-        print(answer.description + " apples")
-        speakString(text: "Added apple")
-        speakString(text: answer.description + " apples")
+        //print(answer.description + rightObjectType)
+        speakString(text: "Added " + rightObjectType)
+        speakString(text: answer.description + rightObjectType)
         contactFlag = false
         selectedNode.removeFromParent()
         print("Answer: " + String(answer))
@@ -192,7 +259,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             //
             speakString(text: "Good job!")
             winningStreak = winningStreak! + 1
-            print(winningStreak!)
+            print("winningStreak: ", winningStreak!)
             let transition = SKTransition.push(with: SKTransitionDirection.left, duration: 1.0)
             let newScene = AdditionScene(size: size)
             newScene.game_delegate = self.game_delegate

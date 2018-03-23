@@ -72,7 +72,7 @@ class GameViewController: UIViewController, gameDelegate {
     
     //MARK: game delegate
     func backToLevel() {
-        self.performSegue(withIdentifier: "backToLevel", sender: self)
+        self.performSegue(withIdentifier: "backToLevel", sender: nil)
     }
     
 
