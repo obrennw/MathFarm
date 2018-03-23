@@ -55,7 +55,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
     ///
     /// - Parameter view: The SKView rendering the scene
     override func didMove(to view: SKView) {
-        speakString(text: "")
+        speakString(text: "Level One")
         self.physicsWorld.contactDelegate = self
         self.backgroundColor = SKColor.cyan
         
@@ -64,42 +64,56 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         scoreText.text = String(score)
         scoreText.fontColor = SKColor.black
         
-        let imageNames = ["bucket2","apple","apple","apple","apple","apple"]
-        
-        for i in 0..<imageNames.count {
-                let imageName = imageNames[i]
-
-                let sprite = SKSpriteNode(imageNamed: imageName)
-                sprite.isAccessibilityElement = true
-                sprite.name = imageName
-                sprite.physicsBody = SKPhysicsBody(circleOfRadius: max(sprite.size.width/4,
-                                                                       sprite.size.height/4))
-                sprite.physicsBody?.affectedByGravity = false
-
-                
-                if !staticImages.contains(imageName){
-                    sprite.accessibilityLabel = "apple"
-                    sprite.physicsBody?.categoryBitMask = ColliderType.Object
-                    sprite.physicsBody?.collisionBitMask = 0
-                    sprite.physicsBody?.contactTestBitMask = 0
-                    sprite.setScale(CGFloat(1.5))
-                    let offsetFraction = (CGFloat(1) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
-                    sprite.position = CGPoint(x: size.width * offsetFraction, y: (size.height/(1.25))-(1.5*(sprite.size.height)*CGFloat(i-1)))
-                }
-                else{
-                    sprite.accessibilityLabel = "bucket"
-                    sprite.physicsBody?.categoryBitMask = ColliderType.Bucket
-                    sprite.physicsBody?.collisionBitMask = 0
-                    sprite.physicsBody?.contactTestBitMask = ColliderType.Object
-                    sprite.setScale(0.225)
-                    let offsetFraction = (CGFloat(imageNames.count-1) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
-                    sprite.position = CGPoint(x: size.width * offsetFraction, y: (size.height / 2))
-                    
-                }
-                self.addChild(sprite)
+        let numApples = 30;
+        var imageNames = [String]()
+        for i in 0..<staticImages.count{
+            imageNames.append(staticImages[i])
         }
-        let offsetFraction = (CGFloat(imageNames.count) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
-        scoreText.position = CGPoint(x: size.width * offsetFraction, y: size.height / 2)
+        for _ in 0..<numApples{
+            imageNames.append("apple")
+        }
+        var objectOffsetX = 0.0;
+        var objectOffsetY = 0;
+        let offsetFractionRight = (CGFloat(imageNames.count-1) + 0.45)/(CGFloat(imageNames.count+1) + 1.0)
+        var buckety = CGFloat(0);
+        for i in 0..<imageNames.count {
+            let imageName = imageNames[i]
+
+            let sprite = SKSpriteNode(imageNamed: imageName)
+            sprite.isAccessibilityElement = true
+            sprite.name = imageName
+            sprite.physicsBody = SKPhysicsBody(circleOfRadius: max(sprite.size.width/4,
+                                                                   sprite.size.height/4))
+            sprite.physicsBody?.affectedByGravity = false
+            
+            if !staticImages.contains(imageName){
+                sprite.accessibilityLabel = "apple"
+                sprite.physicsBody?.categoryBitMask = ColliderType.Object
+                sprite.physicsBody?.collisionBitMask = 0
+                sprite.physicsBody?.contactTestBitMask = 0
+                sprite.setScale(CGFloat(1.5))
+                let offsetFractionObject = CGFloat(objectOffsetX)/10
+                sprite.position = CGPoint(x: size.width * offsetFractionObject, y: (size.height/(1.25))-(1.5*(sprite.size.height)*CGFloat(objectOffsetY)))
+            }
+            else{
+                sprite.accessibilityLabel = "bucket"
+                sprite.physicsBody?.categoryBitMask = ColliderType.Bucket
+                sprite.physicsBody?.collisionBitMask = 0
+                sprite.physicsBody?.contactTestBitMask = ColliderType.Object
+                sprite.setScale(0.225)
+                sprite.position = CGPoint(x: size.width * offsetFractionRight, y: (size.height / 2))
+                
+            }
+            self.addChild(sprite)
+            objectOffsetY += 1;
+            if i%5 == 0 {
+                objectOffsetX += 1.2;
+                objectOffsetY = 0
+            }
+            
+        }
+        //let offsetFraction = (CGFloat(imageNames.count) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
+        scoreText.position = CGPoint(x: size.width * offsetFractionRight, y: size.height/4)
         self.addChild(scoreText)
     }
     
