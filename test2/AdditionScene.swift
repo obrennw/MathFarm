@@ -23,9 +23,11 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     var answer = 0
     var contactFlag = false
     var selectedNode = SKSpriteNode()
+    var winningStreak: Int?
 
 
-    let questionText = SKLabelNode(fontNamed: "Arial")
+    let question = SKLabelNode(fontNamed: "Arial")
+    
     let answerText = SKLabelNode(fontNamed: "Arial")
     let button = SKSpriteNode(imageNamed: "turtle")
     
@@ -39,6 +41,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     }
 
     override func didMove(to view: SKView) {
+        print(winningStreak!)
         self.backgroundColor = .red
         self.physicsWorld.contactDelegate = self
 
@@ -47,9 +50,9 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         answerText.text = String(answer)
         answerText.fontColor = .black
 
-        
-        questionText.text = String(numA) + " + " + String(correctNum-numA) + " = ?"
-        questionText.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        let questionText = String(numA) + " + " + String(correctNum-numA) + " = ?"
+        question.text = questionText
+        question.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
         
         button.position = CGPoint(x: size.width * 0.1, y: size.height * 0.1)
         button.name = "settingsButton"
@@ -92,9 +95,11 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         
         let offsetFraction = (CGFloat(imageNames.count) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
         answerText.position = CGPoint(x: size.width * offsetFraction, y: size.height / 2)
-        self.addChild(questionText)
+        self.addChild(question)
         self.addChild(answerText)
         self.addChild(button)
+        
+        speakString(text: questionText)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -153,7 +158,6 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     
     private func incrementAnswer(){
         answer += 1
-        evaluate()
         answerText.text = String(answer)
         print("Added apple")
         print(answer.description + " apples")
@@ -161,7 +165,9 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         speakString(text: answer.description + " apples")
         contactFlag = false
         selectedNode.removeFromParent()
-        print(answer)
+        print("Answer: " + String(answer))
+        evaluate()
+
     }
     
     private func degToRad(degree: Double) -> CGFloat {
@@ -182,8 +188,16 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     
     private func evaluate() {
         if(answer == correctNum){
-            // do something
-            print("correct!")
+            // do the following: increment the correct count -> load a new addition scene
+            //
+            speakString(text: "Good job!")
+            winningStreak = winningStreak! + 1
+            print(winningStreak!)
+            let transition = SKTransition.push(with: SKTransitionDirection.left, duration: 1.0)
+            let newScene = AdditionScene(size: size)
+            newScene.game_delegate = self.game_delegate
+            newScene.winningStreak = self.winningStreak
+            self.view?.presentScene(newScene, transition: transition)
         }
     }
     

@@ -224,6 +224,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
             let Utterance = AVSpeechUtterance(string: text)
             speaker.speak(Utterance)
     }
+    
 }
 
 
