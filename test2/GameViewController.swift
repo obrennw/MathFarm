@@ -45,6 +45,7 @@ class GameViewController: UIViewController, gameDelegate {
             case "addition":
                 let scene = AdditionScene(size: skView.frame.size)
                 scene.game_delegate = self
+                scene.winningStreak = 0
                 scene.scaleMode = .aspectFill
                 skView.presentScene(scene)
             case "counting":
@@ -71,7 +72,7 @@ class GameViewController: UIViewController, gameDelegate {
     
     //MARK: game delegate
     func backToLevel() {
-        self.performSegue(withIdentifier: "backToLevel", sender: self)
+        self.performSegue(withIdentifier: "backToLevel", sender: nil)
     }
     
 
