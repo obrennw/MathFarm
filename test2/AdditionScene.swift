@@ -114,14 +114,21 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             self.addChild(sprite)
         }
         
-        
         let offsetFraction = (CGFloat(imageNames.count) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
         answerText.position = CGPoint(x: size.width * offsetFraction, y: size.height / 2)
         self.addChild(question)
         self.addChild(answerText)
         self.addChild(button)
         
+//        let tryButton = SKSpriteNode(imageNamed: "turtle")
+//        tryButton.isAccessibilityElement = true
+//        tryButton.accessibilityLabel = "this is turtle"
+//        tryButton.name = "turtle"
+//        tryButton.position = CGPoint(x: frame.size.width / 2, y: frame.size.height*0.3)
+//        self.addChild(tryButton)
+        
         speakString(text: questionTextSpoken)
+        print("scene ready")
     }
     
     
@@ -133,16 +140,22 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             let positionInScene = touch.location(in:self)
             let touchedNode = self.atPoint(_:positionInScene)
             //print("x: ", positionInScene.x, ", y: ", positionInScene.y)
-            print(touchedNode.name!)
             
             if(touchedNode is SKSpriteNode) {
                 if(touchedNode.name == "back to level selection") {
-                    speakString(text: "moving to level selection")
                     self.game_delegate?.backToLevel()
                 }
                 else if (touchedNode.name == "greenlight") {
                     speakString(text: winningStreakText!)
                 }
+//                else if (touchedNode.name == "turtle") {
+//                    let newScene = LevelScene(size: self.size)
+//                    newScene.game_delegate = self.game_delegate
+//                    newScene.scaleMode = .aspectFill
+//                    let transition = SKTransition.moveIn(with: .right, duration: 2)
+//                    transition.pausesOutgoingScene = true
+//                    self.scene?.view?.presentScene(newScene, transition: transition)
+//                }
                 else {
                     nodeOriginalPosition = touchedNode.position
                     //print("set original position")
@@ -257,14 +270,15 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         if(answer == correctNum){
             // do the following: increment the correct count -> load a new addition scene
             //
-            speakString(text: "Good job!")
-            winningStreak = winningStreak! + 1
-            print("winningStreak: ", winningStreak!)
-            let transition = SKTransition.push(with: SKTransitionDirection.left, duration: 1.0)
-            let newScene = AdditionScene(size: size)
+            print("winningStreak: ", winningStreak!+1)
+            let newScene = AdditionScene(size: self.size)
             newScene.game_delegate = self.game_delegate
-            newScene.winningStreak = self.winningStreak
-            self.view?.presentScene(newScene, transition: transition)
+            newScene.winningStreak = self.winningStreak!+1
+            newScene.scaleMode = .aspectFill
+            print("before presenting scene")
+            let transition = SKTransition.moveIn(with: .right, duration: 2)
+            transition.pausesOutgoingScene = false
+            self.scene?.view?.presentScene(newScene, transition: transition)
         }
     }
     

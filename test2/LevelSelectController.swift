@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 /// ViewController for level selector
 class LevelSelectController: UIViewController {
@@ -33,6 +34,8 @@ class LevelSelectController: UIViewController {
         let viewController:GameViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController1") as! GameViewController
         viewController.gameType = "counting"
         self.present(viewController, animated: true, completion: nil)
+
+        
     }
     
     @IBAction func toAdditionLevel(_ sender: UIButton) {

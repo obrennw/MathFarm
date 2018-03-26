@@ -16,27 +16,17 @@ protocol gameDelegate {
 
 /// Controller responsible for presenting a given level
 class GameViewController: UIViewController, gameDelegate {
+    
     var gameType: String = ""
     /// Called when view is ready to be loaded into contorller
-    override func loadView() {
-        self.view = SKView()
-    }
+    //    override func loadView() {
+    //        self.view = SKView()
+    //    }
     
     
     /// Set properties of the Controller once the view is loaded
+    /// expected behavior: based on the value of gameType load counting game or addition game
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-    
-    /// Configure view and subviews
-    override func viewWillLayoutSubviews() {
-//        let skView = self.view as! SKView
-//        skView.showsFPS = true
-//        skView.showsNodeCount = true
-//        skView.ignoresSiblingOrder = true
-        
-        //Set scene and accordingly & load it into the view
         if let skView = self.view as! SKView? {
             skView.showsFPS = true
             skView.showsNodeCount = true
@@ -55,26 +45,26 @@ class GameViewController: UIViewController, gameDelegate {
                 skView.presentScene(scene)
             default: break
             }
-            
-            
         }
     }
-    
+
+        
     /// Release any cached data, images, etc that aren't in use.
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    /// Set preference for visibility of status bar
+        
+        /// Set preference for visibility of status bar
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
+        
     //MARK: game delegate
     func backToLevel() {
-        self.performSegue(withIdentifier: "backToLevel", sender: nil)
+        let viewController:LevelSelectController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "levelSelectController") as! LevelSelectController
+        self.present(viewController, animated: true, completion: nil)
     }
-    
+        
 
 }
 
