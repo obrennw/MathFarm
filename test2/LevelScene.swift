@@ -19,16 +19,28 @@ class LevelScene: SKScene {
         background.size.width = self.size.width
         background.size.height = self.size.height
         background.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        background.zPosition = -1
         self.addChild(background)
         
         
         let button = SKLabelNode(fontNamed: "Arial")
         button.isAccessibilityElement = true
         button.text = "asdas"
+        button.fontColor = .black
         button.accessibilityLabel = "turtle"
         button.name = "turtle"
         button.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        button.zPosition = 1
+        button.color = .white
+        
+        let buttonBackground = SKSpriteNode(color: UIColor.white, size: CGSize(width: button.frame.size.width, height: button.frame.size.height))
+        buttonBackground.zPosition = 0
+        buttonBackground.color = .white
+        buttonBackground.position = CGPoint (x: frame.size.width / 2, y: frame.size.height / 2)
+        self.addChild(buttonBackground)
+        
         self.addChild(button)
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
