@@ -20,6 +20,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     
     var game_delegate: gameDelegate?
     var correctNum = arc4random_uniform(4)+1
+    var numA = UInt32(0)
     var answer = 0
     var contactFlag = false
     var selectedNode = SKSpriteNode()
@@ -35,8 +36,9 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
 
 //    let question = SKLabelNode(fontNamed: "Arial")
     
+    let question = SKLabelNode(fontNamed: "Arial")
     let answerText = SKLabelNode(fontNamed: "Arial")
-    let button = SKSpriteNode(imageNamed: "turtle")
+    let backButton = SKSpriteNode(imageNamed: "turtle")
     let continueButton = SKLabelNode(fontNamed: "Arial")
     
     required init?(coder aDecorder: NSCoder){
@@ -54,13 +56,11 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         self.backgroundColor = .red
         self.physicsWorld.contactDelegate = self
 
-        let numA = arc4random_uniform(correctNum)
         answerText.fontSize = size.height/7.5
         answerText.text = String(answer)
         answerText.fontColor = .black
         
-        
-        let question = SKLabelNode(fontNamed: "Arial")
+        numA = arc4random_uniform(correctNum)
         let questionTextSpoken = String(numA) + rightObjectType + " + " + String(correctNum-numA) + rightObjectType + " = ?"
         let questionTextWriiten = String(numA) + " + " + String(correctNum-numA) + " = ?"
         question.text = questionTextWriiten
@@ -69,9 +69,10 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         question.physicsBody?.contactTestBitMask = ColliderType.Object
         question.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
         
-        button.position = CGPoint(x: size.width * 0.1, y: size.height * 0.1)
-        button.name = "back to level selection"
-        button.accessibilityLabel = "back to level selection"
+        backButton.position = CGPoint(x: size.width * 0.1, y: size.height * 0.1)
+        backButton.name = "back to level selection"
+        backButton.isAccessibilityElement = true
+        backButton.accessibilityLabel = "go back and start a new farm task"
         
         winningStreakText = "You've aced this " + String(winningStreak!) + "time in a roll"
         
@@ -119,7 +120,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         answerText.position = CGPoint(x: size.width * offsetFraction, y: size.height / 2)
         self.addChild(question)
         self.addChild(answerText)
-        self.addChild(button)
+        self.addChild(backButton)
         
 //        let tryButton = SKSpriteNode(imageNamed: "turtle")
 //        tryButton.isAccessibilityElement = true
@@ -291,6 +292,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             // do the following: increment the correct count -> load a new addition scene
             //
             print("winningStreak: ", winningStreak!+1)
+            question.text = String(numA) + " + " + String(correctNum-numA) + " = " + String(correctNum)
             continueButton.isHidden = false
 //            let newScene = AdditionScene(size: self.size)
 //            newScene.game_delegate = self.game_delegate

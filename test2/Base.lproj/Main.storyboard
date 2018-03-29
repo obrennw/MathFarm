@@ -147,6 +147,7 @@
                                 <rect key="frame" x="369" y="307" width="183" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.085231731150000004" blue="0.078863051640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Do some fun addition tasks for farmer Joe!"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Addition"/>
                                 <connections>
@@ -160,11 +161,12 @@
                     <connections>
                         <outlet property="CountingBtn" destination="kVq-mv-i34" id="JGP-2a-HCq"/>
                         <outlet property="PatternBtn" destination="ZNn-h5-y6U" id="Wx8-pr-Jzz"/>
+                        <segue destination="ucJ-tZ-mF5" kind="show" identifier="toGame" id="iPc-AA-Jte"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnr-PA-MBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="445" y="863"/>
+            <point key="canvasLocation" x="129" y="1430"/>
         </scene>
         <!--Pattern Level Select-->
         <scene sceneID="cxk-os-k1T">
@@ -244,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDk-JO-BaX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1085.7421875" y="862.5"/>
+            <point key="canvasLocation" x="1011" y="1291"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="ujK-g4-fdG">
@@ -256,10 +258,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="OEZ-xH-Reb"/>
                     </view>
+                    <connections>
+                        <segue destination="fZs-Np-QL8" kind="show" identifier="backToLevel" id="y0E-oE-L6i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldH-EI-I7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1130" y="112"/>
+            <point key="canvasLocation" x="1158" y="112"/>
         </scene>
         <!--Pattern View Controller-->
         <scene sceneID="pQE-nA-58p">
@@ -384,7 +389,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zaR-fx-dig" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1729.6875" y="862.5"/>
+            <point key="canvasLocation" x="1700" y="1291"/>
         </scene>
     </scenes>
     <resources>
@@ -394,6 +399,8 @@
         <image name="thumbs_cartoon-farm-vector3" width="374" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="iPc-AA-Jte"/>
+        <segue reference="y0E-oE-L6i"/>
         <segue reference="cyl-Xf-buc"/>
     </inferredMetricsTieBreakers>
 </document>
