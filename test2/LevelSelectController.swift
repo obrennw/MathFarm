@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 /// ViewController for level selector
 class LevelSelectController: UIViewController {
@@ -19,6 +20,10 @@ class LevelSelectController: UIViewController {
     /// Do any additional setup after loading the view.
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if !audioPlayer.isPlaying{
+            audioPlayer.play()
+        }
     }
 
     /// Dispose of any resources that can be recreated.
@@ -30,9 +35,11 @@ class LevelSelectController: UIViewController {
     ///
     /// - Parameter sender: Component that triggers function on action
     @IBAction func toCountingLevel(_ sender: UIButton) {
+        audioPlayer.stop()
         let viewController:GameViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController1") as! GameViewController
         viewController.gameType = "counting"
         self.present(viewController, animated: true, completion: nil)
+        
     }
     
     @IBAction func toAdditionLevel(_ sender: UIButton) {

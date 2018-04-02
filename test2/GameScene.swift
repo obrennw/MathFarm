@@ -36,6 +36,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
     /// The sprite that is currently being touched (if any)
     var selectedNode = SKSpriteNode()
     
+    var audioPlayer = AVAudioPlayer()
+    
     var contactFlag = false
     
     let button = SKSpriteNode(imageNamed: "turtle")
@@ -161,6 +163,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         print(score.description + " apples")
         speakString(text: "Added apple")
         speakString(text: score.description + " apples")
+        
+        do{
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "count",ofType: "mp3")!))
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+        }
+        catch{
+            print(error)
+        }
+        
+        if score == 5{
+            do
+            {
+                audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "happy",ofType: "mp3")!))
+                audioPlayer.prepareToPlay()
+                audioPlayer.play()
+            }
+            catch{
+                print(error)
+            }
+        }
+        
         contactFlag = false
         selectedNode.removeFromParent()
         print(score)
