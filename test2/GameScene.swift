@@ -69,7 +69,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         scoreText.text = String(score)
         scoreText.fontColor = SKColor.black
         
-        let numApples = 30;
+        let numApples = 5;
         var imageNames = [String]()
         for i in 0..<staticImages.count{
             imageNames.append(staticImages[i])
