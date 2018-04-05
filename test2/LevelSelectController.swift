@@ -33,7 +33,7 @@ class LevelSelectController: UIViewController {
     /// - Parameter sender: Component that triggers function on action
     @IBAction func toCountingLevel(_ sender: UIButton) {
         command = "counting"
-        performSegue(withIdentifier: "toGame", sender: nil)
+        performSegue(withIdentifier: "toGame", sender: self)
 //        let viewController:GameViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController1") as! GameViewController
 //        viewController.gameType = "counting"
 //        self.present(viewController, animated: true, completion: nil)
@@ -41,11 +41,12 @@ class LevelSelectController: UIViewController {
     
     @IBAction func toAdditionLevel(_ sender: UIButton) {
         command = "addition"
-        performSegue(withIdentifier: "toGame", sender: nil)
+        performSegue(withIdentifier: "toGame", sender: self)
 //        let viewController:GameViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController1") as! GameViewController
 //        viewController.gameType = "addition"
 //        self.present(viewController, animated: true, completion: nil)
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier=="toGame") {
             let vc = segue.destination as! GameViewController
@@ -53,9 +54,7 @@ class LevelSelectController: UIViewController {
         }
     }
     
-    override var shouldAutorotate: Bool {
-        return false
-    }
+
     
     /*
     // MARK: - Navigation

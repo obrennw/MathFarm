@@ -70,7 +70,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         scoreText.fontColor = SKColor.black
         
         button.position = CGPoint(x: size.width * 0.1, y: size.height * 0.1)
-        button.name = "settingsButton"
+        button.name = "back to level selection"
+        button.isAccessibilityElement = true
+        button.accessibilityLabel = "go back and start a new farm task"
         
         let imageNames = ["bucket2","apple","apple","apple","apple","apple"]
         

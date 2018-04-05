@@ -27,6 +27,7 @@ class GameViewController: UIViewController, gameDelegate {
     /// Set properties of the Controller once the view is loaded
     /// expected behavior: based on the value of gameType load counting game or addition game
     override func viewDidLoad() {
+        super.viewDidLoad()
         if let skView = self.view as! SKView? {
             skView.showsFPS = true
             skView.showsNodeCount = true
@@ -61,7 +62,8 @@ class GameViewController: UIViewController, gameDelegate {
         
     //MARK: game delegate
     func backToLevel() {
-        performSegue(withIdentifier: "backToLevel", sender: nil)
+        self.navigationController?.popViewController(animated: true)
+//        performSegue(withIdentifier: "backToLevel", sender: nil)
     }
         
 
