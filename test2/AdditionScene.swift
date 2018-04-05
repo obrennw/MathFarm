@@ -269,8 +269,9 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     }
     
     private func speakString(text: String) {
-        let Utterance = AVSpeechUtterance(string: text)
-        speaker.speak(Utterance)
+        //let Utterance = AVSpeechUtterance(string: text)
+        //speaker.speak(Utterance)
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
     }
     
 }

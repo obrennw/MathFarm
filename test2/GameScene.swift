@@ -23,7 +23,7 @@ private let staticImages = ["bucket2"]
 /// A list of movable objects
 private let movableImages = ["apple"]
 /// Object that allows device to speek to user
-private let speaker = AVSpeechSynthesizer()
+//private let speaker = AVSpeechSynthesizer()
 
 /// Module that renders a level’s current state and maintains its corresponding game logic
 class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {    
@@ -80,13 +80,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         var objectOffsetX = 0.0;
         var objectOffsetY = 0;
         let offsetFractionRight = (CGFloat(imageNames.count-1) + 0.45)/(CGFloat(imageNames.count+1) + 1.0)
-        var buckety = CGFloat(0);
-        button.position = CGPoint(x: size.width * 0.1, y: size.height * 0.1)
-        button.name = "settingsButton"
+        button.position = CGPoint(x: size.width - (size.width * 0.1), y: size.height * 0.1)
+        button.name = "menu"
+        button.isAccessibilityElement = true
+        button.accessibilityLabel = "back to menu"
+        
         
         //let imageNames = ["bucket2","apple","apple","apple","apple","apple"]
-        
-        for i in 0..<imageNames.count {
+        for i in (0..<imageNames.count).reversed() {
             let imageName = imageNames[i]
 
             let sprite = SKSpriteNode(imageNamed: imageName)
@@ -104,6 +105,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
                 sprite.setScale(CGFloat(1.5))
                 let offsetFractionObject = CGFloat(objectOffsetX)/10
                 sprite.position = CGPoint(x: size.width * offsetFractionObject, y: (size.height/(1.25))-(1.5*(sprite.size.height)*CGFloat(objectOffsetY)))
+                objectOffsetY += 1;
+                if i%5 == 0 {
+                    objectOffsetX += 1.2;
+                    objectOffsetY = 0
+                }
             }
             else{
                 sprite.accessibilityLabel = "bucket"
@@ -112,14 +118,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
                 sprite.physicsBody?.contactTestBitMask = ColliderType.Object
                 sprite.setScale(0.225)
                 sprite.position = CGPoint(x: size.width * offsetFractionRight, y: (size.height / 2))
-                
             }
             self.addChild(sprite)
-            objectOffsetY += 1;
-            if i%5 == 0 {
-                objectOffsetX += 1.2;
-                objectOffsetY = 0
-            }
+           
             
         }
         //let offsetFraction = (CGFloat(imageNames.count) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
@@ -237,8 +238,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
     ///
     /// - Parameter text: text to be spoken
     func speakString(text: String) {
-            let Utterance = AVSpeechUtterance(string: text)
-            speaker.speak(Utterance)
+        //let Utterance = AVSpeechUtterance(string: text)
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
+        
+        //speaker.speak(Utterance)
     }
     
 }
