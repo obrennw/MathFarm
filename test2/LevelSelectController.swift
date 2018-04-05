@@ -17,6 +17,7 @@ class LevelSelectController: UIViewController {
     //button that links to pattern level
     @IBOutlet weak var PatternBtn: UIButton!
     
+    var command: String?
     /// Do any additional setup after loading the view.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,19 +32,26 @@ class LevelSelectController: UIViewController {
     ///
     /// - Parameter sender: Component that triggers function on action
     @IBAction func toCountingLevel(_ sender: UIButton) {
-        let viewController:GameViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController1") as! GameViewController
-        viewController.gameType = "counting"
-        self.present(viewController, animated: true, completion: nil)
-
-        
+        command = "counting"
+        performSegue(withIdentifier: "toGame", sender: nil)
+//        let viewController:GameViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController1") as! GameViewController
+//        viewController.gameType = "counting"
+//        self.present(viewController, animated: true, completion: nil)
     }
     
     @IBAction func toAdditionLevel(_ sender: UIButton) {
-        let viewController:GameViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController1") as! GameViewController
-        viewController.gameType = "addition"
-        self.present(viewController, animated: true, completion: nil)
+        command = "addition"
+        performSegue(withIdentifier: "toGame", sender: nil)
+//        let viewController:GameViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController1") as! GameViewController
+//        viewController.gameType = "addition"
+//        self.present(viewController, animated: true, completion: nil)
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier=="toGame") {
+            let vc = segue.destination as! GameViewController
+            vc.gameType = command!
+        }
+    }
     
     override var shouldAutorotate: Bool {
         return false

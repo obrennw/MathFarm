@@ -61,8 +61,7 @@ class GameViewController: UIViewController, gameDelegate {
         
     //MARK: game delegate
     func backToLevel() {
-        let viewController:LevelSelectController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "levelSelectController") as! LevelSelectController
-        self.present(viewController, animated: true, completion: nil)
+        performSegue(withIdentifier: "backToLevel", sender: nil)
     }
         
 

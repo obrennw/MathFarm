@@ -19,7 +19,7 @@
 		FA1077E02062597D001CC811 /* AdditionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1077DF2062597D001CC811 /* AdditionScene.swift */; };
 		FA1296EE206948C200412DDC /* AdvAdditionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1296ED206948C200412DDC /* AdvAdditionScene.swift */; };
 		FA1979622067633F0065687B /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1979612067633F0065687B /* LevelScene.swift */; };
-		FA57E680206A176C00EFAB09 /* Asset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA57E67F206A176C00EFAB09 /* Asset.xcassets */; };
+		FA2D21E52071B1BB00B52827 /* Asset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2D21E42071B1BA00B52827 /* Asset.xcassets */; };
 		FA8360DE20636A4A0058CBD1 /* AdditionScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +59,7 @@
 		FA1077DF2062597D001CC811 /* AdditionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionScene.swift; sourceTree = "<group>"; };
 		FA1296ED206948C200412DDC /* AdvAdditionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvAdditionScene.swift; sourceTree = "<group>"; };
 		FA1979612067633F0065687B /* LevelScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
-		FA57E67F206A176C00EFAB09 /* Asset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Asset.xcassets; sourceTree = "<group>"; };
+		FA2D21E42071B1BA00B52827 /* Asset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Asset.xcassets; path = ../../../.Trash/Asset.xcassets; sourceTree = "<group>"; };
 		FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AdditionScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,8 +111,8 @@
 		29C8D6C52040A72600E4C122 /* test2 */ = {
 			isa = PBXGroup;
 			children = (
-				FA57E67F206A176C00EFAB09 /* Asset.xcassets */,
 				FA1077DF2062597D001CC811 /* AdditionScene.swift */,
+				FA2D21E42071B1BA00B52827 /* Asset.xcassets */,
 				29C8D6C62040A72600E4C122 /* AppDelegate.swift */,
 				29C8D6CA2040A72600E4C122 /* Main.storyboard */,
 				B264906720632A1000AB782B /* PatternViewController.swift */,
@@ -254,7 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA57E680206A176C00EFAB09 /* Asset.xcassets in Resources */,
+				FA2D21E52071B1BB00B52827 /* Asset.xcassets in Resources */,
 				29C8D6CC2040A72600E4C122 /* Main.storyboard in Resources */,
 				FA8360DE20636A4A0058CBD1 /* AdditionScene.sks in Resources */,
 			);
@@ -451,7 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P65B97BWKC;
 				INFOPLIST_FILE = test2/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = john.test2.com.mianx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -469,7 +469,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P65B97BWKC;
 				INFOPLIST_FILE = test2/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = john.test2.com.mianx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
