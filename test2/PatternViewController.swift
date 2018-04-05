@@ -18,6 +18,7 @@ class PatternViewController: UIViewController { //this file is for DEMO purposes
     
     @IBOutlet weak var greenBox: UIView!
     @IBOutlet weak var selectPig: UIButton!
+
     
     var timer = Timer() //used to implement "frame-based" functions
     var isTouchingScreen = false

@@ -41,6 +41,10 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         submitButton.color = .red
         submitButton.addChild(submitButtonText)
         
+        
+        
+        
+        
         self.addChild(submitButton)
         
     }
