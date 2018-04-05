@@ -13,7 +13,7 @@ import AVFoundation
 
 private let staticImages = ["bucket2"]
 private let movableImages = ["apple", "orange", "peach", "broccoli", "lemon"]
-private let speaker = AVSpeechSynthesizer()
+//private let speaker = AVSpeechSynthesizer()
 
 class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {
     // reference to the scene's controller, used for calling back to level selection button
@@ -55,7 +55,8 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     override func didMove(to view: SKView) {
         //print("width: ", frame.size.width, " height: ", frame.size.height)
         print(rightObjectType)
-//        self.backgroundColor = .red
+        let imageNames = generateObjectList()
+
         let backgroundNode = SKSpriteNode(imageNamed: "woodenBackground")
         backgroundNode.name = "backGround"
         backgroundNode.size = CGSize(width: size.width, height: size.height)
@@ -68,6 +69,10 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         answerText.fontSize = size.height/7.5
         answerText.text = String(answer)
         answerText.fontColor = .white
+        let offsetFraction = (CGFloat(imageNames.count) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
+        print(offsetFraction)
+        answerText.position = CGPoint(x: size.width * 0.875, y: size.height / 2)
+        self.addChild(answerText)
         
         numA = arc4random_uniform(correctNum)
         let questionTextSpoken = "Please put " + String(numA) + " + " + String(correctNum-numA) + " " + rightObjectType + " into the bucket"
@@ -87,7 +92,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         typeNode.name = "objShowType"
         self.addChild(typeNode)
         
-        backButton.position = CGPoint(x: size.width * 0.1, y: size.height * 0.1)
+        backButton.position = CGPoint(x: size.width * 0.1, y: size.height * 0.9)
         backButton.name = "back to level selection"
         backButton.isAccessibilityElement = true
         backButton.accessibilityLabel = "go back and start a new farm task"
@@ -96,7 +101,6 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         
         generateStreakBar()
         
-        let imageNames = generateObjectList()
         for i in 0..<imageNames.count {
             let imageName = imageNames[i]
             
@@ -114,9 +118,11 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                 sprite.physicsBody?.collisionBitMask = 0
                 sprite.physicsBody?.contactTestBitMask = 0
                 sprite.size = CGSize(width: 84.0, height: 73.5)
-                let offsetFraction = (CGFloat(1) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
-                sprite.position = CGPoint(x: size.width * offsetFraction, y: (size.height/(1.25))-(1.5*(sprite.size.height)*CGFloat(i-1)))
-                print("x: ",size.width * offsetFraction, " y: ", (size.height/(1.25))-(1.5*(sprite.size.height)*CGFloat(i-1)))
+                sprite.position = CGPoint(x: size.width*0.25, y: size.height*0.15*CGFloat(i))
+//                let offsetFraction = (CGFloat(1) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
+//                print(offsetFraction)
+//                sprite.position = CGPoint(x: size.width * offsetFraction, y: (size.height/(1.25))-(1.5*(sprite.size.height)*CGFloat(i-1)))
+//                print("x: ",size.width * offsetFraction, " y: ", (size.height/(1.25))-(1.5*(sprite.size.height)*CGFloat(i-1)))
             }
             else{
                 sprite.accessibilityLabel = "bucket"
@@ -130,11 +136,8 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             self.addChild(sprite)
         }
         
-        let offsetFraction = (CGFloat(imageNames.count) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
-        print(offsetFraction)
-        answerText.position = CGPoint(x: size.width * offsetFraction, y: size.height / 2)
-        
-        self.addChild(answerText)
+
+
         self.addChild(backButton)
         self.addChild(question)
 
@@ -334,8 +337,9 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     }
     
     private func speakString(text: String) {
-        let Utterance = AVSpeechUtterance(string: text)
-        speaker.speak(Utterance)
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
+//        let Utterance = AVSpeechUtterance(string: text)
+//        speaker.speak(Utterance)
     }
     
 }
