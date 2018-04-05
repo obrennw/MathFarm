@@ -78,7 +78,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         for _ in 0..<numApples{
             imageNames.append("apple")
         }
-        var objectOffsetX = 1.5*((Double(numApples)/4.0)+0.75);
+        var objectOffsetX = 1.5*((Double(numApples)/4.0)+1.2);
         var objectOffsetY = 5.0;
         let offsetFractionRight = CGFloat(5.45/7.0)
         scoreText.position = CGPoint(x: size.width * offsetFractionRight, y: size.height/4)

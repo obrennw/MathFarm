@@ -71,7 +71,13 @@ class GameViewController: UIViewController, gameDelegate {
     
     //MARK: game delegate
     func backToLevel() {
-        self.performSegue(withIdentifier: "backToLevel", sender: nil)
+        //self.removeFromParentViewController()
+        //self.navigationController?.popViewController(animated: true)
+        super.viewDidDisappear(true)  
+        self.dismiss(animated: true, completion: nil)
+        //let prevScreen = self.navigationController?.popViewController(animated: true)
+        //self.navigationController?.pushViewController(prevScreen!, animated: true)
+        //self.performSegue(withIdentifier: "backToLevel", sender: nil)
     }
     
 
