@@ -114,7 +114,6 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                 sprite.physicsBody?.collisionBitMask = 0
                 sprite.physicsBody?.contactTestBitMask = 0
                 sprite.size = CGSize(width: 84.0, height: 73.5)
-                print("height: ",sprite.size.height, " width: ", sprite.size.width)
                 let offsetFraction = (CGFloat(1) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
                 sprite.position = CGPoint(x: size.width * offsetFraction, y: (size.height/(1.25))-(1.5*(sprite.size.height)*CGFloat(i-1)))
                 print("x: ",size.width * offsetFraction, " y: ", (size.height/(1.25))-(1.5*(sprite.size.height)*CGFloat(i-1)))
