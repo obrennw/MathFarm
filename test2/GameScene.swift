@@ -23,7 +23,7 @@ private let staticImages = ["bucket2"]
 /// A list of movable objects
 private let movableImages = ["apple"]
 /// Object that allows device to speek to user
-private let speaker = AVSpeechSynthesizer()
+//private let speaker = AVSpeechSynthesizer()
 
 /// Module that renders a level’s current state and maintains its corresponding game logic
 class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {    
@@ -60,7 +60,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
     ///
     /// - Parameter view: The SKView rendering the scene
     override func didMove(to view: SKView) {
-        speakString(text: "")
+        speakString(text: "Level One")
         self.physicsWorld.contactDelegate = self
         self.backgroundColor = SKColor.cyan
         
@@ -69,48 +69,63 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         scoreText.text = String(score)
         scoreText.fontColor = SKColor.black
         
-        button.position = CGPoint(x: size.width * 0.1, y: size.height * 0.1)
-        button.name = "back to level selection"
+        
+        let numApples = arc4random_uniform(11)+1;
+        var imageNames = [String]()
+        for i in 0..<staticImages.count{
+            imageNames.append(staticImages[i])
+        }
+        for _ in 0..<numApples{
+            imageNames.append("apple")
+        }
+        var objectOffsetX = 1.5*((Double(numApples)/4.0)+1.2);
+        var objectOffsetY = 5.0;
+        let offsetFractionRight = CGFloat(5.45/7.0)
+        scoreText.position = CGPoint(x: size.width * offsetFractionRight, y: size.height/4)
+        self.addChild(scoreText)
+        button.position = CGPoint(x: (size.width * 0.08), y: size.height * 0.95)
+        button.name = "menu"
         button.isAccessibilityElement = true
         button.accessibilityLabel = "go back and start a new farm task"
         
-        let imageNames = ["bucket2","apple","apple","apple","apple","apple"]
+        //let imageNames = ["bucket2","apple","apple","apple","apple","apple"]
         
-        for i in 0..<imageNames.count {
-                let imageName = imageNames[i]
-
-                let sprite = SKSpriteNode(imageNamed: imageName)
-                sprite.isAccessibilityElement = true
-                sprite.name = imageName
-                sprite.physicsBody = SKPhysicsBody(circleOfRadius: max(sprite.size.width/4,
-                                                                       sprite.size.height/4))
-                sprite.physicsBody?.affectedByGravity = false
-
-                
-                if !staticImages.contains(imageName){
-                    sprite.accessibilityLabel = "apple"
-                    sprite.physicsBody?.categoryBitMask = ColliderType.Object
-                    sprite.physicsBody?.collisionBitMask = 0
-                    sprite.physicsBody?.contactTestBitMask = 0
-                    sprite.setScale(CGFloat(1.5))
-                    let offsetFraction = (CGFloat(1) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
-                    sprite.position = CGPoint(x: size.width * offsetFraction, y: (size.height/(1.25))-(1.5*(sprite.size.height)*CGFloat(i-1)))
-                }
-                else{
-                    sprite.accessibilityLabel = "bucket"
-                    sprite.physicsBody?.categoryBitMask = ColliderType.Bucket
-                    sprite.physicsBody?.collisionBitMask = 0
-                    sprite.physicsBody?.contactTestBitMask = ColliderType.Object
-                    sprite.setScale(0.225)
-                    let offsetFraction = (CGFloat(imageNames.count-1) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
-                    sprite.position = CGPoint(x: size.width * offsetFraction, y: (size.height / 2))
-                    
-                }
-                self.addChild(sprite)
+        for i in (0..<imageNames.count) {
+            let imageName = imageNames[i]
+            
+            let sprite = SKSpriteNode(imageNamed: imageName)
+            sprite.isAccessibilityElement = true
+            sprite.name = imageName
+            sprite.physicsBody = SKPhysicsBody(circleOfRadius: max(sprite.size.width/4,
+                                                                   sprite.size.height/4))
+            sprite.physicsBody?.affectedByGravity = false
+            
+            if !staticImages.contains(imageName){
+                sprite.accessibilityLabel = "apple"
+                sprite.physicsBody?.categoryBitMask = ColliderType.Object
+                sprite.physicsBody?.collisionBitMask = 0
+                sprite.physicsBody?.contactTestBitMask = 0
+                sprite.setScale(1.75)
+                let offsetFractionObject = CGFloat(objectOffsetX)/10
+                sprite.position = CGPoint(x: size.width * offsetFractionObject, y: (size.height/(1.25))-(1.1*(sprite.size.height)*CGFloat(objectOffsetY)))
+            }
+            else{
+                sprite.accessibilityLabel = "bucket"
+                sprite.physicsBody?.categoryBitMask = ColliderType.Bucket
+                sprite.physicsBody?.collisionBitMask = 0
+                sprite.physicsBody?.contactTestBitMask = ColliderType.Object
+                sprite.setScale(0.225)
+                sprite.position = CGPoint(x: size.width * offsetFractionRight, y: (size.height / 2))
+            }
+            objectOffsetY -= 1.5;
+            if i%4 == 0 {
+                objectOffsetX -= 1.5
+                objectOffsetY = 5.0
+            }
+            self.addChild(sprite)
+            
         }
-        let offsetFraction = (CGFloat(imageNames.count) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
-        scoreText.position = CGPoint(x: size.width * offsetFraction, y: size.height / 2)
-        self.addChild(scoreText)
+//        let offsetFraction = (CGFloat(imageNames.count) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
         self.addChild(button)
     }
     
@@ -125,7 +140,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
             let positionInScene = touch.location(in: self)
             let touchedNode = self.atPoint(_:positionInScene)
             if (touchedNode is SKSpriteNode){
-                if(touchedNode.name == "settingsButton") {
+                if(touchedNode.name == "menu") {
                     self.game_delegate?.backToLevel()
                 }
                 else {
@@ -161,8 +176,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         scoreText.text = String(score)
         print("Added apple")
         print(score.description + " apples")
-        speakString(text: "Added apple")
-        speakString(text: score.description + " apples")
+        if(score == 1){
+            speakString(text: score.description + " apple")
+            
+        } else {
+            speakString(text: score.description + " apples")
+            
+        }
         contactFlag = false
         selectedNode.removeFromParent()
         print(score)
@@ -223,8 +243,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
     ///
     /// - Parameter text: text to be spoken
     func speakString(text: String) {
-            let Utterance = AVSpeechUtterance(string: text)
-            speaker.speak(Utterance)
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
     }
     
 }
