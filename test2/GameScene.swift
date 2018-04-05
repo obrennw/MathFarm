@@ -69,7 +69,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         scoreText.text = String(score)
         scoreText.fontColor = SKColor.black
         
-        let numApples = 5;
+        
+        let numApples = arc4random_uniform(11)+1;
         var imageNames = [String]()
         for i in 0..<staticImages.count{
             imageNames.append(staticImages[i])
@@ -77,17 +78,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         for _ in 0..<numApples{
             imageNames.append("apple")
         }
-        var objectOffsetX = 0.0;
-        var objectOffsetY = 0;
-        let offsetFractionRight = (CGFloat(imageNames.count-1) + 0.45)/(CGFloat(imageNames.count+1) + 1.0)
-        button.position = CGPoint(x: size.width - (size.width * 0.1), y: size.height * 0.1)
+        var objectOffsetX = 1.5*((Double(numApples)/4.0)+0.75);
+        var objectOffsetY = 5.0;
+        let offsetFractionRight = CGFloat(5.45/7.0)
+        scoreText.position = CGPoint(x: size.width * offsetFractionRight, y: size.height/4)
+        self.addChild(scoreText)
+        button.position = CGPoint(x: (size.width * 0.08), y: size.height * 0.95)
         button.name = "menu"
         button.isAccessibilityElement = true
         button.accessibilityLabel = "back to menu"
         
         
         //let imageNames = ["bucket2","apple","apple","apple","apple","apple"]
-        for i in (0..<imageNames.count).reversed() {
+        for i in (0..<imageNames.count) {
             let imageName = imageNames[i]
 
             let sprite = SKSpriteNode(imageNamed: imageName)
@@ -102,14 +105,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
                 sprite.physicsBody?.categoryBitMask = ColliderType.Object
                 sprite.physicsBody?.collisionBitMask = 0
                 sprite.physicsBody?.contactTestBitMask = 0
-                sprite.setScale(CGFloat(1.5))
+                sprite.setScale(1.75)
                 let offsetFractionObject = CGFloat(objectOffsetX)/10
-                sprite.position = CGPoint(x: size.width * offsetFractionObject, y: (size.height/(1.25))-(1.5*(sprite.size.height)*CGFloat(objectOffsetY)))
-                objectOffsetY += 1;
-                if i%5 == 0 {
-                    objectOffsetX += 1.2;
-                    objectOffsetY = 0
-                }
+                sprite.position = CGPoint(x: size.width * offsetFractionObject, y: (size.height/(1.25))-(1.1*(sprite.size.height)*CGFloat(objectOffsetY)))
             }
             else{
                 sprite.accessibilityLabel = "bucket"
@@ -119,13 +117,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
                 sprite.setScale(0.225)
                 sprite.position = CGPoint(x: size.width * offsetFractionRight, y: (size.height / 2))
             }
+            objectOffsetY -= 1.5;
+            if i%4 == 0 {
+                objectOffsetX -= 1.5
+                objectOffsetY = 5.0
+            }
             self.addChild(sprite)
            
             
         }
         //let offsetFraction = (CGFloat(imageNames.count) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
-        scoreText.position = CGPoint(x: size.width * offsetFractionRight, y: size.height/4)
-        self.addChild(scoreText)
+        
         self.addChild(button)
     }
     
@@ -140,7 +142,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
             let positionInScene = touch.location(in: self)
             let touchedNode = self.atPoint(_:positionInScene)
             if (touchedNode is SKSpriteNode){
-                if(touchedNode.name == "settingsButton") {
+                if(touchedNode.name == "menu") {
                     self.game_delegate?.backToLevel()
                 }
                 else {
@@ -176,8 +178,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         scoreText.text = String(score)
         print("Added apple")
         print(score.description + " apples")
-        speakString(text: "Added apple")
-        speakString(text: score.description + " apples")
+        if(score == 1){
+            speakString(text: score.description + " apple")
+
+        } else {
+            speakString(text: score.description + " apples")
+
+        }
         contactFlag = false
         selectedNode.removeFromParent()
         print(score)
