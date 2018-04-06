@@ -86,13 +86,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         button.position = CGPoint(x: (size.width * 0.08), y: size.height * 0.95)
         button.name = "menu"
         button.isAccessibilityElement = true
-        button.accessibilityLabel = "go back and start a new farm task"
+        button.accessibilityLabel = "back to menu"
+        
         
         //let imageNames = ["bucket2","apple","apple","apple","apple","apple"]
-        
         for i in (0..<imageNames.count) {
             let imageName = imageNames[i]
-            
+
             let sprite = SKSpriteNode(imageNamed: imageName)
             sprite.isAccessibilityElement = true
             sprite.name = imageName
@@ -123,9 +123,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
                 objectOffsetY = 5.0
             }
             self.addChild(sprite)
+           
             
         }
-//        let offsetFraction = (CGFloat(imageNames.count) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
+        //let offsetFraction = (CGFloat(imageNames.count) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
         self.addChild(button)
     }
     
@@ -178,10 +179,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         print(score.description + " apples")
         if(score == 1){
             speakString(text: score.description + " apple")
-            
         } else {
             speakString(text: score.description + " apples")
-            
         }
         contactFlag = false
         selectedNode.removeFromParent()
@@ -243,7 +242,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
     ///
     /// - Parameter text: text to be spoken
     func speakString(text: String) {
+        //let Utterance = AVSpeechUtterance(string: text)
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
+        
+        //speaker.speak(Utterance)
     }
     
 }
