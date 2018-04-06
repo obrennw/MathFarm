@@ -19,19 +19,19 @@ class GameViewController: UIViewController, gameDelegate {
     
     var gameType: String = ""
     /// Called when view is ready to be loaded into contorller
-    //    override func loadView() {
-    //        self.view = SKView()
-    //    }
+        override func loadView() {
+           self.view = SKView()
+        }
     
     
     /// Set properties of the Controller once the view is loaded
     /// expected behavior: based on the value of gameType load counting game or addition game
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let skView = self.view as! SKView
-//        skView.showsFPS = true
-//        skView.showsNodeCount = true
-//        skView.ignoresSiblingOrder = true
+        let skView = self.view as! SKView
+        skView.showsFPS = true
+        skView.showsNodeCount = true
+        skView.ignoresSiblingOrder = true
     
         //Set scene and accordingly & load it into the view
         if let skView = self.view as! SKView? {
@@ -67,15 +67,7 @@ class GameViewController: UIViewController, gameDelegate {
         
     //MARK: game delegate
     func backToLevel() {
-        self.navigationController?.popViewController(animated: true)
-//        performSegue(withIdentifier: "backToLevel", sender: nil)
-        //self.removeFromParentViewController()
-        //self.navigationController?.popViewController(animated: true)
-        super.viewDidDisappear(true)  
-        self.dismiss(animated: true, completion: nil)
-        //let prevScreen = self.navigationController?.popViewController(animated: true)
-        //self.navigationController?.pushViewController(prevScreen!, animated: true)
-        //self.performSegue(withIdentifier: "backToLevel", sender: nil)
+        performSegue(withIdentifier: "backToLevel", sender: nil)
     }
         
 

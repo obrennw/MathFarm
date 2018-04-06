@@ -48,9 +48,13 @@ class LevelSelectController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier=="toGame") {
+        if(segue.identifier=="toCounting") {
             let vc = segue.destination as! GameViewController
-            vc.gameType = command!
+            vc.gameType = "counting"
+        }
+        if(segue.identifier=="toAddition") {
+            let vc = segue.destination as! GameViewController
+            vc.gameType = "addition"
         }
     }
     

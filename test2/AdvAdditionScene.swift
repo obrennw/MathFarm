@@ -40,11 +40,6 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         submitButton.accessibilityLabel = "take the basket to farmer Joe"
         submitButton.color = .red
         submitButton.addChild(submitButtonText)
-        
-        
-        
-        
-        
         self.addChild(submitButton)
         
     }
