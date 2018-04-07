@@ -18,7 +18,7 @@ private let movableImages = ["apple", "orange", "peach", "broccoli", "lemon"]
 class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {
     // reference to the scene's controller, used for calling back to level selection button
     
-    weak var game_delegate: GameViewController?
+    weak var game_delegate: GameViewController!
     var correctNum = arc4random_uniform(4)+1
     var numA = UInt32(0)
     var answer = 0
@@ -29,18 +29,18 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     var winningStreakText: String?
     
     
-    let rightObjectType = movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))]
+    var rightObjectType = movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))]
    
     
 
 
 //    let question = SKLabelNode(fontNamed: "Arial")
     
-    let questionContainer = SKSpriteNode()
-    let question = SKLabelNode(fontNamed: "Arial")
-    let answerText = SKLabelNode(fontNamed: "Arial")
-    let backButton = SKSpriteNode(imageNamed: "turtle")
-    let continueButton = SKLabelNode(fontNamed: "Arial")
+    var questionContainer = SKSpriteNode()
+    var question = SKLabelNode(fontNamed: "Arial")
+    var answerText = SKLabelNode(fontNamed: "Arial")
+    var backButton = SKSpriteNode(imageNamed: "turtle")
+    var continueButton = SKLabelNode(fontNamed: "Arial")
     var typeNode = SKSpriteNode()
     
     required init?(coder aDecorder: NSCoder){
@@ -172,6 +172,9 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                 else if (touchedNode.name == "turtle") {
                     let newScene = LevelScene(size: self.size)
                     newScene.game_delegate = self.game_delegate
+                    if(game_delegate == nil){
+                        print("hmmmm")
+                    }
                     newScene.scaleMode = .aspectFill
                     let transition = SKTransition.moveIn(with: .right, duration: 2)
                     transition.pausesOutgoingScene = true
