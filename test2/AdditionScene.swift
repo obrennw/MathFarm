@@ -18,7 +18,7 @@ private let movableImages = ["apple", "orange", "peach", "broccoli", "lemon"]
 class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {
     // reference to the scene's controller, used for calling back to level selection button
     
-    weak var game_delegate: GameViewController!
+    weak var game_delegate: GameViewController?
     var correctNum = arc4random_uniform(4)+1
     var numA = UInt32(0)
     var answer = 0
@@ -172,13 +172,11 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                 else if (touchedNode.name == "turtle") {
                     let newScene = LevelScene(size: self.size)
                     newScene.game_delegate = self.game_delegate
-                    if(game_delegate == nil){
-                        print("hmmmm")
-                    }
+
                     newScene.scaleMode = .aspectFill
                     let transition = SKTransition.moveIn(with: .right, duration: 2)
                     transition.pausesOutgoingScene = true
-                    self.scene?.view?.presentScene(newScene, transition: transition)
+                     self.scene?.view?.presentScene(newScene, transition: transition)
                 } else if (touchedNode.name == "backGround" || touchedNode.name == "objShowType") {
                     return
                 }
@@ -196,8 +194,9 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                 print("before presenting scene")
                 let transition = SKTransition.moveIn(with: .right, duration: 2)
                 transition.pausesOutgoingScene = false
-                
-                self.scene?.view?.presentScene(newScene)
+                self.removeAllActions()
+                self.removeAllChildren()
+                self.scene?.view?.presentScene(newScene,transition: transition)
             }
         }
     }
