@@ -10,12 +10,8 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-protocol gameDelegate {
-    func backToLevel()
-}
-
 /// Controller responsible for presenting a given level
-class GameViewController: UIViewController, gameDelegate {
+class GameViewController: UIViewController {
     
     var gameType: String = ""
     /// Called when view is ready to be loaded into contorller
@@ -28,11 +24,12 @@ class GameViewController: UIViewController, gameDelegate {
     /// expected behavior: based on the value of gameType load counting game or addition game
     override func viewDidLoad() {
         super.viewDidLoad()
-        let skView = self.view as! SKView
-        skView.showsFPS = true
-        skView.showsNodeCount = true
-        skView.ignoresSiblingOrder = true
+    }
     
+    
+    
+    /// Configure view and subviews
+    override func viewWillLayoutSubviews() {
         //Set scene and accordingly & load it into the view
         if let skView = self.view as! SKView? {
             skView.showsFPS = true
@@ -64,10 +61,18 @@ class GameViewController: UIViewController, gameDelegate {
     override var prefersStatusBarHidden: Bool {
         return true
     }
-        
+    
     //MARK: game delegate
     func backToLevel() {
-        performSegue(withIdentifier: "backToLevel", sender: nil)
+        if let skView = self.view as! SKView? {
+            skView.presentScene(nil)
+            self.dismiss(animated: true)
+            //self.performSegue(withIdentifier: "unwindGame", sender: self)
+        }
+    }
+    
+    deinit {
+        print("Deinit GameViewController")
     }
         
 

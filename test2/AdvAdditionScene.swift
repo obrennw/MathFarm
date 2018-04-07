@@ -13,7 +13,7 @@ private let staticImages = ["bucket2"]
 private let movableImages = ["apple", "bird", "cat", "dog"]
 
 class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
-    var game_delegate: gameDelegate?
+    weak var game_delegate: GameViewController?
     var contactFlag = false
     var selectedNode = SKSpriteNode()
     var winningStreak: Int?

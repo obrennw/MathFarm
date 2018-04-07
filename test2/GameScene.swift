@@ -19,7 +19,7 @@ struct ColliderType{
 }
 
 /// A list of static objects
-private let staticImages = ["bucket2"]
+private let staticImages = ["pig"]
 /// A list of movable objects
 private let movableImages = ["apple"]
 /// Object that allows device to speek to user
@@ -27,7 +27,6 @@ private let movableImages = ["apple"]
 
 /// Module that renders a level’s current state and maintains its corresponding game logic
 class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {    
-    var game_delegate: gameDelegate?
 
     /// Sprite that presents the current score
     let scoreText = SKLabelNode(fontNamed: "Arial")
@@ -37,6 +36,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
     var selectedNode = SKSpriteNode()
     
     var contactFlag = false
+    
+    weak var game_delegate:GameViewController?
     
     let button = SKSpriteNode(imageNamed: "turtle")
 
@@ -96,25 +97,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
             let sprite = SKSpriteNode(imageNamed: imageName)
             sprite.isAccessibilityElement = true
             sprite.name = imageName
-            sprite.physicsBody = SKPhysicsBody(circleOfRadius: max(sprite.size.width/4,
-                                                                   sprite.size.height/4))
-            sprite.physicsBody?.affectedByGravity = false
+            
             
             if !staticImages.contains(imageName){
                 sprite.accessibilityLabel = "apple"
+                sprite.size = CGSize(width: 90.0, height: 90.0)
+                sprite.physicsBody = SKPhysicsBody(circleOfRadius: max(sprite.size.width/4,
+                                                                       sprite.size.height/4))
+                sprite.physicsBody?.affectedByGravity = false
                 sprite.physicsBody?.categoryBitMask = ColliderType.Object
                 sprite.physicsBody?.collisionBitMask = 0
                 sprite.physicsBody?.contactTestBitMask = 0
-                sprite.setScale(1.75)
                 let offsetFractionObject = CGFloat(objectOffsetX)/10
                 sprite.position = CGPoint(x: size.width * offsetFractionObject, y: (size.height/(1.25))-(1.1*(sprite.size.height)*CGFloat(objectOffsetY)))
             }
             else{
-                sprite.accessibilityLabel = "bucket"
+                sprite.accessibilityLabel = "pig"
+                sprite.zPosition = -1
+                sprite.size = CGSize(width: 210.0, height: 210.0)
+                sprite.physicsBody = SKPhysicsBody(circleOfRadius: max(sprite.size.width/4,
+                                                                       sprite.size.height/4))
+                sprite.physicsBody?.affectedByGravity = false
                 sprite.physicsBody?.categoryBitMask = ColliderType.Bucket
                 sprite.physicsBody?.collisionBitMask = 0
                 sprite.physicsBody?.contactTestBitMask = ColliderType.Object
-                sprite.setScale(0.225)
+                
+                sprite.physicsBody?.affectedByGravity = false
                 sprite.position = CGPoint(x: size.width * offsetFractionRight, y: (size.height / 2))
             }
             objectOffsetY -= 1.5;
@@ -142,6 +150,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
             let touchedNode = self.atPoint(_:positionInScene)
             if (touchedNode is SKSpriteNode){
                 if(touchedNode.name == "menu") {
+                    self.removeAllActions()
+                    self.removeAllChildren()
+                    //(scene!.view!.window?.rootViewController as! UINavigationController).dismiss(animated: false, completion: nil)
                     self.game_delegate?.backToLevel()
                 }
                 else {
@@ -156,16 +167,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
     /// - Parameter contact: The object that refers to the contact caused by the two objects
     func didBegin(_ contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
-            print("On bucket")
-            speakString(text: "On bucket")
+            
+            speakString(text: "On pig")
+            print("On pig")
             contactFlag = true
         }
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
-            print("Left bucket")
-            speakString(text: "Left bucket")
+            
+            speakString(text: "Off pig")
+            print("Off pig")
             contactFlag = false
         }
     }
@@ -183,7 +196,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
             speakString(text: score.description + " apples")
         }
         contactFlag = false
-        selectedNode.removeFromParent()
+        selectedNode.isHidden = true
+        selectedNode.isAccessibilityElement = false
         print(score)
     }
     
@@ -246,6 +260,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
         
         //speaker.speak(Utterance)
+    }
+    
+    deinit {
+        print("Deinit GameScene")
     }
     
 }

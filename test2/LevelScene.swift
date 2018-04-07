@@ -12,7 +12,7 @@ import UIKit
 
 class LevelScene: SKScene {
     
-    var game_delegate: gameDelegate?
+    weak var game_delegate: GameViewController?
 
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed:"thumbs_cartoon-farm-vector3")

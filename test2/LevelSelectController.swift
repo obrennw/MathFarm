@@ -17,7 +17,6 @@ class LevelSelectController: UIViewController {
     //button that links to pattern level
     @IBOutlet weak var PatternBtn: UIButton!
     
-    var command: String?
     /// Do any additional setup after loading the view.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,19 +31,11 @@ class LevelSelectController: UIViewController {
     ///
     /// - Parameter sender: Component that triggers function on action
     @IBAction func toCountingLevel(_ sender: UIButton) {
-        command = "counting"
-        performSegue(withIdentifier: "toGame", sender: self)
-//        let viewController:GameViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController1") as! GameViewController
-//        viewController.gameType = "counting"
-//        self.present(viewController, animated: true, completion: nil)
+        performSegue(withIdentifier: "toCounting", sender: self)
     }
     
     @IBAction func toAdditionLevel(_ sender: UIButton) {
-        command = "addition"
-        performSegue(withIdentifier: "toGame", sender: self)
-//        let viewController:GameViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController1") as! GameViewController
-//        viewController.gameType = "addition"
-//        self.present(viewController, animated: true, completion: nil)
+        performSegue(withIdentifier: "toAddition", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -58,6 +49,9 @@ class LevelSelectController: UIViewController {
         }
     }
     
+    @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue){
+        print("unwinding")
+    }
 
     
     /*

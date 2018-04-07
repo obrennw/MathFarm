@@ -18,7 +18,7 @@ private let movableImages = ["apple", "orange", "peach", "broccoli", "lemon"]
 class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {
     // reference to the scene's controller, used for calling back to level selection button
     
-    var game_delegate: gameDelegate?
+    weak var game_delegate: GameViewController?
     var correctNum = arc4random_uniform(4)+1
     var numA = UInt32(0)
     var answer = 0
