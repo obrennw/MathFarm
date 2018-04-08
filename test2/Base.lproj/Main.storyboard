@@ -30,7 +30,6 @@
         <!--Main Menu Controller-->
         <scene sceneID="F8n-Rc-rrB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZNS-8y-9ZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="xvl-TD-cQ0" customClass="MainMenuController" customModule="test2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zsf-ig-fbk">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
@@ -72,6 +71,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="vao-4R-gaC"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZNS-8y-9ZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="444.72656249999994" y="111.71875"/>
         </scene>
@@ -119,6 +119,9 @@
                                 <accessibility key="accessibilityConfiguration" label="Go back to start page!"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="xvl-TD-cQ0" kind="showDetail" id="7Td-ot-7qX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNn-h5-y6U" userLabel="PatternBtn">
                                 <rect key="frame" x="43" y="412" width="193" height="74"/>
@@ -133,7 +136,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="eh1-ka-VaS" kind="presentation" id="bmk-4a-TuV"/>
+                                    <segue destination="eh1-ka-VaS" kind="showDetail" id="bmk-4a-TuV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zab-kf-EeT">
@@ -406,6 +409,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="0My-gc-1Kl"/>
         <segue reference="bmk-4a-TuV"/>
-        <segue reference="8JD-oI-CTR"/>
+        <segue reference="xuI-Yr-VZ2"/>
+        <segue reference="7Td-ot-7qX"/>
     </inferredMetricsTieBreakers>
 </document>

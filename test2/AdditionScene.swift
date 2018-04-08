@@ -130,6 +130,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                 sprite.physicsBody?.collisionBitMask = 0
                 sprite.physicsBody?.contactTestBitMask = ColliderType.Object
                 sprite.setScale(0.225)
+                sprite.zPosition = -1
                 
                 sprite.position = CGPoint(x: size.width * 0.75, y: (size.height / 2))
             }
@@ -164,6 +165,8 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             
             if(touchedNode is SKSpriteNode) {
                 if(touchedNode.name == "back to level selection") {
+                    self.removeAllActions()
+                    self.removeAllChildren()
                     self.game_delegate?.backToLevel()
                 }
                 else if (touchedNode.name == "greenlight") {
