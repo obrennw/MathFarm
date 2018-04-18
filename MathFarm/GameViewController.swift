@@ -13,7 +13,9 @@ import GameplayKit
 /// Controller responsible for presenting a given level
 class GameViewController: UIViewController {
     
+    /// Key that determines which type of scene is generated
     var gameType: String = ""
+    
     /// Called when view is ready to be loaded into contorller
         override func loadView() {
            self.view = SKView()
@@ -71,6 +73,7 @@ class GameViewController: UIViewController {
         }
     }
     
+    /// Actions called when instance is destroyed
     deinit {
         print("Deinit GameViewController")
     }
