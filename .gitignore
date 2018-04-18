@@ -1,5 +1,5 @@
 test2.xcodeproj/xcuserdata/oqbrennw.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
-*test2/.DS_Store*
+*.DS_Store*
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore

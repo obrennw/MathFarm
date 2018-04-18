@@ -74,7 +74,7 @@ class PatternViewController: UIViewController { //this file is for DEMO purposes
         }
     }
     
-    func speakString(text: String){ //also present in GameScene.swift...maybe switch to separate file for helper functions
+    func speakString(text: String){ //also present in CountingScene.swift...maybe switch to separate file for helper functions
         //let Utterance = AVSpeechUtterance(string: text)
         //speaker.speak(Utterance)
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)

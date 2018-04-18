@@ -1,5 +1,5 @@
 //
-//  GameScene.swift
+//  CountingScene.swift
 //  draganddrop1
 //
 //  Created by oqbrennw on 2/5/18.
@@ -26,7 +26,7 @@ private let movableImages = ["apple"]
 //private let speaker = AVSpeechSynthesizer()
 
 /// Module that renders a level’s current state and maintains its corresponding game logic
-class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {    
+class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {
 
     /// Sprite that presents the current score
     let scoreText = SKLabelNode(fontNamed: "Arial")
@@ -320,7 +320,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
     }
     
     deinit {
-        print("Deinit GameScene")
+        print("Deinit CountingScene")
     }
     
 }
