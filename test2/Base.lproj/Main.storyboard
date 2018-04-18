@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aXN-WV-H1Z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aXN-WV-H1Z">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="ArialBold.ttf">
-            <string>Arial-BoldMT</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="R9c-no-8jz">
@@ -25,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="xvl-TD-cQ0" kind="relationship" relationship="rootViewController" id="nQI-Yf-CIl"/>
+                        <segue destination="xvl-TD-cQ0" kind="relationship" relationship="rootViewController" id="nAH-l1-Cgj"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sDa-uK-LTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -40,9 +35,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="thumbs_cartoon-farm-vector1" translatesAutoresizingMaskIntoConstraints="NO" id="o5B-Ie-H9t">
-                                <rect key="frame" x="0.0" y="-33" width="1024" height="801"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="thumbs_cartoon-farm-vector1" translatesAutoresizingMaskIntoConstraints="NO" id="WeM-KU-eY7">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHq-ZP-XW2">
                                 <rect key="frame" x="427" y="597" width="258" height="130"/>
@@ -59,7 +54,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="fZs-Np-QL8" kind="show" id="HxL-U7-FRf"/>
+                                    <segue destination="fZs-Np-QL8" kind="showDetail" id="8JD-oI-CTR"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Math Farm Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cG-qp-WRj">
@@ -114,6 +109,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="toCountingLevel:" destination="fZs-Np-QL8" eventType="touchUpInside" id="M5W-Wf-f0H"/>
+                                    <segue destination="ucJ-tZ-mF5" kind="showDetail" identifier="toCounting" id="vZL-mQ-GRL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9h-mm-sd0">
@@ -124,7 +120,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="xvl-TD-cQ0" kind="show" id="cyl-Xf-buc"/>
+                                    <segue destination="xvl-TD-cQ0" kind="showDetail" id="7Td-ot-7qX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNn-h5-y6U" userLabel="PatternBtn">
@@ -140,7 +136,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="eh1-ka-VaS" kind="show" id="bmk-4a-TuV"/>
+                                    <segue destination="eh1-ka-VaS" kind="showDetail" id="bmk-4a-TuV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zab-kf-EeT">
@@ -151,12 +147,14 @@
                                 <state key="normal" title="Addition"/>
                                 <connections>
                                     <action selector="toAdditionLevel:" destination="fZs-Np-QL8" eventType="touchUpInside" id="QO8-Va-sEo"/>
+                                    <segue destination="ucJ-tZ-mF5" kind="showDetail" identifier="toAddition" id="0My-gc-1Kl"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ftl-Mg-n4Z"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Bl0-en-EXG"/>
                     <connections>
                         <outlet property="CountingBtn" destination="kVq-mv-i34" id="JGP-2a-HCq"/>
                         <outlet property="PatternBtn" destination="ZNn-h5-y6U" id="Wx8-pr-Jzz"/>
@@ -187,7 +185,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="DxF-3k-27O" kind="show" id="MQ9-ah-Oxj"/>
+                                    <segue destination="DxF-3k-27O" kind="showDetail" id="MQ9-ah-Oxj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8f-rb-Lmo">
@@ -237,10 +235,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LLS-XC-ZLk">
+                                <rect key="frame" x="20" y="20" width="46" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="fZs-Np-QL8" kind="showDetail" id="xuI-Yr-VZ2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.82281726759426177" green="1" blue="0.99030350291509939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="a5n-gQ-IfL"/>
                     </view>
+                    <navigationItem key="navigationItem" id="nom-FB-EmQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDk-JO-BaX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -249,11 +256,7 @@
         <!--Game View Controller-->
         <scene sceneID="ujK-g4-fdG">
             <objects>
-                <viewController storyboardIdentifier="GameViewController1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ucJ-tZ-mF5" customClass="GameViewController" customModule="test2" customModuleProvider="target" sceneMemberID="viewController">
-                    <connections>
-                        <segue destination="fZs-Np-QL8" kind="show" identifier="backToLevel" id="HXx-BY-7pG"/>
-                    </connections>
-                </viewController>
+                <viewController storyboardIdentifier="GameViewController1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ucJ-tZ-mF5" customClass="GameViewController" customModule="test2" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldH-EI-I7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1130" y="112"/>
@@ -369,6 +372,14 @@
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.077069251332482214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRT-5h-Eak">
+                                <rect key="frame" x="20" y="20" width="57" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="eh1-ka-VaS" kind="showDetail" id="x1m-WK-pkG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.82281726759999996" green="1" blue="0.99030350290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -391,7 +402,9 @@
         <image name="thumbs_cartoon-farm-vector3" width="374" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HxL-U7-FRf"/>
-        <segue reference="cyl-Xf-buc"/>
+        <segue reference="0My-gc-1Kl"/>
+        <segue reference="bmk-4a-TuV"/>
+        <segue reference="xuI-Yr-VZ2"/>
+        <segue reference="7Td-ot-7qX"/>
     </inferredMetricsTieBreakers>
 </document>

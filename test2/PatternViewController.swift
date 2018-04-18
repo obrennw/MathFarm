@@ -18,6 +18,7 @@ class PatternViewController: UIViewController { //this file is for DEMO purposes
     
     @IBOutlet weak var greenBox: UIView!
     @IBOutlet weak var selectPig: UIButton!
+
     
     var timer = Timer() //used to implement "frame-based" functions
     var isTouchingScreen = false
@@ -74,8 +75,9 @@ class PatternViewController: UIViewController { //this file is for DEMO purposes
     }
     
     func speakString(text: String){ //also present in GameScene.swift...maybe switch to separate file for helper functions
-        let Utterance = AVSpeechUtterance(string: text)
-        speaker.speak(Utterance)
+        //let Utterance = AVSpeechUtterance(string: text)
+        //speaker.speak(Utterance)
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
     }
     
     public func setLevel(level: Int){

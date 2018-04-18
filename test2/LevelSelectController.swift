@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 /// ViewController for level selector
 class LevelSelectController: UIViewController {
@@ -30,21 +31,24 @@ class LevelSelectController: UIViewController {
     ///
     /// - Parameter sender: Component that triggers function on action
     @IBAction func toCountingLevel(_ sender: UIButton) {
-        let viewController:GameViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController1") as! GameViewController
-        viewController.gameType = "counting"
-        self.present(viewController, animated: true, completion: nil)
+        performSegue(withIdentifier: "toCounting", sender: self)
     }
     
     @IBAction func toAdditionLevel(_ sender: UIButton) {
-        let viewController:GameViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController1") as! GameViewController
-        viewController.gameType = "addition"
-        self.present(viewController, animated: true, completion: nil)
+        performSegue(withIdentifier: "toAddition", sender: self)
     }
     
-    
-    override var shouldAutorotate: Bool {
-        return false
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier=="toCounting") {
+            let vc = segue.destination as! GameViewController
+            vc.gameType = "counting"
+        }
+        if(segue.identifier=="toAddition") {
+            let vc = segue.destination as! GameViewController
+            vc.gameType = "addition"
+        }
     }
+
     
     /*
     // MARK: - Navigation

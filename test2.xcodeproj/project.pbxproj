@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		291B6C51207802AD00D865BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 291B6C50207802AC00D865BD /* Assets.xcassets */; };
+		293BBA172078026700FC3BF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 293BBA152078026700FC3BF0 /* Main.storyboard */; };
 		29C8D6C72040A72600E4C122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6C62040A72600E4C122 /* AppDelegate.swift */; };
 		29C8D6C92040A72600E4C122 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6C82040A72600E4C122 /* MainMenuController.swift */; };
-		29C8D6CC2040A72600E4C122 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29C8D6CA2040A72600E4C122 /* Main.storyboard */; };
-		29C8D6CE2040A72600E4C122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29C8D6CD2040A72600E4C122 /* Assets.xcassets */; };
 		29C8D6DC2040A72700E4C122 /* test2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6DB2040A72700E4C122 /* test2Tests.swift */; };
 		29C8D6E72040A72700E4C122 /* test2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6E62040A72700E4C122 /* test2UITests.swift */; };
 		B264906820632A1000AB782B /* PatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B264906720632A1000AB782B /* PatternViewController.swift */; };
@@ -18,6 +18,8 @@
 		B2E2B65D204B814F00AF12E0 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2B65C204B814F00AF12E0 /* GameViewController.swift */; };
 		B2E2B662204B908500AF12E0 /* LevelSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2B661204B908500AF12E0 /* LevelSelectController.swift */; };
 		FA1077E02062597D001CC811 /* AdditionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1077DF2062597D001CC811 /* AdditionScene.swift */; };
+		FA1296EE206948C200412DDC /* AdvAdditionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1296ED206948C200412DDC /* AdvAdditionScene.swift */; };
+		FA1979622067633F0065687B /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1979612067633F0065687B /* LevelScene.swift */; };
 		FA8360DE20636A4A0058CBD1 /* AdditionScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */; };
 /* End PBXBuildFile section */
 
@@ -39,11 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		291B6C50207802AC00D865BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		293BBA162078026700FC3BF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		29C8D6C32040A72600E4C122 /* test2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C8D6C62040A72600E4C122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29C8D6C82040A72600E4C122 /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
-		29C8D6CB2040A72600E4C122 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		29C8D6CD2040A72600E4C122 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29C8D6D22040A72700E4C122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29C8D6D72040A72700E4C122 /* test2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C8D6DB2040A72700E4C122 /* test2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test2Tests.swift; sourceTree = "<group>"; };
@@ -56,6 +58,8 @@
 		B2E2B65C204B814F00AF12E0 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		B2E2B661204B908500AF12E0 /* LevelSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectController.swift; sourceTree = "<group>"; };
 		FA1077DF2062597D001CC811 /* AdditionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionScene.swift; sourceTree = "<group>"; };
+		FA1296ED206948C200412DDC /* AdvAdditionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvAdditionScene.swift; sourceTree = "<group>"; };
+		FA1979612067633F0065687B /* LevelScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
 		FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AdditionScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,15 +113,17 @@
 			children = (
 				FA1077DF2062597D001CC811 /* AdditionScene.swift */,
 				29C8D6C62040A72600E4C122 /* AppDelegate.swift */,
-				29C8D6CA2040A72600E4C122 /* Main.storyboard */,
 				B264906720632A1000AB782B /* PatternViewController.swift */,
 				29C8D6C82040A72600E4C122 /* MainMenuController.swift */,
 				B2E2B661204B908500AF12E0 /* LevelSelectController.swift */,
 				B2E2B65C204B814F00AF12E0 /* GameViewController.swift */,
 				FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */,
+				291B6C50207802AC00D865BD /* Assets.xcassets */,
 				B2E2B65A204B813A00AF12E0 /* GameScene.swift */,
-				29C8D6CD2040A72600E4C122 /* Assets.xcassets */,
 				29C8D6D22040A72700E4C122 /* Info.plist */,
+				293BBA152078026700FC3BF0 /* Main.storyboard */,
+				FA1979612067633F0065687B /* LevelScene.swift */,
+				FA1296ED206948C200412DDC /* AdvAdditionScene.swift */,
 			);
 			path = test2;
 			sourceTree = "<group>";
@@ -203,7 +209,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = oqbrennw;
 				TargetAttributes = {
 					29C8D6C22040A72600E4C122 = {
@@ -248,9 +254,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29C8D6CE2040A72600E4C122 /* Assets.xcassets in Resources */,
-				29C8D6CC2040A72600E4C122 /* Main.storyboard in Resources */,
 				FA8360DE20636A4A0058CBD1 /* AdditionScene.sks in Resources */,
+				291B6C51207802AD00D865BD /* Assets.xcassets in Resources */,
+				293BBA172078026700FC3BF0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +282,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2E2B662204B908500AF12E0 /* LevelSelectController.swift in Sources */,
+				FA1979622067633F0065687B /* LevelScene.swift in Sources */,
 				B2E2B65B204B813A00AF12E0 /* GameScene.swift in Sources */,
+				FA1296EE206948C200412DDC /* AdvAdditionScene.swift in Sources */,
 				29C8D6C92040A72600E4C122 /* MainMenuController.swift in Sources */,
 				B264906820632A1000AB782B /* PatternViewController.swift in Sources */,
 				B2E2B65D204B814F00AF12E0 /* GameViewController.swift in Sources */,
@@ -317,10 +325,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		29C8D6CA2040A72600E4C122 /* Main.storyboard */ = {
+		293BBA152078026700FC3BF0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				29C8D6CB2040A72600E4C122 /* Base */,
+				293BBA162078026700FC3BF0 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -342,6 +350,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -349,6 +358,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -376,7 +386,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -399,6 +409,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -406,6 +417,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -427,7 +439,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
