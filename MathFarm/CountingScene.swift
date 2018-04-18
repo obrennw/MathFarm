@@ -1,5 +1,5 @@
 //
-//  GameScene.swift
+//  CountingScene.swift
 //  draganddrop1
 //
 //  Created by oqbrennw on 2/5/18.
@@ -26,7 +26,7 @@ private let movableImages = ["apple"]
 //private let speaker = AVSpeechSynthesizer()
 
 /// Module that renders a level’s current state and maintains its corresponding game logic
-class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {    
+class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {
 
     /// Sprite that presents the current score
     let scoreText = SKLabelNode(fontNamed: "Arial")
@@ -35,11 +35,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
     /// The sprite that is currently being touched (if any)
     var selectedNode = SKSpriteNode()
     
+    var question = SKLabelNode(fontNamed: "Arial")
+    var victory = SKLabelNode(fontNamed: "Arial")
+    
     var contactFlag = false
     
     weak var game_delegate:GameViewController?
     
     let button = SKSpriteNode(imageNamed: "turtle")
+    
+    
+    let numApples = arc4random_uniform(1)+2
 
     
     /// Initialize the scene by NSCoder
@@ -69,10 +75,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         scoreText.fontSize = size.height/7.5
         scoreText.text = String(score)
         scoreText.fontColor = SKColor.black
+        scoreText.name = "score"
         
         
-        let numApples = arc4random_uniform(11)+1;
+        //let numApples = arc4random_uniform(11)+1;
         var imageNames = [String]()
+        
+        //let questionTextSpoken = "Please put " + String(numApples) + "apples into the bucket"
+        let questionTextWriten = "Feed the pig " + String(numApples) + " apples"
+        question.text = questionTextWriten
+        question.fontSize = 64
+        question.fontColor = .white
+        question.horizontalAlignmentMode = .center
+        question.verticalAlignmentMode = .center
+        question.position = CGPoint(x: frame.size.width / 2, y: frame.size.height * 0.9)
+        question.isAccessibilityElement = true
+        question.accessibilityLabel = questionTextWriten
+        question.name = "question"
+        //question.accessibilityLabel = questionTextSpoken
+        
+        
         for i in 0..<staticImages.count{
             imageNames.append(staticImages[i])
         }
@@ -136,6 +158,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
         }
         //let offsetFraction = (CGFloat(imageNames.count) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
         self.addChild(button)
+        self.addChild(question)
     }
     
     /// Called when screen is touched
@@ -196,9 +219,43 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
             speakString(text: score.description + " apples")
         }
         contactFlag = false
-        selectedNode.isHidden = true
+//        selectedNode.isHidden = true
         selectedNode.isAccessibilityElement = false
+        selectedNode.isUserInteractionEnabled = false
+        selectedNode.removeFromParent()
         print(score)
+        if(score == numApples){
+            onVictory()
+        }
+    }
+    
+    func onVictory(){
+        var backButton = SKSpriteNode()
+        for child in self.children {
+            if child.name == "apple" || child.name == "pig" || child.name == "score" || child.name == "question" {
+//                child.isHidden = true
+                child.isAccessibilityElement = false
+                child.isUserInteractionEnabled = false
+                child.removeFromParent()
+            } else if child.name == "menu" {
+                backButton = child as! SKSpriteNode
+//                child.isHidden = true
+//                child.isAccessibilityElement = false
+//                child.isUserInteractionEnabled = false
+                child.removeFromParent()
+            }
+        }
+        victory.text = "Good Job!"
+        victory.fontSize = 180
+        victory.fontColor = .white
+        victory.horizontalAlignmentMode = .center
+        victory.verticalAlignmentMode = .center
+        victory.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        victory.isAccessibilityElement = true
+        victory.accessibilityLabel = "Good Job!"
+        speakString(text: "Good Job!")
+        self.addChild(victory)
+        self.addChild(backButton)
     }
     
     
@@ -263,7 +320,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate 
     }
     
     deinit {
-        print("Deinit GameScene")
+        print("Deinit CountingScene")
     }
     
 }

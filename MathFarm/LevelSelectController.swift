@@ -1,6 +1,6 @@
 //
 //  LevelSelectController.swift
-//  test2
+//  MathFarm
 //
 //  Created by John Leland Washburn on 3/3/18.
 //  Copyright © 2018 oqbrennw. All rights reserved.
@@ -47,10 +47,6 @@ class LevelSelectController: UIViewController {
             let vc = segue.destination as! GameViewController
             vc.gameType = "addition"
         }
-    }
-    
-    @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue){
-        print("unwinding")
     }
 
     

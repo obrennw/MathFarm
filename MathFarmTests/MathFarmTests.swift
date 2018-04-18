@@ -1,15 +1,15 @@
 //
-//  test2Tests.swift
-//  test2Tests
+//  MathFarmTests.swift
+//  MathFarmTests
 //
 //  Created by oqbrennw on 2/23/18.
 //  Copyright © 2018 oqbrennw. All rights reserved.
 //
 
 import XCTest
-@testable import test2
+@testable import MathFarm
 
-class test2Tests: XCTestCase {
+class MathFarmTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

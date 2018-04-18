@@ -1,6 +1,6 @@
 //
 //  AdditionScene.swift
-//  test2
+//  MathFarm
 //
 //  Created by Mian Xing on 3/21/18.
 //  Copyright © 2018 oqbrennw. All rights reserved.
@@ -79,7 +79,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         let questionTextWriten = "Wanted: " + String(numA) + " + " + String(correctNum-numA)
         question.text = questionTextWriten
         question.fontSize = 64
-        question.fontColor = .cyan
+        question.fontColor = .white
         question.horizontalAlignmentMode = .center
         question.verticalAlignmentMode = .center
         question.position = CGPoint(x: frame.size.width / 2, y: frame.size.height * 0.9)

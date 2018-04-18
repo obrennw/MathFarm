@@ -1,6 +1,6 @@
 //
 //  PatternViewController.swift
-//  test2
+//  MathFarm
 //
 //  Created by John Leland Washburn on 3/21/18.
 //  Copyright © 2018 oqbrennw. All rights reserved.
@@ -74,9 +74,10 @@ class PatternViewController: UIViewController { //this file is for DEMO purposes
         }
     }
     
-    func speakString(text: String){ //also present in GameScene.swift...maybe switch to separate file for helper functions
-        let Utterance = AVSpeechUtterance(string: text)
-        speaker.speak(Utterance)
+    func speakString(text: String){ //also present in CountingScene.swift...maybe switch to separate file for helper functions
+        //let Utterance = AVSpeechUtterance(string: text)
+        //speaker.speak(Utterance)
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
     }
     
     public func setLevel(level: Int){

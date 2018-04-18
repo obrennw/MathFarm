@@ -1,6 +1,6 @@
 //
-//  test2UITests.swift
-//  test2UITests
+//  MathFarmUITests.swift
+//  MathFarmUITests
 //
 //  Created by oqbrennw on 2/23/18.
 //  Copyright © 2018 oqbrennw. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class test2UITests: XCTestCase {
+class MathFarmUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
