@@ -35,16 +35,22 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     /// The sprite that is currently being touched (if any)
     var selectedNode = SKSpriteNode()
     
+    /// The label that shows the task for the given level
     var question = SKLabelNode(fontNamed: "Arial")
+    /// A label with vitory text prompted on sucessful completion of level
     var victory = SKLabelNode(fontNamed: "Arial")
     
+    /// Boolean that states whether selected Node is in contact with pig or not
     var contactFlag = false
     
+    /// The referenced GameViewController that created this scene. Weak storage is used so that the instance is deleted once the scene is deleted. If strong storage is used here, duplicate untouchable GameViewControllers will be created
     weak var game_delegate:GameViewController?
     
+    /// The back button
     let button = SKSpriteNode(imageNamed: "turtle")
     
     
+    /// Randomly generated number of apples to be used for the level
     let numApples = arc4random_uniform(1)+2
 
     
@@ -197,6 +203,9 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         }
     }
     
+    /// Called when contact between two objects is finished
+    ///
+    /// - Parameter contact: The object that refers to the contact caused by the two objects
     func didEnd(_ contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
             
@@ -207,7 +216,8 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     }
     
     
-    /// Update 
+    
+    /// Update the score for the level
     func incrementScore(){
         score += 1
         scoreText.text = String(score)
@@ -229,6 +239,7 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         }
     }
     
+    /// Called when the correct number of apples are fed to the pig, prompts event text and removes all other game objects (other than back button)
     func onVictory(){
         var backButton = SKSpriteNode()
         for child in self.children {
@@ -303,6 +314,11 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         }
     }
     
+    /// Handles event when touch is lifted (increments score if apple is in contact with pig)
+    ///
+    /// - Parameters:
+    ///   - touches: Set of touches that caused event
+    ///   - event: UIEvent that triggered function
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if(contactFlag){
             incrementScore()

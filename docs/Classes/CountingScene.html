@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CountingScene Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/CountingScene" class="dashAnchor"></a>
+    <a title="CountingScene Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (39% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        CountingScene Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AdditionScene.html">AdditionScene</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AdvAdditionScene.html">AdvAdditionScene</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CountingScene.html">CountingScene</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GameViewController.html">GameViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LevelScene.html">LevelScene</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LevelSelectController.html">LevelSelectController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MainMenuController.html">MainMenuController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PatternViewController.html">PatternViewController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:8MathFarm7answers33_E4A54D7A68238E07EDFDB0404C4982BFLLSaySSGvp">answers</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:8MathFarm13movableImages33_28B584C5437CC64CAE3801FFEDAFD023LLSaySSGvp">movableImages</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:8MathFarm13movableImages33_9C4C76B3F1E2FE4D6E39514C92435C35LLSaySSGvp">movableImages</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:8MathFarm13movableImages33_F78DA23B9EA00C2D89182FC3FB730F68LLSaySSGvp">movableImages</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:8MathFarm7speaker33_E4A54D7A68238E07EDFDB0404C4982BFLLSo19AVSpeechSynthesizerCvp">speaker</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:8MathFarm12staticImages33_28B584C5437CC64CAE3801FFEDAFD023LLSaySSGvp">staticImages</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:8MathFarm12staticImages33_9C4C76B3F1E2FE4D6E39514C92435C35LLSaySSGvp">staticImages</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:8MathFarm12staticImages33_F78DA23B9EA00C2D89182FC3FB730F68LLSaySSGvp">staticImages</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/ColliderType.html">ColliderType</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>CountingScene</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">CountingScene</span><span class="p">:</span> <span class="kt">SKScene</span><span class="p">,</span> <span class="kt">SKPhysicsContactDelegate</span><span class="p">,</span> <span class="kt">AVSpeechSynthesizerDelegate</span></code></pre>
+
+                </div>
+              </div>
+            <p>Module that renders a level’s current state and maintains its corresponding game logic</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm13CountingSceneC9scoreTextSo11SKLabelNodeCvp"></a>
+                    <a name="//apple_ref/swift/Property/scoreText" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm13CountingSceneC9scoreTextSo11SKLabelNodeCvp">scoreText</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sprite that presents the current score</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">scoreText</span> <span class="o">=</span> <span class="kt">SKLabelNode</span><span class="p">(</span><span class="nv">fontNamed</span><span class="p">:</span> <span class="s">"Arial"</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm13CountingSceneC5scoreSivp"></a>
+                    <a name="//apple_ref/swift/Property/score" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm13CountingSceneC5scoreSivp">score</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Variable that keeps track of the current store</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">score</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm13CountingSceneC12selectedNodeSo08SKSpriteF0Cvp"></a>
+                    <a name="//apple_ref/swift/Property/selectedNode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm13CountingSceneC12selectedNodeSo08SKSpriteF0Cvp">selectedNode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The sprite that is currently being touched (if any)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">selectedNode</span> <span class="o">=</span> <span class="kt">SKSpriteNode</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm13CountingSceneC8questionSo11SKLabelNodeCvp"></a>
+                    <a name="//apple_ref/swift/Property/question" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm13CountingSceneC8questionSo11SKLabelNodeCvp">question</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The label that shows the task for the given level</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">question</span> <span class="o">=</span> <span class="kt">SKLabelNode</span><span class="p">(</span><span class="nv">fontNamed</span><span class="p">:</span> <span class="s">"Arial"</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm13CountingSceneC7victorySo11SKLabelNodeCvp"></a>
+                    <a name="//apple_ref/swift/Property/victory" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm13CountingSceneC7victorySo11SKLabelNodeCvp">victory</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A label with vitory text prompted on sucessful completion of level</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">victory</span> <span class="o">=</span> <span class="kt">SKLabelNode</span><span class="p">(</span><span class="nv">fontNamed</span><span class="p">:</span> <span class="s">"Arial"</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm13CountingSceneC11contactFlagSbvp"></a>
+                    <a name="//apple_ref/swift/Property/contactFlag" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm13CountingSceneC11contactFlagSbvp">contactFlag</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Boolean that states whether selected Node is in contact with pig or not</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">contactFlag</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm13CountingSceneC13game_delegateAA18GameViewControllerCSgXwvp"></a>
+                    <a name="//apple_ref/swift/Property/game_delegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm13CountingSceneC13game_delegateAA18GameViewControllerCSgXwvp">game_delegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The referenced GameViewController that created this scene. Weak storage is used so that the instance is deleted once the scene is deleted. If strong storage is used here, duplicate untouchable GameViewControllers will be created</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">weak</span> <span class="k">var</span> <span class="nv">game_delegate</span><span class="p">:</span><span class="kt"><a href="../Classes/GameViewController.html">GameViewController</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm13CountingSceneC6buttonSo12SKSpriteNodeCvp"></a>
+                    <a name="//apple_ref/swift/Property/button" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm13CountingSceneC6buttonSo12SKSpriteNodeCvp">button</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The back button</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">button</span> <span class="o">=</span> <span class="kt">SKSpriteNode</span><span class="p">(</span><span class="nv">imageNamed</span><span class="p">:</span> <span class="s">"turtle"</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm13CountingSceneC9numAppless6UInt32Vvp"></a>
+                    <a name="//apple_ref/swift/Property/numApples" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm13CountingSceneC9numAppless6UInt32Vvp">numApples</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Randomly generated number of apples to be used for the level</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">numApples</span> <span class="o">=</span> <span class="nf">arc4random_uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MathFarm@objc(cs)CountingScene(im)initWithCoder:"></a>
+                    <a name="//apple_ref/swift/Method/init(coder:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)CountingScene(im)initWithCoder:">init(coder:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize the scene by NSCoder</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">required</span> <span class="nf">init</span><span class="p">?(</span><span class="n">coder</span> <span class="nv">aDecorder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>coder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>coder used to initialize the scene</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MathFarm@objc(cs)CountingScene(im)initWithSize:"></a>
+                    <a name="//apple_ref/swift/Method/init(size:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)CountingScene(im)initWithSize:">init(size:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize the scene by size</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>size</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>size used to initialize the scene</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MathFarm@objc(cs)CountingScene(im)didMoveToView:"></a>
+                    <a name="//apple_ref/swift/Method/didMove(to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)CountingScene(im)didMoveToView:">didMove(to:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when scene is presented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">didMove</span><span class="p">(</span><span class="n">to</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">SKView</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The SKView rendering the scene</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MathFarm@objc(cs)CountingScene(im)touchesBegan:withEvent:"></a>
+                    <a name="//apple_ref/swift/Method/touchesBegan(_:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)CountingScene(im)touchesBegan:withEvent:">touchesBegan(_:with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when screen is touched</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">touchesBegan</span><span class="p">(</span><span class="n">_</span> <span class="nv">touches</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">UITouch</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>touches</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Set of touches submitted by event</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>event</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>UIEvent triggering the fucntion</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MathFarm@objc(cs)CountingScene(im)didBeginContact:"></a>
+                    <a name="//apple_ref/swift/Method/didBegin(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)CountingScene(im)didBeginContact:">didBegin(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when contact between two objects is initiated</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">didBegin</span><span class="p">(</span><span class="n">_</span> <span class="nv">contact</span><span class="p">:</span> <span class="kt">SKPhysicsContact</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>contact</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The object that refers to the contact caused by the two objects</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MathFarm@objc(cs)CountingScene(im)didEndContact:"></a>
+                    <a name="//apple_ref/swift/Method/didEnd(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)CountingScene(im)didEndContact:">didEnd(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when contact between two objects is finished</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">didEnd</span><span class="p">(</span><span class="n">_</span> <span class="nv">contact</span><span class="p">:</span> <span class="kt">SKPhysicsContact</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>contact</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The object that refers to the contact caused by the two objects</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm13CountingSceneC14incrementScoreyyF"></a>
+                    <a name="//apple_ref/swift/Method/incrementScore()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm13CountingSceneC14incrementScoreyyF">incrementScore()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Update the score for the level</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">incrementScore</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm13CountingSceneC9onVictoryyyF"></a>
+                    <a name="//apple_ref/swift/Method/onVictory()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm13CountingSceneC9onVictoryyyF">onVictory()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when the correct number of apples are fed to the pig, prompts event text and removes all other game objects (other than back button)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">onVictory</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm13CountingSceneC8degToRad12CoreGraphics7CGFloatVSd6degree_tF"></a>
+                    <a name="//apple_ref/swift/Method/degToRad(degree:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm13CountingSceneC8degToRad12CoreGraphics7CGFloatVSd6degree_tF">degToRad(degree:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Converts degrees to radians</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">degToRad</span><span class="p">(</span><span class="nv">degree</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>degree</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>value in degrees</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>converted value in radians</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm13CountingSceneC13onSpriteTouchySo12SKSpriteNodeC07touchedI0_tF"></a>
+                    <a name="//apple_ref/swift/Method/onSpriteTouch(touchedNode:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm13CountingSceneC13onSpriteTouchySo12SKSpriteNodeC07touchedI0_tF">onSpriteTouch(touchedNode:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Clears out wobble action from selected node and makes touched node wobble</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">onSpriteTouch</span><span class="p">(</span><span class="nv">touchedNode</span><span class="p">:</span> <span class="kt">SKSpriteNode</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>touchedNode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>sprite being touched</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MathFarm@objc(cs)CountingScene(im)touchesMoved:withEvent:"></a>
+                    <a name="//apple_ref/swift/Method/touchesMoved(_:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)CountingScene(im)touchesMoved:withEvent:">touchesMoved(_:with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Handles single finger drag on device</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">touchesMoved</span><span class="p">(</span><span class="n">_</span> <span class="nv">touches</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">UITouch</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>touches</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Set of touches that caused event</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>event</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>UIEvent that triggered function</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MathFarm@objc(cs)CountingScene(im)touchesEnded:withEvent:"></a>
+                    <a name="//apple_ref/swift/Method/touchesEnded(_:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)CountingScene(im)touchesEnded:withEvent:">touchesEnded(_:with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Handles event when touch is lifted (increments score if apple is in contact with pig)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">touchesEnded</span><span class="p">(</span><span class="n">_</span> <span class="nv">touches</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">UITouch</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>touches</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Set of touches that caused event</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>event</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>UIEvent that triggered function</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm13CountingSceneC11speakStringySS4text_tF"></a>
+                    <a name="//apple_ref/swift/Method/speakString(text:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm13CountingSceneC11speakStringySS4text_tF">speakString(text:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Prompts text to be spoken out by device</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">speakString</span><span class="p">(</span><span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>text</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>text to be spoken</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MathFarm@objc(cs)CountingScene(im)dealloc"></a>
+                    <a name="//apple_ref/swift/Method/deinit" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)CountingScene(im)dealloc">deinit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">deinit</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-04-18)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
