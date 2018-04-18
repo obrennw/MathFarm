@@ -1,6 +1,6 @@
 //
 //  MyScene.swift
-//  test2
+//  MathFarm
 //
 //  Created by oqbrennw on 2/28/18.
 //  Copyright © 2018 oqbrennw. All rights reserved.

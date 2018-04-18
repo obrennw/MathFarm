@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  test2
+//  MathFarm
 //
 //  Created by oqbrennw on 2/23/18.
 //  Copyright © 2018 oqbrennw. All rights reserved.

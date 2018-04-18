@@ -12,10 +12,9 @@
 		298E634D2087D0B10037A73F /* CountingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298E634C2087D0B10037A73F /* CountingScene.swift */; };
 		29C8D6C72040A72600E4C122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6C62040A72600E4C122 /* AppDelegate.swift */; };
 		29C8D6C92040A72600E4C122 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6C82040A72600E4C122 /* MainMenuController.swift */; };
-		29C8D6DC2040A72700E4C122 /* test2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6DB2040A72700E4C122 /* test2Tests.swift */; };
-		29C8D6E72040A72700E4C122 /* test2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6E62040A72700E4C122 /* test2UITests.swift */; };
+		29C8D6DC2040A72700E4C122 /* MathFarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6DB2040A72700E4C122 /* MathFarmTests.swift */; };
+		29C8D6E72040A72700E4C122 /* MathFarmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6E62040A72700E4C122 /* MathFarmUITests.swift */; };
 		B264906820632A1000AB782B /* PatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B264906720632A1000AB782B /* PatternViewController.swift */; };
-		B2E2B65B204B813A00AF12E0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2B65A204B813A00AF12E0 /* GameScene.swift */; };
 		B2E2B65D204B814F00AF12E0 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2B65C204B814F00AF12E0 /* GameViewController.swift */; };
 		B2E2B662204B908500AF12E0 /* LevelSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2B661204B908500AF12E0 /* LevelSelectController.swift */; };
 		FA1077E02062597D001CC811 /* AdditionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1077DF2062597D001CC811 /* AdditionScene.swift */; };
@@ -30,14 +29,14 @@
 			containerPortal = 29C8D6BB2040A72600E4C122 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 29C8D6C22040A72600E4C122;
-			remoteInfo = test2;
+			remoteInfo = MathFarm;
 		};
 		29C8D6E32040A72700E4C122 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29C8D6BB2040A72600E4C122 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 29C8D6C22040A72600E4C122;
-			remoteInfo = test2;
+			remoteInfo = MathFarm;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -45,18 +44,17 @@
 		291B6C50207802AC00D865BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		293BBA162078026700FC3BF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		298E634C2087D0B10037A73F /* CountingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountingScene.swift; sourceTree = "<group>"; };
-		29C8D6C32040A72600E4C122 /* test2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29C8D6C32040A72600E4C122 /* MathFarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathFarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C8D6C62040A72600E4C122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29C8D6C82040A72600E4C122 /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
 		29C8D6D22040A72700E4C122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		29C8D6D72040A72700E4C122 /* test2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		29C8D6DB2040A72700E4C122 /* test2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test2Tests.swift; sourceTree = "<group>"; };
+		29C8D6D72040A72700E4C122 /* MathFarmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MathFarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		29C8D6DB2040A72700E4C122 /* MathFarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathFarmTests.swift; sourceTree = "<group>"; };
 		29C8D6DD2040A72700E4C122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		29C8D6E22040A72700E4C122 /* test2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		29C8D6E62040A72700E4C122 /* test2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test2UITests.swift; sourceTree = "<group>"; };
+		29C8D6E22040A72700E4C122 /* MathFarmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MathFarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		29C8D6E62040A72700E4C122 /* MathFarmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathFarmUITests.swift; sourceTree = "<group>"; };
 		29C8D6E82040A72700E4C122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B264906720632A1000AB782B /* PatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternViewController.swift; sourceTree = "<group>"; };
-		B2E2B65A204B813A00AF12E0 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		B2E2B65C204B814F00AF12E0 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		B2E2B661204B908500AF12E0 /* LevelSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectController.swift; sourceTree = "<group>"; };
 		FA1077DF2062597D001CC811 /* AdditionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionScene.swift; sourceTree = "<group>"; };
@@ -93,9 +91,9 @@
 		29C8D6BA2040A72600E4C122 = {
 			isa = PBXGroup;
 			children = (
-				29C8D6C52040A72600E4C122 /* test2 */,
-				29C8D6DA2040A72700E4C122 /* test2Tests */,
-				29C8D6E52040A72700E4C122 /* test2UITests */,
+				29C8D6C52040A72600E4C122 /* MathFarm */,
+				29C8D6DA2040A72700E4C122 /* MathFarmTests */,
+				29C8D6E52040A72700E4C122 /* MathFarmUITests */,
 				29C8D6C42040A72600E4C122 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,14 +101,14 @@
 		29C8D6C42040A72600E4C122 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				29C8D6C32040A72600E4C122 /* test2.app */,
-				29C8D6D72040A72700E4C122 /* test2Tests.xctest */,
-				29C8D6E22040A72700E4C122 /* test2UITests.xctest */,
+				29C8D6C32040A72600E4C122 /* MathFarm.app */,
+				29C8D6D72040A72700E4C122 /* MathFarmTests.xctest */,
+				29C8D6E22040A72700E4C122 /* MathFarmUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29C8D6C52040A72600E4C122 /* test2 */ = {
+		29C8D6C52040A72600E4C122 /* MathFarm */ = {
 			isa = PBXGroup;
 			children = (
 				FA1077DF2062597D001CC811 /* AdditionScene.swift */,
@@ -122,39 +120,38 @@
 				FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */,
 				291B6C50207802AC00D865BD /* Assets.xcassets */,
 				298E634C2087D0B10037A73F /* CountingScene.swift */,
-				B2E2B65A204B813A00AF12E0 /* GameScene.swift */,
 				29C8D6D22040A72700E4C122 /* Info.plist */,
 				293BBA152078026700FC3BF0 /* Main.storyboard */,
 				FA1979612067633F0065687B /* LevelScene.swift */,
 				FA1296ED206948C200412DDC /* AdvAdditionScene.swift */,
 			);
-			path = test2;
+			path = MathFarm;
 			sourceTree = "<group>";
 		};
-		29C8D6DA2040A72700E4C122 /* test2Tests */ = {
+		29C8D6DA2040A72700E4C122 /* MathFarmTests */ = {
 			isa = PBXGroup;
 			children = (
-				29C8D6DB2040A72700E4C122 /* test2Tests.swift */,
+				29C8D6DB2040A72700E4C122 /* MathFarmTests.swift */,
 				29C8D6DD2040A72700E4C122 /* Info.plist */,
 			);
-			path = test2Tests;
+			path = MathFarmTests;
 			sourceTree = "<group>";
 		};
-		29C8D6E52040A72700E4C122 /* test2UITests */ = {
+		29C8D6E52040A72700E4C122 /* MathFarmUITests */ = {
 			isa = PBXGroup;
 			children = (
-				29C8D6E62040A72700E4C122 /* test2UITests.swift */,
+				29C8D6E62040A72700E4C122 /* MathFarmUITests.swift */,
 				29C8D6E82040A72700E4C122 /* Info.plist */,
 			);
-			path = test2UITests;
+			path = MathFarmUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		29C8D6C22040A72600E4C122 /* test2 */ = {
+		29C8D6C22040A72600E4C122 /* MathFarm */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 29C8D6EB2040A72700E4C122 /* Build configuration list for PBXNativeTarget "test2" */;
+			buildConfigurationList = 29C8D6EB2040A72700E4C122 /* Build configuration list for PBXNativeTarget "MathFarm" */;
 			buildPhases = (
 				29C8D6BF2040A72600E4C122 /* Sources */,
 				29C8D6C02040A72600E4C122 /* Frameworks */,
@@ -164,14 +161,14 @@
 			);
 			dependencies = (
 			);
-			name = test2;
-			productName = test2;
-			productReference = 29C8D6C32040A72600E4C122 /* test2.app */;
+			name = MathFarm;
+			productName = MathFarm;
+			productReference = 29C8D6C32040A72600E4C122 /* MathFarm.app */;
 			productType = "com.apple.product-type.application";
 		};
-		29C8D6D62040A72700E4C122 /* test2Tests */ = {
+		29C8D6D62040A72700E4C122 /* MathFarmTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 29C8D6EE2040A72700E4C122 /* Build configuration list for PBXNativeTarget "test2Tests" */;
+			buildConfigurationList = 29C8D6EE2040A72700E4C122 /* Build configuration list for PBXNativeTarget "MathFarmTests" */;
 			buildPhases = (
 				29C8D6D32040A72700E4C122 /* Sources */,
 				29C8D6D42040A72700E4C122 /* Frameworks */,
@@ -182,14 +179,14 @@
 			dependencies = (
 				29C8D6D92040A72700E4C122 /* PBXTargetDependency */,
 			);
-			name = test2Tests;
-			productName = test2Tests;
-			productReference = 29C8D6D72040A72700E4C122 /* test2Tests.xctest */;
+			name = MathFarmTests;
+			productName = MathFarmTests;
+			productReference = 29C8D6D72040A72700E4C122 /* MathFarmTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		29C8D6E12040A72700E4C122 /* test2UITests */ = {
+		29C8D6E12040A72700E4C122 /* MathFarmUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 29C8D6F12040A72700E4C122 /* Build configuration list for PBXNativeTarget "test2UITests" */;
+			buildConfigurationList = 29C8D6F12040A72700E4C122 /* Build configuration list for PBXNativeTarget "MathFarmUITests" */;
 			buildPhases = (
 				29C8D6DE2040A72700E4C122 /* Sources */,
 				29C8D6DF2040A72700E4C122 /* Frameworks */,
@@ -200,9 +197,9 @@
 			dependencies = (
 				29C8D6E42040A72700E4C122 /* PBXTargetDependency */,
 			);
-			name = test2UITests;
-			productName = test2UITests;
-			productReference = 29C8D6E22040A72700E4C122 /* test2UITests.xctest */;
+			name = MathFarmUITests;
+			productName = MathFarmUITests;
+			productReference = 29C8D6E22040A72700E4C122 /* MathFarmUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -232,7 +229,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 29C8D6BE2040A72600E4C122 /* Build configuration list for PBXProject "test2" */;
+			buildConfigurationList = 29C8D6BE2040A72600E4C122 /* Build configuration list for PBXProject "MathFarm" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -245,9 +242,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				29C8D6C22040A72600E4C122 /* test2 */,
-				29C8D6D62040A72700E4C122 /* test2Tests */,
-				29C8D6E12040A72700E4C122 /* test2UITests */,
+				29C8D6C22040A72600E4C122 /* MathFarm */,
+				29C8D6D62040A72700E4C122 /* MathFarmTests */,
+				29C8D6E12040A72700E4C122 /* MathFarmUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -286,7 +283,6 @@
 			files = (
 				B2E2B662204B908500AF12E0 /* LevelSelectController.swift in Sources */,
 				FA1979622067633F0065687B /* LevelScene.swift in Sources */,
-				B2E2B65B204B813A00AF12E0 /* GameScene.swift in Sources */,
 				FA1296EE206948C200412DDC /* AdvAdditionScene.swift in Sources */,
 				29C8D6C92040A72600E4C122 /* MainMenuController.swift in Sources */,
 				298E634D2087D0B10037A73F /* CountingScene.swift in Sources */,
@@ -301,7 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29C8D6DC2040A72700E4C122 /* test2Tests.swift in Sources */,
+				29C8D6DC2040A72700E4C122 /* MathFarmTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29C8D6E72040A72700E4C122 /* test2UITests.swift in Sources */,
+				29C8D6E72040A72700E4C122 /* MathFarmUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,12 +314,12 @@
 /* Begin PBXTargetDependency section */
 		29C8D6D92040A72700E4C122 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 29C8D6C22040A72600E4C122 /* test2 */;
+			target = 29C8D6C22040A72600E4C122 /* MathFarm */;
 			targetProxy = 29C8D6D82040A72700E4C122 /* PBXContainerItemProxy */;
 		};
 		29C8D6E42040A72700E4C122 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 29C8D6C22040A72600E4C122 /* test2 */;
+			target = 29C8D6C22040A72600E4C122 /* MathFarm */;
 			targetProxy = 29C8D6E32040A72700E4C122 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -458,10 +454,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7TZH87BWL;
-				INFOPLIST_FILE = test2/Info.plist;
+				INFOPLIST_FILE = MathFarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = john.test2.com;
+				PRODUCT_BUNDLE_IDENTIFIER = oscar.MathFarm.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -476,10 +472,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7TZH87BWL;
-				INFOPLIST_FILE = test2/Info.plist;
+				INFOPLIST_FILE = MathFarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = john.test2.com;
+				PRODUCT_BUNDLE_IDENTIFIER = oscar.MathFarm.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -493,13 +489,13 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7TZH87BWL;
-				INFOPLIST_FILE = test2Tests/Info.plist;
+				INFOPLIST_FILE = MathFarmTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = oscar.test2Tests;
+				PRODUCT_BUNDLE_IDENTIFIER = oscar.MathFarmTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/test2.app/test2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MathFarm.app/MathFarm";
 			};
 			name = Debug;
 		};
@@ -510,13 +506,13 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7TZH87BWL;
-				INFOPLIST_FILE = test2Tests/Info.plist;
+				INFOPLIST_FILE = MathFarmTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = oscar.test2Tests;
+				PRODUCT_BUNDLE_IDENTIFIER = oscar.MathFarmTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/test2.app/test2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MathFarm.app/MathFarm";
 			};
 			name = Release;
 		};
@@ -526,13 +522,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7TZH87BWL;
-				INFOPLIST_FILE = test2UITests/Info.plist;
+				INFOPLIST_FILE = MathFarmUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = oscar.test2UITests;
+				PRODUCT_BUNDLE_IDENTIFIER = oscar.MathFarmUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = test2;
+				TEST_TARGET_NAME = MathFarm;
 			};
 			name = Debug;
 		};
@@ -542,20 +538,20 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7TZH87BWL;
-				INFOPLIST_FILE = test2UITests/Info.plist;
+				INFOPLIST_FILE = MathFarmUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = oscar.test2UITests;
+				PRODUCT_BUNDLE_IDENTIFIER = oscar.MathFarmUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = test2;
+				TEST_TARGET_NAME = MathFarm;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		29C8D6BE2040A72600E4C122 /* Build configuration list for PBXProject "test2" */ = {
+		29C8D6BE2040A72600E4C122 /* Build configuration list for PBXProject "MathFarm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29C8D6E92040A72700E4C122 /* Debug */,
@@ -564,7 +560,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		29C8D6EB2040A72700E4C122 /* Build configuration list for PBXNativeTarget "test2" */ = {
+		29C8D6EB2040A72700E4C122 /* Build configuration list for PBXNativeTarget "MathFarm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29C8D6EC2040A72700E4C122 /* Debug */,
@@ -573,7 +569,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		29C8D6EE2040A72700E4C122 /* Build configuration list for PBXNativeTarget "test2Tests" */ = {
+		29C8D6EE2040A72700E4C122 /* Build configuration list for PBXNativeTarget "MathFarmTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29C8D6EF2040A72700E4C122 /* Debug */,
@@ -582,7 +578,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		29C8D6F12040A72700E4C122 /* Build configuration list for PBXNativeTarget "test2UITests" */ = {
+		29C8D6F12040A72700E4C122 /* Build configuration list for PBXNativeTarget "MathFarmUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29C8D6F22040A72700E4C122 /* Debug */,
