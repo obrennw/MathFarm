@@ -18,16 +18,13 @@ struct ColliderType{
     static let Bucket:UInt32 = 2
 }
 
-/// A list of static objects
-private let staticImages = ["pig"]
-/// A list of movable objects
-private let movableImages = ["apple"]
-/// Object that allows device to speek to user
-//private let speaker = AVSpeechSynthesizer()
-
-/// Module that renders a level’s current state and maintains its corresponding game logic
+/// Module that renders a counting level’s current state and maintains its corresponding game logic
 class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {
-
+    
+    /// A list of static objects
+    private let staticImages = ["pig"]
+    /// A list of movable objects
+    private let movableImages = ["apple"]
     /// Sprite that presents the current score
     let scoreText = SKLabelNode(fontNamed: "Arial")
     /// Variable that keeps track of the current store
@@ -331,10 +328,10 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     func speakString(text: String) {
         //let Utterance = AVSpeechUtterance(string: text)
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
-        
         //speaker.speak(Utterance)
     }
     
+    /// Actions called when instance is destroyed
     deinit {
         print("Deinit CountingScene")
     }

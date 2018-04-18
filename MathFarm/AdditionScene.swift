@@ -10,13 +10,11 @@ import SpriteKit
 import UIKit
 import AVFoundation
 
-
-private let staticImages = ["bucket2"]
-private let movableImages = ["apple", "orange", "peach", "broccoli", "lemon"]
-//private let speaker = AVSpeechSynthesizer()
-
 class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {
     // reference to the scene's controller, used for calling back to level selection button
+    
+    private let staticImages = ["bucket2"]
+    private let movableImages = ["apple", "orange", "peach", "broccoli", "lemon"]
     
     weak var game_delegate: GameViewController?
     var correctNum = arc4random_uniform(4)+1
@@ -29,11 +27,9 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     var winningStreakText: String?
     
     
-    var rightObjectType = movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))]
+    //var rightObjectType = movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))]
+    var rightObjectType = ""
    
-    
-
-
 //    let question = SKLabelNode(fontNamed: "Arial")
     
     var questionContainer = SKSpriteNode()
@@ -54,6 +50,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
 
     override func didMove(to view: SKView) {
         //print("width: ", frame.size.width, " height: ", frame.size.height)
+        rightObjectType = movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))]
         print(rightObjectType)
         let imageNames = generateObjectList()
 
