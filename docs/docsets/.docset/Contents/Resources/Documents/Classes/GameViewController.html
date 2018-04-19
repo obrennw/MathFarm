@@ -14,7 +14,7 @@
     <a title="GameViewController Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+        <p><a href="../index.html"> Docs</a> (42% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -31,19 +31,48 @@
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Classes/AdditionScene.html">AdditionScene</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AdvAdditionScene.html">AdvAdditionScene</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AppDelegate.html">AppDelegate</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/GameScene.html">GameScene</a>
+                <a href="../Classes/CountingScene.html">CountingScene</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/GameViewController.html">GameViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LevelScene.html">LevelScene</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/LevelSelectController.html">LevelSelectController</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/MainMenuController.html">MainMenuController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PatternViewController.html">PatternViewController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:8MathFarm7answers33_E4A54D7A68238E07EDFDB0404C4982BFLLSaySSGvp">answers</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:8MathFarm13movableImages33_F78DA23B9EA00C2D89182FC3FB730F68LLSaySSGvp">movableImages</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:8MathFarm7speaker33_E4A54D7A68238E07EDFDB0404C4982BFLLSo19AVSpeechSynthesizerCvp">speaker</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:8MathFarm12staticImages33_F78DA23B9EA00C2D89182FC3FB730F68LLSaySSGvp">staticImages</a>
               </li>
             </ul>
           </li>
@@ -76,9 +105,36 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@test2@objc(cs)GameViewController(im)loadView"></a>
+                    <a name="/s:8MathFarm18GameViewControllerC8gameTypeSSvp"></a>
+                    <a name="//apple_ref/swift/Property/gameType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm18GameViewControllerC8gameTypeSSvp">gameType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Key that determines which type of scene is generated</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">gameType</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">""</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MathFarm@objc(cs)GameViewController(im)loadView"></a>
                     <a name="//apple_ref/swift/Method/loadView()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@test2@objc(cs)GameViewController(im)loadView">loadView()</a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)GameViewController(im)loadView">loadView()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -103,9 +159,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@test2@objc(cs)GameViewController(im)viewDidLoad"></a>
+                    <a name="/c:@M@MathFarm@objc(cs)GameViewController(im)viewDidLoad"></a>
                     <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@test2@objc(cs)GameViewController(im)viewDidLoad">viewDidLoad()</a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)GameViewController(im)viewDidLoad">viewDidLoad()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -113,7 +169,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set properties of the Controller once the view is loaded</p>
+                        <p>Set properties of the Controller once the view is loaded
+expected behavior: based on the value of gameType load counting game or addition game</p>
 
                       </div>
                       <div class="declaration">
@@ -130,9 +187,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@test2@objc(cs)GameViewController(im)viewWillLayoutSubviews"></a>
+                    <a name="/c:@M@MathFarm@objc(cs)GameViewController(im)viewWillLayoutSubviews"></a>
                     <a name="//apple_ref/swift/Method/viewWillLayoutSubviews()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@test2@objc(cs)GameViewController(im)viewWillLayoutSubviews">viewWillLayoutSubviews()</a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)GameViewController(im)viewWillLayoutSubviews">viewWillLayoutSubviews()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -157,63 +214,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@test2@objc(cs)GameViewController(py)shouldAutorotate"></a>
-                    <a name="//apple_ref/swift/Property/shouldAutorotate" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@test2@objc(cs)GameViewController(py)shouldAutorotate">shouldAutorotate</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Whether device should rotate or not on promt</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="k">var</span> <span class="nv">shouldAutorotate</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@test2@objc(cs)GameViewController(py)supportedInterfaceOrientations"></a>
-                    <a name="//apple_ref/swift/Property/supportedInterfaceOrientations" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@test2@objc(cs)GameViewController(py)supportedInterfaceOrientations">supportedInterfaceOrientations</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Set supported orientations of device for the application</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="k">var</span> <span class="nv">supportedInterfaceOrientations</span><span class="p">:</span> <span class="kt">UIInterfaceOrientationMask</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@test2@objc(cs)GameViewController(im)didReceiveMemoryWarning"></a>
+                    <a name="/c:@M@MathFarm@objc(cs)GameViewController(im)didReceiveMemoryWarning"></a>
                     <a name="//apple_ref/swift/Method/didReceiveMemoryWarning()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@test2@objc(cs)GameViewController(im)didReceiveMemoryWarning">didReceiveMemoryWarning()</a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)GameViewController(im)didReceiveMemoryWarning">didReceiveMemoryWarning()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -238,9 +241,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@test2@objc(cs)GameViewController(py)prefersStatusBarHidden"></a>
+                    <a name="/c:@M@MathFarm@objc(cs)GameViewController(py)prefersStatusBarHidden"></a>
                     <a name="//apple_ref/swift/Property/prefersStatusBarHidden" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@test2@objc(cs)GameViewController(py)prefersStatusBarHidden">prefersStatusBarHidden</a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)GameViewController(py)prefersStatusBarHidden">prefersStatusBarHidden</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -264,10 +267,75 @@
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/game%20delegate"></a>
+                <a name="//apple_ref/swift/Section/game delegate" class="dashAnchor"></a>
+                <a href="#/game%20delegate">
+                  <h3 class="section-name">game delegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm18GameViewControllerC11backToLevelyyF"></a>
+                    <a name="//apple_ref/swift/Method/backToLevel()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm18GameViewControllerC11backToLevelyyF">backToLevel()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">backToLevel</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MathFarm@objc(cs)GameViewController(im)dealloc"></a>
+                    <a name="//apple_ref/swift/Method/deinit" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)GameViewController(im)dealloc">deinit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Actions called when instance is destroyed</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">deinit</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-03-05)</p>
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-04-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
