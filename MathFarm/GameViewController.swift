@@ -28,8 +28,6 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    
-    
     /// Configure view and subviews
     override func viewWillLayoutSubviews() {
         //Set scene and accordingly & load it into the view
