@@ -14,6 +14,8 @@ class LevelSelectController: UIViewController {
 
     /// Button that links to couting level
     @IBOutlet weak var CountingBtn: UIButton!
+    /// Button that links to addition level
+    @IBOutlet weak var AdditionBtn: UIButton!
     //button that links to pattern level
     @IBOutlet weak var PatternBtn: UIButton!
     
@@ -35,7 +37,7 @@ class LevelSelectController: UIViewController {
     }
     
     @IBAction func toAdditionLevel(_ sender: UIButton) {
-        performSegue(withIdentifier: "toAddition", sender: self)
+        performSegue(withIdentifier: "toSubLvlSelection", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -43,9 +45,8 @@ class LevelSelectController: UIViewController {
             let vc = segue.destination as! GameViewController
             vc.gameType = "counting"
         }
-        if(segue.identifier=="toAddition") {
-            let vc = segue.destination as! GameViewController
-            vc.gameType = "addition"
+        if(segue.identifier=="toSubLvlSelection") {
+            let vc = segue.destination as! SubLevelSelectController
         }
     }
 
