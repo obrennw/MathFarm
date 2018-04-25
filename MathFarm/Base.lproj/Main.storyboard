@@ -275,7 +275,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEp-Kr-JlZ">
-                                <rect key="frame" x="892" y="683" width="97" height="55"/>
+                                <rect key="frame" x="851" y="683" width="138" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" label="Douple tap to confirm your answer"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -641,7 +641,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="x1m-WK-pkG"/>
         <segue reference="vZL-mQ-GRL"/>
-        <segue reference="fzS-xn-hgQ"/>
+        <segue reference="l4G-5f-0SA"/>
         <segue reference="DPg-em-XKj"/>
         <segue reference="7Td-ot-7qX"/>
     </inferredMetricsTieBreakers>

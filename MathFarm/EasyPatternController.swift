@@ -13,6 +13,7 @@ class EasyPatternController: UIViewController {
     private var currentSelectedAnwer = ""
     private let easyLevelGenerator = PatternLevelEasy()
     private let defaultEmptyAnswer = #imageLiteral(resourceName: "Unknown-2")
+    private let defaultAccessText = "Which animal comes next?"
     
     @IBOutlet weak var zeroAnimal: UIButton!
     @IBOutlet weak var firstAnimal: UIButton!
@@ -62,6 +63,7 @@ class EasyPatternController: UIViewController {
         finishPatternWithImageAndName(image: easyLevelGenerator.getAnimalImageAt(index: currentPattern[4]), name: animalName)
         answerChoice0.isHidden = true
         answerChoice1.isHidden = false
+        answerChoice0.accessibilityLabel = "" //bug to fix...need to reset to current label
     }
     
     @IBAction func selectAnswer1(_ sender: UIButton) {
@@ -70,6 +72,7 @@ class EasyPatternController: UIViewController {
         finishPatternWithImageAndName(image: easyLevelGenerator.getAnimalImageAt(index: currentPattern[5]), name: animalName)
         answerChoice1.isHidden = true
         answerChoice0.isHidden = false
+        answerChoice1.accessibilityLabel = "" //SAME BUG AS MENTIONED ABOVE
     }
     
     @IBAction func checkAnswer(_ sender: UIButton) {
@@ -84,6 +87,7 @@ class EasyPatternController: UIViewController {
         }
         answerChoice0.isHidden = false
         answerChoice1.isHidden = false
+        answerSlot.accessibilityLabel = defaultAccessText
         answerSlot.setBackgroundImage(defaultEmptyAnswer, for: .normal)
     }
     
