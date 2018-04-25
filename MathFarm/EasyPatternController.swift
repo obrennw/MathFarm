@@ -10,13 +10,13 @@ import UIKit
 
 class EasyPatternController: UIViewController {
     private var currentPattern = [Int]()
-    private let image = #imageLiteral(resourceName: "49-Free-Cartoon-Cow-Clip-Art")
     private let easyLevelGenerator = PatternLevelEasy()
     
     @IBOutlet weak var zeroAnimal: UIButton!
     @IBOutlet weak var firstAnimal: UIButton!
     @IBOutlet weak var secondAnimal: UIButton!
     @IBOutlet weak var thirdAnimal: UIButton!
+    
     
     
     override func viewDidLoad() {
@@ -31,7 +31,15 @@ class EasyPatternController: UIViewController {
     }
     
     private func fillAnimalDetails(){
-        //zeroAnimal.setBackgroundImage(image, for: .normal)
-        //zeroAnimal.setTitle( "Why button no work", for: .normal)
+        zeroAnimal.setBackgroundImage(easyLevelGenerator.getAnimalImageAt(index: currentPattern[0]), for: .normal)
+        zeroAnimal.setTitle("", for: .normal)
+        
+        
+        firstAnimal.setBackgroundImage(easyLevelGenerator.getAnimalImageAt(index: currentPattern[1]), for: .normal)
+        firstAnimal.setTitle("", for: .normal)
+        
+        
+        secondAnimal.setTitle("", for: .normal)
+        secondAnimal.setBackgroundImage(easyLevelGenerator.getAnimalImageAt(index: currentPattern[2]), for: .normal)
     }
 }

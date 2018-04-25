@@ -222,34 +222,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOX-yE-Iyg" userLabel="Empty Animal">
                                 <rect key="frame" x="72" y="277" width="139" height="144"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES"/>
-                                </accessibility>
-                                <state key="normal" title="No Animal"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAT-ha-hZd" userLabel="Empty Animal">
-                                <rect key="frame" x="290" y="277" width="139" height="144"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES"/>
-                                </accessibility>
-                                <state key="normal" title="No Animal"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVv-du-hVc" userLabel="Empty Animal">
-                                <rect key="frame" x="516" y="277" width="139" height="144"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES"/>
-                                </accessibility>
-                                <state key="normal" title="No Animal"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2WX-VH-U6T" userLabel="Empty Animal">
-                                <rect key="frame" x="735" y="277" width="139" height="144"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
@@ -288,15 +260,39 @@
                                 </accessibility>
                                 <state key="normal" title="AnswerChoice1"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TrR-dG-ElR" userLabel="Empty Animal">
+                                <rect key="frame" x="296" y="277" width="139" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <state key="normal" title="No Animal"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8R-kH-EZL" userLabel="Empty Animal">
+                                <rect key="frame" x="519" y="277" width="139" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <state key="normal" title="No Animal"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAi-Jr-hY7" userLabel="Empty Animal">
+                                <rect key="frame" x="734" y="277" width="139" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <state key="normal" title="No Animal"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.82281726759999996" green="1" blue="0.99030350290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="fgm-DY-fWs"/>
                     </view>
                     <connections>
-                        <outlet property="firstAnimal" destination="iOX-yE-Iyg" id="WlX-Lf-a0s"/>
-                        <outlet property="fourthAnimal" destination="2WX-VH-U6T" id="pRH-kG-Cud"/>
-                        <outlet property="secondAnimal" destination="WAT-ha-hZd" id="nXG-Tj-GxF"/>
-                        <outlet property="thirdAnimal" destination="YVv-du-hVc" id="4YJ-zI-sDB"/>
+                        <outlet property="firstAnimal" destination="TrR-dG-ElR" id="P26-KU-BTJ"/>
+                        <outlet property="secondAnimal" destination="C8R-kH-EZL" id="OSE-gt-W06"/>
+                        <outlet property="thirdAnimal" destination="RAi-Jr-hY7" id="e8z-7w-yJq"/>
+                        <outlet property="zeroAnimal" destination="iOX-yE-Iyg" id="s3L-nX-EfC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9Q-ON-Mq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -604,7 +600,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="x1m-WK-pkG"/>
-        <segue reference="4Yg-OI-stg"/>
         <segue reference="qHI-DS-ARz"/>
         <segue reference="l4G-5f-0SA"/>
         <segue reference="bes-H3-K88"/>
