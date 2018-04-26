@@ -9,9 +9,19 @@
 import Foundation
 import UIKit
 
-class PatternLevelEasy { //make parent class eventually
+protocol PatternLevel {
+    func getAnimalNameAt(index: Int) -> String
+    func getAnimalImageAt(index: Int) -> UIImage
+    func getPattern() -> [Int]
+    func isAnswerCorrect(animal: String) -> Bool
+    func setAndGetNewPattern() -> [Int]
+    func getAnimalIndex(name: String) -> Int
+    func setRandomPattern()
+}
+
+class PatternLevelEasy : PatternLevel { //make parent class eventually
     private var pattern = [Int]()
-    private let possiblePatterns = ["111101", "000010", "010101", "101010", "222212", "333313", "232332", "313131", "202020", "020220"] //last 2 elements in each string are answer choices
+    private let possiblePatterns = ["111101", "000010", "010101", "101010", "222212", "333313", "232332", "313131", "202020", "020220", "131313"] //last 2 elements in each string are answer choices
     private let animalImages = [#imageLiteral(resourceName: "49-Free-Cartoon-Cow-Clip-Art"), #imageLiteral(resourceName: "pig-308577_960_720"), #imageLiteral(resourceName: "dog"), #imageLiteral(resourceName: "cat")] //cow=0, pig=1, dog=2, cat=3
     private let animalNames = ["cow", "pig", "dog", "cat"]
 
@@ -41,10 +51,10 @@ class PatternLevelEasy { //make parent class eventually
         return pattern
     }
     
-    public func getAnimalIndex(name: String) -> Int{
+    public func getAnimalIndex(name: String) -> Int {
         var index = 0
         for ani in animalNames {
-            if(ani.elementsEqual(name)){
+            if(ani == name){
                 return index
             }
             else {
@@ -54,7 +64,7 @@ class PatternLevelEasy { //make parent class eventually
         return -1
     }
     
-    private func setRandomPattern(){
+    internal func setRandomPattern(){
         let rand = Int(arc4random_uniform(UInt32(possiblePatterns.count)))
         let str = possiblePatterns[rand]
         

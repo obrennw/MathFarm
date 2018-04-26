@@ -250,7 +250,13 @@
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
-                                <state key="normal" title="No Animal"/>
+                                <state key="normal" title="animal0">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedAnimal:" destination="cCr-Lp-LvR" eventType="touchUpInside" id="ZW1-E4-aj7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3HB-nA-PDa" userLabel="Empty Animal">
                                 <rect key="frame" x="648" y="491" width="139" height="144"/>
@@ -302,7 +308,12 @@
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
-                                <state key="normal" title="No Animal"/>
+                                <state key="normal" title="animal1">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedAnimal:" destination="cCr-Lp-LvR" eventType="touchUpInside" id="jFf-WG-AgN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8R-kH-EZL" userLabel="Empty Animal">
                                 <rect key="frame" x="519" y="277" width="139" height="144"/>
@@ -310,7 +321,12 @@
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
-                                <state key="normal" title="No Animal"/>
+                                <state key="normal" title="animal2">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedAnimal:" destination="cCr-Lp-LvR" eventType="touchUpInside" id="4Zz-8X-PYC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcJ-0x-TaR" userLabel="Empty Animal">
                                 <rect key="frame" x="751" y="277" width="139" height="144"/>
@@ -332,11 +348,52 @@
                         <outlet property="firstAnimal" destination="TrR-dG-ElR" id="P26-KU-BTJ"/>
                         <outlet property="secondAnimal" destination="C8R-kH-EZL" id="OSE-gt-W06"/>
                         <outlet property="zeroAnimal" destination="iOX-yE-Iyg" id="s3L-nX-EfC"/>
+                        <segue destination="uSv-kf-0ks" kind="show" identifier="GreatJobEasy" id="D9b-Sr-2se"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9Q-ON-Mq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.6640625" y="2239.84375"/>
+            <point key="canvasLocation" x="-302" y="2266"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="XHH-y8-3bg">
+            <objects>
+                <viewController id="uSv-kf-0ks" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uJP-Tb-Zjs">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9l-uJ-Bgb">
+                                <rect key="frame" x="347" y="401" width="368" height="107"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.45202044882833026" green="1" blue="0.31255158689145002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Next Level"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="Next Level"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="cCr-Lp-LvR" kind="show" id="b0A-S6-Bvs"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Great Job!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THy-zQ-Hnt">
+                                <rect key="frame" x="276" y="156" width="510" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="100"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.82281726759999996" green="1" blue="0.99030350290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="JAn-bo-fIk"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2mf-r8-yZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-302.34375" y="2962.5"/>
         </scene>
         <!--Pattern Level Select-->
         <scene sceneID="cxk-os-k1T">
@@ -639,8 +696,10 @@
         <image name="thumbs_cartoon-farm-vector3" width="374" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="D9b-Sr-2se"/>
         <segue reference="x1m-WK-pkG"/>
         <segue reference="vZL-mQ-GRL"/>
+        <segue reference="b0A-S6-Bvs"/>
         <segue reference="l4G-5f-0SA"/>
         <segue reference="DPg-em-XKj"/>
         <segue reference="7Td-ot-7qX"/>
