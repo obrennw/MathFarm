@@ -8,14 +8,8 @@
 
 import UIKit
 
-class MediumPatternController: UIViewController {
-    private var currentPattern = [Int]()
-    private var animalRow = [UIButton]()
-    private var currentSelectedAnwer = ""
+class MediumPatternController: PatternController {
     private let mlg = PatternLevelMedium()
-    private let fx = SoundFX()
-    private let defaultEmptyAnswer = #imageLiteral(resourceName: "Unknown-2")
-    private let defaultAccessText = "Which animal comes next?"
     
     @IBOutlet weak var zeroAnimal: UIButton!
     @IBOutlet weak var firstAnimal: UIButton!
@@ -40,7 +34,7 @@ class MediumPatternController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func fillAnimalDetails() {
+    override func fillAnimalDetails() {
         var count = 0
         for animal in animalRow {
             animal.setBackgroundImage(mlg.getAnimalImageAt(index: currentPattern[count]), for: .normal)
@@ -58,7 +52,7 @@ class MediumPatternController: UIViewController {
     
     @IBAction func selectAnswer0(_ sender: UIButton) {
         let animalName = mlg.getAnimalNameAt(index: currentPattern[6])
-        currentSelectedAnwer = animalName
+        currentSelectedAnswer = animalName
         finishPatternWithImageAndName(image: mlg.getAnimalImageAt(index: currentPattern[6]), name: animalName)
         answerChoice0.isHidden = true
         answerChoice1.isHidden = false
@@ -69,7 +63,7 @@ class MediumPatternController: UIViewController {
     
     @IBAction func selectAnswer1(_ sender: UIButton) {
         let animalName = mlg.getAnimalNameAt(index: currentPattern[7])
-        currentSelectedAnwer = animalName
+        currentSelectedAnswer = animalName
         finishPatternWithImageAndName(image: mlg.getAnimalImageAt(index: currentPattern[7]), name: animalName)
         answerChoice1.isHidden = true
         answerChoice0.isHidden = false
@@ -86,7 +80,7 @@ class MediumPatternController: UIViewController {
     
     
     @IBAction func checkAnswer(_ sender: UIButton) {
-        if(mlg.isAnswerCorrect(animal: currentSelectedAnwer)){
+        if(mlg.isAnswerCorrect(animal: currentSelectedAnswer)){
             fx.playTada()
             performSegue(withIdentifier: "GreatJobMed", sender: nil)
         }
@@ -99,11 +93,9 @@ class MediumPatternController: UIViewController {
         }
     }
     
-    private func finishPatternWithImageAndName(image: UIImage, name: String){
+    override func finishPatternWithImageAndName(image: UIImage, name: String){
         answerSlot.setBackgroundImage(image, for: .normal)
         answerSlot.accessibilityLabel = name
     }
-    
-    deinit {}
 
 }

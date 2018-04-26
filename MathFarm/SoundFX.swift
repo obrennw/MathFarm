@@ -17,7 +17,7 @@ class SoundFX {
     private let tadaURL = Bundle.main.url(forResource: "tada", withExtension: "mp3")
     private let dogURL = Bundle.main.url(forResource: "bark", withExtension: "mp3")
     
-    public func playAnimalSound(animal: String) -> Bool {
+    public func playAnimalSound(animal: String) {
         switch(animal){
         case "pig":
             playPigSound()
@@ -37,9 +37,8 @@ class SoundFX {
             
         default:
             //no sound
-            return false
+            break
         }
-        return true
     }
     
     public func playTada(){

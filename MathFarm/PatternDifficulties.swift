@@ -22,7 +22,7 @@ protocol PatternLevel {
 class PatternLevelEasy : PatternLevel { //make parent class eventually
     private var pattern = [Int]()
     private let possiblePatterns = ["111101", "000010", "010101", "101010", "222212", "333313", "232332", "313131", "202020", "020220", "131313"] //last 2 elements in each string are answer choices
-    private let animalImages = [#imageLiteral(resourceName: "49-Free-Cartoon-Cow-Clip-Art"), #imageLiteral(resourceName: "pig-308577_960_720"), #imageLiteral(resourceName: "dog"), #imageLiteral(resourceName: "cat")] //cow=0, pig=1, dog=2, cat=3
+    private let animalImages = [#imageLiteral(resourceName: "cow"), #imageLiteral(resourceName: "pig-308577_960_720"), #imageLiteral(resourceName: "dog"), #imageLiteral(resourceName: "cat")] //cow=0, pig=1, dog=2, cat=3
     private let animalNames = ["cow", "pig", "dog", "cat"]
 
     init(){
@@ -80,7 +80,7 @@ class PatternLevelEasy : PatternLevel { //make parent class eventually
 class PatternLevelMedium : PatternLevel {
     private var pattern = [Int]()
     private let possiblePatterns = ["01010101", "10101010", "23232323", "30303003", "01201220", "12312330", "22332212", "31031020"]
-    private let animalImages = [#imageLiteral(resourceName: "49-Free-Cartoon-Cow-Clip-Art"), #imageLiteral(resourceName: "pig-308577_960_720"), #imageLiteral(resourceName: "dog"), #imageLiteral(resourceName: "cat")] //cow=0, pig=1, dog=2, cat=3
+    private let animalImages = [#imageLiteral(resourceName: "cow"), #imageLiteral(resourceName: "pig-308577_960_720"), #imageLiteral(resourceName: "dog"), #imageLiteral(resourceName: "cat")] //cow=0, pig=1, dog=2, cat=3
     private let animalNames = ["cow", "pig", "dog", "cat"]
     
     init(){
