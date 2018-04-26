@@ -17,7 +17,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     private let movableImages = ["apple", "orange", "peach", "broccoli", "lemon"]
     
     weak var game_delegate: GameViewController?
-    var correctNum = arc4random_uniform(4)+1
+    var correctNum = arc4random_uniform(5)+1
     var numA = UInt32(0)
     var answer = 0
     var contactFlag = false
@@ -53,15 +53,17 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         print(rightObjectType)
         let imageNames = generateObjectList()
 
+        //setup background node
         let backgroundNode = SKSpriteNode(imageNamed: "woodenBackground")
         backgroundNode.name = "backGround"
         backgroundNode.size = CGSize(width: size.width, height: size.height)
         backgroundNode.position = CGPoint(x: size.width/2, y: size.height/2)
         backgroundNode.zPosition = -3
-        
         self.addChild(backgroundNode)
+        
         self.physicsWorld.contactDelegate = self
-
+        
+        //setup the answer node
         answerText.fontSize = size.height/7.5
         answerText.text = String(answer)
         answerText.fontColor = .white
@@ -115,10 +117,6 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                 sprite.physicsBody?.contactTestBitMask = 0
                 sprite.size = CGSize(width: 84.0, height: 73.5)
                 sprite.position = CGPoint(x: size.width*0.25, y: size.height*0.15*CGFloat(i))
-//                let offsetFraction = (CGFloat(1) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
-//                print(offsetFraction)
-//                sprite.position = CGPoint(x: size.width * offsetFraction, y: (size.height/(1.25))-(1.5*(sprite.size.height)*CGFloat(i-1)))
-//                print("x: ",size.width * offsetFraction, " y: ", (size.height/(1.25))-(1.5*(sprite.size.height)*CGFloat(i-1)))
             }
             else{
                 sprite.accessibilityLabel = "bucket"
@@ -126,6 +124,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                 sprite.physicsBody?.collisionBitMask = 0
                 sprite.physicsBody?.contactTestBitMask = ColliderType.Object
                 sprite.setScale(0.225)
+                print(sprite.size)
                 sprite.zPosition = -1
                 
                 sprite.position = CGPoint(x: size.width * 0.75, y: (size.height / 2))
@@ -189,7 +188,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                     print("toNextLevel")
                     let newScene = AdvAdditionScene(size: self.size)
                     newScene.game_delegate = self.game_delegate
-                    newScene.winningStreak = self.winningStreak!+1
+                    newScene.winningStreak = 0
                     newScene.scaleMode = .aspectFill
                     print("before presenting scene")
                     let transition = SKTransition.moveIn(with: .right, duration: 1)
@@ -234,12 +233,14 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     
     func didBegin(_ contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
+            print("on bucket")
             contactFlag = true
         }
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
+            print("off bucket")
             contactFlag = false
         }
     }

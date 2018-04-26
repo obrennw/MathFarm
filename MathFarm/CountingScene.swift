@@ -48,7 +48,7 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     
     
     /// Randomly generated number of apples to be used for the level
-    let numApples = arc4random_uniform(1)+2
+    let numApples = arc4random_uniform(1)+8
 
     
     /// Initialize the scene by NSCoder

@@ -114,23 +114,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="toCountingLevel:" destination="fZs-Np-QL8" eventType="touchUpInside" id="M5W-Wf-f0H"/>
-                                    <segue destination="ucJ-tZ-mF5" kind="showDetail" identifier="toCounting" id="vZL-mQ-GRL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNn-h5-y6U" userLabel="PatternBtn">
-                                <rect key="frame" x="43" y="412" width="193" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <accessibility key="accessibilityConfiguration" label="Pattern Recognition"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="Pattern"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="eh1-ka-VaS" kind="showDetail" id="bmk-4a-TuV"/>
+                                    <segue destination="ucJ-tZ-mF5" kind="show" identifier="toCounting" id="bmc-bg-6Q5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zab-kf-EeT">
@@ -152,7 +136,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="xvl-TD-cQ0" kind="showDetail" id="7Td-ot-7qX"/>
+                                    <action selector="backToStartPage:" destination="fZs-Np-QL8" eventType="touchUpInside" id="I8f-HB-tiY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNn-h5-y6U" userLabel="PatternBtn">
+                                <rect key="frame" x="696" y="307" width="193" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Pattern Recognition"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Pattern"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="eh1-ka-VaS" kind="showDetail" id="bmk-4a-TuV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -258,12 +258,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDk-JO-BaX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1141" y="1409"/>
+            <point key="canvasLocation" x="1161" y="863"/>
         </scene>
         <!--Sub Level Select Controller-->
         <scene sceneID="W9q-po-6q0">
             <objects>
-                <viewController id="mDq-6r-5kf" customClass="SubLevelSelectController" customModule="MathFarm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SubLevelSelectController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mDq-6r-5kf" customClass="SubLevelSelectController" customModule="MathFarm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AgS-lE-gKP">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -272,51 +272,46 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1U-eA-AwB">
-                                <rect key="frame" x="446" y="347" width="183" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.085231731150000004" blue="0.078863051640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="Pro"/>
-                                <connections>
-                                    <action selector="toAdditionLevel:" destination="fZs-Np-QL8" eventType="touchUpInside" id="qIR-ku-bCD"/>
-                                    <action selector="toHardAddi:" destination="mDq-6r-5kf" eventType="touchUpInside" id="GBf-Hc-EuE"/>
-                                    <segue destination="ucJ-tZ-mF5" kind="show" identifier="toHardAddition" id="qHI-DS-ARz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCH-xB-Xrx">
-                                <rect key="frame" x="150" y="347" width="183" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.085231731150000004" blue="0.078863051640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="New Kid"/>
-                                <connections>
-                                    <action selector="toAdditionLevel:" destination="fZs-Np-QL8" eventType="touchUpInside" id="ivp-Rc-hts"/>
-                                    <action selector="toEasyAddi:" destination="mDq-6r-5kf" eventType="touchUpInside" id="0hi-HP-lSd"/>
-                                    <segue destination="ucJ-tZ-mF5" kind="show" identifier="toEasyAddition" id="br6-gx-Vu0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aan-6W-bTZ">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3X-an-6Y2">
                                 <rect key="frame" x="20" y="20" width="193" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.1058595616" blue="0.19783650420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <accessibility key="accessibilityConfiguration" label="Go back to start page!"/>
+                                <color key="backgroundColor" red="1" green="0.085231731150000004" blue="0.078863051640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Go back to start another game!"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="fZs-Np-QL8" kind="show" identifier="backToUpperLevel" id="bes-H3-K88"/>
+                                    <action selector="goBack:" destination="mDq-6r-5kf" eventType="touchUpInside" id="w8D-JF-rWe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhJ-LO-mmJ">
+                                <rect key="frame" x="226" y="334" width="183" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.085231731150000004" blue="0.078863051640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Easy"/>
+                                <connections>
+                                    <action selector="toEasyAddi:" destination="mDq-6r-5kf" eventType="touchUpInside" id="6FF-aI-3yH"/>
+                                    <segue destination="ucJ-tZ-mF5" kind="show" identifier="toEasyAddition" id="PCl-T2-okJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8J-5x-08p">
+                                <rect key="frame" x="617" y="334" width="183" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.085231731150000004" blue="0.078863051640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Hard"/>
+                                <connections>
+                                    <action selector="toHardAddi:" destination="mDq-6r-5kf" eventType="touchUpInside" id="8n8-HH-qVl"/>
+                                    <segue destination="ucJ-tZ-mF5" kind="show" identifier="toHardAddition" id="Rw1-a9-5g2"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <accessibility key="accessibilityConfiguration">
-                            <bool key="isElement" value="YES"/>
-                        </accessibility>
                         <viewLayoutGuide key="safeArea" id="9gp-a5-IdR"/>
                     </view>
                     <connections>
-                        <outlet property="toEasyLvl" destination="iCH-xB-Xrx" id="DEq-mJ-LTH"/>
-                        <outlet property="toHardLvl" destination="J1U-eA-AwB" id="IsY-Qo-Dlj"/>
+                        <outlet property="toEasyLvl" destination="QhJ-LO-mmJ" id="2xJ-Qm-47j"/>
+                        <outlet property="toHardLvl" destination="j8J-5x-08p" id="fKE-gZ-NjW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DXX-iO-4y9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -463,7 +458,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zaR-fx-dig" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1822" y="1409"/>
+            <point key="canvasLocation" x="1832" y="863"/>
         </scene>
     </scenes>
     <resources>
@@ -473,9 +468,8 @@
         <image name="thumbs_cartoon-farm-vector3" width="374" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qHI-DS-ARz"/>
+        <segue reference="bmc-bg-6Q5"/>
         <segue reference="bmk-4a-TuV"/>
-        <segue reference="bes-H3-K88"/>
-        <segue reference="7Td-ot-7qX"/>
+        <segue reference="xuI-Yr-VZ2"/>
     </inferredMetricsTieBreakers>
 </document>

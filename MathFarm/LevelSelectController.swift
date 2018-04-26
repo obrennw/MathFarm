@@ -39,13 +39,17 @@ class LevelSelectController: UIViewController {
     @IBAction func toAdditionLevel(_ sender: UIButton) {
         performSegue(withIdentifier: "toSubLvlSelection", sender: self)
     }
+    @IBAction func backToStartPage(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier=="toCounting") {
+            print("here")
             let vc = segue.destination as! GameViewController
             vc.gameType = "counting"
         }
-        if(segue.identifier=="toSubLvlSelection") {
+        else if(segue.identifier=="toSubLvlSelection") {
             let vc = segue.destination as! SubLevelSelectController
         }
     }

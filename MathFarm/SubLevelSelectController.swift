@@ -9,15 +9,15 @@
 import UIKit
 
 class SubLevelSelectController: UIViewController {
-
+    
     @IBOutlet weak var toEasyLvl: UIButton!
     @IBOutlet weak var toHardLvl: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -31,6 +31,9 @@ class SubLevelSelectController: UIViewController {
         performSegue(withIdentifier: "toHardAddition", sender: self)
     }
     
+    @IBAction func goBack(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier != "backToUpperLevel") {
             let vc = segue.destination as! GameViewController

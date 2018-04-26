@@ -52,6 +52,7 @@ class GameViewController: UIViewController {
             case "AdvAddition":
                 let scene = AdvAdditionScene(size: skView.frame.size)
                 scene.game_delegate = self
+                scene.winningStreak = 0
                 scene.scaleMode = .aspectFill
                 skView.presentScene(scene)
             default: break
