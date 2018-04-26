@@ -696,7 +696,6 @@
         <image name="thumbs_cartoon-farm-vector3" width="374" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="D9b-Sr-2se"/>
         <segue reference="x1m-WK-pkG"/>
         <segue reference="vZL-mQ-GRL"/>
         <segue reference="b0A-S6-Bvs"/>
