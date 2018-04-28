@@ -12,6 +12,7 @@ class SubLevelSelectController: UIViewController {
     
     @IBOutlet weak var toEasyLvl: UIButton!
     @IBOutlet weak var toHardLvl: UIButton!
+    @IBOutlet weak var toMedLvl: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,18 +32,30 @@ class SubLevelSelectController: UIViewController {
         performSegue(withIdentifier: "toHardAddition", sender: self)
     }
     
+    @IBAction func toMedAddi(_ sender: UIButton) {
+        performSegue(withIdentifier: "toMediumAddition", sender: self)
+    }
     @IBAction func goBack(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier != "backToUpperLevel") {
             let vc = segue.destination as! GameViewController
-            if(segue.identifier=="toEasyAddition") {
+            switch segue.identifier {
+            case "toEasyAddition"?:
                 vc.gameType = "addition"
-            }
-            else if(segue.identifier=="toHardAddition") {
+            case "toMediumAddition"?:
+                vc.gameType = "MedAddition"
+            case "toHardAddition"?:
                 vc.gameType = "AdvAddition"
+            default: break
             }
+//            if(segue.identifier=="toEasyAddition") {
+//                vc.gameType = "addition"
+//            }
+//            else if(segue.identifier=="toHardAddition") {
+//                vc.gameType = "AdvAddition"
+//            }
         }
     }
     

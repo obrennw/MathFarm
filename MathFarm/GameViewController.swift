@@ -38,15 +38,21 @@ class GameViewController: UIViewController {
             skView.showsNodeCount = true
             skView.ignoresSiblingOrder = true
             switch gameType {
+            case "counting":
+                let scene = CountingScene(size: skView.frame.size)
+                scene.game_delegate = self
+                scene.scaleMode = .aspectFill
+                skView.presentScene(scene)
             case "addition":
                 let scene = AdditionScene(size: skView.frame.size)
                 scene.game_delegate = self
                 scene.winningStreak = 0
                 scene.scaleMode = .aspectFill
                 skView.presentScene(scene)
-            case "counting":
-                let scene = CountingScene(size: skView.frame.size)
+            case "MedAddition":
+                let scene = MedAdditionScene(size: skView.frame.size)
                 scene.game_delegate = self
+                scene.winningStreak = 0
                 scene.scaleMode = .aspectFill
                 skView.presentScene(scene)
             case "AdvAddition":

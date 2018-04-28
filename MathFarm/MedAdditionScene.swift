@@ -1,5 +1,5 @@
 //
-//  AdvAdditionScene.swift
+//  MedAdditionScene.swift
 //  MathFarm
 //
 //  Created by Mian Xing on 3/26/18.
@@ -12,7 +12,7 @@ import SpriteKit
 private let staticImages = ["crate"]
 private let movableImages = ["apple", "orange", "peach", "broccoli", "lemon"]
 
-class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
+class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
     weak var game_delegate: GameViewController?
     var contactFlag = false
     var movingFlag = false
@@ -22,21 +22,21 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
     var winningStreak: Int?
     var backButton = SKLabelNode(fontNamed: "Arial")
     var numInCrate = 0
-    var objNumChangce = 0
     var nodeOriginalPosition: CGPoint?
     var rightObjectType = movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))]
     var numberText = SKLabelNode(fontNamed: "Arial")
-    var correctNum = arc4random_uniform(9)+1
+    var correctNum = arc4random_uniform(5)+1
     var correctObjNum = arc4random_uniform(2)+2
     var fakeCorrectObjNum = arc4random_uniform(2)+1
     var numA = UInt32(0)
     var numB = UInt32(0)
     var gameTask = SKLabelNode(fontNamed: "Arial")
     var typeNode = SKSpriteNode()
-    var objTypeList = [String]()
-    var objNumList = [String]()
+    var numIndicator = SKLabelNode(fontNamed: "Arial")
+    var objList = [String]()
+    var errorTextNode = SKLabelNode(fontNamed: "Arial")
     var winningStreakText: String?
-
+    
     
     required init?(coder aDecorder: NSCoder){
         fatalError("init(coder: has not been implemented")
@@ -52,12 +52,11 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         print(correctNum)
         print(correctObjNum)
         print(fakeCorrectObjNum)
-
+        
         self.physicsWorld.contactDelegate = self
-
+        
         
         //setup the background
-//        let backgroundNode = SKSpriteNode(imageNamed: "farmland_background")
         backgroundNode.name = "backGround"
         backgroundNode.size = CGSize(width: size.width, height: size.height)
         backgroundNode.position = CGPoint(x: size.width/2, y: size.height/2)
@@ -70,11 +69,12 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         backButton.name = "back to level selection"
         backButton.isAccessibilityElement = true
         backButton.accessibilityLabel = "go back and start a new farm task"
+        self.addChild(backButton)
         
         //setup crate node
         let crate = SKSpriteNode(imageNamed: "crate")
         crate.isAccessibilityElement = true
-        crate.accessibilityLabel = "crate"
+        crate.accessibilityLabel = "The crate now has " + String(numInCrate) + " " + ((numInCrate<=1) ? rightObjectType: rightObjectType+"s")
         crate.name = "crate"
         crate.zPosition = -1
         crate.position = CGPoint(x: size.width * 0.7, y: size.height * 0.5)
@@ -86,6 +86,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         crate.physicsBody?.categoryBitMask = ColliderType.Bucket
         crate.physicsBody?.collisionBitMask = 0
         crate.physicsBody?.contactTestBitMask = ColliderType.Object
+        self.addChild(crate)
         
         //set up gameTask text node and type indicator node
         numA = arc4random_uniform(correctNum)
@@ -106,20 +107,19 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         typeNode.position = CGPoint(x: size.width * 0.75, y: size.height * 0.9)
         typeNode.name = "objShowType"
         self.addChild(typeNode)
+        self.addChild(gameTask)
         
         generateObjList()
         print("list generated")
         var i = 0
-        while(!objTypeList.isEmpty && !objNumList.isEmpty) {
-            let randomIndex = Int(arc4random_uniform(UInt32(objNumList.count)))
-            let randomObjType = objTypeList[randomIndex]
-            let randomObjNum = objNumList[randomIndex]
+        while(!objList.isEmpty) {
+            let randomIndex = Int(arc4random_uniform(UInt32(objList.count)))
+            let randomObjType = objList[randomIndex]
             let sprite = SKSpriteNode(imageNamed: randomObjType)
-
+            
             sprite.name = randomObjType
             sprite.size = CGSize(width: 108, height: 96)
-            sprite.physicsBody = SKPhysicsBody(circleOfRadius: max(sprite.size.width/4,
-                                                                   sprite.size.height/4))
+            sprite.physicsBody = SKPhysicsBody(circleOfRadius: max(sprite.size.width/4, sprite.size.height/4))
             sprite.physicsBody?.affectedByGravity = false
             sprite.physicsBody?.categoryBitMask = ColliderType.Object
             sprite.physicsBody?.collisionBitMask = 0
@@ -127,42 +127,36 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
             let yposition = (i<5) ? CGFloat(size.height*0.15*CGFloat(i+1)):CGFloat(size.height*0.15*CGFloat(i-4))
             let xOffset = (i<5) ? 0.15:0.35
             let xposition = CGFloat(size.width*CGFloat(xOffset))
-//            print(xposition)
+            //            print(xposition)
             sprite.position = CGPoint(x:xposition, y:yposition)
             sprite.zPosition = 0
-            let spriteNumText = SKLabelNode(fontNamed:"Arial")
-            spriteNumText.name = "number"
-            spriteNumText.text = randomObjNum
-            spriteNumText.position = CGPoint(x: -sprite.size.width/2, y: sprite.size.height/2)
-            spriteNumText.zPosition = sprite.zPosition+1
-            
             sprite.isAccessibilityElement = true
-            sprite.accessibilityLabel = randomObjNum + " " + ((randomObjNum == String(1)||randomObjType=="broccoli") ?randomObjType:randomObjType+"s")
-            sprite.addChild(spriteNumText)
+            sprite.accessibilityLabel = randomObjType
             self.addChild(sprite)
-            objTypeList.remove(at: randomIndex)
-            objNumList.remove(at: randomIndex)
+            objList.remove(at: randomIndex)
             i = i+1
         }
+        
+        // we need a status indicator indicating the number in the crate now
+        numIndicator.fontSize = 120
+        numIndicator.text = String(numInCrate)
+        numIndicator.position = CGPoint(x:size.width*0.94, y:size.height/2)
+        self.addChild(numIndicator)
         
         //generate a submit button
         let submitButton = SKLabelNode(fontNamed: "Arial")
         submitButton.isAccessibilityElement = true
-        submitButton.accessibilityLabel = "submit for evaluate"
         submitButton.name = "submit"
         submitButton.text = "submit"
         submitButton.position = CGPoint(x:size.width*0.92, y: size.height*0.9)
+        self.addChild(submitButton)
+        
+        errorTextNode.position = gameTask.position
+        errorTextNode.isHidden = true
+        self.addChild(errorTextNode)
         
         generateStreakBar()
-        self.addChild(crate)
-        self.addChild(backButton)
-        self.addChild(submitButton)
-        self.addChild(gameTask)
-        print("before")
-//        speakString(text: gameTask.accessibilityLabel!)
-        print("after")
-        
-        // here force VoiceOver to focus on the gameTask and thus read it out
+        // need to generate that go to hard level button here
         shiftFocus(node: gameTask)
     }
     
@@ -198,10 +192,23 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
                 }
                 else if(touchedNode.name == "continue") {
                     print("continue")
-                    let newScene = AdvAdditionScene(size: self.size)
+                    let newScene = MedAdditionScene(size: self.size)
                     newScene.game_delegate = self.game_delegate
                     newScene.winningStreak = self.winningStreak!
                     newScene.scaleMode = .aspectFill
+                    let transition = SKTransition.moveIn(with: .right, duration: 1)
+                    transition.pausesOutgoingScene = false
+                    self.removeAllActions()
+                    self.removeAllChildren()
+                    self.scene?.view?.presentScene(newScene,transition: transition)
+                }
+                else if(touchedNode.name == "toNextLevel") {
+                    print("toNextLevel")
+                    let newScene = AdvAdditionScene(size: self.size)
+                    newScene.game_delegate = self.game_delegate
+                    newScene.winningStreak = 0
+                    newScene.scaleMode = .aspectFill
+                    print("before presenting scene")
                     let transition = SKTransition.moveIn(with: .right, duration: 1)
                     transition.pausesOutgoingScene = false
                     self.removeAllActions()
@@ -215,7 +222,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             //Drag sprite to new position if it is being touched
-
+            
             let nodePosition = selectedNode.position
             let currentPosition = touch.location(in: self)
             let previousPosition = touch.previousLocation(in: self)
@@ -232,7 +239,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
             if(selectedNode.name == rightObjectType) {
                 print("great")
                 //add speak string to announce addition
-                let updateMsg = "Put " + String(objNumChangce) + ((objNumChangce == 1||rightObjectType=="broccoli") ?rightObjectType:rightObjectType+"s") + " into the crate. The crate now has " + String(numInCrate) + ((numInCrate <= 1||rightObjectType=="broccoli") ?rightObjectType:rightObjectType+"s")
+                let updateMsg = "Put one " + rightObjectType + " into the crate. The crate now has " + String(numInCrate) + ((numInCrate <= 1||rightObjectType=="broccoli") ?rightObjectType:rightObjectType+"s")
                 speakString(text: updateMsg)
             } else {
                 print("wrong type of object")
@@ -243,7 +250,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
             }
             print("contact off")
             contactFlag = false
-        } 
+        }
         if(movingFlag==true) {
             print("movingFlag off")
             movingFlag = false
@@ -252,12 +259,12 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
             print("numInCrate now: ", numInCrate)
             //check if the selectednode was moved from crate, if yes announce decrease
             if(AusCrateFlag) {
-                let updateMsg = "Moved " + String(objNumChangce) + ((objNumChangce == 1||rightObjectType=="broccoli") ?rightObjectType:rightObjectType+"s") + " out of the crate. The crate now has " + String(numInCrate) + ((numInCrate <= 1||rightObjectType=="broccoli") ?rightObjectType:rightObjectType+"s")
+                let updateMsg = "Moved one " + rightObjectType + " out of the crate. The crate now has " + String(numInCrate) + ((numInCrate <= 1||rightObjectType=="broccoli") ?rightObjectType:rightObjectType+"s")
                 speakString(text: updateMsg)
                 AusCrateFlag = false
             }
         }
-//        selectedNode = SKSpriteNode()
+        //        selectedNode = SKSpriteNode()
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -301,78 +308,46 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func generateObjList() {
-        //setup
-        var targetNum = correctNum
-        //generate right answer combinations
-        for _ in 0 ..< correctObjNum-1 {
-            if(targetNum == 0) {break}
-            let rightAnsPart = arc4random_uniform(targetNum)+1
-            objNumList.append(String(rightAnsPart))
-            targetNum -= rightAnsPart
+        for i in 1 ... 10 {
+            if(i<=correctNum) {
+                objList.append(rightObjectType)
+            } else {
+                objList.append(movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))])
+            }
         }
-        if(targetNum != 0) {objNumList.append(String(targetNum))}
-        //generate some dummy answer of the same type
-        for _ in 0 ..< fakeCorrectObjNum {
-            objNumList.append(String(arc4random_uniform(correctNum)+1))
-        }
-        //expand the list to include random numbered answer of random type
-//        print(objNumList)
-        //sync with type list
-        for _ in 0 ..< objNumList.count {
-            objTypeList.append(rightObjectType)
-        }
-//        print(objTypeList)
-        //expand both list to 10 count
-        for _ in 0 ..< (10-objTypeList.count) {
-            objNumList.append(String(arc4random_uniform(correctNum)+1))
-            objTypeList.append(
-                movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))])
-        }
-//        print("now")
-        print(objTypeList)
-        print(objNumList)
-        
+        print(objList)
     }
+    
     private func updateAnswer(node: SKSpriteNode, add: Bool) {
         print("numInCrate before: ", numInCrate)
-        var objNum = 0
-        if let objTextNode = node.childNode(withName: "number") as? SKLabelNode {
-            objNum = Int(objTextNode.text!)!
-            print(objNum)
-            numInCrate = (add) ? numInCrate + objNum:numInCrate - objNum
-        }
+        numInCrate = (add) ? numInCrate + 1:numInCrate - 1
+        numIndicator.text = String(numInCrate)
         print("numInCrate after: ", numInCrate)
-        objNumChangce = objNum
-        print("objNumChange: ", objNumChangce)
         
-//        contactFlag = false
-
+        //        contactFlag = false
+        
     }
     
     private func evaluate() {
-        speakString(text: "evaluate")
         if(numInCrate<correctNum) {
             print("too few!")
             let errorTextWritten = "Uh-oh..." + String(numA) + " + " + String(numB) + " > " + String(numInCrate)
-//            speakString(text: errorTextWritten)
             gameTask.text = errorTextWritten
             gameTask.fontColor = .yellow
             typeNode.position = CGPoint(x: size.width * 0.8, y: size.height * 0.9)
             shakeCamera(layer: backgroundNode, duration: 1.0)
-            winningStreak = 0
-            zeroStreakBar()
+            winningStreak = (winningStreak! <= 2) ?0 : winningStreak! - 2
+            generateStreakBar()
             shiftFocus(node: gameTask)
-
         } else if (numInCrate>correctNum) {
             print("too many!")
             let errorTextWritten = "Uh-oh..." + String(numA) + " + " + String(numB) + " < " + String(numInCrate)
-//            speakString(text: errorTextWritten)
             gameTask.text = errorTextWritten
             gameTask.fontColor = .yellow
             typeNode.position = CGPoint(x: size.width * 0.8, y: size.height * 0.9)
             shakeCamera(layer: backgroundNode, duration: 1.0)
-            winningStreak = 0
-            zeroStreakBar()
+            winningStreak = (winningStreak! <= 2) ?0 : winningStreak! - 2
+            generateStreakBar()
             shiftFocus(node: gameTask)
         } else {
             onVictory()
@@ -380,7 +355,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
     }
     
     
-/* the following method is credited to https://gist.github.com/mihailt/d793236f31f0b8f8722e */
+    /* the following method is credited to https://gist.github.com/mihailt/d793236f31f0b8f8722e */
     
     private func shakeCamera(layer:SKSpriteNode, duration:Float) {
         let position = layer.position
@@ -399,15 +374,18 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         }
         
         actionsArray.append(SKAction.move(to: position, duration: 0.0))
-
+        
         let actionSeq = SKAction.sequence(actionsArray);
         layer.run(actionSeq);
     }
     
 
     private func generateStreakBar() {
+        // first eliminate all streak bar items
+        changeStreakBar()
+        if(winningStreak == 0) {return}
         for i in 0 ..< winningStreak! {
-            if(i < 7) {
+            if(i < 5) {
                 //print("i: ", i)
                 let sprite = SKSpriteNode(imageNamed: "greenlight")
                 sprite.isAccessibilityElement = true
@@ -415,18 +393,26 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
                 sprite.accessibilityLabel = winningStreakText
                 sprite.name = "greenlight"
                 sprite.size = CGSize(width: 50, height: 50)
-                let offset = frame.size.height*0.85 - CGFloat(i)*frame.size.height*0.1
+                let yOffset = frame.size.height*0.75 - CGFloat(i)*frame.size.height*0.1
                 //print(offset, " ", frame.size.height*0.9)
-                sprite.position = CGPoint(x:frame.size.width*0.03, y: offset)
+                sprite.position = CGPoint(x:frame.size.width*0.03, y: yOffset)
                 self.addChild(sprite)
             } else {
+                // need to generate that go to hard level button here
+                let sprite = SKLabelNode(fontNamed: "Arial")
+                sprite.isAccessibilityElement = true
+                sprite.accessibilityLabel = "You are now ready to ace more complex tasks for farmer Joe!"
+                sprite.text = "Go to next level"
+                sprite.name = "toNextLevel"
+                sprite.position = CGPoint(x:frame.size.width*0.8, y: frame.size.height*0.1)
+                self.addChild(sprite)
                 print("a");
                 break
             }
         }
     }
     
-    private func zeroStreakBar() {
+    private func changeStreakBar() {
         for child in self.children {
             if child.name == "greenlight" {
                 child.isAccessibilityElement = false
@@ -472,27 +458,28 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(continueButton)
         self.addChild(victoryText)
+        shiftFocus(node: victoryText)
         //if winningStreak is larger than 7 then put some congratulation up
-        if(winningStreak! > 7) {
+        if(winningStreak! > 5) {
             let congratulateText = SKLabelNode(fontNamed: "Arial")
-            congratulateText.text = "You rock! You've mastered the art of mathematic addition!"
+            congratulateText.text = "Well done! You are ready to take on hard addition tasks!"
             congratulateText.position = CGPoint(x: frame.size.width*0.5, y: frame.size.height*0.4)
             congratulateText.fontColor = .red
             congratulateText.isAccessibilityElement = true
             congratulateText.accessibilityLabel = congratulateText.text
             self.addChild(congratulateText)
             speakString(text: congratulateText.text!)
+            
         }
-        shiftFocus(node: victoryText)
     }
-        
+    
     private func shiftFocus(node: SKNode) {
         UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, node)
-
     }
     private func speakString(text: String) {
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
     }
 }
+
 
 

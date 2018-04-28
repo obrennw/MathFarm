@@ -21,6 +21,7 @@
 		FA1296EE206948C200412DDC /* AdvAdditionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1296ED206948C200412DDC /* AdvAdditionScene.swift */; };
 		FA1979622067633F0065687B /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1979612067633F0065687B /* LevelScene.swift */; };
 		FA8360DE20636A4A0058CBD1 /* AdditionScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */; };
+		FAA840322092AE2600303282 /* MedAdditionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA840312092AE2600303282 /* MedAdditionScene.swift */; };
 		FAD4CFED208946020090B21C /* SubLevelSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CFEC208946020090B21C /* SubLevelSelectController.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		FA1296ED206948C200412DDC /* AdvAdditionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvAdditionScene.swift; sourceTree = "<group>"; };
 		FA1979612067633F0065687B /* LevelScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
 		FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AdditionScene.sks; sourceTree = "<group>"; };
+		FAA840312092AE2600303282 /* MedAdditionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedAdditionScene.swift; sourceTree = "<group>"; };
 		FAD4CFEC208946020090B21C /* SubLevelSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubLevelSelectController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +127,7 @@
 				29C8D6D22040A72700E4C122 /* Info.plist */,
 				293BBA152078026700FC3BF0 /* Main.storyboard */,
 				FAD4CFEC208946020090B21C /* SubLevelSelectController.swift */,
+				FAA840312092AE2600303282 /* MedAdditionScene.swift */,
 				FA1979612067633F0065687B /* LevelScene.swift */,
 				FA1296ED206948C200412DDC /* AdvAdditionScene.swift */,
 			);
@@ -294,6 +297,7 @@
 				B2E2B65D204B814F00AF12E0 /* GameViewController.swift in Sources */,
 				FA1077E02062597D001CC811 /* AdditionScene.swift in Sources */,
 				29C8D6C72040A72600E4C122 /* AppDelegate.swift in Sources */,
+				FAA840322092AE2600303282 /* MedAdditionScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

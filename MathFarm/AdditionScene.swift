@@ -21,20 +21,15 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     var numA = UInt32(0)
     var answer = 0
     var contactFlag = false
+    var movingFlag = false
     var selectedNode = SKSpriteNode()
     var winningStreak: Int?
     var nodeOriginalPosition: CGPoint?
     var winningStreakText: String?
-    
-    
-    //var rightObjectType = movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))]
     var rightObjectType = ""
-   
-//    let question = SKLabelNode(fontNamed: "Arial")
-    
     var question = SKLabelNode(fontNamed: "Arial")
     var answerText = SKLabelNode(fontNamed: "Arial")
-    var backButton = SKSpriteNode(imageNamed: "turtle")
+    var backButton = SKLabelNode(fontNamed: "Arial")
     var continueButton = SKLabelNode(fontNamed: "Arial")
     var typeNode = SKSpriteNode()
     
@@ -73,7 +68,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         self.addChild(answerText)
         
         numA = arc4random_uniform(correctNum)
-        let questionTextSpoken = "Please put " + String(numA) + " + " + String(correctNum-numA) + " " + rightObjectType + " into the bucket"
+        let questionTextSpoken = "Please put " + String(numA) + " + " + String(correctNum-numA) + " " + ((correctNum<=1||rightObjectType=="broccoli") ? rightObjectType:rightObjectType+"s") + " into the bucket"
         let questionTextWriten = "Wanted: " + String(numA) + " + " + String(correctNum-numA)
         question.text = questionTextWriten
         question.fontSize = 64
@@ -91,6 +86,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         self.addChild(typeNode)
         
         backButton.position = CGPoint(x: size.width * 0.1, y: size.height * 0.9)
+        backButton.text = "Back"
         backButton.name = "back to level selection"
         backButton.isAccessibilityElement = true
         backButton.accessibilityLabel = "go back and start a new farm task"
@@ -115,7 +111,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                 sprite.physicsBody?.categoryBitMask = ColliderType.Object
                 sprite.physicsBody?.collisionBitMask = 0
                 sprite.physicsBody?.contactTestBitMask = 0
-                sprite.size = CGSize(width: 84.0, height: 73.5)
+                sprite.size = CGSize(width: 108, height: 96)
                 sprite.position = CGPoint(x: size.width*0.25, y: size.height*0.15*CGFloat(i))
             }
             else{
@@ -136,10 +132,6 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
 
         self.addChild(backButton)
         self.addChild(question)
-
-        
-
-        
         print("scene ready")
     }
     
@@ -154,12 +146,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             //print("x: ", positionInScene.x, ", y: ", positionInScene.y)
             
             if(touchedNode is SKSpriteNode) {
-                if(touchedNode.name == "back to level selection") {
-                    self.removeAllActions()
-                    self.removeAllChildren()
-                    self.game_delegate?.backToLevel()
-                }
-                else if (touchedNode.name == "greenlight") {
+                if (touchedNode.name == "greenlight") {
                     speakString(text: winningStreakText!)
                 }
                 else if (touchedNode.name == "backGround" || touchedNode.name == "objShowType") {
@@ -168,14 +155,23 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                 else {
                     nodeOriginalPosition = touchedNode.position
                     //print("set original position")
+                    touchedNode.zPosition = touchedNode.zPosition+2
+                    movingFlag = true
+                    print("movingFlag on")
+                    print(touchedNode.zPosition)
                     onSpriteTouch(touchedNode: touchedNode as! SKSpriteNode)
                 }
             } else {
-                if(touchedNode.name == "continue") {
+                if(touchedNode.name == "back to level selection") {
+                    self.removeAllActions()
+                    self.removeAllChildren()
+                    self.game_delegate?.backToLevel()
+                }
+                else if(touchedNode.name == "continue") {
                     print("continue")
                     let newScene = AdditionScene(size: self.size)
                     newScene.game_delegate = self.game_delegate
-                    newScene.winningStreak = self.winningStreak!+1
+                    newScene.winningStreak = self.winningStreak!
                     newScene.scaleMode = .aspectFill
                     print("before presenting scene")
                     let transition = SKTransition.moveIn(with: .right, duration: 1)
@@ -186,7 +182,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                 }
                 else if(touchedNode.name == "toNextLevel") {
                     print("toNextLevel")
-                    let newScene = AdvAdditionScene(size: self.size)
+                    let newScene = MedAdditionScene(size: self.size)
                     newScene.game_delegate = self.game_delegate
                     newScene.winningStreak = 0
                     newScene.scaleMode = .aspectFill
@@ -217,15 +213,20 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-            if(contactFlag){
-                if(selectedNode.name == rightObjectType) {
-                    incrementAnswer()
-                } else {
-                    speakString(text: "wrong type of object")
-                    contactFlag = false
-                    selectedNode.position = nodeOriginalPosition!
-                }
+        if(contactFlag){
+            if(selectedNode.name == rightObjectType) {
+                incrementAnswer()
+            } else {
+                speakString(text: "wrong type of object")
+                contactFlag = false
+                selectedNode.position = nodeOriginalPosition!
             }
+        }
+        if(movingFlag) {
+            print("movingFlag off")
+            movingFlag = false
+            selectedNode.zPosition = selectedNode.zPosition-2
+        }
         
     }
     
@@ -258,6 +259,13 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     }
     
     private func generateStreakBar() {
+        //first eliminate existing streak bar nodes
+        for child in self.children {
+            if(child.name == "greenlight") {
+                child.isAccessibilityElement = false
+                child.isUserInteractionEnabled = false
+                child.removeFromParent()}
+        }
         for i in 0 ..< winningStreak! {
             if(i < 3) {
                     //print("i: ", i)
@@ -319,6 +327,8 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             // do the following: increment the correct count -> load a new addition scene
             //
             print("winningStreak: ", winningStreak!+1)
+            winningStreak = winningStreak! + 1
+            generateStreakBar()
             question.text = "Correct! " + String(numA) + " + " + String(correctNum-numA) + " = " + String(correctNum)
             question.accessibilityLabel = "You got it right! " + String(numA) + " " + rightObjectType + " + " + String(correctNum-numA) + " " + rightObjectType + " = " + String(correctNum) + " " + rightObjectType
             typeNode.position = CGPoint(x: size.width * 0.8, y: size.height * 0.9)
@@ -328,6 +338,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             continueButton.isAccessibilityElement = true
             continueButton.accessibilityLabel = "keep helping farmer Joe"
             self.addChild(continueButton)
+            
 
         }
     }

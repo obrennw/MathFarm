@@ -258,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDk-JO-BaX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1161" y="863"/>
+            <point key="canvasLocation" x="1129" y="1680"/>
         </scene>
         <!--Sub Level Select Controller-->
         <scene sceneID="W9q-po-6q0">
@@ -284,7 +284,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhJ-LO-mmJ">
-                                <rect key="frame" x="226" y="334" width="183" height="74"/>
+                                <rect key="frame" x="98" y="334" width="183" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.085231731150000004" blue="0.078863051640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
@@ -295,7 +295,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8J-5x-08p">
-                                <rect key="frame" x="617" y="334" width="183" height="74"/>
+                                <rect key="frame" x="675" y="334" width="183" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.085231731150000004" blue="0.078863051640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
@@ -305,6 +305,16 @@
                                     <segue destination="ucJ-tZ-mF5" kind="show" identifier="toHardAddition" id="Rw1-a9-5g2"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eh0-oP-k6a">
+                                <rect key="frame" x="393" y="334" width="183" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.085231731150000004" blue="0.078863051640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Medium"/>
+                                <connections>
+                                    <action selector="toMedAddi:" destination="mDq-6r-5kf" eventType="touchUpInside" id="v2V-Ie-oqf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9gp-a5-IdR"/>
@@ -312,11 +322,13 @@
                     <connections>
                         <outlet property="toEasyLvl" destination="QhJ-LO-mmJ" id="2xJ-Qm-47j"/>
                         <outlet property="toHardLvl" destination="j8J-5x-08p" id="fKE-gZ-NjW"/>
+                        <outlet property="toMedLvl" destination="eh0-oP-k6a" id="vXz-qS-CIF"/>
+                        <segue destination="ucJ-tZ-mF5" kind="show" identifier="toMediumAddition" id="QIr-lO-kHw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DXX-iO-4y9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1082.8125" y="112.5"/>
+            <point key="canvasLocation" x="1129" y="863"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="ujK-g4-fdG">
@@ -324,7 +336,7 @@
                 <viewController storyboardIdentifier="GameViewController1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ucJ-tZ-mF5" customClass="GameViewController" customModule="MathFarm" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldH-EI-I7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1730" y="113"/>
+            <point key="canvasLocation" x="1864" y="863"/>
         </scene>
         <!--Pattern View Controller-->
         <scene sceneID="pQE-nA-58p">
@@ -458,7 +470,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zaR-fx-dig" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1832" y="863"/>
+            <point key="canvasLocation" x="1919" y="1680"/>
         </scene>
     </scenes>
     <resources>
@@ -468,8 +480,8 @@
         <image name="thumbs_cartoon-farm-vector3" width="374" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bmc-bg-6Q5"/>
-        <segue reference="bmk-4a-TuV"/>
+        <segue reference="QIr-lO-kHw"/>
+        <segue reference="x1m-WK-pkG"/>
         <segue reference="xuI-Yr-VZ2"/>
     </inferredMetricsTieBreakers>
 </document>
