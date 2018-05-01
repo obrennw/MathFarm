@@ -49,7 +49,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         let imageNames = generateObjectList()
 
         //setup background node
-        let backgroundNode = SKSpriteNode(imageNamed: "woodenBackground")
+        let backgroundNode = SKSpriteNode(imageNamed: "farmland_background")
         backgroundNode.name = "backGround"
         backgroundNode.size = CGSize(width: size.width, height: size.height)
         backgroundNode.position = CGPoint(x: size.width/2, y: size.height/2)
@@ -59,8 +59,11 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         self.physicsWorld.contactDelegate = self
         
         //setup the answer node
+        answerText.isAccessibilityElement = true
         answerText.fontSize = size.height/7.5
         answerText.text = String(answer)
+        let goshIHateEnglishPlurals = (answer<=1||rightObjectType=="broccoli") ? rightObjectType:rightObjectType+"s"
+        answerText.accessibilityLabel = answerText.text! + " " + goshIHateEnglishPlurals
         answerText.fontColor = .white
         let offsetFraction = (CGFloat(imageNames.count) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
         print(offsetFraction)
@@ -235,6 +238,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     func didBegin(_ contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
             print("on bucket")
+            speakString(text: "on bucket")
             contactFlag = true
         }
     }
@@ -242,6 +246,8 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     func didEnd(_ contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
             print("off bucket")
+            speakString(text: "off bucket")
+
             contactFlag = false
         }
     }
@@ -266,6 +272,8 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                 child.isUserInteractionEnabled = false
                 child.removeFromParent()}
         }
+        //then prepare the winnning streak's text
+        winningStreakText = "You've aced this " + String(winningStreak!) + "time in a roll"
         for i in 0 ..< winningStreak! {
             if(i < 3) {
                     //print("i: ", i)
@@ -281,7 +289,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             } else {
                 let sprite = SKLabelNode(fontNamed: "Arial")
                 sprite.isAccessibilityElement = true
-                sprite.accessibilityLabel = "You are now ready to ace more complex tasks for farmer Joe!"
+                sprite.accessibilityLabel = "You are now ready for more complex tasks for farmer Joe!"
                 sprite.text = "Go to next level"
                 sprite.name = "toNextLevel"
                 sprite.position = CGPoint(x:frame.size.width*0.8, y: frame.size.height*0.1)
@@ -298,7 +306,8 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         answerText.text = String(answer)
         //print(answer.description + rightObjectType)
         speakString(text: "One " + rightObjectType + " put in the bucket")
-        speakString(text: "The bucket now has " + answer.description + " " + rightObjectType)
+        let notTheStupidPluralsAgain = (answer<=1||rightObjectType=="broccoli") ? rightObjectType:rightObjectType+"s"
+        speakString(text: "The bucket now has " + answer.description + " " + notTheStupidPluralsAgain)
         contactFlag = false
         selectedNode.removeFromParent()
         print("Answer: " + String(answer))
@@ -329,8 +338,11 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             print("winningStreak: ", winningStreak!+1)
             winningStreak = winningStreak! + 1
             generateStreakBar()
+            let englishPluralIsSuchNonsense = (numA<=1||rightObjectType=="broccoli") ? rightObjectType:rightObjectType+"s"
+            let englishPluralIsLousyMath = (correctNum-numA<=1||rightObjectType=="broccoli") ? rightObjectType:rightObjectType+"s"
+            let chineseLiveHappilyWithoutSuchStupidity = (correctNum <= 1||rightObjectType=="broccoli") ? rightObjectType:rightObjectType+"s"
             question.text = "Correct! " + String(numA) + " + " + String(correctNum-numA) + " = " + String(correctNum)
-            question.accessibilityLabel = "You got it right! " + String(numA) + " " + rightObjectType + " + " + String(correctNum-numA) + " " + rightObjectType + " = " + String(correctNum) + " " + rightObjectType
+            question.accessibilityLabel = "You got it right! " + " " + String(numA) + " " + englishPluralIsSuchNonsense + " + " + String(correctNum-numA) + " " + englishPluralIsLousyMath + " = " + String(correctNum) + " " + chineseLiveHappilyWithoutSuchStupidity
             typeNode.position = CGPoint(x: size.width * 0.8, y: size.height * 0.9)
             continueButton.name = "continue"
             continueButton.text = "continue"
@@ -338,13 +350,17 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             continueButton.isAccessibilityElement = true
             continueButton.accessibilityLabel = "keep helping farmer Joe"
             self.addChild(continueButton)
-            
+            shiftFocus(node: question)
 
         }
     }
     
     private func speakString(text: String) {
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
+    }
+    
+    private func shiftFocus(node: SKNode) {
+        UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, node)
     }
     
 }

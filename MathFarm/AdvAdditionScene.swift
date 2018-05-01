@@ -148,7 +148,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         //generate a submit button
         let submitButton = SKLabelNode(fontNamed: "Arial")
         submitButton.isAccessibilityElement = true
-        submitButton.accessibilityLabel = "submit for evaluate"
+        submitButton.accessibilityLabel = "submit the crate"
         submitButton.name = "submit"
         submitButton.text = "submit"
         submitButton.position = CGPoint(x:size.width*0.92, y: size.height*0.9)
