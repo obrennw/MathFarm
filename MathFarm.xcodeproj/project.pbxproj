@@ -10,6 +10,9 @@
 		291B6C51207802AD00D865BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 291B6C50207802AC00D865BD /* Assets.xcassets */; };
 		293BBA172078026700FC3BF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 293BBA152078026700FC3BF0 /* Main.storyboard */; };
 		298E634D2087D0B10037A73F /* CountingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298E634C2087D0B10037A73F /* CountingScene.swift */; };
+		29A76DFC208A629400DE899B /* count.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29A76DF9208A629400DE899B /* count.mp3 */; };
+		29A76DFD208A629400DE899B /* happy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29A76DFA208A629400DE899B /* happy.mp3 */; };
+		29A76DFE208A629400DE899B /* backgroundmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29A76DFB208A629400DE899B /* backgroundmusic.mp3 */; };
 		29C8D6C72040A72600E4C122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6C62040A72600E4C122 /* AppDelegate.swift */; };
 		29C8D6C92040A72600E4C122 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6C82040A72600E4C122 /* MainMenuController.swift */; };
 		29C8D6DC2040A72700E4C122 /* MathFarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6DB2040A72700E4C122 /* MathFarmTests.swift */; };
@@ -44,6 +47,9 @@
 		291B6C50207802AC00D865BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		293BBA162078026700FC3BF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		298E634C2087D0B10037A73F /* CountingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountingScene.swift; sourceTree = "<group>"; };
+		29A76DF9208A629400DE899B /* count.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = count.mp3; sourceTree = "<group>"; };
+		29A76DFA208A629400DE899B /* happy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = happy.mp3; sourceTree = "<group>"; };
+		29A76DFB208A629400DE899B /* backgroundmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundmusic.mp3; sourceTree = "<group>"; };
 		29C8D6C32040A72600E4C122 /* MathFarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathFarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C8D6C62040A72600E4C122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29C8D6C82040A72600E4C122 /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
@@ -88,6 +94,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29A76DF8208A629400DE899B /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				29A76DF9208A629400DE899B /* count.mp3 */,
+				29A76DFA208A629400DE899B /* happy.mp3 */,
+				29A76DFB208A629400DE899B /* backgroundmusic.mp3 */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 		29C8D6BA2040A72600E4C122 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +131,7 @@
 				29C8D6C62040A72600E4C122 /* AppDelegate.swift */,
 				B264906720632A1000AB782B /* PatternViewController.swift */,
 				29C8D6C82040A72600E4C122 /* MainMenuController.swift */,
+				29A76DF8208A629400DE899B /* Sound */,
 				B2E2B661204B908500AF12E0 /* LevelSelectController.swift */,
 				B2E2B65C204B814F00AF12E0 /* GameViewController.swift */,
 				FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */,
@@ -254,8 +271,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29A76DFC208A629400DE899B /* count.mp3 in Resources */,
 				FA8360DE20636A4A0058CBD1 /* AdditionScene.sks in Resources */,
 				291B6C51207802AD00D865BD /* Assets.xcassets in Resources */,
+				29A76DFD208A629400DE899B /* happy.mp3 in Resources */,
+				29A76DFE208A629400DE899B /* backgroundmusic.mp3 in Resources */,
 				293BBA172078026700FC3BF0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

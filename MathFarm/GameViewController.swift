@@ -45,6 +45,7 @@ class GameViewController: UIViewController {
             case "counting":
                 let scene = CountingScene(size: skView.frame.size)
                 scene.game_delegate = self
+                scene.winningStreak = 0
                 scene.scaleMode = .aspectFill
                 skView.presentScene(scene)
             default: break

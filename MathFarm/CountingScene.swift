@@ -24,7 +24,8 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     /// A list of static objects
     private let staticImages = ["pig"]
     /// A list of movable objects
-    private let movableImages = ["apple"]
+    //private let movableImages = ["apple"]
+    private let movableImages = ["apple", "orange", "peach", "broccoli", "lemon"]
     /// Sprite that presents the current score
     let scoreText = SKLabelNode(fontNamed: "Arial")
     /// Variable that keeps track of the current store
@@ -43,12 +44,23 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     /// The referenced GameViewController that created this scene. Weak storage is used so that the instance is deleted once the scene is deleted. If strong storage is used here, duplicate untouchable GameViewControllers will be created
     weak var game_delegate:GameViewController?
     
+    
+    var winningStreak: Int?
+    var nodeOriginalPosition: CGPoint?
+    var winningStreakText: String?
+    
+    var questionContainer = SKSpriteNode()
+    var answerText = SKLabelNode(fontNamed: "Arial")
+    var backButton = SKSpriteNode(imageNamed: "turtle")
+    var continueButton = SKLabelNode(fontNamed: "Arial")
+    var typeNode = SKSpriteNode()
+    
     /// The back button
-    let button = SKSpriteNode(imageNamed: "turtle")
+    //let button = SKSpriteNode(imageNamed: "turtle")
     
     
     /// Randomly generated number of apples to be used for the level
-    let numApples = arc4random_uniform(1)+2
+    let numApples = arc4random_uniform(4)+2
 
     
     /// Initialize the scene by NSCoder
@@ -70,19 +82,28 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     ///
     /// - Parameter view: The SKView rendering the scene
     override func didMove(to view: SKView) {
-        speakString(text: "Level One")
+        //speakString(text: "Level One")
         self.physicsWorld.contactDelegate = self
-        self.backgroundColor = SKColor.cyan
+        //self.backgroundColor = SKColor.cyan
         
         print("height:"+String(describing: size.height))
         scoreText.fontSize = size.height/7.5
         scoreText.text = String(score)
-        scoreText.fontColor = SKColor.black
+        scoreText.fontColor = SKColor.white
         scoreText.name = "score"
         
         
         //let numApples = arc4random_uniform(11)+1;
         var imageNames = [String]()
+        
+        let backgroundNode = SKSpriteNode(imageNamed: "woodenBackground")
+        backgroundNode.name = "backGround"
+        backgroundNode.size = CGSize(width: size.width, height: size.height)
+        backgroundNode.position = CGPoint(x: size.width/2, y: size.height/2)
+        backgroundNode.zPosition = -3
+        
+        self.addChild(backgroundNode)
+        self.physicsWorld.contactDelegate = self
         
         //let questionTextSpoken = "Please put " + String(numApples) + "apples into the bucket"
         let questionTextWriten = "Feed the pig " + String(numApples) + " apples"
@@ -95,6 +116,17 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         question.isAccessibilityElement = true
         question.accessibilityLabel = questionTextWriten
         question.name = "question"
+        
+        backButton.position = CGPoint(x: size.width * 0.1, y: size.height * 0.9)
+        backButton.name = "back to level selection"
+        backButton.isAccessibilityElement = true
+        backButton.accessibilityLabel = "back to menu"
+        
+        winningStreakText = "You've aced this " + String(winningStreak!) + "time in a roll"
+        
+        generateStreakBar()
+
+        
         //question.accessibilityLabel = questionTextSpoken
         
         
@@ -104,15 +136,11 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         for _ in 0..<numApples{
             imageNames.append("apple")
         }
-        var objectOffsetX = 1.5*((Double(numApples)/4.0)+1.2);
+        var objectOffsetX = 1.5*((Double(numApples)/4.0)+2.0);
         var objectOffsetY = 5.0;
         let offsetFractionRight = CGFloat(5.45/7.0)
         scoreText.position = CGPoint(x: size.width * offsetFractionRight, y: size.height/4)
         self.addChild(scoreText)
-        button.position = CGPoint(x: (size.width * 0.08), y: size.height * 0.95)
-        button.name = "menu"
-        button.isAccessibilityElement = true
-        button.accessibilityLabel = "back to menu"
         
         
         //let imageNames = ["bucket2","apple","apple","apple","apple","apple"]
@@ -160,8 +188,35 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             
         }
         //let offsetFraction = (CGFloat(imageNames.count) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
-        self.addChild(button)
+        self.addChild(backButton)
         self.addChild(question)
+    }
+    
+    private func generateStreakBar() {
+        for i in 0 ..< winningStreak! {
+            if(i < 3) {
+                //print("i: ", i)
+                let sprite = SKSpriteNode(imageNamed: "greenlight")
+                sprite.isAccessibilityElement = true
+                sprite.accessibilityLabel = winningStreakText
+                sprite.name = "greenlight"
+                sprite.size = CGSize(width: 70, height: 70)
+                let offset = frame.size.height*0.65 - CGFloat(i)*frame.size.height*0.15
+                //print(offset, " ", frame.size.height*0.9)
+                sprite.position = CGPoint(x:frame.size.width*0.1, y: offset)
+                self.addChild(sprite)
+            } else {
+                let sprite = SKLabelNode(fontNamed: "Arial")
+                sprite.isAccessibilityElement = true
+                sprite.accessibilityLabel = "You are now ready to ace more complex tasks for farmer Joe!"
+                sprite.text = "You are now ready to ace more complex tasks for farmer Joe!"
+                sprite.name = "levelComplete"
+                sprite.position = CGPoint(x:frame.size.width*0.8, y: frame.size.height*0.1)
+                self.addChild(sprite)
+                //print("a");
+                break
+            }
+        }
     }
     
     /// Called when screen is touched
@@ -184,6 +239,18 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                 else {
                     onSpriteTouch(touchedNode: touchedNode as! SKSpriteNode)
                 }
+            } else if(touchedNode.name == "continue") {
+                print("continue")
+                let newScene = CountingScene(size: self.size)
+                newScene.game_delegate = self.game_delegate
+                newScene.winningStreak = self.winningStreak!+1
+                newScene.scaleMode = .aspectFill
+                print("before presenting scene")
+                let transition = SKTransition.moveIn(with: .up, duration: 1)
+                transition.pausesOutgoingScene = false
+                self.removeAllActions()
+                self.removeAllChildren()
+                self.scene?.view?.presentScene(newScene,transition: transition)
             }
         }
     }
@@ -232,7 +299,7 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         selectedNode.removeFromParent()
         print(score)
         if(score == numApples){
-            onVictory()
+            onVictory2()
         }
     }
     
@@ -264,6 +331,21 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         speakString(text: "Good Job!")
         self.addChild(victory)
         self.addChild(backButton)
+    }
+    
+    private func onVictory2() {
+            // do the following: increment the correct count -> load a new addition scene
+            //
+            print("winningStreak: ", winningStreak!+1)
+            question.text = "Correct! " + String(numApples) + " apples"
+            question.accessibilityLabel = "Correct! " + String(numApples) + " Apples"
+            typeNode.position = CGPoint(x: size.width * 0.8, y: size.height * 0.9)
+            continueButton.name = "continue"
+            continueButton.text = "continue"
+            continueButton.position = CGPoint(x: frame.size.width / 2, y: frame.size.height * 0.7)
+            continueButton.isAccessibilityElement = true
+            continueButton.accessibilityLabel = "keep helping farmer Joe"
+            self.addChild(continueButton)
     }
     
     
