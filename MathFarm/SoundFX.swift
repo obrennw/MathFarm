@@ -12,17 +12,22 @@ import AVFoundation
 class SoundFX {
     private var audioPlayer : AVAudioPlayer?
     private let pigURL = Bundle.main.url(forResource: "pigfarm", withExtension: "mp3")
+    private let pigShortURL = Bundle.main.url(forResource: "pigShort", withExtension: "mp3")
     private let cowURL = Bundle.main.url(forResource: "cowmoo", withExtension: "mp3")
     private let catURL = Bundle.main.url(forResource: "meow", withExtension: "mp3")
     private let tadaURL = Bundle.main.url(forResource: "tada", withExtension: "mp3")
     private let dogURL = Bundle.main.url(forResource: "bark", withExtension: "mp3")
+    private let happyURL = Bundle.main.url(forResource: "happy", withExtension: "mp3")
+
     
     public func playAnimalSound(animal: String) -> Bool {
         switch(animal){
         case "pig":
             playPigSound()
             break
-            
+        case "pigShort":
+            playPigSoundShort()
+            break
         case "cow":
             playCowSound()
             break
@@ -34,12 +39,18 @@ class SoundFX {
         case "cat":
             playCatSound()
             break
-            
         default:
             //no sound
             return false
         }
         return true
+    }
+    
+    public func isPlaying() -> Bool {
+        if(audioPlayer != nil){
+            return (audioPlayer?.isPlaying)!
+        }
+        return false
     }
     
     public func playTada(){
@@ -52,9 +63,29 @@ class SoundFX {
         }
     }
     
+    public func playHappy(){
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: happyURL!)
+            audioPlayer?.play()
+            
+        } catch {
+            // couldn't load file :(
+        }
+    }
+    
     private func playPigSound(){
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: pigURL!)
+            audioPlayer?.play()
+            
+        } catch {
+            // couldn't load file :(
+        }
+    }
+    
+    private func playPigSoundShort(){
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: pigShortURL!)
             audioPlayer?.play()
             
         } catch {

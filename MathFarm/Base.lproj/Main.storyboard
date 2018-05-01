@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aXN-WV-H1Z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aXN-WV-H1Z">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="ArialBold.ttf">
-            <string>Arial-BoldMT</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="R9c-no-8jz">
@@ -59,7 +54,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="fZs-Np-QL8" kind="showDetail" id="8JD-oI-CTR"/>
+                                    <segue destination="fZs-Np-QL8" kind="showDetail" id="wOl-mi-sLX"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Math Farm Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cG-qp-WRj">
@@ -101,24 +96,26 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVq-mv-i34">
-                                <rect key="frame" x="43" y="307" width="193" height="74"/>
+                                <rect key="frame" x="37" y="307" width="243" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <accessibility key="accessibilityConfiguration" label="Counting. Learn to Count!"/>
+                                <accessibility key="accessibilityConfiguration" label="Counting. Easy Difficulty">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="Counting"/>
+                                <state key="normal" title="Counting Easy"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="toCountingLevel:" destination="fZs-Np-QL8" eventType="touchUpInside" id="M5W-Wf-f0H"/>
-                                    <segue destination="ucJ-tZ-mF5" kind="showDetail" identifier="toCounting" id="vZL-mQ-GRL"/>
+                                    <action selector="toCountingEasy:" destination="fZs-Np-QL8" eventType="touchUpInside" id="Rbz-Lf-Ygw"/>
+                                    <segue destination="ucJ-tZ-mF5" kind="show" identifier="toCountingEasy" id="yP8-Vv-6i2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNn-h5-y6U" userLabel="PatternBtn">
-                                <rect key="frame" x="43" y="412" width="193" height="74"/>
+                                <rect key="frame" x="43" y="514" width="193" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration" label="Pattern Recognition"/>
@@ -134,7 +131,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zab-kf-EeT">
-                                <rect key="frame" x="369" y="307" width="183" height="74"/>
+                                <rect key="frame" x="53" y="409" width="183" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.085231731150000004" blue="0.078863051640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
@@ -155,6 +152,23 @@
                                     <segue destination="xvl-TD-cQ0" kind="showDetail" id="7Td-ot-7qX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JT6-fC-sfe">
+                                <rect key="frame" x="391" y="307" width="243" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Counting. Pro Difficulty"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Counting Pro"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="toCountingPro:" destination="fZs-Np-QL8" eventType="touchUpInside" id="rxA-qE-Aqa"/>
+                                    <segue destination="ucJ-tZ-mF5" kind="show" identifier="toCountingPro" id="0P9-I0-gyD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ftl-Mg-n4Z"/>
@@ -162,13 +176,14 @@
                     <navigationItem key="navigationItem" id="Bl0-en-EXG"/>
                     <connections>
                         <outlet property="AdditionBtn" destination="zab-kf-EeT" id="YHv-0K-eFH"/>
-                        <outlet property="CountingBtn" destination="kVq-mv-i34" id="JGP-2a-HCq"/>
+                        <outlet property="CountingEasy" destination="kVq-mv-i34" id="riG-mc-4LI"/>
+                        <outlet property="CountingPro" destination="JT6-fC-sfe" id="Vyi-5b-nwH"/>
                         <outlet property="PatternBtn" destination="ZNn-h5-y6U" id="Wx8-pr-Jzz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnr-PA-MBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="445" y="863"/>
+            <point key="canvasLocation" x="444.72656249999994" y="862.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="TNM-1A-Yta">
@@ -697,10 +712,10 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="x1m-WK-pkG"/>
-        <segue reference="vZL-mQ-GRL"/>
+        <segue reference="0P9-I0-gyD"/>
         <segue reference="b0A-S6-Bvs"/>
-        <segue reference="l4G-5f-0SA"/>
-        <segue reference="DPg-em-XKj"/>
+        <segue reference="fzS-xn-hgQ"/>
+        <segue reference="bes-H3-K88"/>
         <segue reference="7Td-ot-7qX"/>
     </inferredMetricsTieBreakers>
 </document>
