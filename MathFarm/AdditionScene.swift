@@ -32,7 +32,6 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
    
 //    let question = SKLabelNode(fontNamed: "Arial")
     
-    var questionContainer = SKSpriteNode()
     var question = SKLabelNode(fontNamed: "Arial")
     var answerText = SKLabelNode(fontNamed: "Arial")
     var backButton = SKSpriteNode(imageNamed: "turtle")
@@ -140,12 +139,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         self.addChild(question)
 
         
-//        let tryButton = SKSpriteNode(imageNamed: "turtle")
-//        tryButton.isAccessibilityElement = true
-//        tryButton.accessibilityLabel = "this is turtle"
-//        tryButton.name = "turtle"
-//        tryButton.position = CGPoint(x: frame.size.width / 2, y: frame.size.height*0.3)
-//        self.addChild(tryButton)
+
         
         print("scene ready")
     }
@@ -169,15 +163,7 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                 else if (touchedNode.name == "greenlight") {
                     speakString(text: winningStreakText!)
                 }
-                else if (touchedNode.name == "turtle") {
-                    let newScene = LevelScene(size: self.size)
-                    newScene.game_delegate = self.game_delegate
-
-                    newScene.scaleMode = .aspectFill
-                    let transition = SKTransition.moveIn(with: .right, duration: 2)
-                    transition.pausesOutgoingScene = true
-                     self.scene?.view?.presentScene(newScene, transition: transition)
-                } else if (touchedNode.name == "backGround" || touchedNode.name == "objShowType") {
+                else if (touchedNode.name == "backGround" || touchedNode.name == "objShowType") {
                     return
                 }
                 else {
@@ -185,18 +171,33 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                     //print("set original position")
                     onSpriteTouch(touchedNode: touchedNode as! SKSpriteNode)
                 }
-            } else if(touchedNode.name == "continue") {
-                print("continue")
-                let newScene = AdditionScene(size: self.size)
-                newScene.game_delegate = self.game_delegate
-                newScene.winningStreak = self.winningStreak!+1
-                newScene.scaleMode = .aspectFill
-                print("before presenting scene")
-                let transition = SKTransition.moveIn(with: .right, duration: 2)
-                transition.pausesOutgoingScene = false
-                self.removeAllActions()
-                self.removeAllChildren()
-                self.scene?.view?.presentScene(newScene,transition: transition)
+            } else {
+                if(touchedNode.name == "continue") {
+                    print("continue")
+                    let newScene = AdditionScene(size: self.size)
+                    newScene.game_delegate = self.game_delegate
+                    newScene.winningStreak = self.winningStreak!+1
+                    newScene.scaleMode = .aspectFill
+                    print("before presenting scene")
+                    let transition = SKTransition.moveIn(with: .right, duration: 1)
+                    transition.pausesOutgoingScene = false
+                    self.removeAllActions()
+                    self.removeAllChildren()
+                    self.scene?.view?.presentScene(newScene,transition: transition)
+                }
+                else if(touchedNode.name == "toNextLevel") {
+                    print("toNextLevel")
+                    let newScene = AdvAdditionScene(size: self.size)
+                    newScene.game_delegate = self.game_delegate
+                    newScene.winningStreak = self.winningStreak!+1
+                    newScene.scaleMode = .aspectFill
+                    print("before presenting scene")
+                    let transition = SKTransition.moveIn(with: .right, duration: 1)
+                    transition.pausesOutgoingScene = false
+                    self.removeAllActions()
+                    self.removeAllChildren()
+                    self.scene?.view?.presentScene(newScene,transition: transition)
+                }
             }
         }
     }
@@ -326,21 +327,11 @@ class AdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             continueButton.isAccessibilityElement = true
             continueButton.accessibilityLabel = "keep helping farmer Joe"
             self.addChild(continueButton)
-//            let newScene = AdditionScene(size: self.size)
-//            newScene.game_delegate = self.game_delegate
-//            newScene.winningStreak = self.winningStreak!+1
-//            newScene.scaleMode = .aspectFill
-//            print("before presenting scene")
-//            let transition = SKTransition.moveIn(with: .right, duration: 2)
-//            transition.pausesOutgoingScene = false
-//
-//            self.scene?.view?.presentScene(newScene)
+
         }
     }
     
     private func speakString(text: String) {
-        //let Utterance = AVSpeechUtterance(string: text)
-        //speaker.speak(Utterance)
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
     }
     

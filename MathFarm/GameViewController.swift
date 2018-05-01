@@ -48,6 +48,11 @@ class GameViewController: UIViewController {
                 scene.winningStreak = 0
                 scene.scaleMode = .aspectFill
                 skView.presentScene(scene)
+            case "AdvAddition":
+                let scene = AdvAdditionScene(size: skView.frame.size)
+                scene.game_delegate = self
+                scene.scaleMode = .aspectFill
+                skView.presentScene(scene)
             default: break
             }
         }
@@ -68,7 +73,6 @@ class GameViewController: UIViewController {
         if let skView = self.view as! SKView? {
             skView.presentScene(nil)
             self.dismiss(animated: true)
-            //self.performSegue(withIdentifier: "unwindGame", sender: self)
         }
     }
     
