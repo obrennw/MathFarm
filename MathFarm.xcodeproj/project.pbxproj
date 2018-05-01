@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		291B6C51207802AD00D865BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 291B6C50207802AC00D865BD /* Assets.xcassets */; };
+		29390C2C20990B510081FA1A /* pigShort.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29390C2B20990B510081FA1A /* pigShort.mp3 */; };
 		293BBA172078026700FC3BF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 293BBA152078026700FC3BF0 /* Main.storyboard */; };
 		298E634D2087D0B10037A73F /* CountingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298E634C2087D0B10037A73F /* CountingScene.swift */; };
 		29A76DFC208A629400DE899B /* count.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 29A76DF9208A629400DE899B /* count.mp3 */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		291B6C50207802AC00D865BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		29390C2B20990B510081FA1A /* pigShort.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pigShort.mp3; sourceTree = "<group>"; };
 		293BBA162078026700FC3BF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		298E634C2087D0B10037A73F /* CountingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountingScene.swift; sourceTree = "<group>"; };
 		29A76DF9208A629400DE899B /* count.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = count.mp3; sourceTree = "<group>"; };
@@ -116,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				29A76DF9208A629400DE899B /* count.mp3 */,
-				29A76DFA208A629400DE899B /* happy.mp3 */,
 				29A76DFB208A629400DE899B /* backgroundmusic.mp3 */,
 			);
 			path = Sound;
@@ -164,7 +165,9 @@
 				B23680E220923A180084CA83 /* bark.mp3 */,
 				B23680E320923A180084CA83 /* cowmoo.mp3 */,
 				B23680E420923A180084CA83 /* meow.mp3 */,
+				29A76DFA208A629400DE899B /* happy.mp3 */,
 				B23680E520923A190084CA83 /* pigfarm.mp3 */,
+				29390C2B20990B510081FA1A /* pigShort.mp3 */,
 				B23680E020923A170084CA83 /* tada.mp3 */,
 				FA1979612067633F0065687B /* LevelScene.swift */,
 				FA1296ED206948C200412DDC /* AdvAdditionScene.swift */,
@@ -304,6 +307,7 @@
 				B23680E820923A190084CA83 /* bark.mp3 in Resources */,
 				B23680EB20923A190084CA83 /* pigfarm.mp3 in Resources */,
 				291B6C51207802AD00D865BD /* Assets.xcassets in Resources */,
+				29390C2C20990B510081FA1A /* pigShort.mp3 in Resources */,
 				29A76DFD208A629400DE899B /* happy.mp3 in Resources */,
 				29A76DFE208A629400DE899B /* backgroundmusic.mp3 in Resources */,
 				B23680E920923A190084CA83 /* cowmoo.mp3 in Resources */,
@@ -510,11 +514,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 424R4YGP7H;
+				DEVELOPMENT_TEAM = P7TZH87BWL;
 				INFOPLIST_FILE = MathFarm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = .com.john.math;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -530,11 +534,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 424R4YGP7H;
+				DEVELOPMENT_TEAM = P7TZH87BWL;
 				INFOPLIST_FILE = MathFarm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = .com.john.math;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
