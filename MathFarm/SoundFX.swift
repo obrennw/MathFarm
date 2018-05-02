@@ -18,6 +18,7 @@ class SoundFX {
     private let tadaURL = Bundle.main.url(forResource: "tada", withExtension: "mp3")
     private let dogURL = Bundle.main.url(forResource: "bark", withExtension: "mp3")
     private let happyURL = Bundle.main.url(forResource: "happy", withExtension: "mp3")
+    private let countURL = Bundle.main.url(forResource: "count", withExtension: "mp3")
 
     
     public func playAnimalSound(animal: String) -> Bool {
@@ -83,7 +84,7 @@ class SoundFX {
         }
     }
     
-    private func playPigSoundShort(){
+    public func playPigSoundShort(){
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: pigShortURL!)
             audioPlayer?.play()
@@ -103,7 +104,7 @@ class SoundFX {
         }
     }
     
-    private func playDogSound(){
+    public func playDogSound(){
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: dogURL!)
             audioPlayer?.play()
@@ -120,6 +121,15 @@ class SoundFX {
             
         } catch {
             // couldn't load file :(
+        }
+    }
+    
+    public func playCountSound() {
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: countURL!)
+            audioPlayer?.play()
+        } catch {
+            
         }
     }
 }

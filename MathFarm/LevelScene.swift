@@ -48,7 +48,7 @@ class LevelScene: SKScene {
             let positionInScene = touch.location(in:self)
             let touchedNode = self.atPoint(_:positionInScene)
             if(touchedNode is SKLabelNode && touchedNode.name == "turtle") {
-                let newScene = AdditionScene(size: self.size)
+                let newScene = EasyAdditionScene(size: self.size)
                 newScene.game_delegate = self.game_delegate!
                 newScene.winningStreak = 0
                 newScene.scaleMode = .aspectFill

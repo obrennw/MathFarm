@@ -36,6 +36,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
     var objTypeList = [String]()
     var objNumList = [String]()
     var winningStreakText: String?
+    var fx = SoundFX()
 
     
     required init?(coder aDecorder: NSCoder){
@@ -234,6 +235,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
                 //add speak string to announce addition
                 let updateMsg = "Put " + String(objNumChangce) + ((objNumChangce == 1||rightObjectType=="broccoli") ?rightObjectType:rightObjectType+"s") + " into the crate. The crate now has " + String(numInCrate) + ((numInCrate <= 1||rightObjectType=="broccoli") ?rightObjectType:rightObjectType+"s")
                 speakString(text: updateMsg)
+                fx.playCountSound()
             } else {
                 print("wrong type of object")
                 speakString(text: "wrong type of object")
@@ -353,7 +355,9 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         speakString(text: "evaluate")
         if(numInCrate<correctNum) {
             print("too few!")
+            fx.playPigSoundShort()
             let errorTextWritten = "Uh-oh..." + String(numA) + " + " + String(numB) + " > " + String(numInCrate)
+            let errorTextSpoken = String(numA) + " + " + String(numB) + " is > " + String(numInCrate) + ". Try again!"
 //            speakString(text: errorTextWritten)
             gameTask.text = errorTextWritten
             gameTask.fontColor = .yellow
@@ -362,10 +366,12 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
             winningStreak = 0
             zeroStreakBar()
             shiftFocus(node: gameTask)
-
+            gameTask.accessibilityLabel = errorTextSpoken
         } else if (numInCrate>correctNum) {
             print("too many!")
+            fx.playPigSoundShort()
             let errorTextWritten = "Uh-oh..." + String(numA) + " + " + String(numB) + " < " + String(numInCrate)
+            let errorTextSpoken = String(numA) + " + " + String(numB) + " is < " + String(numInCrate) + ". Try again!"
 //            speakString(text: errorTextWritten)
             gameTask.text = errorTextWritten
             gameTask.fontColor = .yellow
@@ -374,6 +380,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
             winningStreak = 0
             zeroStreakBar()
             shiftFocus(node: gameTask)
+            gameTask.accessibilityLabel = errorTextSpoken
         } else {
             onVictory()
         }
@@ -449,6 +456,10 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         self.winningStreak! = self.winningStreak! + 1
         generateStreakBar()
         
+        fx.playTada()
+        if(winningStreak!>5) {
+            fx.playHappy()
+        }
         // generate the victory text.
         // I hate English plurals.
         let englishPluralIsSuchNonsense = (numA<=1||rightObjectType=="broccoli") ? rightObjectType:rightObjectType+"s"

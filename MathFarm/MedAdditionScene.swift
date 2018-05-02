@@ -36,6 +36,8 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
     var objList = [String]()
     var errorTextNode = SKLabelNode(fontNamed: "Arial")
     var winningStreakText: String?
+    var defaultQuestionSpoken: String?
+    let fx = SoundFX()
     
     
     required init?(coder aDecorder: NSCoder){
@@ -102,6 +104,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         gameTask.position = CGPoint(x: frame.size.width / 2, y: frame.size.height * 0.9)
         gameTask.isAccessibilityElement = true
         gameTask.accessibilityLabel = questionTextSpoken
+        defaultQuestionSpoken = questionTextSpoken
         typeNode = SKSpriteNode(imageNamed: rightObjectType)
         typeNode.size = CGSize(width: 84.0, height: 73.5)
         typeNode.position = CGPoint(x: size.width * 0.75, y: size.height * 0.9)
@@ -241,6 +244,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
                 //add speak string to announce addition
                 let updateMsg = "Put one " + rightObjectType + " into the crate. The crate now has " + String(numInCrate) + ((numInCrate <= 1||rightObjectType=="broccoli") ?rightObjectType:rightObjectType+"s")
                 speakString(text: updateMsg)
+                fx.playCountSound()
             } else {
                 print("wrong type of object")
                 speakString(text: "wrong type of object")
@@ -331,7 +335,9 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
     private func evaluate() {
         if(numInCrate<correctNum) {
             print("too few!")
+            fx.playPigSoundShort()
             let errorTextWritten = "Uh-oh..." + String(numA) + " + " + String(numB) + " > " + String(numInCrate)
+            let errorTextSpoken = String(numA) + " + " + String(numB) + " is > " + String(numInCrate) + ". Try again!"
             gameTask.text = errorTextWritten
             gameTask.fontColor = .yellow
             typeNode.position = CGPoint(x: size.width * 0.8, y: size.height * 0.9)
@@ -339,9 +345,13 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
             winningStreak = (winningStreak! <= 2) ?0 : winningStreak! - 2
             generateStreakBar()
             shiftFocus(node: gameTask)
+            gameTask.accessibilityLabel = errorTextSpoken
+
         } else if (numInCrate>correctNum) {
             print("too many!")
-            let errorTextWritten = "Uh-oh..." + String(numA) + " + " + String(numB) + " < " + String(numInCrate)
+            fx.playPigSoundShort()
+            let errorTextWritten = "Uh-oh..." + String(numA) + " + " + String(numB) + "  < " + String(numInCrate)
+            let errorTextSpoken = String(numA) + " + " + String(numB) + " is < " + String(numInCrate) + ". Try again!"
             gameTask.text = errorTextWritten
             gameTask.fontColor = .yellow
             typeNode.position = CGPoint(x: size.width * 0.8, y: size.height * 0.9)
@@ -349,6 +359,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
             winningStreak = (winningStreak! <= 2) ?0 : winningStreak! - 2
             generateStreakBar()
             shiftFocus(node: gameTask)
+            gameTask.accessibilityLabel = errorTextSpoken
         } else {
             onVictory()
         }
@@ -434,7 +445,10 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         // update the streak bar
         self.winningStreak! = self.winningStreak! + 1
         generateStreakBar()
-        
+        fx.playTada()
+        if(winningStreak!>5) {
+            fx.playHappy()
+        }
         // generate the victory text.
         // I hate English plurals.
         let englishPluralIsSuchNonsense = (numA<=1||rightObjectType=="broccoli") ? rightObjectType:rightObjectType+"s"
