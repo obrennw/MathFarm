@@ -28,8 +28,6 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    
-    
     /// Configure view and subviews
     override func viewWillLayoutSubviews() {
         //Set scene and accordingly & load it into the view
@@ -38,20 +36,41 @@ class GameViewController: UIViewController {
             skView.showsNodeCount = true
             skView.ignoresSiblingOrder = true
             switch gameType {
+            case "counting":
+                let scene = CountingScene(size: skView.frame.size)
+                scene.game_delegate = self
+                scene.scaleMode = .aspectFill
+                skView.presentScene(scene)
             case "addition":
                 let scene = AdditionScene(size: skView.frame.size)
                 scene.game_delegate = self
                 scene.winningStreak = 0
                 scene.scaleMode = .aspectFill
                 skView.presentScene(scene)
-            case "counting":
+            case "MedAddition":
+                let scene = MedAdditionScene(size: skView.frame.size)
+                scene.game_delegate = self
+                scene.winningStreak = 0
+                scene.scaleMode = .aspectFill
+                skView.presentScene(scene)
+            case "countingEasy":
                 let scene = CountingScene(size: skView.frame.size)
                 scene.game_delegate = self
+                scene.difficulty = 0
+                scene.winningStreak = 3
+                scene.scaleMode = .aspectFill
+                skView.presentScene(scene)
+            case "countingPro":
+                let scene = CountingScene(size: skView.frame.size)
+                scene.game_delegate = self
+                scene.winningStreak = 0
+                scene.difficulty = 1
                 scene.scaleMode = .aspectFill
                 skView.presentScene(scene)
             case "AdvAddition":
                 let scene = AdvAdditionScene(size: skView.frame.size)
                 scene.game_delegate = self
+                scene.winningStreak = 0
                 scene.scaleMode = .aspectFill
                 skView.presentScene(scene)
             default: break
