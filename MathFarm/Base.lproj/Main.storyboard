@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aXN-WV-H1Z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aXN-WV-H1Z">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="ArialBold.ttf">
-            <string>Arial-BoldMT</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="R9c-no-8jz">
@@ -101,7 +96,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVq-mv-i34">
-                                <rect key="frame" x="37" y="307" width="243" height="74"/>
+                                <rect key="frame" x="37" y="307" width="248" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration" label="Counting. Easy Difficulty">
@@ -120,19 +115,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNn-h5-y6U" userLabel="PatternBtn">
-                                <rect key="frame" x="37" y="527" width="193" height="74"/>
+                                <rect key="frame" x="37" y="527" width="248" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration" label="Pattern Recognition"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="Pattern"/>
+                                <state key="normal" title="Pattern Easy"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="Na2-9U-j0X" kind="show" id="fzS-xn-hgQ"/>
+                                    <segue destination="cCr-Lp-LvR" kind="showDetail" id="455-fy-MNg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zab-kf-EeT">
@@ -158,17 +153,12 @@
                                 <accessibility key="accessibilityConfiguration" label="Go back to start page!"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Back"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="backToStartPage:" destination="fZs-Np-QL8" eventType="touchUpInside" id="T7b-gV-hkK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JT6-fC-sfe">
-                                <rect key="frame" x="391" y="307" width="243" height="74"/>
+                                <rect key="frame" x="391" y="307" width="253" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration" label="Counting. Pro Difficulty"/>
@@ -216,6 +206,22 @@
                                     <segue destination="ucJ-tZ-mF5" kind="show" identifier="toHardAddition" id="Zvw-mq-O3i"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bY-RK-D07" userLabel="PatternBtn">
+                                <rect key="frame" x="391" y="527" width="253" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Pattern Recognition"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Pattern Pro"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="w4r-eI-R2B" kind="showDetail" id="42u-Ji-GI6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ftl-Mg-n4Z"/>
@@ -225,81 +231,11 @@
                         <outlet property="AdditionBtn" destination="zab-kf-EeT" id="YHv-0K-eFH"/>
                         <outlet property="CountingEasy" destination="kVq-mv-i34" id="riG-mc-4LI"/>
                         <outlet property="CountingPro" destination="JT6-fC-sfe" id="Vyi-5b-nwH"/>
-                        <outlet property="PatternBtn" destination="ZNn-h5-y6U" id="Wx8-pr-Jzz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnr-PA-MBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="414.84375" y="884.375"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="TNM-1A-Yta">
-            <objects>
-                <viewController id="Na2-9U-j0X" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="73V-l3-x5b">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUb-zl-In0">
-                                <rect key="frame" x="77" y="175" width="273" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.17408375130000001" green="1" blue="0.2175102682" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="43"/>
-                                <state key="normal" title="Easy"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="cCr-Lp-LvR" kind="show" id="4Yg-OI-stg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="naB-UI-M2F">
-                                <rect key="frame" x="77" y="339" width="273" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.17408375130000001" green="1" blue="0.2175102682" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="43"/>
-                                <state key="normal" title="Medium"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="VRq-49-Bzj" kind="show" id="lbZ-5N-KF5"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pis-wW-gEw">
-                                <rect key="frame" x="77" y="502" width="273" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.17408375130000001" green="1" blue="0.2175102682" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="43"/>
-                                <state key="normal" title="Hard"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hjr-Qp-TA9">
-                                <rect key="frame" x="20" y="20" width="76" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" label="Double tap to go back"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="fZs-Np-QL8" kind="show" id="DPg-em-XKj"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.82281726759999996" green="1" blue="0.99030350290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="hWX-bh-2YK"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SVn-Yq-cnG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="313" y="1570"/>
         </scene>
         <!--Easy Level Layout-->
         <scene sceneID="FSR-aA-1BE">
@@ -312,7 +248,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOX-yE-Iyg" userLabel="Empty Animal">
                                 <rect key="frame" x="72" y="277" width="139" height="144"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
@@ -343,7 +278,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="Na2-9U-j0X" kind="show" id="l4G-5f-0SA"/>
+                                    <segue destination="fZs-Np-QL8" kind="showDetail" id="dnh-UJ-cST"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEp-Kr-JlZ">
@@ -371,7 +306,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TrR-dG-ElR" userLabel="Empty Animal">
                                 <rect key="frame" x="296" y="277" width="139" height="144"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
@@ -385,7 +319,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8R-kH-EZL" userLabel="Empty Animal">
                                 <rect key="frame" x="519" y="277" width="139" height="144"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
@@ -421,7 +354,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9Q-ON-Mq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-452.34374999999994" y="2272.65625"/>
+            <point key="canvasLocation" x="19" y="1752"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="XHH-y8-3bg">
@@ -461,7 +394,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mf-r8-yZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-452" y="2975"/>
+            <point key="canvasLocation" x="19" y="2462"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="ujK-g4-fdG">
@@ -471,15 +404,164 @@
             </objects>
             <point key="canvasLocation" x="1275" y="112"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="aHb-HS-SEE">
+        <!--Medium Level Layout-->
+        <scene sceneID="7QD-JE-4TY">
             <objects>
-                <viewController id="ixu-sE-1NB" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="m9q-fG-LE3">
+                <viewController title="Medium Level Layout" id="w4r-eI-R2B" customClass="MediumPatternController" customModule="MathFarm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dPa-2U-4oM">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ndg-Md-gTi">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rah-2J-SOV" userLabel="Empty Animal">
+                                <rect key="frame" x="648" y="491" width="139" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.82281726759999996" green="1" blue="0.99030350290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <connections>
+                                    <action selector="selectAnswer1:" destination="w4r-eI-R2B" eventType="touchUpInside" id="T9z-bH-NZG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAC-oo-TJs">
+                                <rect key="frame" x="20" y="20" width="76" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Double tap to go back"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="fZs-Np-QL8" kind="showDetail" id="BNB-C7-zQA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNG-bE-vJE">
+                                <rect key="frame" x="851" y="683" width="138" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Douple tap to confirm your answer"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="checkAnswer:" destination="w4r-eI-R2B" eventType="touchUpInside" id="epr-9U-HOS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gk3-6q-j9v" userLabel="Empty Animal">
+                                <rect key="frame" x="409" y="491" width="139" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.82281726759999996" green="1" blue="0.99030350290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <connections>
+                                    <action selector="selectAnswer0:" destination="w4r-eI-R2B" eventType="touchUpInside" id="TdE-Vl-L2K"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bg4-YR-PUa" userLabel="Empty Animal">
+                                <rect key="frame" x="865" y="276" width="139" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Which animal comes next?">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="1"/>
+                                <state key="normal" title="No Answer" backgroundImage="Unknown-2"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qt-gz-x97" userLabel="Empty Animal">
+                                <rect key="frame" x="706" y="276" width="139" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <state key="normal" title="NoAnimal">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedAnimal:" destination="w4r-eI-R2B" eventType="touchUpInside" id="4Ke-2c-UzJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rec-Gd-cMj" userLabel="Empty Animal">
+                                <rect key="frame" x="541" y="276" width="139" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <state key="normal" title="NoAnimal">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedAnimal:" destination="w4r-eI-R2B" eventType="touchUpInside" id="PCB-TO-JS5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axi-Co-bha" userLabel="Empty Animal">
+                                <rect key="frame" x="371" y="276" width="139" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <state key="normal" title="NoAnimal">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedAnimal:" destination="w4r-eI-R2B" eventType="touchUpInside" id="Rky-XD-Vzj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkr-HE-URl" userLabel="Empty Animal">
+                                <rect key="frame" x="192" y="276" width="139" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <state key="normal" title="NoAnimal">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedAnimal:" destination="w4r-eI-R2B" eventType="touchUpInside" id="dgL-In-GBL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2p-kt-OAJ" userLabel="Empty Animal">
+                                <rect key="frame" x="20" y="276" width="139" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <state key="normal" title="NoAnimal">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedAnimal:" destination="w4r-eI-R2B" eventType="touchUpInside" id="m6i-v5-74h"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.82281726759999996" green="1" blue="0.99030350290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="dF5-5a-G5M"/>
+                    </view>
+                    <connections>
+                        <outlet property="answerChoice0" destination="Gk3-6q-j9v" id="emJ-wL-aZO"/>
+                        <outlet property="answerChoice1" destination="rah-2J-SOV" id="49l-BL-8dT"/>
+                        <outlet property="answerSlot" destination="Bg4-YR-PUa" id="ihl-ca-HjF"/>
+                        <outlet property="firstAnimal" destination="pkr-HE-URl" id="Ylu-Oe-t25"/>
+                        <outlet property="fourthAnimal" destination="8Qt-gz-x97" id="6NO-OF-yhe"/>
+                        <outlet property="secondAnimal" destination="axi-Co-bha" id="G6c-w1-ytu"/>
+                        <outlet property="thirdAnimal" destination="Rec-Gd-cMj" id="gc7-px-dMc"/>
+                        <outlet property="zeroAnimal" destination="C2p-kt-OAJ" id="wjc-GW-IUJ"/>
+                        <segue destination="L3H-eT-nha" kind="showDetail" identifier="GreatJobMed" id="Cwm-Yl-z6H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CFO-tM-aIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="762" y="1752"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="FAU-Xq-bWJ">
+            <objects>
+                <viewController id="L3H-eT-nha" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q8h-nI-YvX">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MV0-X6-jMG">
                                 <rect key="frame" x="347" y="401" width="368" height="107"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.45202044879999997" green="1" blue="0.31255158690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -492,10 +574,10 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="VRq-49-Bzj" kind="show" id="eQI-oA-iRq"/>
+                                    <segue destination="w4r-eI-R2B" kind="show" id="pJ5-Zg-I0v"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Great Job!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcF-TE-vlr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Great Job!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kl3-tm-yqX">
                                 <rect key="frame" x="276" y="156" width="510" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="100"/>
@@ -504,163 +586,12 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.82281726759999996" green="1" blue="0.99030350290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="XUW-vR-QO8"/>
+                        <viewLayoutGuide key="safeArea" id="pnw-Bc-UpV"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WhO-e1-UPN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PGz-D5-Ci6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="313" y="2975"/>
-        </scene>
-        <!--Medium Pattern Controller-->
-        <scene sceneID="rZi-zG-3nz">
-            <objects>
-                <viewController id="VRq-49-Bzj" customClass="MediumPatternController" customModule="MathFarm" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Puz-U3-WAh">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZe-qX-Tu4">
-                                <rect key="frame" x="20" y="20" width="82" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="Na2-9U-j0X" kind="show" id="527-yT-ykZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHb-Dm-tcI" userLabel="Empty Animal">
-                                <rect key="frame" x="20" y="312" width="139" height="144"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES"/>
-                                </accessibility>
-                                <state key="normal">
-                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tappedAnimal:" destination="VRq-49-Bzj" eventType="touchUpInside" id="Nnf-Ge-4ww"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1c-ZI-sf0" userLabel="Empty Animal">
-                                <rect key="frame" x="194" y="312" width="139" height="144"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES"/>
-                                </accessibility>
-                                <state key="normal">
-                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tappedAnimal:" destination="VRq-49-Bzj" eventType="touchUpInside" id="GRA-0D-col"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2nQ-Dp-wUk" userLabel="Empty Animal">
-                                <rect key="frame" x="366" y="312" width="139" height="144"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES"/>
-                                </accessibility>
-                                <state key="normal">
-                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tappedAnimal:" destination="VRq-49-Bzj" eventType="touchUpInside" id="qlE-nS-eoa"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZO-kl-RFz" userLabel="Empty Animal">
-                                <rect key="frame" x="540" y="312" width="139" height="144"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES"/>
-                                </accessibility>
-                                <state key="normal">
-                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tappedAnimal:" destination="VRq-49-Bzj" eventType="touchUpInside" id="Ldk-zp-hHi"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eq-NW-eAn" userLabel="Empty Animal">
-                                <rect key="frame" x="710" y="312" width="139" height="144"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES"/>
-                                </accessibility>
-                                <state key="normal">
-                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tappedAnimal:" destination="VRq-49-Bzj" eventType="touchUpInside" id="QmT-6x-0Xb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xuf-B1-PoB" userLabel="Empty Animal">
-                                <rect key="frame" x="877" y="312" width="139" height="144"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" label="Which animal comes next?">
-                                    <accessibilityTraits key="traits" none="YES"/>
-                                </accessibility>
-                                <fontDescription key="fontDescription" type="system" pointSize="1"/>
-                                <state key="normal" title="No Answer" backgroundImage="Unknown-2"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZ8-iU-WfA" userLabel="Empty Animal">
-                                <rect key="frame" x="455" y="528" width="139" height="144"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.82281726759999996" green="1" blue="0.99030350290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES"/>
-                                </accessibility>
-                                <connections>
-                                    <action selector="selectAnswer0:" destination="VRq-49-Bzj" eventType="touchUpInside" id="MWb-O3-G7T"/>
-                                    <action selector="selectAnswer0:" destination="cCr-Lp-LvR" eventType="touchUpInside" id="mD1-38-nRx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Lz-0b-2Ig" userLabel="Empty Animal">
-                                <rect key="frame" x="665" y="528" width="139" height="144"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.82281726759999996" green="1" blue="0.99030350290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES"/>
-                                </accessibility>
-                                <connections>
-                                    <action selector="selectAnswer1:" destination="cCr-Lp-LvR" eventType="touchUpInside" id="Azm-O9-zUP"/>
-                                    <action selector="selectAnswer1:" destination="VRq-49-Bzj" eventType="touchUpInside" id="wP8-Xn-giP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uud-tw-tgk">
-                                <rect key="frame" x="845" y="681" width="138" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" label="Douple tap to confirm your answer"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Confirm"/>
-                                <connections>
-                                    <action selector="checkAnswer:" destination="VRq-49-Bzj" eventType="touchUpInside" id="Te4-tT-v06"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.82281726759999996" green="1" blue="0.99030350290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <gestureRecognizers/>
-                        <viewLayoutGuide key="safeArea" id="W8S-EZ-jZg"/>
-                    </view>
-                    <connections>
-                        <outlet property="answerChoice0" destination="FZ8-iU-WfA" id="ume-x9-rMB"/>
-                        <outlet property="answerChoice1" destination="3Lz-0b-2Ig" id="hpI-5K-5Oq"/>
-                        <outlet property="answerSlot" destination="Xuf-B1-PoB" id="ivo-Fn-LFM"/>
-                        <outlet property="firstAnimal" destination="X1c-ZI-sf0" id="ZhC-pw-QgP"/>
-                        <outlet property="fourthAnimal" destination="6eq-NW-eAn" id="feE-Da-9vB"/>
-                        <outlet property="secondAnimal" destination="2nQ-Dp-wUk" id="Hzy-U5-Iik"/>
-                        <outlet property="thirdAnimal" destination="HZO-kl-RFz" id="KbG-74-4mQ"/>
-                        <outlet property="zeroAnimal" destination="JHb-Dm-tcI" id="2Wb-9m-BTD"/>
-                        <segue destination="ixu-sE-1NB" kind="show" identifier="GreatJobMed" id="nv0-VE-a2D"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QJk-Ek-p4u" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="313" y="2273"/>
+            <point key="canvasLocation" x="762" y="2462"/>
         </scene>
     </scenes>
     <resources>
@@ -669,13 +600,11 @@
         <image name="thumbs_cartoon-farm-vector3" width="374" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nv0-VE-a2D"/>
-        <segue reference="eQI-oA-iRq"/>
-        <segue reference="vZL-mQ-GRL"/>
-        <segue reference="x1m-WK-pkG"/>
+        <segue reference="D9b-Sr-2se"/>
+        <segue reference="Cwm-Yl-z6H"/>
+        <segue reference="pJ5-Zg-I0v"/>
         <segue reference="U2a-Ru-aIJ"/>
         <segue reference="b0A-S6-Bvs"/>
-        <segue reference="fzS-xn-hgQ"/>
-        <segue reference="DPg-em-XKj"/>
+        <segue reference="BNB-C7-zQA"/>
     </inferredMetricsTieBreakers>
 </document>
