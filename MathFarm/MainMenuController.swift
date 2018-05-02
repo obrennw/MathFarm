@@ -19,23 +19,7 @@ class MainMenuController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        do{
-            
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "backgroundmusic",ofType: "mp3")!))
-            
-            audioPlayer.prepareToPlay()
-            
-            audioPlayer.play()
-            
-            audioPlayer.volume = 0.8
-            
-        }
-            
-        catch{
-            
-            print(error)
-            
-        }
+        
         
 
     }
