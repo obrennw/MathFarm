@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import AVFoundation
 
 /// ViewController for level selector
 class LevelSelectController: UIViewController {
@@ -19,6 +20,9 @@ class LevelSelectController: UIViewController {
     //button that links to pattern level
     @IBOutlet weak var CountingPro: UIButton!
     /// Do any additional setup after loading the view.
+    
+    var audioPlayer: AVAudioPlayer? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -76,6 +80,28 @@ class LevelSelectController: UIViewController {
         else if(segue.identifier=="toHardAddition") {
             let vc = segue.destination as! GameViewController
             vc.gameType = "AdvAddition"
+        }
+    }
+    
+    @IBAction func toggleMusic(_ sender: UIButton) {
+        if(audioPlayer == nil){
+            do{
+                audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "backgroundmusic",ofType: "mp3")!))
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.numberOfLoops = -1
+                audioPlayer?.play()
+                audioPlayer?.volume = 0.8
+            }
+                
+            catch{
+                print(error)
+            }
+        } else{
+            if (audioPlayer?.isPlaying)!{
+                audioPlayer?.stop()
+            } else{
+                audioPlayer?.play()
+            }
         }
     }
     /*
