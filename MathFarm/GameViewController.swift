@@ -42,7 +42,7 @@ class GameViewController: UIViewController {
                 scene.scaleMode = .aspectFill
                 skView.presentScene(scene)
             case "addition":
-                let scene = AdditionScene(size: skView.frame.size)
+                let scene = EasyAdditionScene(size: skView.frame.size)
                 scene.game_delegate = self
                 scene.winningStreak = 0
                 scene.scaleMode = .aspectFill

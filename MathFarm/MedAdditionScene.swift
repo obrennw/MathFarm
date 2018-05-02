@@ -20,7 +20,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
     var backgroundNode = SKSpriteNode(imageNamed: "farmland_background")
     var selectedNode = SKSpriteNode()
     var winningStreak: Int?
-    var backButton = SKLabelNode(fontNamed: "Arial")
+    var backButton = SKSpriteNode(imageNamed: "backButton")
     var numInCrate = 0
     var nodeOriginalPosition: CGPoint?
     var rightObjectType = movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))]
@@ -36,6 +36,8 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
     var objList = [String]()
     var errorTextNode = SKLabelNode(fontNamed: "Arial")
     var winningStreakText: String?
+    var defaultQuestionSpoken: String?
+    let fx = SoundFX()
     
     
     required init?(coder aDecorder: NSCoder){
@@ -65,7 +67,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         
         //setup the button to go back to level selection
         backButton.position = CGPoint(x: size.width * 0.1, y: size.height * 0.9)
-        backButton.text = "Back"
+        backButton.size = CGSize(width: 90, height: 90)
         backButton.name = "back to level selection"
         backButton.isAccessibilityElement = true
         backButton.accessibilityLabel = "go back and start a new farm task"
@@ -102,6 +104,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         gameTask.position = CGPoint(x: frame.size.width / 2, y: frame.size.height * 0.9)
         gameTask.isAccessibilityElement = true
         gameTask.accessibilityLabel = questionTextSpoken
+        defaultQuestionSpoken = questionTextSpoken
         typeNode = SKSpriteNode(imageNamed: rightObjectType)
         typeNode.size = CGSize(width: 84.0, height: 73.5)
         typeNode.position = CGPoint(x: size.width * 0.75, y: size.height * 0.9)
@@ -171,25 +174,6 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
                 else if (touchedNode.name == "greenlight") {
                     speakString(text: winningStreakText!)
                 }
-                else {
-                    nodeOriginalPosition = touchedNode.position
-                    //print("set original position")
-                    touchedNode.zPosition = touchedNode.zPosition+2
-                    movingFlag = true
-                    print("movingFlag on")
-                    print(touchedNode.zPosition)
-                    onSpriteTouch(touchedNode: touchedNode as! SKSpriteNode)
-                }
-            } else {
-                if(touchedNode.name == "back to level selection") {
-                    self.removeAllActions()
-                    self.removeAllChildren()
-                    self.game_delegate?.backToLevel()
-                }
-                else if(touchedNode.name == "submit") {
-                    print("submit")
-                    evaluate()
-                }
                 else if(touchedNode.name == "continue") {
                     print("continue")
                     let newScene = MedAdditionScene(size: self.size)
@@ -201,6 +185,25 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
                     self.removeAllActions()
                     self.removeAllChildren()
                     self.scene?.view?.presentScene(newScene,transition: transition)
+                }
+                else if(touchedNode.name == "back to level selection") {
+                    self.removeAllActions()
+                    self.removeAllChildren()
+                    self.game_delegate?.backToLevel()
+                }
+                else {
+                    nodeOriginalPosition = touchedNode.position
+                    //print("set original position")
+                    touchedNode.zPosition = touchedNode.zPosition+2
+                    movingFlag = true
+                    print("movingFlag on")
+                    print(touchedNode.zPosition)
+                    onSpriteTouch(touchedNode: touchedNode as! SKSpriteNode)
+                }
+            } else {
+                if(touchedNode.name == "submit") {
+                    print("submit")
+                    evaluate()
                 }
                 else if(touchedNode.name == "toNextLevel") {
                     print("toNextLevel")
@@ -241,6 +244,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
                 //add speak string to announce addition
                 let updateMsg = "Put one " + rightObjectType + " into the crate. The crate now has " + String(numInCrate) + ((numInCrate <= 1||rightObjectType=="broccoli") ?rightObjectType:rightObjectType+"s")
                 speakString(text: updateMsg)
+                fx.playCountSound()
             } else {
                 print("wrong type of object")
                 speakString(text: "wrong type of object")
@@ -331,7 +335,9 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
     private func evaluate() {
         if(numInCrate<correctNum) {
             print("too few!")
+            fx.playPigSoundShort()
             let errorTextWritten = "Uh-oh..." + String(numA) + " + " + String(numB) + " > " + String(numInCrate)
+            let errorTextSpoken = String(numA) + " + " + String(numB) + " is > " + String(numInCrate) + ". Try again!"
             gameTask.text = errorTextWritten
             gameTask.fontColor = .yellow
             typeNode.position = CGPoint(x: size.width * 0.8, y: size.height * 0.9)
@@ -339,9 +345,13 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
             winningStreak = (winningStreak! <= 2) ?0 : winningStreak! - 2
             generateStreakBar()
             shiftFocus(node: gameTask)
+            gameTask.accessibilityLabel = errorTextSpoken
+
         } else if (numInCrate>correctNum) {
             print("too many!")
-            let errorTextWritten = "Uh-oh..." + String(numA) + " + " + String(numB) + " < " + String(numInCrate)
+            fx.playPigSoundShort()
+            let errorTextWritten = "Uh-oh..." + String(numA) + " + " + String(numB) + "  < " + String(numInCrate)
+            let errorTextSpoken = String(numA) + " + " + String(numB) + " is < " + String(numInCrate) + ". Try again!"
             gameTask.text = errorTextWritten
             gameTask.fontColor = .yellow
             typeNode.position = CGPoint(x: size.width * 0.8, y: size.height * 0.9)
@@ -349,6 +359,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
             winningStreak = (winningStreak! <= 2) ?0 : winningStreak! - 2
             generateStreakBar()
             shiftFocus(node: gameTask)
+            gameTask.accessibilityLabel = errorTextSpoken
         } else {
             onVictory()
         }
@@ -434,7 +445,10 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         // update the streak bar
         self.winningStreak! = self.winningStreak! + 1
         generateStreakBar()
-        
+        fx.playTada()
+        if(winningStreak!>5) {
+            fx.playHappy()
+        }
         // generate the victory text.
         // I hate English plurals.
         let englishPluralIsSuchNonsense = (numA<=1||rightObjectType=="broccoli") ? rightObjectType:rightObjectType+"s"
@@ -449,10 +463,10 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         victoryText.accessibilityLabel = victoryTextSpoken
         victoryText.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         
-        let continueButton = SKLabelNode(fontNamed: "Arial")
+        let continueButton = SKSpriteNode(imageNamed: "continueArrow")
         continueButton.name = "continue"
-        continueButton.text = "continue"
-        continueButton.position = CGPoint(x: frame.size.width*0.9, y: frame.size.height * 0.9)
+        continueButton.size = CGSize(width: 100, height: 100)
+        continueButton.position = CGPoint(x: frame.size.width*0.92, y: frame.size.height * 0.9)
         continueButton.isAccessibilityElement = true
         continueButton.accessibilityLabel = "Tap here to start next task."
         

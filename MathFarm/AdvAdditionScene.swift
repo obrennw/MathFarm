@@ -20,7 +20,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
     var backgroundNode = SKSpriteNode(imageNamed: "farmland_background")
     var selectedNode = SKSpriteNode()
     var winningStreak: Int?
-    var backButton = SKLabelNode(fontNamed: "Arial")
+    var backButton = SKSpriteNode(imageNamed: "backButton")
     var numInCrate = 0
     var objNumChangce = 0
     var nodeOriginalPosition: CGPoint?
@@ -36,6 +36,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
     var objTypeList = [String]()
     var objNumList = [String]()
     var winningStreakText: String?
+    var fx = SoundFX()
 
     
     required init?(coder aDecorder: NSCoder){
@@ -66,7 +67,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         
         //setup the button to go back to level selection
         backButton.position = CGPoint(x: size.width * 0.1, y: size.height * 0.9)
-        backButton.text = "Back"
+        backButton.size = CGSize(width: 90, height: 90)
         backButton.name = "back to level selection"
         backButton.isAccessibilityElement = true
         backButton.accessibilityLabel = "go back and start a new farm task"
@@ -177,24 +178,10 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
                 else if (touchedNode.name == "greenlight") {
                     speakString(text: winningStreakText!)
                 }
-                else {
-                    nodeOriginalPosition = touchedNode.position
-                    //print("set original position")
-                    touchedNode.zPosition = touchedNode.zPosition+2
-                    movingFlag = true
-                    print("movingFlag on")
-                    print(touchedNode.zPosition)
-                    onSpriteTouch(touchedNode: touchedNode as! SKSpriteNode)
-                }
-            } else {
-                if(touchedNode.name == "back to level selection") {
+                else if(touchedNode.name == "back to level selection") {
                     self.removeAllActions()
                     self.removeAllChildren()
                     self.game_delegate?.backToLevel()
-                }
-                else if(touchedNode.name == "submit") {
-                    print("submit")
-                    evaluate()
                 }
                 else if(touchedNode.name == "continue") {
                     print("continue")
@@ -207,6 +194,20 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
                     self.removeAllActions()
                     self.removeAllChildren()
                     self.scene?.view?.presentScene(newScene,transition: transition)
+                }
+                else {
+                    nodeOriginalPosition = touchedNode.position
+                    //print("set original position")
+                    touchedNode.zPosition = touchedNode.zPosition+2
+                    movingFlag = true
+                    print("movingFlag on")
+                    print(touchedNode.zPosition)
+                    onSpriteTouch(touchedNode: touchedNode as! SKSpriteNode)
+                }
+            } else {
+                if(touchedNode.name == "submit") {
+                    print("submit")
+                    evaluate()
                 }
             }
         }
@@ -234,6 +235,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
                 //add speak string to announce addition
                 let updateMsg = "Put " + String(objNumChangce) + ((objNumChangce == 1||rightObjectType=="broccoli") ?rightObjectType:rightObjectType+"s") + " into the crate. The crate now has " + String(numInCrate) + ((numInCrate <= 1||rightObjectType=="broccoli") ?rightObjectType:rightObjectType+"s")
                 speakString(text: updateMsg)
+                fx.playCountSound()
             } else {
                 print("wrong type of object")
                 speakString(text: "wrong type of object")
@@ -353,7 +355,9 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         speakString(text: "evaluate")
         if(numInCrate<correctNum) {
             print("too few!")
+            fx.playPigSoundShort()
             let errorTextWritten = "Uh-oh..." + String(numA) + " + " + String(numB) + " > " + String(numInCrate)
+            let errorTextSpoken = String(numA) + " + " + String(numB) + " is > " + String(numInCrate) + ". Try again!"
 //            speakString(text: errorTextWritten)
             gameTask.text = errorTextWritten
             gameTask.fontColor = .yellow
@@ -362,10 +366,12 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
             winningStreak = 0
             zeroStreakBar()
             shiftFocus(node: gameTask)
-
+            gameTask.accessibilityLabel = errorTextSpoken
         } else if (numInCrate>correctNum) {
             print("too many!")
+            fx.playPigSoundShort()
             let errorTextWritten = "Uh-oh..." + String(numA) + " + " + String(numB) + " < " + String(numInCrate)
+            let errorTextSpoken = String(numA) + " + " + String(numB) + " is < " + String(numInCrate) + ". Try again!"
 //            speakString(text: errorTextWritten)
             gameTask.text = errorTextWritten
             gameTask.fontColor = .yellow
@@ -374,6 +380,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
             winningStreak = 0
             zeroStreakBar()
             shiftFocus(node: gameTask)
+            gameTask.accessibilityLabel = errorTextSpoken
         } else {
             onVictory()
         }
@@ -445,10 +452,15 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
                 child.removeFromParent()
             }
         }
+        
         // update the streak bar
         self.winningStreak! = self.winningStreak! + 1
         generateStreakBar()
         
+        fx.playTada()
+        if(winningStreak!>5) {
+            fx.playHappy()
+        }
         // generate the victory text.
         // I hate English plurals.
         let englishPluralIsSuchNonsense = (numA<=1||rightObjectType=="broccoli") ? rightObjectType:rightObjectType+"s"
@@ -463,10 +475,10 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         victoryText.accessibilityLabel = victoryTextSpoken
         victoryText.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         
-        let continueButton = SKLabelNode(fontNamed: "Arial")
+        let continueButton = SKSpriteNode(imageNamed: "continueArrow")
         continueButton.name = "continue"
-        continueButton.text = "continue"
-        continueButton.position = CGPoint(x: frame.size.width*0.9, y: frame.size.height * 0.9)
+        continueButton.size = CGSize(width: 100, height: 100)
+        continueButton.position = CGPoint(x: frame.size.width*0.92, y: frame.size.height * 0.9)
         continueButton.isAccessibilityElement = true
         continueButton.accessibilityLabel = "Tap here to start next task."
         
