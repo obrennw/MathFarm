@@ -29,8 +29,8 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
     var rightObjectType = ""
     var question = SKLabelNode(fontNamed: "Arial")
     var answerText = SKLabelNode(fontNamed: "Arial")
-    var backButton = SKLabelNode(fontNamed: "Arial")
-    var continueButton = SKLabelNode(fontNamed: "Arial")
+    var backButton = SKSpriteNode(imageNamed: "backButton")
+    var continueButton = SKSpriteNode(imageNamed: "continueArrow")
     var typeNode = SKSpriteNode()
     
     var audioPlayer = AVAudioPlayer()
@@ -93,7 +93,7 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
         self.addChild(typeNode)
         
         backButton.position = CGPoint(x: size.width * 0.1, y: size.height * 0.9)
-        backButton.text = "Back"
+        backButton.size = CGSize(width: 90, height: 90)
         backButton.name = "back to level selection"
         backButton.isAccessibilityElement = true
         backButton.accessibilityLabel = "go back and start a new farm task"
@@ -159,17 +159,7 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
                 else if (touchedNode.name == "backGround" || touchedNode.name == "objShowType") {
                     return
                 }
-                else {
-                    nodeOriginalPosition = touchedNode.position
-                    //print("set original position")
-                    touchedNode.zPosition = touchedNode.zPosition+2
-                    movingFlag = true
-                    print("movingFlag on")
-                    print(touchedNode.zPosition)
-                    onSpriteTouch(touchedNode: touchedNode as! SKSpriteNode)
-                }
-            } else {
-                if(touchedNode.name == "back to level selection") {
+                else if(touchedNode.name == "back to level selection") {
                     self.removeAllActions()
                     self.removeAllChildren()
                     self.game_delegate?.backToLevel()
@@ -187,7 +177,18 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
                     self.removeAllChildren()
                     self.scene?.view?.presentScene(newScene,transition: transition)
                 }
-                else if(touchedNode.name == "toNextLevel") {
+                else {
+                    nodeOriginalPosition = touchedNode.position
+                    //print("set original position")
+                    touchedNode.zPosition = touchedNode.zPosition+2
+                    movingFlag = true
+                    print("movingFlag on")
+                    print(touchedNode.zPosition)
+                    onSpriteTouch(touchedNode: touchedNode as! SKSpriteNode)
+                }
+            } else {
+
+                if(touchedNode.name == "toNextLevel") {
                     print("toNextLevel")
                     let newScene = MedAdditionScene(size: self.size)
                     newScene.game_delegate = self.game_delegate
@@ -288,7 +289,7 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
                     sprite.size = CGSize(width: 70, height: 70)
                     let offset = frame.size.height*0.65 - CGFloat(i)*frame.size.height*0.15
                     //print(offset, " ", frame.size.height*0.9)
-                    sprite.position = CGPoint(x:frame.size.width*0.1, y: offset)
+                    sprite.position = CGPoint(x:frame.size.width*0.05, y: offset)
                     self.addChild(sprite)
             } else {
                 let sprite = SKLabelNode(fontNamed: "Arial")
@@ -340,9 +341,18 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
         if(answer == correctNum){
             // do the following: increment the correct count -> load a new addition scene
             //
+            for child in self.children {
+                if child.name != "back to level selection" && child.name != "backGround" && child.name != "objShowType"{
+                    child.isAccessibilityElement = false
+                    child.isUserInteractionEnabled = false
+                    child.removeFromParent()
+                }
+            }
+            
             print("winningStreak: ", winningStreak!+1)
             winningStreak = winningStreak! + 1
             generateStreakBar()
+            
             fx.playTada()
             if(winningStreak! > 3) {
                 fx.playHappy()
@@ -350,17 +360,22 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
             let englishPluralIsSuchNonsense = (numA<=1||rightObjectType=="broccoli") ? rightObjectType:rightObjectType+"s"
             let englishPluralIsLousyMath = (correctNum-numA<=1||rightObjectType=="broccoli") ? rightObjectType:rightObjectType+"s"
             let chineseLiveHappilyWithoutSuchStupidity = (correctNum <= 1||rightObjectType=="broccoli") ? rightObjectType:rightObjectType+"s"
-            question.text = "Correct! " + String(numA) + " + " + String(correctNum-numA) + " = " + String(correctNum)
-            question.accessibilityLabel = String(numA) + " " + englishPluralIsSuchNonsense + " + " + String(correctNum-numA) + " " + englishPluralIsLousyMath + " = " + String(correctNum) + " " + chineseLiveHappilyWithoutSuchStupidity + ". Good job!"
-            typeNode.position = CGPoint(x: size.width * 0.8, y: size.height * 0.9)
+            let victoryText = SKLabelNode(fontNamed: "Arial")
+            victoryText.isAccessibilityElement = true
+            victoryText.text = "Correct! " + String(numA) + " + " + String(correctNum-numA) + " = " + String(correctNum)
+            victoryText.accessibilityLabel = String(numA) + " " + englishPluralIsSuchNonsense + " + " + String(correctNum-numA) + " " + englishPluralIsLousyMath + " = " + String(correctNum) + " " + chineseLiveHappilyWithoutSuchStupidity + ". Good job!"
+            victoryText.fontSize = 100
+            victoryText.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
+            
+            typeNode.position = CGPoint(x: size.width * 0.95, y: size.height * 0.55)
             continueButton.name = "continue"
-            continueButton.text = "continue"
+            continueButton.size = CGSize(width: 100, height: 100)
             continueButton.position = CGPoint(x: frame.size.width*0.92, y: frame.size.height * 0.9)
             continueButton.isAccessibilityElement = true
-            continueButton.accessibilityLabel = "keep helping farmer Joe"
+            continueButton.accessibilityLabel = "continue to next task"
             self.addChild(continueButton)
-            shiftFocus(node: question)
-
+            self.addChild(victoryText)
+            shiftFocus(node: victoryText)
         }
     }
     

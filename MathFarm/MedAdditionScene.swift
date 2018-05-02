@@ -20,7 +20,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
     var backgroundNode = SKSpriteNode(imageNamed: "farmland_background")
     var selectedNode = SKSpriteNode()
     var winningStreak: Int?
-    var backButton = SKLabelNode(fontNamed: "Arial")
+    var backButton = SKSpriteNode(imageNamed: "backButton")
     var numInCrate = 0
     var nodeOriginalPosition: CGPoint?
     var rightObjectType = movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))]
@@ -67,7 +67,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         
         //setup the button to go back to level selection
         backButton.position = CGPoint(x: size.width * 0.1, y: size.height * 0.9)
-        backButton.text = "Back"
+        backButton.size = CGSize(width: 90, height: 90)
         backButton.name = "back to level selection"
         backButton.isAccessibilityElement = true
         backButton.accessibilityLabel = "go back and start a new farm task"
@@ -174,25 +174,6 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
                 else if (touchedNode.name == "greenlight") {
                     speakString(text: winningStreakText!)
                 }
-                else {
-                    nodeOriginalPosition = touchedNode.position
-                    //print("set original position")
-                    touchedNode.zPosition = touchedNode.zPosition+2
-                    movingFlag = true
-                    print("movingFlag on")
-                    print(touchedNode.zPosition)
-                    onSpriteTouch(touchedNode: touchedNode as! SKSpriteNode)
-                }
-            } else {
-                if(touchedNode.name == "back to level selection") {
-                    self.removeAllActions()
-                    self.removeAllChildren()
-                    self.game_delegate?.backToLevel()
-                }
-                else if(touchedNode.name == "submit") {
-                    print("submit")
-                    evaluate()
-                }
                 else if(touchedNode.name == "continue") {
                     print("continue")
                     let newScene = MedAdditionScene(size: self.size)
@@ -204,6 +185,25 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
                     self.removeAllActions()
                     self.removeAllChildren()
                     self.scene?.view?.presentScene(newScene,transition: transition)
+                }
+                else if(touchedNode.name == "back to level selection") {
+                    self.removeAllActions()
+                    self.removeAllChildren()
+                    self.game_delegate?.backToLevel()
+                }
+                else {
+                    nodeOriginalPosition = touchedNode.position
+                    //print("set original position")
+                    touchedNode.zPosition = touchedNode.zPosition+2
+                    movingFlag = true
+                    print("movingFlag on")
+                    print(touchedNode.zPosition)
+                    onSpriteTouch(touchedNode: touchedNode as! SKSpriteNode)
+                }
+            } else {
+                if(touchedNode.name == "submit") {
+                    print("submit")
+                    evaluate()
                 }
                 else if(touchedNode.name == "toNextLevel") {
                     print("toNextLevel")
@@ -463,10 +463,10 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         victoryText.accessibilityLabel = victoryTextSpoken
         victoryText.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         
-        let continueButton = SKLabelNode(fontNamed: "Arial")
+        let continueButton = SKSpriteNode(imageNamed: "continueArrow")
         continueButton.name = "continue"
-        continueButton.text = "continue"
-        continueButton.position = CGPoint(x: frame.size.width*0.9, y: frame.size.height * 0.9)
+        continueButton.size = CGSize(width: 100, height: 100)
+        continueButton.position = CGPoint(x: frame.size.width*0.92, y: frame.size.height * 0.9)
         continueButton.isAccessibilityElement = true
         continueButton.accessibilityLabel = "Tap here to start next task."
         
