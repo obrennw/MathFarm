@@ -51,6 +51,8 @@ class GameViewController: UIViewController {
                 let scene = MedAdditionScene(size: skView.frame.size)
                 scene.game_delegate = self
                 scene.winningStreak = 0
+                scene.scaleMode = .aspectFill
+                skView.presentScene(scene)
             case "countingEasy":
                 let scene = CountingScene(size: skView.frame.size)
                 scene.game_delegate = self
