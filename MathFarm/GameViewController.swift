@@ -57,7 +57,7 @@ class GameViewController: UIViewController {
                 let scene = CountingScene(size: skView.frame.size)
                 scene.game_delegate = self
                 scene.difficulty = 0
-                scene.winningStreak = 3
+                scene.winningStreak = 0
                 scene.scaleMode = .aspectFill
                 skView.presentScene(scene)
             case "countingPro":
