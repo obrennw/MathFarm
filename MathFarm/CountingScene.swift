@@ -70,6 +70,7 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     
     
     /// Randomly generated number of apples to be used for the level
+
     var numApples = arc4random_uniform(4)+2
     /// Randomly generated number of non apple fruit to be used for the level
     var numNonApples = arc4random_uniform(3)+1
