@@ -352,7 +352,6 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func evaluate() {
-        speakString(text: "evaluate")
         if(numInCrate<correctNum) {
             print("too few!")
             fx.playPigSoundShort()
@@ -458,7 +457,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         generateStreakBar()
         
         fx.playTada()
-        if(winningStreak!>5) {
+        if(winningStreak!>7) {
             fx.playHappy()
         }
         // generate the victory text.
@@ -493,7 +492,6 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
             congratulateText.isAccessibilityElement = true
             congratulateText.accessibilityLabel = congratulateText.text
             self.addChild(congratulateText)
-            speakString(text: congratulateText.text!)
         }
         shiftFocus(node: victoryText)
     }
@@ -502,8 +500,14 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, node)
 
     }
-    private func speakString(text: String) {
+    func speakString(text: String) {
+        //let Utterance = AVSpeechUtterance(string: text)
+//        while(fx.isPlaying()){
+//            //wait for song to finish..
+//            print("waiting...")
+//        }
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
+        //speaker.speak(Utterance)
     }
 }
 
