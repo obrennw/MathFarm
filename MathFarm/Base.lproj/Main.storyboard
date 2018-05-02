@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aXN-WV-H1Z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aXN-WV-H1Z">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArialBold.ttf">
+            <string>Arial-BoldMT</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="R9c-no-8jz">
@@ -509,24 +514,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1U-eA-AwB">
-                                <rect key="frame" x="446" y="347" width="183" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.085231731150000004" blue="0.078863051640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="Pro"/>
-                                <connections>
-                                    <action selector="toAdditionLevel:" destination="fZs-Np-QL8" eventType="touchUpInside" id="qIR-ku-bCD"/>
-                                    <action selector="toHardAddi:" destination="mDq-6r-5kf" eventType="touchUpInside" id="GBf-Hc-EuE"/>
-                                    <segue destination="ucJ-tZ-mF5" kind="show" identifier="toHardAddition" id="qHI-DS-ARz"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCH-xB-Xrx">
                                 <rect key="frame" x="150" y="347" width="183" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.085231731150000004" blue="0.078863051640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="New Kid"/>
+                                <state key="normal" title="Easy"/>
                                 <connections>
                                     <action selector="toAdditionLevel:" destination="fZs-Np-QL8" eventType="touchUpInside" id="ivp-Rc-hts"/>
                                     <action selector="toEasyAddi:" destination="mDq-6r-5kf" eventType="touchUpInside" id="0hi-HP-lSd"/>
@@ -544,11 +537,20 @@
                                     <segue destination="fZs-Np-QL8" kind="show" identifier="backToUpperLevel" id="bes-H3-K88"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1U-eA-AwB">
+                                <rect key="frame" x="676" y="347" width="183" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.085231731150000004" blue="0.078863051640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Hard"/>
+                                <connections>
+                                    <action selector="toAdditionLevel:" destination="fZs-Np-QL8" eventType="touchUpInside" id="qIR-ku-bCD"/>
+                                    <action selector="toHardAddi:" destination="mDq-6r-5kf" eventType="touchUpInside" id="GBf-Hc-EuE"/>
+                                    <segue destination="ucJ-tZ-mF5" kind="show" identifier="toHardAddition" id="qHI-DS-ARz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <accessibility key="accessibilityConfiguration">
-                            <bool key="isElement" value="YES"/>
-                        </accessibility>
                         <viewLayoutGuide key="safeArea" id="9gp-a5-IdR"/>
                     </view>
                     <connections>
@@ -712,7 +714,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="x1m-WK-pkG"/>
-        <segue reference="0P9-I0-gyD"/>
+        <segue reference="br6-gx-Vu0"/>
         <segue reference="b0A-S6-Bvs"/>
         <segue reference="fzS-xn-hgQ"/>
         <segue reference="bes-H3-K88"/>
