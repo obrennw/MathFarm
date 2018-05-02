@@ -20,7 +20,7 @@ class SoundFX {
     private let happyURL = Bundle.main.url(forResource: "happy", withExtension: "mp3")
 
     
-    public func playAnimalSound(animal: String) -> Bool {
+    public func playAnimalSound(animal: String) {
         switch(animal){
         case "pig":
             playPigSound()
@@ -41,9 +41,8 @@ class SoundFX {
             break
         default:
             //no sound
-            return false
+            break
         }
-        return true
     }
     
     public func isPlaying() -> Bool {

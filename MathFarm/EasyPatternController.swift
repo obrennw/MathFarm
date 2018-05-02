@@ -8,13 +8,22 @@
 
 import UIKit
 
-class EasyPatternController: UIViewController {
-    private var currentPattern = [Int]()
-    private var currentSelectedAnwer = ""
+class PatternController: UIViewController {
+    var currentPattern = [Int]()
+    var currentSelectedAnswer = ""
+    var animalRow = [UIButton]()
+    let fx = SoundFX()
+    let defaultEmptyAnswer = #imageLiteral(resourceName: "Unknown-2")
+    let defaultAccessText = "Which animal comes next?"
+    
+    func fillAnimalDetails(){}
+    func finishPatternWithImageAndName(image: UIImage, name: String){}
+    
+    deinit {}
+}
+
+class EasyPatternController: PatternController {
     private let easyLevelGenerator = PatternLevelEasy()
-    private let fx = SoundFX()
-    private let defaultEmptyAnswer = #imageLiteral(resourceName: "Unknown-2")
-    private let defaultAccessText = "Which animal comes next?"
     
     @IBOutlet weak var zeroAnimal: UIButton!
     @IBOutlet weak var firstAnimal: UIButton!
@@ -27,6 +36,7 @@ class EasyPatternController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentPattern = easyLevelGenerator.getPattern()
+        animalRow = [zeroAnimal, firstAnimal, secondAnimal]
         fillAnimalDetails()
         fx.playAnimalSound(animal: easyLevelGenerator.getAnimalNameAt(index: currentPattern[0]))
     }
@@ -36,7 +46,7 @@ class EasyPatternController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func fillAnimalDetails(){
+    override func fillAnimalDetails(){
         zeroAnimal.setBackgroundImage(easyLevelGenerator.getAnimalImageAt(index: currentPattern[0]), for: .normal)
         zeroAnimal.setTitle("", for: .normal)
         zeroAnimal.accessibilityLabel = easyLevelGenerator.getAnimalNameAt(index: currentPattern[0])
@@ -64,7 +74,7 @@ class EasyPatternController: UIViewController {
     
     @IBAction func selectAnswer0(_ sender: UIButton) {
         let animalName = easyLevelGenerator.getAnimalNameAt(index: currentPattern[4])
-        currentSelectedAnwer = animalName
+        currentSelectedAnswer = animalName
         finishPatternWithImageAndName(image: easyLevelGenerator.getAnimalImageAt(index: currentPattern[4]), name: animalName)
         answerChoice0.isHidden = true
         answerChoice1.isHidden = false
@@ -75,7 +85,7 @@ class EasyPatternController: UIViewController {
     
     @IBAction func selectAnswer1(_ sender: UIButton) {
         let animalName = easyLevelGenerator.getAnimalNameAt(index: currentPattern[5])
-        currentSelectedAnwer = animalName
+        currentSelectedAnswer = animalName
         finishPatternWithImageAndName(image: easyLevelGenerator.getAnimalImageAt(index: currentPattern[5]), name: animalName)
         answerChoice1.isHidden = true
         answerChoice0.isHidden = false
@@ -92,7 +102,7 @@ class EasyPatternController: UIViewController {
     
     
     @IBAction func checkAnswer(_ sender: UIButton) {
-        if(easyLevelGenerator.isAnswerCorrect(animal: currentSelectedAnwer)){
+        if(easyLevelGenerator.isAnswerCorrect(animal: currentSelectedAnswer)){
             fx.playTada()
             performSegue(withIdentifier: "GreatJobEasy", sender: nil)
         }
@@ -105,10 +115,8 @@ class EasyPatternController: UIViewController {
         }
     }
     
-    private func finishPatternWithImageAndName(image: UIImage, name: String){
+    override func finishPatternWithImageAndName(image: UIImage, name: String){
         answerSlot.setBackgroundImage(image, for: .normal)
         answerSlot.accessibilityLabel = name
     }
-    
-    deinit {}
 }

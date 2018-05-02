@@ -18,6 +18,7 @@
 		29C8D6C92040A72600E4C122 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6C82040A72600E4C122 /* MainMenuController.swift */; };
 		29C8D6DC2040A72700E4C122 /* MathFarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6DB2040A72700E4C122 /* MathFarmTests.swift */; };
 		29C8D6E72040A72700E4C122 /* MathFarmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C8D6E62040A72700E4C122 /* MathFarmUITests.swift */; };
+		B2192EEF209244C30078B348 /* MediumPatternController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2192EEE209244C30078B348 /* MediumPatternController.swift */; };
 		B23680D3209239980084CA83 /* SoundFX.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23680D2209239980084CA83 /* SoundFX.swift */; };
 		B23680E620923A190084CA83 /* tada.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B23680E020923A170084CA83 /* tada.mp3 */; };
 		B23680E820923A190084CA83 /* bark.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B23680E220923A180084CA83 /* bark.mp3 */; };
@@ -72,6 +73,7 @@
 		29C8D6E22040A72700E4C122 /* MathFarmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MathFarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C8D6E62040A72700E4C122 /* MathFarmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathFarmUITests.swift; sourceTree = "<group>"; };
 		29C8D6E82040A72700E4C122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2192EEE209244C30078B348 /* MediumPatternController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumPatternController.swift; sourceTree = "<group>"; };
 		B23680D2209239980084CA83 /* SoundFX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundFX.swift; sourceTree = "<group>"; };
 		B23680E020923A170084CA83 /* tada.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tada.mp3; sourceTree = "<group>"; };
 		B23680E220923A180084CA83 /* bark.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bark.mp3; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				29C8D6D22040A72700E4C122 /* Info.plist */,
 				293BBA152078026700FC3BF0 /* Main.storyboard */,
 				B28E578C20900552004CCD69 /* PatternDifficulties.swift */,
+				B2192EEE209244C30078B348 /* MediumPatternController.swift */,
 				B28E578E20900650004CCD69 /* EasyPatternController.swift */,
 				B23680D2209239980084CA83 /* SoundFX.swift */,
 				FAD4CFEC208946020090B21C /* SubLevelSelectController.swift */,
@@ -345,6 +348,7 @@
 				B2E2B662204B908500AF12E0 /* LevelSelectController.swift in Sources */,
 				FA1979622067633F0065687B /* LevelScene.swift in Sources */,
 				FA1296EE206948C200412DDC /* AdvAdditionScene.swift in Sources */,
+				B2192EEF209244C30078B348 /* MediumPatternController.swift in Sources */,
 				FAD4CFED208946020090B21C /* SubLevelSelectController.swift in Sources */,
 				29C8D6C92040A72600E4C122 /* MainMenuController.swift in Sources */,
 				298E634D2087D0B10037A73F /* CountingScene.swift in Sources */,
@@ -518,11 +522,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P65B97BWKC;
+				DEVELOPMENT_TEAM = P7TZH87BWL;
 				INFOPLIST_FILE = MathFarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -538,11 +542,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P65B97BWKC;
+				DEVELOPMENT_TEAM = P7TZH87BWL;
 				INFOPLIST_FILE = MathFarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

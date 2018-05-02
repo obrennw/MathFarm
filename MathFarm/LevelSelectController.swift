@@ -17,8 +17,6 @@ class LevelSelectController: UIViewController {
     /// Button that links to addition level
     @IBOutlet weak var AdditionBtn: UIButton!
     //button that links to pattern level
-    @IBOutlet weak var PatternBtn: UIButton!
-    
     @IBOutlet weak var CountingPro: UIButton!
     /// Do any additional setup after loading the view.
     override func viewDidLoad() {
@@ -60,19 +58,23 @@ class LevelSelectController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! GameViewController
         if(segue.identifier == "toCountingEasy") {
+            let vc = segue.destination as! GameViewController
             vc.gameType = "countingEasy"
         } else if (segue.identifier=="toCountingPro"){
+            let vc = segue.destination as! GameViewController
             vc.gameType = "countingPro"
         }
         else if(segue.identifier=="toEasyAddition") {
+            let vc = segue.destination as! GameViewController
             vc.gameType = "addition"
         }
         else if(segue.identifier=="toMediumAddition") {
+            let vc = segue.destination as! GameViewController
             vc.gameType = "MedAddition"
         }
         else if(segue.identifier=="toHardAddition") {
+            let vc = segue.destination as! GameViewController
             vc.gameType = "AdvAddition"
         }
     }
