@@ -21,7 +21,7 @@ class SoundFX {
     private let countURL = Bundle.main.url(forResource: "count", withExtension: "mp3")
 
     
-    public func playAnimalSound(animal: String) -> Bool {
+    public func playAnimalSound(animal: String) {
         switch(animal){
         case "pig":
             playPigSound()
@@ -42,9 +42,8 @@ class SoundFX {
             break
         default:
             //no sound
-            return false
+            break
         }
-        return true
     }
     
     public func isPlaying() -> Bool {
