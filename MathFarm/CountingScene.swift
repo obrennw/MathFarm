@@ -344,7 +344,7 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         print(score)
         if(score == numApples){
             onVictory()
-            onVictorySound()
+            //onVictorySound()
         }
     }
     
@@ -366,7 +366,13 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             }
         }
         //victory.text = "Good Job!"
-        //fx.playTada()
+        fx.playTada()
+        if(winningStreak! >= 3){
+            while(fx.isPlaying()){
+                print("waiting.....")
+            }
+            fx.playHappy()
+        }
         victory.text = "Nice! Counted " + String(numApples) + " apples"
         victory.accessibilityLabel = "Nice!  Counted " + String(numApples) + " Apples"
         victory.fontSize = 70
