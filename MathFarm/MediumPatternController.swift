@@ -19,14 +19,15 @@ class MediumPatternController: PatternController {
     @IBOutlet weak var answerSlot: UIButton!
     @IBOutlet weak var answerChoice0: UIButton!
     @IBOutlet weak var answerChoice1: UIButton!
+    @IBOutlet weak var continueButton: UIButton!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         currentPattern = mlg.getPattern()
         animalRow = [zeroAnimal, firstAnimal, secondAnimal, thirdAnimal, fourthAnimal]
         fillAnimalDetails()
         fx.playAnimalSound(animal: mlg.getAnimalNameAt(index: currentPattern[0]))
+        shiftFocusZeroAnimal()
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,6 +60,7 @@ class MediumPatternController: PatternController {
         answerChoice0.accessibilityLabel = ""
         answerChoice1.accessibilityLabel = "Double tap to select " + mlg.getAnimalNameAt(index: currentPattern[7])
         fx.playAnimalSound(animal: mlg.getAnimalNameAt(index: currentPattern[6]))
+        shiftFocusContinueButton()
     }
     
     @IBAction func selectAnswer1(_ sender: UIButton) {
@@ -70,6 +72,7 @@ class MediumPatternController: PatternController {
         answerChoice1.accessibilityLabel = ""
         answerChoice0.accessibilityLabel = "Double tap to select " + mlg.getAnimalNameAt(index: currentPattern[6])
         fx.playAnimalSound(animal: mlg.getAnimalNameAt(index: currentPattern[7]))
+        shiftFocusContinueButton()
     }
     
     @IBAction func tappedAnimal(_ sender: UIButton) {
@@ -91,12 +94,30 @@ class MediumPatternController: PatternController {
             answerSlot.setBackgroundImage(defaultEmptyAnswer, for: .normal)
             answerSlot.tag = 1000
             fx.playClickSound()
+            speakString(text: "Wrong animal")
+            shiftFocusZeroAnimal()
         }
     }
     
     override func finishPatternWithImageAndName(image: UIImage, name: String){
         answerSlot.setBackgroundImage(image, for: .normal)
         answerSlot.accessibilityLabel = name
+    }
+    
+    func speakString(text: String) {
+        //let Utterance = AVSpeechUtterance(string: text)
+        while(fx.isPlaying()){
+            //wait for song to finish..
+            print("waiting...")
+        }
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
+        //speaker.speak(Utterance)
+    }
+    private func shiftFocusZeroAnimal() {
+        UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, zeroAnimal)
+    }
+    private func shiftFocusContinueButton() {
+        UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, continueButton)
     }
 
 }

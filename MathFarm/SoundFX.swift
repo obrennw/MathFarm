@@ -67,6 +67,7 @@ class SoundFX {
     public func playHappy(){
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: happyURL!)
+            audioPlayer?.volume = 5.0
             audioPlayer?.play()
             
         } catch {
@@ -87,6 +88,7 @@ class SoundFX {
     public func playPigSoundShort(){
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: pigShortURL!)
+            audioPlayer?.volume = 3.0
             audioPlayer?.play()
             
         } catch {
@@ -136,6 +138,7 @@ class SoundFX {
     public func playClickSound(){
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: clickURL!)
+            audioPlayer?.volume = 3.0
             audioPlayer?.play()
             
         } catch {

@@ -32,6 +32,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
     var numB = UInt32(0)
     var gameTask = SKLabelNode(fontNamed: "Arial")
     var typeNode = SKSpriteNode()
+    var crate = SKSpriteNode(imageNamed: "crate")
     var numIndicator = SKLabelNode(fontNamed: "Arial")
     var objList = [String]()
     var errorTextNode = SKLabelNode(fontNamed: "Arial")
@@ -65,16 +66,29 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         backgroundNode.zPosition = -3
         self.addChild(backgroundNode)
         
+        //generate a submit button
+        let submitButton = SKSpriteNode(imageNamed: "continueArrow")
+        submitButton.isAccessibilityElement = true
+        submitButton.name = "submit"
+        submitButton.accessibilityLabel = "submit the crate"
+        submitButton.size = CGSize(width:300, height:300)
+        submitButton.position = CGPoint(x:size.width*0.85, y: size.height*0.15)
+        self.addChild(submitButton)
+        
+        // we need a status indicator indicating the number in the crate now
+        numIndicator.fontSize = 120
+        numIndicator.text = String(numInCrate)
+        numIndicator.position = CGPoint(x:size.width*0.94, y:size.height/2)
+        self.addChild(numIndicator)
+        
         //setup the button to go back to level selection
         backButton.position = CGPoint(x: size.width * 0.1, y: size.height * 0.9)
-        backButton.size = CGSize(width: 90, height: 90)
+        backButton.size = CGSize(width: 120, height: 120)
         backButton.name = "back to level selection"
         backButton.isAccessibilityElement = true
         backButton.accessibilityLabel = "go back and start a new farm task"
-        self.addChild(backButton)
         
         //setup crate node
-        let crate = SKSpriteNode(imageNamed: "crate")
         crate.isAccessibilityElement = true
         crate.accessibilityLabel = "The crate now has " + String(numInCrate) + " " + ((numInCrate<=1) ? rightObjectType: rightObjectType+"s")
         crate.name = "crate"
@@ -98,7 +112,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         gameTask.name = "gameTask"
         gameTask.text = questionTextWriten
         gameTask.fontSize = 64
-        gameTask.fontColor = .white
+        gameTask.fontColor = .black
         gameTask.horizontalAlignmentMode = .center
         gameTask.verticalAlignmentMode = .center
         gameTask.position = CGPoint(x: frame.size.width / 2, y: frame.size.height * 0.9)
@@ -109,8 +123,8 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         typeNode.size = CGSize(width: 84.0, height: 73.5)
         typeNode.position = CGPoint(x: size.width * 0.75, y: size.height * 0.9)
         typeNode.name = "objShowType"
-        self.addChild(typeNode)
-        self.addChild(gameTask)
+
+
         
         generateObjList()
         print("list generated")
@@ -128,7 +142,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
             sprite.physicsBody?.collisionBitMask = 0
             sprite.physicsBody?.contactTestBitMask = 0
             let yposition = (i<5) ? CGFloat(size.height*0.15*CGFloat(i+1)):CGFloat(size.height*0.15*CGFloat(i-4))
-            let xOffset = (i<5) ? 0.15:0.35
+            let xOffset = (i<5) ? 0.35:0.15
             let xposition = CGFloat(size.width*CGFloat(xOffset))
             //            print(xposition)
             sprite.position = CGPoint(x:xposition, y:yposition)
@@ -140,19 +154,9 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
             i = i+1
         }
         
-        // we need a status indicator indicating the number in the crate now
-        numIndicator.fontSize = 120
-        numIndicator.text = String(numInCrate)
-        numIndicator.position = CGPoint(x:size.width*0.94, y:size.height/2)
-        self.addChild(numIndicator)
+
         
-        //generate a submit button
-        let submitButton = SKLabelNode(fontNamed: "Arial")
-        submitButton.isAccessibilityElement = true
-        submitButton.name = "submit"
-        submitButton.text = "submit"
-        submitButton.position = CGPoint(x:size.width*0.92, y: size.height*0.9)
-        self.addChild(submitButton)
+
         
         errorTextNode.position = gameTask.position
         errorTextNode.isHidden = true
@@ -160,6 +164,9 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         
         generateStreakBar()
         // need to generate that go to hard level button here
+        self.addChild(backButton)
+        self.addChild(gameTask)
+        self.addChild(typeNode)
         shiftFocus(node: gameTask)
     }
     
@@ -191,6 +198,10 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
                     self.removeAllChildren()
                     self.game_delegate?.backToLevel()
                 }
+                else if(touchedNode.name == "submit") {
+                    print("submit")
+                    evaluate()
+                }
                 else {
                     nodeOriginalPosition = touchedNode.position
                     //print("set original position")
@@ -201,11 +212,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
                     onSpriteTouch(touchedNode: touchedNode as! SKSpriteNode)
                 }
             } else {
-                if(touchedNode.name == "submit") {
-                    print("submit")
-                    evaluate()
-                }
-                else if(touchedNode.name == "toNextLevel") {
+                if(touchedNode.name == "toNextLevel") {
                     print("toNextLevel")
                     let newScene = AdvAdditionScene(size: self.size)
                     newScene.game_delegate = self.game_delegate
@@ -325,6 +332,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
     private func updateAnswer(node: SKSpriteNode, add: Bool) {
         print("numInCrate before: ", numInCrate)
         numInCrate = (add) ? numInCrate + 1:numInCrate - 1
+        crate.accessibilityLabel = "The crate now has " + String(numInCrate) + " " + ((numInCrate<=1) ? rightObjectType: rightObjectType+"s")
         numIndicator.text = String(numInCrate)
         print("numInCrate after: ", numInCrate)
         
@@ -415,7 +423,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
                 sprite.accessibilityLabel = "You are now ready to ace more complex tasks for farmer Joe!"
                 sprite.text = "Go to next level"
                 sprite.name = "toNextLevel"
-                sprite.position = CGPoint(x:frame.size.width*0.8, y: frame.size.height*0.1)
+                sprite.position = CGPoint(x:frame.size.width*0.6, y: frame.size.height*0.1)
                 self.addChild(sprite)
                 print("a");
                 break
@@ -465,8 +473,8 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         
         let continueButton = SKSpriteNode(imageNamed: "continueArrow")
         continueButton.name = "continue"
-        continueButton.size = CGSize(width: 100, height: 100)
-        continueButton.position = CGPoint(x: frame.size.width*0.92, y: frame.size.height * 0.9)
+        continueButton.size = CGSize(width: 300, height: 300)
+        continueButton.position = CGPoint(x: frame.size.width*0.85, y: frame.size.height * 0.15)
         continueButton.isAccessibilityElement = true
         continueButton.accessibilityLabel = "Tap here to start next task."
         

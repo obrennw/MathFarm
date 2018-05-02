@@ -65,9 +65,18 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         backgroundNode.zPosition = -3
         self.addChild(backgroundNode)
         
+        //generate a submit button
+        let submitButton = SKSpriteNode(imageNamed: "continueArrow")
+        submitButton.isAccessibilityElement = true
+        submitButton.accessibilityLabel = "submit the crate"
+        submitButton.name = "submit"
+        submitButton.size = CGSize(width:300, height:300)
+        submitButton.position = CGPoint(x:size.width*0.85, y: size.height*0.15)
+        self.addChild(submitButton)
+        
         //setup the button to go back to level selection
-        backButton.position = CGPoint(x: size.width * 0.1, y: size.height * 0.9)
-        backButton.size = CGSize(width: 90, height: 90)
+        backButton.position = CGPoint(x: size.width * 0.15, y: size.height * 0.9)
+        backButton.size = CGSize(width: 120, height: 120)
         backButton.name = "back to level selection"
         backButton.isAccessibilityElement = true
         backButton.accessibilityLabel = "go back and start a new farm task"
@@ -87,6 +96,8 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         crate.physicsBody?.categoryBitMask = ColliderType.Bucket
         crate.physicsBody?.collisionBitMask = 0
         crate.physicsBody?.contactTestBitMask = ColliderType.Object
+        self.addChild(crate)
+
         
         //set up gameTask text node and type indicator node
         numA = arc4random_uniform(correctNum)
@@ -96,7 +107,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         gameTask.name = "gameTask"
         gameTask.text = questionTextWriten
         gameTask.fontSize = 64
-        gameTask.fontColor = .white
+        gameTask.fontColor = .black
         gameTask.horizontalAlignmentMode = .center
         gameTask.verticalAlignmentMode = .center
         gameTask.position = CGPoint(x: frame.size.width / 2, y: frame.size.height * 0.9)
@@ -126,7 +137,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
             sprite.physicsBody?.collisionBitMask = 0
             sprite.physicsBody?.contactTestBitMask = 0
             let yposition = (i<5) ? CGFloat(size.height*0.15*CGFloat(i+1)):CGFloat(size.height*0.15*CGFloat(i-4))
-            let xOffset = (i<5) ? 0.15:0.35
+            let xOffset = (i<5) ? 0.35:0.15
             let xposition = CGFloat(size.width*CGFloat(xOffset))
 //            print(xposition)
             sprite.position = CGPoint(x:xposition, y:yposition)
@@ -134,6 +145,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
             let spriteNumText = SKLabelNode(fontNamed:"Arial")
             spriteNumText.name = "number"
             spriteNumText.text = randomObjNum
+            spriteNumText.fontColor = .black
             spriteNumText.position = CGPoint(x: -sprite.size.width/2, y: sprite.size.height/2)
             spriteNumText.zPosition = sprite.zPosition+1
             
@@ -146,22 +158,10 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
             i = i+1
         }
         
-        //generate a submit button
-        let submitButton = SKLabelNode(fontNamed: "Arial")
-        submitButton.isAccessibilityElement = true
-        submitButton.accessibilityLabel = "submit the crate"
-        submitButton.name = "submit"
-        submitButton.text = "submit"
-        submitButton.position = CGPoint(x:size.width*0.92, y: size.height*0.9)
         
         generateStreakBar()
-        self.addChild(crate)
         self.addChild(backButton)
-        self.addChild(submitButton)
         self.addChild(gameTask)
-        print("before")
-//        speakString(text: gameTask.accessibilityLabel!)
-        print("after")
         
         // here force VoiceOver to focus on the gameTask and thus read it out
         shiftFocus(node: gameTask)
@@ -195,6 +195,10 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
                     self.removeAllChildren()
                     self.scene?.view?.presentScene(newScene,transition: transition)
                 }
+                else if(touchedNode.name == "submit") {
+                    print("submit")
+                    evaluate()
+                }
                 else {
                     nodeOriginalPosition = touchedNode.position
                     //print("set original position")
@@ -203,11 +207,6 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
                     print("movingFlag on")
                     print(touchedNode.zPosition)
                     onSpriteTouch(touchedNode: touchedNode as! SKSpriteNode)
-                }
-            } else {
-                if(touchedNode.name == "submit") {
-                    print("submit")
-                    evaluate()
                 }
             }
         }
@@ -476,8 +475,8 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         
         let continueButton = SKSpriteNode(imageNamed: "continueArrow")
         continueButton.name = "continue"
-        continueButton.size = CGSize(width: 100, height: 100)
-        continueButton.position = CGPoint(x: frame.size.width*0.92, y: frame.size.height * 0.9)
+        continueButton.size = CGSize(width: 300, height: 300)
+        continueButton.position = CGPoint(x: frame.size.width*0.85, y: frame.size.height * 0.15)
         continueButton.isAccessibilityElement = true
         continueButton.accessibilityLabel = "Tap here to start next task."
         

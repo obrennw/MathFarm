@@ -79,7 +79,7 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
         let questionTextWriten = "Wanted: " + String(numA) + " + " + String(correctNum-numA)
         question.text = questionTextWriten
         question.fontSize = 64
-        question.fontColor = .white
+        question.fontColor = .black
         question.horizontalAlignmentMode = .center
         question.verticalAlignmentMode = .center
         question.position = CGPoint(x: frame.size.width / 2, y: frame.size.height * 0.9)
@@ -93,7 +93,7 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
         self.addChild(typeNode)
         
         backButton.position = CGPoint(x: size.width * 0.1, y: size.height * 0.9)
-        backButton.size = CGSize(width: 90, height: 90)
+        backButton.size = CGSize(width: 120, height: 120)
         backButton.name = "back to level selection"
         backButton.isAccessibilityElement = true
         backButton.accessibilityLabel = "go back and start a new farm task"
@@ -369,8 +369,8 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
             
             typeNode.position = CGPoint(x: size.width * 0.95, y: size.height * 0.55)
             continueButton.name = "continue"
-            continueButton.size = CGSize(width: 100, height: 100)
-            continueButton.position = CGPoint(x: frame.size.width*0.92, y: frame.size.height * 0.9)
+            continueButton.size = CGSize(width: 300, height: 300)
+            continueButton.position = CGPoint(x: frame.size.width*0.85, y: frame.size.height * 0.15)
             continueButton.isAccessibilityElement = true
             continueButton.accessibilityLabel = "continue to next task"
             self.addChild(continueButton)

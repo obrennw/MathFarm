@@ -142,7 +142,7 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         question.name = "question"
         
         backButton.position = CGPoint(x: size.width * 0.1, y: size.height * 0.9)
-        backButton.size = CGSize(width: 90.0, height: 90.0)
+        backButton.size = CGSize(width: 120.0, height: 120.0)
         backButton.name = "menu"
         backButton.isAccessibilityElement = true
         backButton.accessibilityLabel = "back to menu"
@@ -384,8 +384,8 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         continueButton.name = "continue"
         //continueButton.text = "continue"
         //continueButton.fontSize = 50
-        continueButton.size = CGSize(width: 200.0, height: 200.0)
-        continueButton.position = CGPoint(x: frame.size.width / 2, y: frame.size.height * 0.3)
+        continueButton.size = CGSize(width: 300.0, height: 300.0)
+        continueButton.position = CGPoint(x: frame.size.width * 0.85, y: frame.size.height * 0.15)
         continueButton.isAccessibilityElement = true
         continueButton.accessibilityLabel = "keep helping farmer Joe"
         

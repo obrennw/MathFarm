@@ -31,6 +31,8 @@ class EasyPatternController: PatternController {
     @IBOutlet weak var answerSlot: UIButton!
     @IBOutlet weak var answerChoice0: UIButton!
     @IBOutlet weak var answerChoice1: UIButton!
+    @IBOutlet weak var continueButton: UIButton!
+    
     
     
     override func viewDidLoad() {
@@ -39,6 +41,7 @@ class EasyPatternController: PatternController {
         animalRow = [zeroAnimal, firstAnimal, secondAnimal]
         fillAnimalDetails()
         fx.playAnimalSound(animal: easyLevelGenerator.getAnimalNameAt(index: currentPattern[0]))
+        shiftFocusZeroAnimal()
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,6 +84,7 @@ class EasyPatternController: PatternController {
         answerChoice0.accessibilityLabel = ""
         answerChoice1.accessibilityLabel = "Double tap to select " + easyLevelGenerator.getAnimalNameAt(index: currentPattern[5])
         fx.playAnimalSound(animal: easyLevelGenerator.getAnimalNameAt(index: currentPattern[4]))
+        shiftFocusContinueButton()
     }
     
     @IBAction func selectAnswer1(_ sender: UIButton) {
@@ -92,6 +96,7 @@ class EasyPatternController: PatternController {
         answerChoice1.accessibilityLabel = ""
         answerChoice0.accessibilityLabel = "Double tap to select " + easyLevelGenerator.getAnimalNameAt(index: currentPattern[4])
         fx.playAnimalSound(animal: easyLevelGenerator.getAnimalNameAt(index: currentPattern[5]))
+        shiftFocusContinueButton()
     }
     
     @IBAction func tappedAnimal(_ sender: UIButton) {
@@ -113,11 +118,29 @@ class EasyPatternController: PatternController {
             answerSlot.setBackgroundImage(defaultEmptyAnswer, for: .normal)
             answerSlot.tag = 1000
             fx.playClickSound()
+            speakString(text: "Wrong animal")
+            shiftFocusZeroAnimal()
         }
     }
     
     override func finishPatternWithImageAndName(image: UIImage, name: String){
         answerSlot.setBackgroundImage(image, for: .normal)
         answerSlot.accessibilityLabel = name
+    }
+    
+    func speakString(text: String) {
+        //let Utterance = AVSpeechUtterance(string: text)
+        while(fx.isPlaying()){
+            //wait for song to finish..
+            print("waiting...")
+        }
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
+        //speaker.speak(Utterance)
+    }
+    private func shiftFocusZeroAnimal() {
+        UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, zeroAnimal)
+    }
+    private func shiftFocusContinueButton() {
+        UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, continueButton)
     }
 }

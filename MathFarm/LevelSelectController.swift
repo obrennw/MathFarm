@@ -91,7 +91,7 @@ class LevelSelectController: UIViewController {
                 audioPlayer?.prepareToPlay()
                 audioPlayer?.numberOfLoops = -1
                 audioPlayer?.play()
-                audioPlayer?.volume = 0.8
+                audioPlayer?.volume = 2.0
             }
                 
             catch{
