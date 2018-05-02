@@ -379,8 +379,14 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
         }
     }
     
-    private func speakString(text: String) {
+    func speakString(text: String) {
+        //let Utterance = AVSpeechUtterance(string: text)
+//        while(fx.isPlaying()){
+//            //wait for song to finish..
+//            print("waiting...")
+//        }
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
+        //speaker.speak(Utterance)
     }
     
     private func shiftFocus(node: SKNode) {

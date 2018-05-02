@@ -241,10 +241,10 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         if(contactFlag){
             if(selectedNode.name == rightObjectType) {
                 print("great")
+                fx.playCountSound()
                 //add speak string to announce addition
                 let updateMsg = "Put one " + rightObjectType + " into the crate. The crate now has " + String(numInCrate) + ((numInCrate <= 1||rightObjectType=="broccoli") ?rightObjectType:rightObjectType+"s")
                 speakString(text: updateMsg)
-                fx.playCountSound()
             } else {
                 print("wrong type of object")
                 speakString(text: "wrong type of object")
@@ -482,16 +482,20 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
             congratulateText.isAccessibilityElement = true
             congratulateText.accessibilityLabel = congratulateText.text
             self.addChild(congratulateText)
-            speakString(text: congratulateText.text!)
-            
         }
     }
     
     private func shiftFocus(node: SKNode) {
         UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, node)
     }
-    private func speakString(text: String) {
+    func speakString(text: String) {
+        //let Utterance = AVSpeechUtterance(string: text)
+//        while(fx.isPlaying()){
+//            //wait for song to finish..
+//            print("waiting...")
+//        }
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
+        //speaker.speak(Utterance)
     }
 }
 
