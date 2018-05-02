@@ -25,6 +25,7 @@ class LevelSelectController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("new load")
     }
 
     /// Dispose of any resources that can be recreated.
@@ -114,4 +115,7 @@ class LevelSelectController: UIViewController {
     }
     */
 
+    
 }
+
+

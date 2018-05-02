@@ -112,6 +112,7 @@ class EasyPatternController: PatternController {
             answerSlot.accessibilityLabel = defaultAccessText
             answerSlot.setBackgroundImage(defaultEmptyAnswer, for: .normal)
             answerSlot.tag = 1000
+            fx.playClickSound()
         }
     }
     

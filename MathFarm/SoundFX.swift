@@ -19,6 +19,7 @@ class SoundFX {
     private let dogURL = Bundle.main.url(forResource: "bark", withExtension: "mp3")
     private let happyURL = Bundle.main.url(forResource: "happy", withExtension: "mp3")
     private let countURL = Bundle.main.url(forResource: "count", withExtension: "mp3")
+    private let clickURL = Bundle.main.url(forResource: "click", withExtension: "mp3")
 
     
     public func playAnimalSound(animal: String) {
@@ -129,6 +130,16 @@ class SoundFX {
             audioPlayer?.play()
         } catch {
             
+        }
+    }
+    
+    public func playClickSound(){
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: clickURL!)
+            audioPlayer?.play()
+            
+        } catch {
+            // couldn't load file :(
         }
     }
 }

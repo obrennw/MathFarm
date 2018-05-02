@@ -25,6 +25,7 @@
 		B23680E920923A190084CA83 /* cowmoo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B23680E320923A180084CA83 /* cowmoo.mp3 */; };
 		B23680EA20923A190084CA83 /* meow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B23680E420923A180084CA83 /* meow.mp3 */; };
 		B23680EB20923A190084CA83 /* pigfarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B23680E520923A190084CA83 /* pigfarm.mp3 */; };
+		B23E3329209971B60037A13C /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B23E3328209971B60037A13C /* click.mp3 */; };
 		B264906820632A1000AB782B /* PatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B264906720632A1000AB782B /* PatternViewController.swift */; };
 		B28E578D20900552004CCD69 /* PatternDifficulties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28E578C20900552004CCD69 /* PatternDifficulties.swift */; };
 		B28E578F20900650004CCD69 /* EasyPatternController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28E578E20900650004CCD69 /* EasyPatternController.swift */; };
@@ -82,6 +83,7 @@
 		B23680E320923A180084CA83 /* cowmoo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cowmoo.mp3; sourceTree = "<group>"; };
 		B23680E420923A180084CA83 /* meow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meow.mp3; sourceTree = "<group>"; };
 		B23680E520923A190084CA83 /* pigfarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pigfarm.mp3; sourceTree = "<group>"; };
+		B23E3328209971B60037A13C /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
 		B264906720632A1000AB782B /* PatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternViewController.swift; sourceTree = "<group>"; };
 		B28E578C20900552004CCD69 /* PatternDifficulties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternDifficulties.swift; sourceTree = "<group>"; };
 		B28E578E20900650004CCD69 /* EasyPatternController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyPatternController.swift; sourceTree = "<group>"; };
@@ -93,8 +95,8 @@
 		FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AdditionScene.sks; sourceTree = "<group>"; };
 		FAA840312092AE2600303282 /* MedAdditionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedAdditionScene.swift; sourceTree = "<group>"; };
 		FAD4CFEC208946020090B21C /* SubLevelSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubLevelSelectController.swift; sourceTree = "<group>"; };
-		FAE28DF720994ED100621800 /* count.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = count.mp3; sourceTree = "<group>"; };
-		FAE28DF920994EE100621800 /* backgroundmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundmusic.mp3; sourceTree = "<group>"; };
+		FAE28DF720994ED100621800 /* count.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = count.mp3; path = ../count.mp3; sourceTree = "<group>"; };
+		FAE28DF920994EE100621800 /* backgroundmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = backgroundmusic.mp3; path = ../backgroundmusic.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,16 @@
 			isa = PBXGroup;
 			children = (
 				29A76DF9208A629400DE899B /* count.mp3 */,
+				B23E3328209971B60037A13C /* click.mp3 */,
+				B23680E220923A180084CA83 /* bark.mp3 */,
+				B23680E320923A180084CA83 /* cowmoo.mp3 */,
+				B23680E420923A180084CA83 /* meow.mp3 */,
+				29A76DFA208A629400DE899B /* happy.mp3 */,
+				FAE28DF920994EE100621800 /* backgroundmusic.mp3 */,
+				B23680E520923A190084CA83 /* pigfarm.mp3 */,
+				FAE28DF720994ED100621800 /* count.mp3 */,
+				29390C2B20990B510081FA1A /* pigShort.mp3 */,
+				B23680E020923A170084CA83 /* tada.mp3 */,
 				29A76DFB208A629400DE899B /* backgroundmusic.mp3 */,
 			);
 			path = Sound;
@@ -172,15 +184,6 @@
 				B23680D2209239980084CA83 /* SoundFX.swift */,
 				FAD4CFEC208946020090B21C /* SubLevelSelectController.swift */,
 				FAA840312092AE2600303282 /* MedAdditionScene.swift */,
-				B23680E220923A180084CA83 /* bark.mp3 */,
-				B23680E320923A180084CA83 /* cowmoo.mp3 */,
-				B23680E420923A180084CA83 /* meow.mp3 */,
-				29A76DFA208A629400DE899B /* happy.mp3 */,
-				FAE28DF920994EE100621800 /* backgroundmusic.mp3 */,
-				B23680E520923A190084CA83 /* pigfarm.mp3 */,
-				FAE28DF720994ED100621800 /* count.mp3 */,
-				29390C2B20990B510081FA1A /* pigShort.mp3 */,
-				B23680E020923A170084CA83 /* tada.mp3 */,
 				FA1979612067633F0065687B /* LevelScene.swift */,
 				FA1296ED206948C200412DDC /* AdvAdditionScene.swift */,
 			);
@@ -319,6 +322,7 @@
 				B23680E820923A190084CA83 /* bark.mp3 in Resources */,
 				FAE28DF820994ED100621800 /* count.mp3 in Resources */,
 				B23680EB20923A190084CA83 /* pigfarm.mp3 in Resources */,
+				B23E3329209971B60037A13C /* click.mp3 in Resources */,
 				291B6C51207802AD00D865BD /* Assets.xcassets in Resources */,
 				29390C2C20990B510081FA1A /* pigShort.mp3 in Resources */,
 				29A76DFD208A629400DE899B /* happy.mp3 in Resources */,
@@ -530,11 +534,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P65B97BWKC;
+				DEVELOPMENT_TEAM = 424R4YGP7H;
 				INFOPLIST_FILE = MathFarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.john.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -550,11 +554,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P65B97BWKC;
+				DEVELOPMENT_TEAM = 424R4YGP7H;
 				INFOPLIST_FILE = MathFarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.john.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

@@ -10,7 +10,7 @@
 import UIKit
 import AVFoundation
 
-var audioPlayer = AVAudioPlayer()
+//var audioPlayer = AVAudioPlayer()
 
 /// ViewController for main menu
 class MainMenuController: UIViewController {
