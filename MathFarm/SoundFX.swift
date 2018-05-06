@@ -11,15 +11,25 @@ import AVFoundation
 
 ///an object that consists of multiple function calls to play sounds; how to use: instantiate SoundFX object, call functions to play sound--look for examples throughout code
 class SoundFX {
+    /// Audio player backing SoundFX object
     private var audioPlayer : AVAudioPlayer?
+    /// Location of Pig Sound
     private let pigURL = Bundle.main.url(forResource: "pigfarm", withExtension: "mp3")
+    /// Location of shortened Pig Sound
     private let pigShortURL = Bundle.main.url(forResource: "pigShort", withExtension: "mp3")
+    /// Location of Cow Sound
     private let cowURL = Bundle.main.url(forResource: "cowmoo", withExtension: "mp3")
+    /// Location of Cat Sound
     private let catURL = Bundle.main.url(forResource: "meow", withExtension: "mp3")
+    /// Location of Tada Sound
     private let tadaURL = Bundle.main.url(forResource: "tada", withExtension: "mp3")
+    /// Location of Dog Sound
     private let dogURL = Bundle.main.url(forResource: "bark", withExtension: "mp3")
+    /// Location of Happy "Woo Hoo!" Sound
     private let happyURL = Bundle.main.url(forResource: "happy", withExtension: "mp3")
+    /// Location of dinging Count Sound
     private let countURL = Bundle.main.url(forResource: "count", withExtension: "mp3")
+    /// Location of error indicating Click Sound
     private let clickURL = Bundle.main.url(forResource: "click", withExtension: "mp3")
 
     
@@ -72,7 +82,7 @@ class SoundFX {
         }
     }
     
-    /// Play Happy Sound
+    /// Play Happy "Woo Hoo!" Sound
     public func playHappy(){
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: happyURL!)

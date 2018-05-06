@@ -26,7 +26,6 @@
 		B23680EA20923A190084CA83 /* meow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B23680E420923A180084CA83 /* meow.mp3 */; };
 		B23680EB20923A190084CA83 /* pigfarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B23680E520923A190084CA83 /* pigfarm.mp3 */; };
 		B23E3329209971B60037A13C /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B23E3328209971B60037A13C /* click.mp3 */; };
-		B264906820632A1000AB782B /* PatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B264906720632A1000AB782B /* PatternViewController.swift */; };
 		B28E578D20900552004CCD69 /* PatternDifficulties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28E578C20900552004CCD69 /* PatternDifficulties.swift */; };
 		B28E578F20900650004CCD69 /* EasyPatternController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28E578E20900650004CCD69 /* EasyPatternController.swift */; };
 		B2E2B65D204B814F00AF12E0 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2B65C204B814F00AF12E0 /* GameViewController.swift */; };
@@ -82,7 +81,6 @@
 		B23680E420923A180084CA83 /* meow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meow.mp3; sourceTree = "<group>"; };
 		B23680E520923A190084CA83 /* pigfarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pigfarm.mp3; sourceTree = "<group>"; };
 		B23E3328209971B60037A13C /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
-		B264906720632A1000AB782B /* PatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternViewController.swift; sourceTree = "<group>"; };
 		B28E578C20900552004CCD69 /* PatternDifficulties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternDifficulties.swift; sourceTree = "<group>"; };
 		B28E578E20900650004CCD69 /* EasyPatternController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyPatternController.swift; sourceTree = "<group>"; };
 		B2E2B65C204B814F00AF12E0 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 			children = (
 				FA1077DF2062597D001CC811 /* EasyAdditionScene.swift */,
 				29C8D6C62040A72600E4C122 /* AppDelegate.swift */,
-				B264906720632A1000AB782B /* PatternViewController.swift */,
 				29C8D6C82040A72600E4C122 /* MainMenuController.swift */,
 				29A76DF8208A629400DE899B /* Sound */,
 				B2E2B661204B908500AF12E0 /* LevelSelectController.swift */,
@@ -356,7 +353,6 @@
 				B2192EEF209244C30078B348 /* MediumPatternController.swift in Sources */,
 				29C8D6C92040A72600E4C122 /* MainMenuController.swift in Sources */,
 				298E634D2087D0B10037A73F /* CountingScene.swift in Sources */,
-				B264906820632A1000AB782B /* PatternViewController.swift in Sources */,
 				B2E2B65D204B814F00AF12E0 /* GameViewController.swift in Sources */,
 				FA1077E02062597D001CC811 /* EasyAdditionScene.swift in Sources */,
 				B28E578F20900650004CCD69 /* EasyPatternController.swift in Sources */,
