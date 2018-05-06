@@ -47,8 +47,8 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
     }
 
     override func didMove(to view: SKView) {
-        //print("width: ", frame.size.width, " height: ", frame.size.height)
         rightObjectType = movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))]
+        
         print(rightObjectType)
         let imageNames = generateObjectList()
 
@@ -221,6 +221,13 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let adj = CGFloat(40)
+        if(selectedNode.position.x > size.width - adj
+            || selectedNode.position.x < adj
+            || selectedNode.position.y > size.height - adj
+            || selectedNode.position.y < adj) {
+            selectedNode.position = nodeOriginalPosition!
+        }
         if(contactFlag){
             if(selectedNode.name == rightObjectType) {
                 incrementAnswer()

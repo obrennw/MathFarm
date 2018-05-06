@@ -10,11 +10,10 @@ import UIKit
 import AVFoundation
 import SpriteKit
 
-private let speaker = AVSpeechSynthesizer()
-private let answers = ["Pig"] //array containing correct choice for each corresponding level
-
-
 class PatternViewController: UIViewController { //this file is for DEMO purposes!
+    
+    private let speaker = AVSpeechSynthesizer()
+    private let answers = ["Pig"] //array containing correct choice for each corresponding level
     
     @IBOutlet weak var greenBox: UIView!
     @IBOutlet weak var selectPig: UIButton!
@@ -83,19 +82,5 @@ class PatternViewController: UIViewController { //this file is for DEMO purposes
     public func setLevel(level: Int){
         self.currentLevel = level
     }
-    
-/*let myVC = storyboard?.instantiateViewControllerWithIdentifier("SecondVC") as! SecondVC
- myVC.stringPassed = myLabel.text!
- navigationController?.pushViewController(myVC, animated: true)*/  //PLACE IN LEVELSELECTCONTROLLER
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

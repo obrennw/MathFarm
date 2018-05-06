@@ -447,7 +447,7 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         }
     }
     
-    /// Handles event when touch is lifted (increments score if apple is in contact with pig)
+    /// Handles event when touch is lifted. Increments score if apple is in contact with pig. Returns object to original position if wrong object of pig or drag went outside of the screen's borders
     ///
     /// - Parameters:
     ///   - touches: Set of touches that caused event

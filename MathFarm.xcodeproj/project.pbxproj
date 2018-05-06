@@ -33,10 +33,8 @@
 		B2E2B662204B908500AF12E0 /* LevelSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2B661204B908500AF12E0 /* LevelSelectController.swift */; };
 		FA1077E02062597D001CC811 /* EasyAdditionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1077DF2062597D001CC811 /* EasyAdditionScene.swift */; };
 		FA1296EE206948C200412DDC /* AdvAdditionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1296ED206948C200412DDC /* AdvAdditionScene.swift */; };
-		FA1979622067633F0065687B /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1979612067633F0065687B /* LevelScene.swift */; };
 		FA8360DE20636A4A0058CBD1 /* AdditionScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */; };
 		FAA840322092AE2600303282 /* MedAdditionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA840312092AE2600303282 /* MedAdditionScene.swift */; };
-		FAD4CFED208946020090B21C /* SubLevelSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CFEC208946020090B21C /* SubLevelSelectController.swift */; };
 		FAE28DF820994ED100621800 /* count.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAE28DF720994ED100621800 /* count.mp3 */; };
 		FAE28DFA20994EE100621800 /* backgroundmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAE28DF920994EE100621800 /* backgroundmusic.mp3 */; };
 /* End PBXBuildFile section */
@@ -91,10 +89,8 @@
 		B2E2B661204B908500AF12E0 /* LevelSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectController.swift; sourceTree = "<group>"; };
 		FA1077DF2062597D001CC811 /* EasyAdditionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyAdditionScene.swift; sourceTree = "<group>"; };
 		FA1296ED206948C200412DDC /* AdvAdditionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvAdditionScene.swift; sourceTree = "<group>"; };
-		FA1979612067633F0065687B /* LevelScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
 		FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AdditionScene.sks; sourceTree = "<group>"; };
 		FAA840312092AE2600303282 /* MedAdditionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedAdditionScene.swift; sourceTree = "<group>"; };
-		FAD4CFEC208946020090B21C /* SubLevelSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubLevelSelectController.swift; sourceTree = "<group>"; };
 		FAE28DF720994ED100621800 /* count.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = count.mp3; path = ../count.mp3; sourceTree = "<group>"; };
 		FAE28DF920994EE100621800 /* backgroundmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = backgroundmusic.mp3; path = ../backgroundmusic.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,9 +178,7 @@
 				B2192EEE209244C30078B348 /* MediumPatternController.swift */,
 				B28E578E20900650004CCD69 /* EasyPatternController.swift */,
 				B23680D2209239980084CA83 /* SoundFX.swift */,
-				FAD4CFEC208946020090B21C /* SubLevelSelectController.swift */,
 				FAA840312092AE2600303282 /* MedAdditionScene.swift */,
-				FA1979612067633F0065687B /* LevelScene.swift */,
 				FA1296ED206948C200412DDC /* AdvAdditionScene.swift */,
 			);
 			path = MathFarm;
@@ -358,10 +352,8 @@
 				B23680D3209239980084CA83 /* SoundFX.swift in Sources */,
 				B28E578D20900552004CCD69 /* PatternDifficulties.swift in Sources */,
 				B2E2B662204B908500AF12E0 /* LevelSelectController.swift in Sources */,
-				FA1979622067633F0065687B /* LevelScene.swift in Sources */,
 				FA1296EE206948C200412DDC /* AdvAdditionScene.swift in Sources */,
 				B2192EEF209244C30078B348 /* MediumPatternController.swift in Sources */,
-				FAD4CFED208946020090B21C /* SubLevelSelectController.swift in Sources */,
 				29C8D6C92040A72600E4C122 /* MainMenuController.swift in Sources */,
 				298E634D2087D0B10037A73F /* CountingScene.swift in Sources */,
 				B264906820632A1000AB782B /* PatternViewController.swift in Sources */,

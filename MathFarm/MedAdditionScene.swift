@@ -9,10 +9,11 @@
 import Foundation
 import SpriteKit
 
-private let staticImages = ["crate"]
-private let movableImages = ["apple", "orange", "peach", "broccoli", "lemon"]
-
 class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
+    
+    private let staticImages = ["crate"]
+    private let movableImages = ["apple", "orange", "peach", "broccoli", "lemon"]
+    
     weak var game_delegate: GameViewController?
     var contactFlag = false
     var movingFlag = false
@@ -23,7 +24,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
     var backButton = SKSpriteNode(imageNamed: "backButton")
     var numInCrate = 0
     var nodeOriginalPosition: CGPoint?
-    var rightObjectType = movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))]
+    var rightObjectType = ""
     var numberText = SKLabelNode(fontNamed: "Arial")
     var correctNum = arc4random_uniform(5)+1
     var correctObjNum = arc4random_uniform(2)+2
@@ -50,6 +51,8 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
+        rightObjectType = movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))]
+        
         print("winningStreak: ", winningStreak!)
         print(rightObjectType)
         print(correctNum)
@@ -245,6 +248,13 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let adj = CGFloat(40)
+        if(selectedNode.position.x > size.width - adj
+            || selectedNode.position.x < adj
+            || selectedNode.position.y > size.height - adj
+            || selectedNode.position.y < adj) {
+            selectedNode.position = nodeOriginalPosition!
+        }
         if(contactFlag){
             if(selectedNode.name == rightObjectType) {
                 print("great")

@@ -83,7 +83,7 @@ class GameViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
         
-        /// Set preference for visibility of status bar
+    /// Set preference for visibility of status bar
     override var prefersStatusBarHidden: Bool {
         return true
     }
