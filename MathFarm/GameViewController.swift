@@ -88,7 +88,7 @@ class GameViewController: UIViewController {
         return true
     }
     
-    //MARK: game delegate
+    /// Return to level select screen from a given presented scene. Deinits both GameViewController and scene being presented
     func backToLevel() {
         if let skView = self.view as! SKView? {
             skView.presentScene(nil)

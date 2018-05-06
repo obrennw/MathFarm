@@ -10,17 +10,25 @@ import UIKit
 import AVFoundation
 import SpriteKit
 
-class PatternViewController: UIViewController { //this file is for DEMO purposes!
+/// this file is for DEMO purposes!
+class PatternViewController: UIViewController {
     
+    /// Non-voiceover speaker for Sounds (Not currently being used)
     private let speaker = AVSpeechSynthesizer()
-    private let answers = ["Pig"] //array containing correct choice for each corresponding level
+    /// array containing correct choice for each corresponding level
+    private let answers = ["Pig"]
     
+    /// Reference to box used to display animal submitted for answer
     @IBOutlet weak var greenBox: UIView!
+    /// Reference to box that selects pig for answer
     @IBOutlet weak var selectPig: UIButton!
 
     
-    var timer = Timer() //used to implement "frame-based" functions
+    /// Used to implement "frame-based" functions
+    var timer = Timer() //
+    /// Flag determining whether object is touching screen or not
     var isTouchingScreen = false
+    /// Current level of pattern game
     var currentLevel = 0
     
     override func viewDidLoad() {

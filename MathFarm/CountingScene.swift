@@ -12,6 +12,14 @@ import AVFoundation
 import GameplayKit
 
 
+/// Converts degrees to radians
+///
+/// - Parameter degree: value in degrees
+/// - Returns: converted value in radians
+public func degToRad(degree: Double) -> CGFloat {
+    return CGFloat(Double(degree) / 180.0 * Double.pi)
+}
+
 /// Describes object for collision type
 struct ColliderType{
     /// Object causing the collision
@@ -244,19 +252,18 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                 //print(offset, " ", frame.size.height*0.9)
                 sprite.position = CGPoint(x:frame.size.width*0.05, y: offset)
                 self.addChild(sprite)
+            } else {
+                if(difficulty == 0){
+                    let sprite = SKLabelNode(fontNamed: "Arial")
+                    sprite.isAccessibilityElement = true
+                    sprite.accessibilityLabel = "You are now ready for more complex tasks for farmer Joe!"
+                    sprite.text = "Go to next level"
+                    sprite.name = "toNextLevel"
+                    sprite.position = CGPoint(x:frame.size.width*0.8, y: frame.size.height*0.1)
+                    self.addChild(sprite)
+                    print("a");
+                }
             }
-//            else {
-//                let sprite = SKLabelNode(fontNamed: "Arial")
-//                //sprite.numberOfLines = 0
-//                sprite.isAccessibilityElement = true
-//                sprite.accessibilityLabel = "Completed!"
-//                sprite.text = "Completed!"
-//                sprite.name = "levelComplete"
-//                sprite.position = CGPoint(x:frame.size.width*0.1, y: frame.size.height*0.1)
-//                self.addChild(sprite)
-//                //print("a");
-//                break
-//            }
         }
     }
     
@@ -293,6 +300,21 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                     nodeOriginalPosition = touchedNode.position
                     onSpriteTouch(touchedNode: touchedNode as! SKSpriteNode)
                 }
+            } else {
+                if(touchedNode.name == "toNextLevel") {
+                    print("toNextLevel")
+                    let newScene = CountingScene(size: self.size)
+                    newScene.game_delegate = self.game_delegate
+                    newScene.winningStreak = 0
+                    newScene.difficulty = 1
+                    newScene.scaleMode = .aspectFill
+                    print("before presenting scene")
+                    let transition = SKTransition.moveIn(with: .right, duration: 1)
+                    transition.pausesOutgoingScene = false
+                    self.removeAllActions()
+                    self.removeAllChildren()
+                    self.scene?.view?.presentScene(newScene,transition: transition)
+                }
             }
         }
     }
@@ -318,9 +340,7 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             contactFlag = false
         }
     }
-    
-    
-    
+
     /// Update the score for the level
     func incrementScore(){
         fx.playAnimalSound(animal: "pigShort")
@@ -328,11 +348,6 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         scoreText.text = String(score)
         print("Added apple")
         print(score.description + " apples")
-        if(score == 1){
-            speakString(text: score.description + " apple")
-        } else {
-            speakString(text: score.description + " apples")
-        }
         contactFlag = false
         selectedNode.isHidden = true
         selectedNode.accessibilityLabel = ""
@@ -342,6 +357,11 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         print(score)
         if(score == numApples){
             onVictory()
+            shiftFocus(node: victory)
+        } else if(score == 1){
+            speakString(text: score.description + " apple")
+        } else {
+            speakString(text: score.description + " apples")
         }
     }
     
@@ -385,34 +405,22 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         continueButton.position = CGPoint(x: frame.size.width * 0.85, y: frame.size.height * 0.15)
         continueButton.isAccessibilityElement = true
         continueButton.accessibilityLabel = "keep helping farmer Joe"
-        
-        if(winningStreak! >= 3){
-            clearedLevel.text = "Cleared Level!"
-            victory.text = "Counted " + String(numApples) + " apples"
-            clearedLevel.accessibilityLabel = "Cleared Level!"
-            clearedLevel.fontSize = 90
-            clearedLevel.fontColor = .white
-            clearedLevel.horizontalAlignmentMode = .center
-            clearedLevel.verticalAlignmentMode = .center
-            clearedLevel.position = CGPoint(x: frame.size.width / 2, y: frame.size.height * 0.9)
-            clearedLevel.isAccessibilityElement = true
+        if(winningStreak! >= 3 && difficulty == 1) {
+            let congratulateText = SKLabelNode(fontNamed: "Arial")
+            congratulateText.text = "You rock! You've mastered the art of counting!"
+            congratulateText.position = CGPoint(x: frame.size.width*0.5, y: frame.size.height*0.4)
+            congratulateText.fontColor = .red
+            congratulateText.isAccessibilityElement = true
+            congratulateText.accessibilityLabel = congratulateText.text
+            self.addChild(congratulateText)
         }
-        
         self.addChild(clearedLevel)
         self.addChild(continueButton)
         self.addChild(victory)
         generateStreakBar()
         self.addChild(backButton)
     }
-    
-    /// Converts degrees to radians
-    ///
-    /// - Parameter degree: value in degrees
-    /// - Returns: converted value in radians
-    func degToRad(degree: Double) -> CGFloat {
-        return CGFloat(Double(degree) / 180.0 * Double.pi)
-    }
-    
+
     /// Clears out wobble action from selected node and makes touched node wobble
     ///
     /// - Parameter touchedNode: sprite being touched
@@ -428,7 +436,7 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         }
     }
     
-    /// Handles single finger drag on device
+    /// Handles single finger drag on device and moves touched object if it is a member of movableImages
     ///
     /// - Parameters:
     ///   - touches: Set of touches that caused event
@@ -453,29 +461,28 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     ///   - touches: Set of touches that caused event
     ///   - event: UIEvent that triggered function
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        if(contactFlag){
-//            incrementScore()
-//        }
-        let adj = CGFloat(40)
-        if(selectedNode.position.x > size.width - adj
-            || selectedNode.position.x < adj
-            || selectedNode.position.y > size.height - adj
-            || selectedNode.position.y < adj) {
-            selectedNode.position = nodeOriginalPosition!
-        }
-        else if(contactFlag){
-            if(selectedNode.name == "apple") {
-                print("great")
-                //add speak string to announce addition
-                incrementScore()
-            } else {
-                print("wrong type of object")
-                speakString(text: "wrong type of object")
-                contactFlag = false
+        if(selectedNode is SKSpriteNode){
+            let adj = CGFloat(40)
+            if(selectedNode.position.x > size.width - adj
+                || selectedNode.position.x < adj
+                || selectedNode.position.y > size.height - adj
+                || selectedNode.position.y < adj) {
                 selectedNode.position = nodeOriginalPosition!
             }
-            print("contact off")
-            contactFlag = false
+            else if(contactFlag){
+                if(selectedNode.name == "apple") {
+                    print("great")
+                    //add speak string to announce addition
+                    incrementScore()
+                } else {
+                    print("wrong type of object")
+                    speakString(text: "wrong type of object")
+                    contactFlag = false
+                    selectedNode.position = nodeOriginalPosition!
+                }
+                print("contact off")
+                contactFlag = false
+            }
         }
     }
     

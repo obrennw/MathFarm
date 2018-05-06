@@ -10,6 +10,13 @@ import SpriteKit
 import UIKit
 import AVFoundation
 
+/// Shifts forcus of Voiceover to node in parameter
+///
+/// - Parameter node: SKNode to be selected by voiceover
+public func shiftFocus(node: SKNode) {
+    UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, node)
+}
+
 class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {
     // reference to the scene's controller, used for calling back to level selection button
     
@@ -245,8 +252,9 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
         
     }
     
-    
-    
+    /// Called when contact between two objects is initiated
+    ///
+    /// - Parameter contact: The object that refers to the contact caused by the two objects
     func didBegin(_ contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
             print("on bucket")
@@ -255,6 +263,9 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
         }
     }
     
+    /// Called when contact between two objects is finished
+    ///
+    /// - Parameter contact: The object that refers to the contact caused by the two objects
     func didEnd(_ contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
             print("off bucket")
@@ -313,6 +324,7 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
     }
     
     
+    /// Update the score for the level
     private func incrementAnswer(){
         answer += 1
         answerText.text = String(answer)
@@ -326,10 +338,6 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
         print("Answer: " + String(answer))
         evaluate()
 
-    }
-    
-    private func degToRad(degree: Double) -> CGFloat {
-        return CGFloat(Double(degree) / 180.0 * Double.pi)
     }
     
     private func onSpriteTouch(touchedNode: SKSpriteNode) {
@@ -386,18 +394,13 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
         }
     }
     
+    /// Prompts text to be spoken out by device
+    ///
+    /// - Parameter text: text to be spoken
     func speakString(text: String) {
-        //let Utterance = AVSpeechUtterance(string: text)
-//        while(fx.isPlaying()){
-//            //wait for song to finish..
-//            print("waiting...")
-//        }
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
-        //speaker.speak(Utterance)
     }
     
-    private func shiftFocus(node: SKNode) {
-        UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, node)
-    }
+
     
 }

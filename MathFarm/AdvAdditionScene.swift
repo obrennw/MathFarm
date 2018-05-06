@@ -270,6 +270,9 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
 //        selectedNode = SKSpriteNode()
     }
     
+    /// Called when contact between two objects is initiated
+    ///
+    /// - Parameter contact: The object that refers to the contact caused by the two objects
     func didBegin(_ contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
             print("on crate")
@@ -281,6 +284,9 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    /// Called when contact between two objects is finished
+    ///
+    /// - Parameter contact: The object that refers to the contact caused by the two objects
     func didEnd(_ contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
             print("off crate")
@@ -291,10 +297,6 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
                 AusCrateFlag = true
             }
         }
-    }
-    
-    private func degToRad(degree: Double) -> CGFloat {
-        return CGFloat(Double(degree) / 180.0 * Double.pi)
     }
     
     private func onSpriteTouch(touchedNode: SKSpriteNode) {
@@ -343,6 +345,8 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         print(objNumList)
         
     }
+    
+    /// Update the score for the level
     private func updateAnswer(node: SKSpriteNode, add: Bool) {
         print("numInCrate before: ", numInCrate)
         var objNum = 0
@@ -503,11 +507,10 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         }
         shiftFocus(node: victoryText)
     }
-        
-    private func shiftFocus(node: SKNode) {
-        UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, node)
-
-    }
+    
+    /// Prompts text to be spoken out by device
+    ///
+    /// - Parameter text: text to be spoken
     func speakString(text: String) {
         //let Utterance = AVSpeechUtterance(string: text)
 //        while(fx.isPlaying()){

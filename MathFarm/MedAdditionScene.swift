@@ -156,11 +156,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
             objList.remove(at: randomIndex)
             i = i+1
         }
-        
 
-        
-
-        
         errorTextNode.position = gameTask.position
         errorTextNode.isHidden = true
         self.addChild(errorTextNode)
@@ -288,6 +284,9 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         //        selectedNode = SKSpriteNode()
     }
     
+    /// Called when contact between two objects is initiated
+    ///
+    /// - Parameter contact: The object that refers to the contact caused by the two objects
     func didBegin(_ contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
             print("on crate")
@@ -299,6 +298,9 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    /// Called when contact between two objects is finished
+    ///
+    /// - Parameter contact: The object that refers to the contact caused by the two objects
     func didEnd(_ contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
             print("off crate")
@@ -309,10 +311,6 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
                 AusCrateFlag = true
             }
         }
-    }
-    
-    private func degToRad(degree: Double) -> CGFloat {
-        return CGFloat(Double(degree) / 180.0 * Double.pi)
     }
     
     private func onSpriteTouch(touchedNode: SKSpriteNode) {
@@ -339,6 +337,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         print(objList)
     }
     
+    /// Update the score for the level
     private func updateAnswer(node: SKSpriteNode, add: Bool) {
         print("numInCrate before: ", numInCrate)
         numInCrate = (add) ? numInCrate + 1:numInCrate - 1
@@ -503,9 +502,9 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    private func shiftFocus(node: SKNode) {
-        UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, node)
-    }
+    /// Prompts text to be spoken out by device
+    ///
+    /// - Parameter text: text to be spoken
     func speakString(text: String) {
         //let Utterance = AVSpeechUtterance(string: text)
 //        while(fx.isPlaying()){
