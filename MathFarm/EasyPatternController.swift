@@ -8,6 +8,7 @@
 
 import UIKit
 
+///a parent class that the PatternController classes extend
 class PatternController: UIViewController {
     var currentPattern = [Int]()
     var currentSelectedAnswer = ""
@@ -22,9 +23,11 @@ class PatternController: UIViewController {
     deinit {}
 }
 
+///this is the controller responsible for the easiest pattern level; all this controller does is alter the storyboard elements in the current view to create patterns
 class EasyPatternController: PatternController {
     private let easyLevelGenerator = PatternLevelEasy()
     
+    ///each of the below outlets are connected to a UIButton element on the screen to be altered throughout the easy pattern game
     @IBOutlet weak var zeroAnimal: UIButton!
     @IBOutlet weak var firstAnimal: UIButton!
     @IBOutlet weak var secondAnimal: UIButton!
@@ -49,6 +52,7 @@ class EasyPatternController: PatternController {
         // Dispose of any resources that can be recreated.
     }
     
+    ///uses the currently selected pattern to fill in the appropriate images and accessibility labels in the view; also sets tag representing UIButton placement on the screen
     override func fillAnimalDetails(){
         zeroAnimal.setBackgroundImage(easyLevelGenerator.getAnimalImageAt(index: currentPattern[0]), for: .normal)
         zeroAnimal.setTitle("", for: .normal)
@@ -75,6 +79,7 @@ class EasyPatternController: PatternController {
         
     }
     
+    ///func that is called when user selected first answer choice possible
     @IBAction func selectAnswer0(_ sender: UIButton) {
         let animalName = easyLevelGenerator.getAnimalNameAt(index: currentPattern[4])
         currentSelectedAnswer = animalName
@@ -87,6 +92,7 @@ class EasyPatternController: PatternController {
         shiftFocusContinueButton()
     }
     
+    ///func that is called when user selects second answer choice possible
     @IBAction func selectAnswer1(_ sender: UIButton) {
         let animalName = easyLevelGenerator.getAnimalNameAt(index: currentPattern[5])
         currentSelectedAnswer = animalName
@@ -99,13 +105,14 @@ class EasyPatternController: PatternController {
         shiftFocusContinueButton()
     }
     
+    ///plays an animal sound corresponding to the animal that has just been tapped
     @IBAction func tappedAnimal(_ sender: UIButton) {
         if(sender.tag < currentPattern.count){
             fx.playAnimalSound(animal: easyLevelGenerator.getAnimalNameAt(index: currentPattern[sender.tag]))
         }
     }
     
-    
+    ///called when user taps the "continue" arrow: if answer is correct, then segues to "great job" screen, else resets answer choice and resumes play of current pattern
     @IBAction func checkAnswer(_ sender: UIButton) {
         if(easyLevelGenerator.isAnswerCorrect(animal: currentSelectedAnswer)){
             fx.playTada()
@@ -123,6 +130,7 @@ class EasyPatternController: PatternController {
         }
     }
     
+    ///responsible for replacing the ? box with the selected answer
     override func finishPatternWithImageAndName(image: UIImage, name: String){
         answerSlot.setBackgroundImage(image, for: .normal)
         answerSlot.accessibilityLabel = name
@@ -137,9 +145,13 @@ class EasyPatternController: PatternController {
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
         //speaker.speak(Utterance)
     }
+    
+    ///shifts focus of VoiceOver "selection box" to the first animal in the pattern
     private func shiftFocusZeroAnimal() {
         UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, zeroAnimal)
     }
+    
+    ///shifts focus of the VoiceOver "selection box" to the "continue arrow"; to be called after a user selects an answer choice
     private func shiftFocusContinueButton() {
         UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, continueButton)
     }

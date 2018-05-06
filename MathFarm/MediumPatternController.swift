@@ -8,6 +8,7 @@
 
 import UIKit
 
+///this is the controller responsible for the medium ("pro") pattern level; all this controller does is alter the storyboard elements in the current view to create patterns...class is incredibly similar to EasyPatternController, but this accounts for the larger amount of animals
 class MediumPatternController: PatternController {
     private let mlg = PatternLevelMedium()
     
@@ -35,6 +36,7 @@ class MediumPatternController: PatternController {
         // Dispose of any resources that can be recreated.
     }
     
+    ///uses the currently selected pattern to fill in the appropriate images and accessibility labels in the view; also sets tag representing UIButton placement on the screen
     override func fillAnimalDetails() {
         var count = 0
         for animal in animalRow {
@@ -51,6 +53,7 @@ class MediumPatternController: PatternController {
         answerChoice1.accessibilityLabel = "Double tap to select " + mlg.getAnimalNameAt(index: currentPattern[7])
     }
     
+    ///func that is called when user selected first answer choice possible
     @IBAction func selectAnswer0(_ sender: UIButton) {
         let animalName = mlg.getAnimalNameAt(index: currentPattern[6])
         currentSelectedAnswer = animalName
@@ -63,6 +66,7 @@ class MediumPatternController: PatternController {
         shiftFocusContinueButton()
     }
     
+    ///func that is called when user selected second answer choice possible
     @IBAction func selectAnswer1(_ sender: UIButton) {
         let animalName = mlg.getAnimalNameAt(index: currentPattern[7])
         currentSelectedAnswer = animalName
@@ -75,13 +79,14 @@ class MediumPatternController: PatternController {
         shiftFocusContinueButton()
     }
     
+    ///plays an animal sound corresponding to the animal that has just been tapped
     @IBAction func tappedAnimal(_ sender: UIButton) {
         if(sender.tag < currentPattern.count){
             fx.playAnimalSound(animal: mlg.getAnimalNameAt(index: currentPattern[sender.tag]))
         }
     }
     
-    
+    ///called when user taps the "continue" arrow: if answer is correct, then segues to "great job" screen, else resets answer choice and resumes play of current pattern
     @IBAction func checkAnswer(_ sender: UIButton) {
         if(mlg.isAnswerCorrect(animal: currentSelectedAnswer)){
             fx.playTada()
@@ -99,6 +104,7 @@ class MediumPatternController: PatternController {
         }
     }
     
+    ///responsible for replacing the ? box with the selected answer
     override func finishPatternWithImageAndName(image: UIImage, name: String){
         answerSlot.setBackgroundImage(image, for: .normal)
         answerSlot.accessibilityLabel = name
@@ -113,9 +119,13 @@ class MediumPatternController: PatternController {
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
         //speaker.speak(Utterance)
     }
+    
+     ///shifts focus of VoiceOver "selection box" to the first animal in the pattern
     private func shiftFocusZeroAnimal() {
         UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, zeroAnimal)
     }
+    
+    ///shifts focus of the VoiceOver "selection box" to the "continue arrow"; to be called after a user selects an answer choice
     private func shiftFocusContinueButton() {
         UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, continueButton)
     }

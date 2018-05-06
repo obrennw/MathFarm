@@ -9,6 +9,7 @@
 import Foundation
 import AVFoundation
 
+///an object that consists of multiple function calls to play sounds; how to use: instantiate SoundFX object, call functions to play sound--look for examples throughout code
 class SoundFX {
     private var audioPlayer : AVAudioPlayer?
     private let pigURL = Bundle.main.url(forResource: "pigfarm", withExtension: "mp3")
@@ -96,7 +97,7 @@ class SoundFX {
         }
     }
     
-    private func playCowSound(){
+    public func playCowSound(){
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: cowURL!)
             audioPlayer?.play()
@@ -116,7 +117,7 @@ class SoundFX {
         }
     }
     
-    private func playCatSound(){
+    public func playCatSound(){
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: catURL!)
             audioPlayer?.play()
