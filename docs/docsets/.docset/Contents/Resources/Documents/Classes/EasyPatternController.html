@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>PatternViewController Class Reference</title>
+    <title>EasyPatternController Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/PatternViewController" class="dashAnchor"></a>
-    <a title="PatternViewController Class Reference"></a>
+    <a name="//apple_ref/swift/Class/EasyPatternController" class="dashAnchor"></a>
+    <a title="EasyPatternController Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (37% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        PatternViewController Class Reference
+        EasyPatternController Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -127,14 +127,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>PatternViewController</h1>
+            <h1>EasyPatternController</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">PatternViewController</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">EasyPatternController</span><span class="p">:</span> <span class="kt"><a href="../Classes/PatternController.html">PatternController</a></span></code></pre>
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>this is the controller responsible for the easiest pattern level; all this controller does is alter the storyboard elements in the current view to create patterns</p>
 
           </section>
           <section class="section task-group-section">
@@ -143,9 +143,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@MathFarm@objc(cs)PatternViewController(py)greenBox"></a>
-                    <a name="//apple_ref/swift/Property/greenBox" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@MathFarm@objc(cs)PatternViewController(py)greenBox">greenBox</a>
+                    <a name="/s:8MathFarm21EasyPatternControllerC18easyLevelGenerator33_4DA9B005DC5006A2170B66B845144930LLAA0dgC0Cvp"></a>
+                    <a name="//apple_ref/swift/Property/easyLevelGenerator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm21EasyPatternControllerC18easyLevelGenerator33_4DA9B005DC5006A2170B66B845144930LLAA0dgC0Cvp">easyLevelGenerator</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -160,7 +160,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">greenBox</span><span class="p">:</span> <span class="kt">UIView</span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">easyLevelGenerator</span> <span class="o">=</span> <span class="kt"><a href="../Classes/PatternLevelEasy.html">PatternLevelEasy</a></span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -170,9 +170,36 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@MathFarm@objc(cs)PatternViewController(py)selectPig"></a>
-                    <a name="//apple_ref/swift/Property/selectPig" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@MathFarm@objc(cs)PatternViewController(py)selectPig">selectPig</a>
+                    <a name="/c:@M@MathFarm@objc(cs)EasyPatternController(py)zeroAnimal"></a>
+                    <a name="//apple_ref/swift/Property/zeroAnimal" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)EasyPatternController(py)zeroAnimal">zeroAnimal</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>each of the below outlets are connected to a UIButton element on the screen to be altered throughout the easy pattern game</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">zeroAnimal</span><span class="p">:</span> <span class="kt">UIButton</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MathFarm@objc(cs)EasyPatternController(py)firstAnimal"></a>
+                    <a name="//apple_ref/swift/Property/firstAnimal" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)EasyPatternController(py)firstAnimal">firstAnimal</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -187,7 +214,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">selectPig</span><span class="p">:</span> <span class="kt">UIButton</span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">firstAnimal</span><span class="p">:</span> <span class="kt">UIButton</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -197,9 +224,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8MathFarm21PatternViewControllerC5timerSo5TimerCvp"></a>
-                    <a name="//apple_ref/swift/Property/timer" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8MathFarm21PatternViewControllerC5timerSo5TimerCvp">timer</a>
+                    <a name="/c:@M@MathFarm@objc(cs)EasyPatternController(py)secondAnimal"></a>
+                    <a name="//apple_ref/swift/Property/secondAnimal" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)EasyPatternController(py)secondAnimal">secondAnimal</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -214,7 +241,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">timer</span> <span class="o">=</span> <span class="kt">Timer</span><span class="p">()</span> <span class="c1">//used to implement "frame-based" functions</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">secondAnimal</span><span class="p">:</span> <span class="kt">UIButton</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -224,9 +251,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8MathFarm21PatternViewControllerC16isTouchingScreenSbvp"></a>
-                    <a name="//apple_ref/swift/Property/isTouchingScreen" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8MathFarm21PatternViewControllerC16isTouchingScreenSbvp">isTouchingScreen</a>
+                    <a name="/c:@M@MathFarm@objc(cs)EasyPatternController(py)answerSlot"></a>
+                    <a name="//apple_ref/swift/Property/answerSlot" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)EasyPatternController(py)answerSlot">answerSlot</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -241,7 +268,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">isTouchingScreen</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">answerSlot</span><span class="p">:</span> <span class="kt">UIButton</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -251,9 +278,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8MathFarm21PatternViewControllerC12currentLevelSivp"></a>
-                    <a name="//apple_ref/swift/Property/currentLevel" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8MathFarm21PatternViewControllerC12currentLevelSivp">currentLevel</a>
+                    <a name="/c:@M@MathFarm@objc(cs)EasyPatternController(py)answerChoice0"></a>
+                    <a name="//apple_ref/swift/Property/answerChoice0" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)EasyPatternController(py)answerChoice0">answerChoice0</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -268,7 +295,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">currentLevel</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">answerChoice0</span><span class="p">:</span> <span class="kt">UIButton</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -278,9 +305,63 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@MathFarm@objc(cs)PatternViewController(im)viewDidLoad"></a>
+                    <a name="/c:@M@MathFarm@objc(cs)EasyPatternController(py)answerChoice1"></a>
+                    <a name="//apple_ref/swift/Property/answerChoice1" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)EasyPatternController(py)answerChoice1">answerChoice1</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">answerChoice1</span><span class="p">:</span> <span class="kt">UIButton</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MathFarm@objc(cs)EasyPatternController(py)continueButton"></a>
+                    <a name="//apple_ref/swift/Property/continueButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)EasyPatternController(py)continueButton">continueButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">continueButton</span><span class="p">:</span> <span class="kt">UIButton</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MathFarm@objc(cs)EasyPatternController(im)viewDidLoad"></a>
                     <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@MathFarm@objc(cs)PatternViewController(im)viewDidLoad">viewDidLoad()</a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)EasyPatternController(im)viewDidLoad">viewDidLoad()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -305,9 +386,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@MathFarm@objc(cs)PatternViewController(im)didReceiveMemoryWarning"></a>
+                    <a name="/c:@M@MathFarm@objc(cs)EasyPatternController(im)didReceiveMemoryWarning"></a>
                     <a name="//apple_ref/swift/Method/didReceiveMemoryWarning()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@MathFarm@objc(cs)PatternViewController(im)didReceiveMemoryWarning">didReceiveMemoryWarning()</a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)EasyPatternController(im)didReceiveMemoryWarning">didReceiveMemoryWarning()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -332,9 +413,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@MathFarm@objc(cs)PatternViewController(im)Update"></a>
-                    <a name="//apple_ref/swift/Method/Update()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@MathFarm@objc(cs)PatternViewController(im)Update">Update()</a>
+                    <a name="/s:8MathFarm21EasyPatternControllerC17fillAnimalDetailsyyF"></a>
+                    <a name="//apple_ref/swift/Method/fillAnimalDetails()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm21EasyPatternControllerC17fillAnimalDetailsyyF">fillAnimalDetails()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -342,14 +423,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>uses the currently selected pattern to fill in the appropriate images and accessibility labels in the view; also sets tag representing UIButton placement on the screen</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span> <span class="kd">func</span> <span class="kt">Update</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">fillAnimalDetails</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -359,9 +440,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@MathFarm@objc(cs)PatternViewController(im)touchesBegan:withEvent:"></a>
-                    <a name="//apple_ref/swift/Method/touchesBegan(_:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@MathFarm@objc(cs)PatternViewController(im)touchesBegan:withEvent:">touchesBegan(_:with:)</a>
+                    <a name="/c:@M@MathFarm@objc(cs)EasyPatternController(im)selectAnswer0:"></a>
+                    <a name="//apple_ref/swift/Method/selectAnswer0(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)EasyPatternController(im)selectAnswer0:">selectAnswer0(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -369,14 +450,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>func that is called when user selected first answer choice possible</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">touchesBegan</span><span class="p">(</span><span class="n">_</span> <span class="nv">touches</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">UITouch</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">selectAnswer0</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -386,9 +467,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@MathFarm@objc(cs)PatternViewController(im)touchesEnded:withEvent:"></a>
-                    <a name="//apple_ref/swift/Method/touchesEnded(_:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@MathFarm@objc(cs)PatternViewController(im)touchesEnded:withEvent:">touchesEnded(_:with:)</a>
+                    <a name="/c:@M@MathFarm@objc(cs)EasyPatternController(im)selectAnswer1:"></a>
+                    <a name="//apple_ref/swift/Method/selectAnswer1(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)EasyPatternController(im)selectAnswer1:">selectAnswer1(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -396,14 +477,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>func that is called when user selects second answer choice possible</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">touchesEnded</span><span class="p">(</span><span class="n">_</span> <span class="nv">touches</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">UITouch</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">selectAnswer1</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -413,9 +494,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@MathFarm@objc(cs)PatternViewController(im)playCowSound:"></a>
-                    <a name="//apple_ref/swift/Method/playCowSound(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@MathFarm@objc(cs)PatternViewController(im)playCowSound:">playCowSound(_:)</a>
+                    <a name="/c:@M@MathFarm@objc(cs)EasyPatternController(im)tappedAnimal:"></a>
+                    <a name="//apple_ref/swift/Method/tappedAnimal(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)EasyPatternController(im)tappedAnimal:">tappedAnimal(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -423,14 +504,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>plays an animal sound corresponding to the animal that has just been tapped</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">playCowSound</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">tappedAnimal</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -440,9 +521,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@MathFarm@objc(cs)PatternViewController(im)playPigSound:"></a>
-                    <a name="//apple_ref/swift/Method/playPigSound(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@MathFarm@objc(cs)PatternViewController(im)playPigSound:">playPigSound(_:)</a>
+                    <a name="/c:@M@MathFarm@objc(cs)EasyPatternController(im)checkAnswer:"></a>
+                    <a name="//apple_ref/swift/Method/checkAnswer(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)EasyPatternController(im)checkAnswer:">checkAnswer(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -450,14 +531,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>called when user taps the <q>continue</q> arrow: if answer is correct, then segues to <q>great job</q> screen, else resets answer choice and resumes play of current pattern</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">playPigSound</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">checkAnswer</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -467,9 +548,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@MathFarm@objc(cs)PatternViewController(im)selectedAnswer:"></a>
-                    <a name="//apple_ref/swift/Method/selectedAnswer(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@MathFarm@objc(cs)PatternViewController(im)selectedAnswer:">selectedAnswer(_:)</a>
+                    <a name="/s:8MathFarm21EasyPatternControllerC06finishD16WithImageAndNameySo7UIImageC5image_SS4nametF"></a>
+                    <a name="//apple_ref/swift/Method/finishPatternWithImageAndName(image:name:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm21EasyPatternControllerC06finishD16WithImageAndNameySo7UIImageC5image_SS4nametF">finishPatternWithImageAndName(image:name:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -477,14 +558,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>responsible for replacing the ? box with the selected answer</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">selectedAnswer</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">finishPatternWithImageAndName</span><span class="p">(</span><span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -494,9 +575,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8MathFarm21PatternViewControllerC11speakStringySS4text_tF"></a>
+                    <a name="/s:8MathFarm21EasyPatternControllerC11speakStringySS4text_tF"></a>
                     <a name="//apple_ref/swift/Method/speakString(text:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8MathFarm21PatternViewControllerC11speakStringySS4text_tF">speakString(text:)</a>
+                    <a class="token" href="#/s:8MathFarm21EasyPatternControllerC11speakStringySS4text_tF">speakString(text:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -521,9 +602,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8MathFarm21PatternViewControllerC8setLevelySi5level_tF"></a>
-                    <a name="//apple_ref/swift/Method/setLevel(level:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8MathFarm21PatternViewControllerC8setLevelySi5level_tF">setLevel(level:)</a>
+                    <a name="/s:8MathFarm21EasyPatternControllerC20shiftFocusZeroAnimal33_4DA9B005DC5006A2170B66B845144930LLyyF"></a>
+                    <a name="//apple_ref/swift/Method/shiftFocusZeroAnimal()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm21EasyPatternControllerC20shiftFocusZeroAnimal33_4DA9B005DC5006A2170B66B845144930LLyyF">shiftFocusZeroAnimal()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -531,14 +612,41 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>shifts focus of VoiceOver <q>selection box</q> to the first animal in the pattern</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setLevel</span><span class="p">(</span><span class="nv">level</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">shiftFocusZeroAnimal</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm21EasyPatternControllerC24shiftFocusContinueButton33_4DA9B005DC5006A2170B66B845144930LLyyF"></a>
+                    <a name="//apple_ref/swift/Method/shiftFocusContinueButton()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm21EasyPatternControllerC24shiftFocusContinueButton33_4DA9B005DC5006A2170B66B845144930LLyyF">shiftFocusContinueButton()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>shifts focus of the VoiceOver <q>selection box</q> to the <q>continue arrow</q>; to be called after a user selects an answer choice</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">shiftFocusContinueButton</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>

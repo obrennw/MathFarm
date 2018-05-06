@@ -12,7 +12,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    /// UI Window that 
+    /// UI Window that correspondings to where the app is being run
     var window: UIWindow?
 
     /// Override point for customization after application launch.

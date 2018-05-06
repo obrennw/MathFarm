@@ -14,15 +14,17 @@ import AVFoundation
 class LevelSelectController: UIViewController {
 
 
+    /// Counting Easy Button reference
     @IBOutlet weak var CountingEasy: UIButton!
-    /// Button that links to addition level
+    /// Addition Easy button reference
     @IBOutlet weak var AdditionBtn: UIButton!
-    //button that links to pattern level
+    /// Counting Pro button reference
     @IBOutlet weak var CountingPro: UIButton!
-    /// Do any additional setup after loading the view.
     
+    /// AudioPlayer object for MathFarm theme music
     var audioPlayer: AVAudioPlayer? = nil
     
+    /// Called on view loading
     override func viewDidLoad() {
         super.viewDidLoad()
         print("new load")
@@ -37,23 +39,38 @@ class LevelSelectController: UIViewController {
     ///
     /// - Parameter sender: Component that triggers function on action
 
+    /// Segue to CountingScene (Easy difficulty) instance
+    ///
+    /// - Parameter sender: Counting Easy UIButton that triggers event
     @IBAction func toCountingEasy(_ sender: UIButton) {
         performSegue(withIdentifier: "toCountingEasy", sender: self)
     }
+    /// Segue to CountingScene (Pro difficulty) instance
+    ///
+    /// - Parameter sender: Counting Pro UIButton that triggers event
     @IBAction func toCountingPro(_ sender: UIButton) {
         performSegue(withIdentifier: "toCountingPro", sender: self)
     }
 
 
+    /// Segue to EasyAdditionScene instance
+    ///
+    /// - Parameter sender: Addition Easy UIButton that triggers event
     @IBAction func toAdditionEasy(_ sender: UIButton) {
         performSegue(withIdentifier: "toEasyAddition", sender: self)
     }
     
+    /// Segue to MedAdditionScene instance
+    ///
+    /// - Parameter sender: Addition Medium UIButton that triggers event
     @IBAction func toAdditionMedium(_ sender: UIButton) {
         performSegue(withIdentifier: "toMediumAddition", sender: self)
     }
     
     
+    /// Segue to AdvAdditionScene instance
+    ///
+    /// - Parameter sender: Addition Pro UIButton that triggers event
     @IBAction func toAdditionHard(_ sender: UIButton) {
         performSegue(withIdentifier: "toHardAddition", sender: self)
     }
@@ -62,6 +79,11 @@ class LevelSelectController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    /// Sets the game type of the GameViewController recieving the segue according to the segue identifier.
+    ///
+    /// - Parameters:
+    ///   - segue: the segue being sent fromt the view
+    ///   - sender: object that sends the segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "toCountingEasy") {
             let vc = segue.destination as! GameViewController
@@ -84,6 +106,9 @@ class LevelSelectController: UIViewController {
         }
     }
     
+    /// Toggles MathFarm theme music off/on
+    ///
+    /// - Parameter sender: Toggle Music UIButton
     @IBAction func toggleMusic(_ sender: UIButton) {
         if(audioPlayer == nil){
             do{

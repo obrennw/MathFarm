@@ -25,10 +25,12 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     
     /// A list of static objects
     private let staticImages = ["pig"]
+    
+    /// SoundFX object to play corresponding sounds
     private let fx = SoundFX()
     /// A list of movable objects
-    //private let movableImages = ["apple"]
     private let movableImages = ["apple", "orange", "peach", "broccoli", "lemon"]
+    /// Subset of movableImages that is not apples
     private let nonApples = ["orange", "peach", "broccoli", "lemon"]
     /// Sprite that presents the current score
     let scoreText = SKLabelNode(fontNamed: "Arial")
@@ -43,6 +45,7 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     var question = SKLabelNode(fontNamed: "Arial")
     /// A label with vitory text prompted on sucessful completion of level
     var victory = SKLabelNode(fontNamed: "Arial")
+    /// Label that indicates a level was cleared
     var clearedLevel = SKLabelNode(fontNamed: "Arial")
     
     /// Boolean that states whether selected Node is in contact with pig or not
@@ -52,25 +55,20 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
     weak var game_delegate:GameViewController?
     
     
+    /// How many times the player has won the current game
     var winningStreak: Int?
+    /// Original position of node currently being moved
     var nodeOriginalPosition: CGPoint?
+    /// Accessibility label for winning streak
     var winningStreakText: String?
-    
-    var questionContainer = SKSpriteNode()
-    var answerText = SKLabelNode(fontNamed: "Arial")
+    /// Button to return to the memu
     var backButton = SKSpriteNode(imageNamed: "backButton")
-    //var continueButton = SKLabelNode(fontNamed: "Arial")
+    /// Continue Button to go to next scene at same level
     var continueButton = SKSpriteNode(imageNamed: "continueArrow")
-    var typeNode = SKSpriteNode()
     /// The Difficulty for the level. 0 = Easy, 1 = Medium
     var difficulty = 0
     
-    /// The back button
-    //let button = SKSpriteNode(imageNamed: "turtle")
-    
-    
     /// Randomly generated number of apples to be used for the level
-
     var numApples = arc4random_uniform(4)+2
     /// Randomly generated number of non apple fruit to be used for the level
     var numNonApples = arc4random_uniform(3)+1
@@ -91,7 +89,7 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         
     }
     
-    /// Called when scene is presented
+    /// Set up sprites on the screen at their correct position
     ///
     /// - Parameter view: The SKView rendering the scene
     override func didMove(to view: SKView) {
@@ -107,13 +105,13 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             backgroundNode = SKSpriteNode(imageNamed: "grassBackground")
         }
         self.physicsWorld.contactDelegate = self
-        //self.backgroundColor = SKColor.cyan
         
         print("height:"+String(describing: size.height))
         scoreText.fontSize = size.height/7.5
         scoreText.text = String(score)
         scoreText.fontColor = SKColor.white
         scoreText.name = "score"
+        scoreText.zPosition = -2
         
         
         //let numApples = arc4random_uniform(11)+1;
@@ -140,12 +138,15 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         question.isAccessibilityElement = true
         question.accessibilityLabel = questionTextWriten
         question.name = "question"
+        question.zPosition = -2
         
         backButton.position = CGPoint(x: size.width * 0.1, y: size.height * 0.9)
         backButton.size = CGSize(width: 120.0, height: 120.0)
         backButton.name = "menu"
         backButton.isAccessibilityElement = true
         backButton.accessibilityLabel = "back to menu"
+        backButton.zPosition = -2
+
         
        // winningStreakText = "You've aced this " + String(winningStreak!) + "time in a roll"
         winningStreakText = "Winning streak is at " + String(winningStreak!)
@@ -180,7 +181,6 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         self.addChild(scoreText)
         
         
-        //let imageNames = ["bucket2","apple","apple","apple","apple","apple"]
         for i in (0..<imageNames.count) {
             let imageName = imageNames[i]
 
@@ -191,7 +191,6 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
             
             
             if !staticImages.contains(imageName){
-                //sprite.accessibilityLabel = "apple"
                 sprite.size = CGSize(width: 90.0, height: 90.0)
                 sprite.physicsBody = SKPhysicsBody(circleOfRadius: max(sprite.size.width/4,
                                                                        sprite.size.height/4))
@@ -203,7 +202,6 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                 sprite.position = CGPoint(x: size.width * offsetFractionObject, y: (size.height/(1.25))-(1.1*(sprite.size.height)*CGFloat(objectOffsetY)))
             }
             else{
-                //sprite.accessibilityLabel = "pig"
                 sprite.zPosition = -1
                 sprite.size = CGSize(width: 210.0, height: 210.0)
                 sprite.physicsBody = SKPhysicsBody(circleOfRadius: max(sprite.size.width/4,
@@ -225,12 +223,12 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
            
             
         }
-        //let offsetFraction = (CGFloat(imageNames.count) + 1.0)/(CGFloat(imageNames.count+1) + 1.0)
         generateStreakBar()
         self.addChild(backButton)
         self.addChild(question)
     }
     
+    /// Generate sprites for winning streak bar
     private func generateStreakBar() {
         for i in 0 ..< winningStreak! {
             if(i < 3) {
@@ -344,7 +342,6 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         print(score)
         if(score == numApples){
             onVictory()
-            //onVictorySound()
         }
     }
     
@@ -408,21 +405,6 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
         self.addChild(backButton)
     }
     
-    private func onVictorySound(){
-        fx.playTada()
-        if(winningStreak! >= 3){
-            while(fx.isPlaying()){
-                print("waiting.....")
-            }
-            fx.playHappy()
-        }
-        if(winningStreak! >= 3){
-            speakString(text: victory.text! + " and "+clearedLevel.text!)
-        } else{
-            speakString(text: victory.text!)
-        }
-    }
-    
     /// Converts degrees to radians
     ///
     /// - Parameter degree: value in degrees
@@ -474,7 +456,14 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
 //        if(contactFlag){
 //            incrementScore()
 //        }
-        if(contactFlag){
+        let adj = CGFloat(40)
+        if(selectedNode.position.x > size.width - adj
+            || selectedNode.position.x < adj
+            || selectedNode.position.y > size.height - adj
+            || selectedNode.position.y < adj) {
+            selectedNode.position = nodeOriginalPosition!
+        }
+        else if(contactFlag){
             if(selectedNode.name == "apple") {
                 print("great")
                 //add speak string to announce addition

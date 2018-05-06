@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>GameViewController Class Reference</title>
+    <title>PatternController Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/GameViewController" class="dashAnchor"></a>
-    <a title="GameViewController Class Reference"></a>
+    <a name="//apple_ref/swift/Class/PatternController" class="dashAnchor"></a>
+    <a title="PatternController Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (37% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        GameViewController Class Reference
+        PatternController Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -127,14 +127,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>GameViewController</h1>
+            <h1>PatternController</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">GameViewController</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">PatternController</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                 </div>
               </div>
-            <p>Controller responsible for presenting a given level</p>
+            <p>a parent class that the PatternController classes extend</p>
 
           </section>
           <section class="section task-group-section">
@@ -143,183 +143,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8MathFarm18GameViewControllerC8gameTypeSSvp"></a>
-                    <a name="//apple_ref/swift/Property/gameType" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8MathFarm18GameViewControllerC8gameTypeSSvp">gameType</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Key that determines which type of scene is generated</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">gameType</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">""</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@MathFarm@objc(cs)GameViewController(im)loadView"></a>
-                    <a name="//apple_ref/swift/Method/loadView()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@MathFarm@objc(cs)GameViewController(im)loadView">loadView()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Called when view is ready to be loaded into contorller</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">loadView</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@MathFarm@objc(cs)GameViewController(im)viewDidLoad"></a>
-                    <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@MathFarm@objc(cs)GameViewController(im)viewDidLoad">viewDidLoad()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Set properties of the Controller once the view is loaded
-expected behavior: based on the value of gameType load counting game or addition game</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@MathFarm@objc(cs)GameViewController(im)viewWillLayoutSubviews"></a>
-                    <a name="//apple_ref/swift/Method/viewWillLayoutSubviews()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@MathFarm@objc(cs)GameViewController(im)viewWillLayoutSubviews">viewWillLayoutSubviews()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Configure view and subviews</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillLayoutSubviews</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@MathFarm@objc(cs)GameViewController(im)didReceiveMemoryWarning"></a>
-                    <a name="//apple_ref/swift/Method/didReceiveMemoryWarning()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@MathFarm@objc(cs)GameViewController(im)didReceiveMemoryWarning">didReceiveMemoryWarning()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Release any cached data, images, etc that aren&rsquo;t in use.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">didReceiveMemoryWarning</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@MathFarm@objc(cs)GameViewController(py)prefersStatusBarHidden"></a>
-                    <a name="//apple_ref/swift/Property/prefersStatusBarHidden" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@MathFarm@objc(cs)GameViewController(py)prefersStatusBarHidden">prefersStatusBarHidden</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Set preference for visibility of status bar</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="k">var</span> <span class="nv">prefersStatusBarHidden</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/game%20delegate"></a>
-                <a name="//apple_ref/swift/Section/game delegate" class="dashAnchor"></a>
-                <a href="#/game%20delegate">
-                  <h3 class="section-name">game delegate</h3>
-                </a>
-              </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8MathFarm18GameViewControllerC11backToLevelyyF"></a>
-                    <a name="//apple_ref/swift/Method/backToLevel()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8MathFarm18GameViewControllerC11backToLevelyyF">backToLevel()</a>
+                    <a name="/s:8MathFarm17PatternControllerC07currentC0SaySiGvp"></a>
+                    <a name="//apple_ref/swift/Property/currentPattern" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm17PatternControllerC07currentC0SaySiGvp">currentPattern</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -334,7 +160,7 @@ expected behavior: based on the value of gameType load counting game or addition
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">backToLevel</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">currentPattern</span> <span class="o">=</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]()</span></code></pre>
 
                         </div>
                       </div>
@@ -344,9 +170,9 @@ expected behavior: based on the value of gameType load counting game or addition
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@MathFarm@objc(cs)GameViewController(im)dealloc"></a>
-                    <a name="//apple_ref/swift/Method/deinit" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@MathFarm@objc(cs)GameViewController(im)dealloc">deinit</a>
+                    <a name="/s:8MathFarm17PatternControllerC21currentSelectedAnswerSSvp"></a>
+                    <a name="//apple_ref/swift/Property/currentSelectedAnswer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm17PatternControllerC21currentSelectedAnswerSSvp">currentSelectedAnswer</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -354,7 +180,196 @@ expected behavior: based on the value of gameType load counting game or addition
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Actions called when instance is destroyed</p>
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">currentSelectedAnswer</span> <span class="o">=</span> <span class="s">""</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm17PatternControllerC9animalRowSaySo8UIButtonCGvp"></a>
+                    <a name="//apple_ref/swift/Property/animalRow" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm17PatternControllerC9animalRowSaySo8UIButtonCGvp">animalRow</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">animalRow</span> <span class="o">=</span> <span class="p">[</span><span class="kt">UIButton</span><span class="p">]()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm17PatternControllerC2fxAA7SoundFXCvp"></a>
+                    <a name="//apple_ref/swift/Property/fx" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm17PatternControllerC2fxAA7SoundFXCvp">fx</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">fx</span> <span class="o">=</span> <span class="kt"><a href="../Classes/SoundFX.html">SoundFX</a></span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm17PatternControllerC18defaultEmptyAnswerSo7UIImageCvp"></a>
+                    <a name="//apple_ref/swift/Property/defaultEmptyAnswer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm17PatternControllerC18defaultEmptyAnswerSo7UIImageCvp">defaultEmptyAnswer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">defaultEmptyAnswer</span> <span class="o">=</span> <span class="err">#</span><span class="nf">imageLiteral</span><span class="p">(</span><span class="nv">resourceName</span><span class="p">:</span> <span class="s">"Unknown-2"</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm17PatternControllerC17defaultAccessTextSSvp"></a>
+                    <a name="//apple_ref/swift/Property/defaultAccessText" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm17PatternControllerC17defaultAccessTextSSvp">defaultAccessText</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">defaultAccessText</span> <span class="o">=</span> <span class="s">"Which animal comes next?"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm17PatternControllerC17fillAnimalDetailsyyF"></a>
+                    <a name="//apple_ref/swift/Method/fillAnimalDetails()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm17PatternControllerC17fillAnimalDetailsyyF">fillAnimalDetails()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">fillAnimalDetails</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm17PatternControllerC06finishC16WithImageAndNameySo7UIImageC5image_SS4nametF"></a>
+                    <a name="//apple_ref/swift/Method/finishPatternWithImageAndName(image:name:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm17PatternControllerC06finishC16WithImageAndNameySo7UIImageC5image_SS4nametF">finishPatternWithImageAndName(image:name:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">finishPatternWithImageAndName</span><span class="p">(</span><span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@MathFarm@objc(cs)PatternController(im)dealloc"></a>
+                    <a name="//apple_ref/swift/Method/deinit" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@MathFarm@objc(cs)PatternController(im)dealloc">deinit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
