@@ -9,10 +9,10 @@
 import Foundation
 import SpriteKit
 
-private let staticImages = ["crate"]
-private let movableImages = ["apple", "orange", "peach", "broccoli", "lemon"]
-
 class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
+    
+    private let staticImages = ["crate"]
+    private let movableImages = ["apple", "orange", "peach", "broccoli", "lemon"]
     weak var game_delegate: GameViewController?
     var contactFlag = false
     var movingFlag = false
@@ -24,7 +24,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
     var numInCrate = 0
     var objNumChangce = 0
     var nodeOriginalPosition: CGPoint?
-    var rightObjectType = movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))]
+    var rightObjectType = ""
     var numberText = SKLabelNode(fontNamed: "Arial")
     var correctNum = arc4random_uniform(9)+1
     var correctObjNum = arc4random_uniform(2)+2
@@ -48,6 +48,8 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
+        rightObjectType = movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))]
+        
         print("winningStreak: ", winningStreak!)
         print(rightObjectType)
         print(correctNum)
@@ -228,6 +230,13 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let adj = CGFloat(40)
+        if(selectedNode.position.x > size.width - adj
+            || selectedNode.position.x < adj
+            || selectedNode.position.y > size.height - adj
+            || selectedNode.position.y < adj) {
+            selectedNode.position = nodeOriginalPosition!
+        }
         if(contactFlag){
             if(selectedNode.name == rightObjectType) {
                 print("great")
@@ -261,6 +270,9 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
 //        selectedNode = SKSpriteNode()
     }
     
+    /// Called when contact between two objects is initiated
+    ///
+    /// - Parameter contact: The object that refers to the contact caused by the two objects
     func didBegin(_ contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
             print("on crate")
@@ -272,6 +284,9 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    /// Called when contact between two objects is finished
+    ///
+    /// - Parameter contact: The object that refers to the contact caused by the two objects
     func didEnd(_ contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == ColliderType.Bucket && contact.bodyB.categoryBitMask == ColliderType.Object) {
             print("off crate")
@@ -282,10 +297,6 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
                 AusCrateFlag = true
             }
         }
-    }
-    
-    private func degToRad(degree: Double) -> CGFloat {
-        return CGFloat(Double(degree) / 180.0 * Double.pi)
     }
     
     private func onSpriteTouch(touchedNode: SKSpriteNode) {
@@ -334,6 +345,8 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         print(objNumList)
         
     }
+    
+    /// Update the score for the level
     private func updateAnswer(node: SKSpriteNode, add: Bool) {
         print("numInCrate before: ", numInCrate)
         var objNum = 0
@@ -494,11 +507,10 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
         }
         shiftFocus(node: victoryText)
     }
-        
-    private func shiftFocus(node: SKNode) {
-        UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, node)
-
-    }
+    
+    /// Prompts text to be spoken out by device
+    ///
+    /// - Parameter text: text to be spoken
     func speakString(text: String) {
         //let Utterance = AVSpeechUtterance(string: text)
 //        while(fx.isPlaying()){
