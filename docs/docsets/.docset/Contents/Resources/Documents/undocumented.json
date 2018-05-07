@@ -1,19 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/duyn/Documents/MathFarm/MathFarm/MediumPatternController.swift",
-      "line": 13,
-      "symbol": "MediumPatternController.mlg",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/duyn/Documents/MathFarm/MathFarm/PatternDifficulties.swift",
-      "line": 140,
-      "symbol": "PatternLevelMedium.pattern",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/duyn/Documents/MathFarm"
 }
