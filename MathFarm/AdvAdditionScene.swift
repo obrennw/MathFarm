@@ -236,14 +236,15 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
             || selectedNode.position.y > size.height - adj
             || selectedNode.position.y < adj) {
             selectedNode.position = nodeOriginalPosition!
+            speakString(text: "Oops! You just hit the border!")
         }
         if(contactFlag){
             if(selectedNode.name == rightObjectType) {
                 print("great")
                 //add speak string to announce addition
+                fx.playCountSound()
                 let updateMsg = "Put " + String(objNumChangce) + ((objNumChangce == 1||rightObjectType=="broccoli") ?rightObjectType:rightObjectType+"s") + " into the crate. The crate now has " + String(numInCrate) + ((numInCrate <= 1||rightObjectType=="broccoli") ?rightObjectType:rightObjectType+"s")
                 speakString(text: updateMsg)
-                fx.playCountSound()
             } else {
                 print("wrong type of object")
                 speakString(text: "wrong type of object")
@@ -262,6 +263,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
             print("numInCrate now: ", numInCrate)
             //check if the selectednode was moved from crate, if yes announce decrease
             if(AusCrateFlag) {
+                fx.playShortDogSound()
                 let updateMsg = "Moved " + String(objNumChangce) + ((objNumChangce == 1||rightObjectType=="broccoli") ?rightObjectType:rightObjectType+"s") + " out of the crate. The crate now has " + String(numInCrate) + ((numInCrate <= 1||rightObjectType=="broccoli") ?rightObjectType:rightObjectType+"s")
                 speakString(text: updateMsg)
                 AusCrateFlag = false

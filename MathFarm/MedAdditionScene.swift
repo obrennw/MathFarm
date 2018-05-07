@@ -250,6 +250,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
             || selectedNode.position.y > size.height - adj
             || selectedNode.position.y < adj) {
             selectedNode.position = nodeOriginalPosition!
+            speakString(text: "Oops! You just hit the border!")
         }
         if(contactFlag){
             if(selectedNode.name == rightObjectType) {
@@ -276,6 +277,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
             print("numInCrate now: ", numInCrate)
             //check if the selectednode was moved from crate, if yes announce decrease
             if(AusCrateFlag) {
+                fx.playShortDogSound()
                 let updateMsg = "Moved one " + rightObjectType + " out of the crate. The crate now has " + String(numInCrate) + ((numInCrate <= 1||rightObjectType=="broccoli") ?rightObjectType:rightObjectType+"s")
                 speakString(text: updateMsg)
                 AusCrateFlag = false

@@ -33,6 +33,7 @@
 		FA1077E02062597D001CC811 /* EasyAdditionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1077DF2062597D001CC811 /* EasyAdditionScene.swift */; };
 		FA1296EE206948C200412DDC /* AdvAdditionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1296ED206948C200412DDC /* AdvAdditionScene.swift */; };
 		FA8360DE20636A4A0058CBD1 /* AdditionScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */; };
+		FAA7C66520A017AE00E720E4 /* dogBark.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAA7C66420A017AE00E720E4 /* dogBark.mp3 */; };
 		FAA840322092AE2600303282 /* MedAdditionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA840312092AE2600303282 /* MedAdditionScene.swift */; };
 		FAE28DF820994ED100621800 /* count.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAE28DF720994ED100621800 /* count.mp3 */; };
 		FAE28DFA20994EE100621800 /* backgroundmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAE28DF920994EE100621800 /* backgroundmusic.mp3 */; };
@@ -88,6 +89,7 @@
 		FA1077DF2062597D001CC811 /* EasyAdditionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyAdditionScene.swift; sourceTree = "<group>"; };
 		FA1296ED206948C200412DDC /* AdvAdditionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvAdditionScene.swift; sourceTree = "<group>"; };
 		FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AdditionScene.sks; sourceTree = "<group>"; };
+		FAA7C66420A017AE00E720E4 /* dogBark.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dogBark.mp3; sourceTree = "<group>"; };
 		FAA840312092AE2600303282 /* MedAdditionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedAdditionScene.swift; sourceTree = "<group>"; };
 		FAE28DF720994ED100621800 /* count.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = count.mp3; path = ../count.mp3; sourceTree = "<group>"; };
 		FAE28DF920994EE100621800 /* backgroundmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = backgroundmusic.mp3; path = ../backgroundmusic.mp3; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				B23680E320923A180084CA83 /* cowmoo.mp3 */,
 				B23680E420923A180084CA83 /* meow.mp3 */,
 				29A76DFA208A629400DE899B /* happy.mp3 */,
+				FAA7C66420A017AE00E720E4 /* dogBark.mp3 */,
 				FAE28DF920994EE100621800 /* backgroundmusic.mp3 */,
 				B23680E520923A190084CA83 /* pigfarm.mp3 */,
 				FAE28DF720994ED100621800 /* count.mp3 */,
@@ -310,6 +313,7 @@
 				29A76DFC208A629400DE899B /* count.mp3 in Resources */,
 				B23680E620923A190084CA83 /* tada.mp3 in Resources */,
 				FA8360DE20636A4A0058CBD1 /* AdditionScene.sks in Resources */,
+				FAA7C66520A017AE00E720E4 /* dogBark.mp3 in Resources */,
 				B23680E820923A190084CA83 /* bark.mp3 in Resources */,
 				FAE28DF820994ED100621800 /* count.mp3 in Resources */,
 				B23680EB20923A190084CA83 /* pigfarm.mp3 in Resources */,
@@ -522,11 +526,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P7TZH87BWL;
+				DEVELOPMENT_TEAM = P65B97BWKC;
 				INFOPLIST_FILE = MathFarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -542,11 +546,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P7TZH87BWL;
+				DEVELOPMENT_TEAM = P65B97BWKC;
 				INFOPLIST_FILE = MathFarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

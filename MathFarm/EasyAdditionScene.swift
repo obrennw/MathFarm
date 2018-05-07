@@ -234,6 +234,7 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
             || selectedNode.position.y > size.height - adj
             || selectedNode.position.y < adj) {
             selectedNode.position = nodeOriginalPosition!
+            speakString(text: "Oops! You just hit the border!")
         }
         if(contactFlag){
             if(selectedNode.name == rightObjectType) {
