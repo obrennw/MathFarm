@@ -1,169 +1,22 @@
 {
   "warnings": [
     {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/AdvAdditionScene.swift",
-      "line": 12,
-      "symbol": "AdvAdditionScene",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyAdditionScene.swift",
-      "line": 20,
-      "symbol": "EasyAdditionScene",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 13,
-      "symbol": "PatternController.currentPattern",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 14,
-      "symbol": "PatternController.currentSelectedAnswer",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 15,
-      "symbol": "PatternController.animalRow",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 16,
-      "symbol": "PatternController.fx",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 17,
-      "symbol": "PatternController.defaultEmptyAnswer",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 18,
-      "symbol": "PatternController.defaultAccessText",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 20,
-      "symbol": "PatternController.fillAnimalDetails()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 21,
-      "symbol": "PatternController.finishPatternWithImageAndName(image:name:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 23,
-      "symbol": "PatternController.deinit",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 28,
+      "line": 35,
       "symbol": "EasyPatternController.easyLevelGenerator",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 32,
-      "symbol": "EasyPatternController.firstAnimal",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 33,
-      "symbol": "EasyPatternController.secondAnimal",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 34,
-      "symbol": "EasyPatternController.answerSlot",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 35,
-      "symbol": "EasyPatternController.answerChoice0",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 36,
-      "symbol": "EasyPatternController.answerChoice1",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 37,
-      "symbol": "EasyPatternController.continueButton",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 41,
-      "symbol": "EasyPatternController.viewDidLoad()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 50,
-      "symbol": "EasyPatternController.didReceiveMemoryWarning()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/EasyPatternController.swift",
-      "line": 139,
+      "line": 155,
       "symbol": "EasyPatternController.speakString(text:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/LevelSelectController.swift",
-      "line": 78,
-      "symbol": "LevelSelectController.backToStartPage(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/oqbrennw/MathFarm/MathFarm/MedAdditionScene.swift",
-      "line": 12,
-      "symbol": "MedAdditionScene",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/oqbrennw/MathFarm/MathFarm/MedAdditionScene.swift",
-      "line": 498,
+      "line": 499,
       "symbol": "MedAdditionScene.onVictory()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
