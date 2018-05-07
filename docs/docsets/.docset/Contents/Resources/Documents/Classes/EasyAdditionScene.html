@@ -14,7 +14,7 @@
     <a title="EasyAdditionScene Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (49% documented)</p>
+        <p><a href="../index.html"> Docs</a> (84% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -132,7 +132,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A list of static objects</p>
 
                       </div>
                       <div class="declaration">
@@ -159,7 +159,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A list of movable objects</p>
 
                       </div>
                       <div class="declaration">
@@ -186,7 +186,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The referenced GameViewController that created this scene. Weak storage is used so that the instance is deleted once the scene is deleted. If strong storage is used here, duplicate untouchable GameViewControllers will be created</p>
 
                       </div>
                       <div class="declaration">
@@ -213,7 +213,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>correctNum is the variable of the answer to the game task, randomly generated with a range btn 1 to 5</p>
 
                       </div>
                       <div class="declaration">
@@ -240,7 +240,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>one of the question number to appear in the question text, randomly generated within the range of correctNum</p>
 
                       </div>
                       <div class="declaration">
@@ -267,7 +267,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Keep track of the objects put in the bucket</p>
 
                       </div>
                       <div class="declaration">
@@ -294,7 +294,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Boolean that states whether selected Node is in contact with bucket or not</p>
 
                       </div>
                       <div class="declaration">
@@ -321,7 +321,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Boolean that states whether selected Node is moved (drageed) or not. If yes, change the zPosition of the node to be +2 than other nodes, so as to aboid collision</p>
 
                       </div>
                       <div class="declaration">
@@ -348,7 +348,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The sprite that is currently being touched (if any)</p>
 
                       </div>
                       <div class="declaration">
@@ -356,33 +356,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">selectedNode</span> <span class="o">=</span> <span class="kt">SKSpriteNode</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8MathFarm17EasyAdditionSceneC13winningStreakSiSgvp"></a>
-                    <a name="//apple_ref/swift/Property/winningStreak" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8MathFarm17EasyAdditionSceneC13winningStreakSiSgvp">winningStreak</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">winningStreak</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -402,7 +375,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Original position of node currently being moved</p>
 
                       </div>
                       <div class="declaration">
@@ -410,6 +383,33 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">nodeOriginalPosition</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm17EasyAdditionSceneC13winningStreakSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/winningStreak" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm17EasyAdditionSceneC13winningStreakSiSgvp">winningStreak</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>How many times the player has won the current game</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">winningStreak</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -429,7 +429,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Accessibility label of the winning streak indicator on scene</p>
 
                       </div>
                       <div class="declaration">
@@ -456,7 +456,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>the type of object that&rsquo;s asked, picked randomly from the list of movableImages</p>
 
                       </div>
                       <div class="declaration">
@@ -483,7 +483,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The label that shows the task (or question) for the given level</p>
 
                       </div>
                       <div class="declaration">
@@ -510,7 +510,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>label that shows the current answer to question</p>
 
                       </div>
                       <div class="declaration">
@@ -537,7 +537,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Button to return to the memu</p>
 
                       </div>
                       <div class="declaration">
@@ -564,7 +564,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Continue Button to go to next scene at same level</p>
 
                       </div>
                       <div class="declaration">
@@ -591,7 +591,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Node that displays the type of object asked for answer.</p>
 
                       </div>
                       <div class="declaration">
@@ -599,33 +599,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">typeNode</span> <span class="o">=</span> <span class="kt">SKSpriteNode</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8MathFarm17EasyAdditionSceneC11audioPlayerSo07AVAudioG0Cvp"></a>
-                    <a name="//apple_ref/swift/Property/audioPlayer" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8MathFarm17EasyAdditionSceneC11audioPlayerSo07AVAudioG0Cvp">audioPlayer</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">audioPlayer</span> <span class="o">=</span> <span class="kt">AVAudioPlayer</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -645,7 +618,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>SoundFX object to play corresponding sounds</p>
 
                       </div>
                       <div class="declaration">
@@ -672,7 +645,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initialize the scene by NSCoder</p>
 
                       </div>
                       <div class="declaration">
@@ -682,6 +655,25 @@
                           <pre class="highlight swift"><code><span class="kd">required</span> <span class="nf">init</span><span class="p">?(</span><span class="n">coder</span> <span class="nv">aDecorder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>coder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>coder used to initialize the scene</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -699,7 +691,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initialize the scene by size</p>
 
                       </div>
                       <div class="declaration">
@@ -709,6 +701,25 @@
                           <pre class="highlight swift"><code><span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>size</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>size used to initialize the scene</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -726,7 +737,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Set up sprites on the screen at their correct position</p>
 
                       </div>
                       <div class="declaration">
@@ -736,6 +747,25 @@
                           <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">didMove</span><span class="p">(</span><span class="n">to</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">SKView</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The SKView rendering the scene</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -753,7 +783,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Called when screen is touched</p>
 
                       </div>
                       <div class="declaration">
@@ -763,6 +793,37 @@
                           <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">touchesBegan</span><span class="p">(</span><span class="n">_</span> <span class="nv">touches</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">UITouch</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>touches</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Set of touches submitted by event</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>event</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>UIEvent triggering the fucntion</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -780,7 +841,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Handles single finger drag on device and moves touched object if it is a member of movableImages</p>
 
                       </div>
                       <div class="declaration">
@@ -790,6 +851,37 @@
                           <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">touchesMoved</span><span class="p">(</span><span class="n">_</span> <span class="nv">touches</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">UITouch</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>touches</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Set of touches that caused event</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>event</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>UIEvent that triggered function</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -807,7 +899,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Handles event when touch is lifted. Increments score if apple is in contact with pig. Returns object to original position if wrong object of pig or drag went outside of the screen&rsquo;s borders</p>
 
                       </div>
                       <div class="declaration">
@@ -817,6 +909,37 @@
                           <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">touchesEnded</span><span class="p">(</span><span class="n">_</span> <span class="nv">touches</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">UITouch</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>touches</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Set of touches that caused event</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>event</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>UIEvent that triggered function</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -926,7 +1049,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The function that randomly generates a list of 5 objects &amp; 1 buckect to be added to the scene. Ensured that the list contains enough right objects to finish the tasks. Returns the generated object list</p>
 
                       </div>
                       <div class="declaration">
@@ -953,7 +1076,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Generate sprites for winning streak bar</p>
 
                       </div>
                       <div class="declaration">
@@ -1007,7 +1130,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Clears out wobble action from selected node and makes touched node wobble</p>
 
                       </div>
                       <div class="declaration">
@@ -1017,6 +1140,25 @@
                           <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">onSpriteTouch</span><span class="p">(</span><span class="nv">touchedNode</span><span class="p">:</span> <span class="kt">SKSpriteNode</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>touchedNode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>sprite being touched</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1034,7 +1176,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>evaluate the current answer and the correct number. If matched, remove all <q>fruit</q> objects and bucket object then display the victory text and the button to continue playing, or if winning streak is reached, the button to go to next level</p>
 
                       </div>
                       <div class="declaration">
@@ -1099,7 +1241,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-05-06)</p>
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-05-07)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
