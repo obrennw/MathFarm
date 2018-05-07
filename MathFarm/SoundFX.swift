@@ -31,6 +31,8 @@ class SoundFX {
     private let countURL = Bundle.main.url(forResource: "count", withExtension: "mp3")
     /// Location of error indicating Click Sound
     private let clickURL = Bundle.main.url(forResource: "click", withExtension: "mp3")
+    /// Location of short dog bark sound
+    private let shortDogURL = Bundle.main.url(forResource: "dogBark", withExtension: "mp3")
 
     
     /// Plays sound for corresponding animal
@@ -50,6 +52,10 @@ class SoundFX {
             
         case "dog":
             playDogSound()
+            break
+            
+        case "shortDog":
+            playShortDogSound()
             break
             
         case "cat":
@@ -138,6 +144,20 @@ class SoundFX {
             // couldn't load file :(
         }
     }
+    
+    /// Play Short Dog Sound
+    public func playShortDogSound(){
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: shortDogURL!)
+            audioPlayer?.volume = 5.0
+            audioPlayer?.play()
+            
+        } catch {
+            // couldn't load file :(
+            print("can't play")
+        }
+    }
+
     
     /// Play Cat Sound
     public func playCatSound(){

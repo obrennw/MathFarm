@@ -468,6 +468,7 @@ class CountingScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDeleg
                 || selectedNode.position.y > size.height - adj
                 || selectedNode.position.y < adj) {
                 selectedNode.position = nodeOriginalPosition!
+                speakString(text: "Oops! You just hit the border!")
             }
             else if(contactFlag){
                 if(selectedNode.name == "apple") {
