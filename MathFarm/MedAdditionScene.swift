@@ -9,6 +9,7 @@
 import Foundation
 import SpriteKit
 
+/// Module that renders a medium addition game’s current state and maintains its corresponding game logic
 class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
     /// A list of static objects
     private let staticImages = ["crate"]
