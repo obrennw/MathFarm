@@ -75,6 +75,9 @@ class LevelSelectController: UIViewController {
         performSegue(withIdentifier: "toHardAddition", sender: self)
     }
     
+    /// Go back to the start page of the game
+    ///
+    /// - Parameter sender: Addition Pro UIButton that triggers event
     @IBAction func backToStartPage(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }

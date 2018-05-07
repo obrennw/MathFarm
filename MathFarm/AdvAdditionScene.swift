@@ -9,6 +9,7 @@
 import Foundation
 import SpriteKit
 
+/// Module that renders a hard addition game’s current state and maintains its corresponding game logic
 class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
     /// A list of static objects
     private let staticImages = ["crate"]
