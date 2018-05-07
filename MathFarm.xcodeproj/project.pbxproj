@@ -35,8 +35,6 @@
 		FA8360DE20636A4A0058CBD1 /* AdditionScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */; };
 		FAA7C66520A017AE00E720E4 /* dogBark.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAA7C66420A017AE00E720E4 /* dogBark.mp3 */; };
 		FAA840322092AE2600303282 /* MedAdditionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA840312092AE2600303282 /* MedAdditionScene.swift */; };
-		FAE28DF820994ED100621800 /* count.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAE28DF720994ED100621800 /* count.mp3 */; };
-		FAE28DFA20994EE100621800 /* backgroundmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAE28DF920994EE100621800 /* backgroundmusic.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -315,7 +313,6 @@
 				FA8360DE20636A4A0058CBD1 /* AdditionScene.sks in Resources */,
 				FAA7C66520A017AE00E720E4 /* dogBark.mp3 in Resources */,
 				B23680E820923A190084CA83 /* bark.mp3 in Resources */,
-				FAE28DF820994ED100621800 /* count.mp3 in Resources */,
 				B23680EB20923A190084CA83 /* pigfarm.mp3 in Resources */,
 				B23E3329209971B60037A13C /* click.mp3 in Resources */,
 				291B6C51207802AD00D865BD /* Assets.xcassets in Resources */,
@@ -324,7 +321,6 @@
 				29A76DFE208A629400DE899B /* backgroundmusic.mp3 in Resources */,
 				B23680E920923A190084CA83 /* cowmoo.mp3 in Resources */,
 				293BBA172078026700FC3BF0 /* Main.storyboard in Resources */,
-				FAE28DFA20994EE100621800 /* backgroundmusic.mp3 in Resources */,
 				B23680EA20923A190084CA83 /* meow.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,11 +522,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P65B97BWKC;
+				DEVELOPMENT_TEAM = P7TZH87BWL;
 				INFOPLIST_FILE = MathFarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -546,11 +542,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P65B97BWKC;
+				DEVELOPMENT_TEAM = P7TZH87BWL;
 				INFOPLIST_FILE = MathFarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
