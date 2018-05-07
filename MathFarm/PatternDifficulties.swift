@@ -12,17 +12,42 @@ import UIKit
 
 ///protocol that details the basic functions a PatternLevel class needs to have
 protocol PatternLevel {
+    
+    /// Get the animal name at the specified index
+    ///
+    /// - Parameter index: index at which to find the animal at
+    /// - Returns: name of the requested animal
     func getAnimalNameAt(index: Int) -> String
+    /// Get the animal image at the specified index
+    ///
+    /// - Parameter index: index at which to find the animal at
+    /// - Returns: image of the requested animal
     func getAnimalImageAt(index: Int) -> UIImage
+    /// returns the integer representation array of the pattern that is currently chosen
+    ///
+    /// - Returns: an array of integers representing the pattern
     func getPattern() -> [Int]
+    /// takes in an animal name as a string, and determines whether or not that animal is the correct answer given the current pattern
+    ///
+    /// - Parameter animal: name of the animal chosen
+    /// - Returns: true if correct animal, false if not
     func isAnswerCorrect(animal: String) -> Bool
+    /// "randomly" chooses a new pattern, sets it as the current pattern, and returns the integer representation of the pattern; an all-in-one function!
+    ///
+    /// - Returns: the integer array representation of the pattern
     func setAndGetNewPattern() -> [Int]
+    /// NOTE: Not completely tested, so may have a bug. Desired functionality: input an animal name as a string and this will return the index of said animal in the array of animalNames; returns -1 if name not found
+    ///
+    /// - Parameter name: name of the animal
+    /// - Returns: the index of the animal
     func getAnimalIndex(name: String) -> Int
+    ///an internal func that selects a "random" pattern from the array of possiblePatterns, and sets that as the current pattern
     func setRandomPattern()
 }
 
 ///this class contains the low-level implementation of the easy pattern difficulty; it contains actual patterns, images, and names of animals
 class PatternLevelEasy : PatternLevel {
+    /// Varibale to hold the pattern of animals
     private var pattern = [Int]()
     
     ///this array contains all possible patterns that can appear in numerical, integer format; the first 3 integers represent the first animals in the pattern, the 4th int represents the answer, and the last 2 ints are the answer choices
@@ -39,34 +64,50 @@ class PatternLevelEasy : PatternLevel {
         setRandomPattern()
     }
     
-    ///returns the string animal name at index[0,1,2,3] in animalNames array
+    /// Get the animal name at the specified index
+    ///
+    /// - Parameter index: index at which to find the animal at
+    /// - Returns: name of the requested animal
     public func getAnimalNameAt(index: Int) -> String {
         return animalNames[index]
     }
     
-    ///returns the UIImage of the animal at the respective index in the animalImages array
+    /// Get the animal image at the specified index
+    ///
+    /// - Parameter index: index at which to find the animal at
+    /// - Returns: image of the requested animal
     public func getAnimalImageAt(index: Int) -> UIImage {
         return animalImages[index]
     }
     
-    ///returns the integer representation array of the pattern that is currently chosen
+    /// returns the integer representation array of the pattern that is currently chosen
+    ///
+    /// - Returns: an array of integers representing the pattern
     public func getPattern() -> [Int] {
         return pattern
     }
     
-    ///takes in an animal name as a string, and determines whether or not that animal is the correct answer given the current pattern
+    /// takes in an animal name as a string, and determines whether or not that animal is the correct answer given the current pattern
+    ///
+    /// - Parameter animal: name of the animal chosen
+    /// - Returns: true if correct animal, false if not
     public func isAnswerCorrect(animal: String) -> Bool {
         return animal.elementsEqual(animalNames[pattern[3]])
     }
     
-    ///"randomly" chooses a new pattern, sets it as the current pattern, and returns the integer representation of the pattern; an all-in-one function!
+    /// "randomly" chooses a new pattern, sets it as the current pattern, and returns the integer representation of the pattern; an all-in-one function!
+    ///
+    /// - Returns: the integer array representation of the pattern
     public func setAndGetNewPattern() -> [Int]{
         pattern = [Int]()
         setRandomPattern()
         return pattern
     }
     
-    ///NOTE: Not completely tested, so may have a bug. Desired functionality: input an animal name as a string and this will return the index of said animal in the array of animalNames; returns -1 if name not found
+    /// NOTE: Not completely tested, so may have a bug. Desired functionality: input an animal name as a string and this will return the index of said animal in the array of animalNames; returns -1 if name not found
+    ///
+    /// - Parameter name: name of the animal
+    /// - Returns: the index of the animal
     public func getAnimalIndex(name: String) -> Int {
         var index = 0
         for ani in animalNames {
@@ -96,6 +137,7 @@ class PatternLevelEasy : PatternLevel {
 
 ///this class contains the low-level implementation of the medium (called "pro" in-game) pattern difficulty; it contains actual patterns, images, and names of animals
 class PatternLevelMedium : PatternLevel {
+    /// array of integers to represent the pattern
     private var pattern = [Int]()
     
     ///this array contains all possible patterns that can appear in numerical, integer format; the first 5 integers represent the first animals in the pattern, the 6th int represents the answer, and the last 2 ints are the answer choices
@@ -112,34 +154,50 @@ class PatternLevelMedium : PatternLevel {
         setRandomPattern()
     }
     
-    ///returns the string animal name at index[0,1,2,3] in animalNames array
+    /// Get the animal name at the specified index
+    ///
+    /// - Parameter index: index at which to find the animal at
+    /// - Returns: name of the requested animal
     func getAnimalNameAt(index: Int) -> String {
         return animalNames[index]
     }
     
-    ///returns the UIImage of the animal at the respective index in the animalImages array
+    /// Get the animal image at the specified index
+    ///
+    /// - Parameter index: index at which to find the animal at
+    /// - Returns: image of the requested animal
     func getAnimalImageAt(index: Int) -> UIImage {
         return animalImages[index]
     }
     
-    ///returns the integer representation array of the pattern that is currently chosen
+    /// returns the integer representation array of the pattern that is currently chosen
+    ///
+    /// - Returns: an array of integers representing the pattern
     func getPattern() -> [Int] {
         return pattern
     }
     
-    ///takes in an animal name as a string, and determines whether or not that animal is the correct answer given the current pattern
+    /// takes in an animal name as a string, and determines whether or not that animal is the correct answer given the current pattern
+    ///
+    /// - Parameter animal: name of the animal chosen
+    /// - Returns: true if correct animal, false if not
     func isAnswerCorrect(animal: String) -> Bool {
         return animal.elementsEqual(animalNames[pattern[5]])
     }
     
-    ///"randomly" chooses a new pattern, sets it as the current pattern, and returns the integer representation of the pattern; an all-in-one function!
+    /// "randomly" chooses a new pattern, sets it as the current pattern, and returns the integer representation of the pattern; an all-in-one function!
+    ///
+    /// - Returns: the integer array representation of the pattern
     func setAndGetNewPattern() -> [Int] {
         pattern = [Int]()
         setRandomPattern()
         return pattern
     }
     
-    ///NOTE: Not completely tested, so may have a bug. Desired functionality: input an animal name as a string and this will return the index of said animal in the array of animalNames; returns -1 if name not found
+    /// NOTE: Not completely tested, so may have a bug. Desired functionality: input an animal name as a string and this will return the index of said animal in the array of animalNames; returns -1 if name not found
+    ///
+    /// - Parameter name: name of the animal
+    /// - Returns: the index of the animal
     func getAnimalIndex(name: String) -> Int {
         var index = 0
         for ani in animalNames {

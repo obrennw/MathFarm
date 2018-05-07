@@ -513,8 +513,7 @@ class AdvAdditionScene: SKScene, SKPhysicsContactDelegate {
     }
     
     /// Called when the correct number of objects are in the crate, removes all other game objects (other than back button), prompts victory text and the button to continue playing, or if winning streak is reached, the button to go to next level.
-    ///
-    /// P.S I'm lazy and this is mostly a duplicate of MedAdditionScene function, as is the generateStreakBar above and many others. A better design decision would be to merge MedAdditionScene and AdvAdditionScene, thus avoiding so many duplication. But again I'm lazy and don't care so long as it works. 
+    
     private func onVictory() {
         // first erase all nodes in the scene other than back button or background node
         for child in self.children {

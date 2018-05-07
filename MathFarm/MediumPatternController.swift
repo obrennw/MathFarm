@@ -10,18 +10,30 @@ import UIKit
 
 ///this is the controller responsible for the medium ("pro") pattern level; all this controller does is alter the storyboard elements in the current view to create patterns...class is incredibly similar to EasyPatternController, but this accounts for the larger amount of animals
 class MediumPatternController: PatternController {
+     /// A pattern level easy variable for holding the PatternLevelEasy() class which has the code to generate random animals
     private let mlg = PatternLevelMedium()
     
+    /// Outlet for zeroAnimal button
     @IBOutlet weak var zeroAnimal: UIButton!
+    /// Outlet for firstAnimal button
     @IBOutlet weak var firstAnimal: UIButton!
+    /// Outlet for secondAnimal button
     @IBOutlet weak var secondAnimal: UIButton!
+    /// Outlet for thirdAnimal button
     @IBOutlet weak var thirdAnimal: UIButton!
+    /// Outlet for fourthAnimal button
     @IBOutlet weak var fourthAnimal: UIButton!
+    /// Outlet for answerSlot button
     @IBOutlet weak var answerSlot: UIButton!
+    /// Outlet for answerChoice0 button
     @IBOutlet weak var answerChoice0: UIButton!
+    /// Outlet for answerChoice1 button
     @IBOutlet weak var answerChoice1: UIButton!
+    /// Outlet for continueButton button
     @IBOutlet weak var continueButton: UIButton!
     
+    
+    /// Prepares the view to be loaded
     override func viewDidLoad() {
         super.viewDidLoad()
         currentPattern = mlg.getPattern()
@@ -31,6 +43,7 @@ class MediumPatternController: PatternController {
         shiftFocusZeroAnimal()
     }
 
+    /// Dispose of any resources that can be recreated.
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -110,6 +123,9 @@ class MediumPatternController: PatternController {
         answerSlot.accessibilityLabel = name
     }
     
+    /// Prompts text to be spoken out by device
+    ///
+    /// - Parameter text: text to be spoken
     func speakString(text: String) {
         //let Utterance = AVSpeechUtterance(string: text)
         while(fx.isPlaying()){

@@ -495,7 +495,7 @@ class MedAdditionScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
- 
+    /// Called when the correct number of objects are in the crate, removes all other game objects (other than back button), prompts victory text and the button to continue playing, or if winning streak is reached, the button to go to next level.
     private func onVictory() {
         // first erase all nodes in the scene other than back button or background node
         for child in self.children {

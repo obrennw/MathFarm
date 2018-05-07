@@ -14,7 +14,7 @@
     <a title="PatternLevel Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (91% documented)</p>
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -132,7 +132,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Get the animal name at the specified index</p>
 
                       </div>
                       <div class="declaration">
@@ -142,6 +142,29 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getAnimalNameAt</span><span class="p">(</span><span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>index</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>index at which to find the animal at</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>name of the requested animal</p>
                       </div>
                     </section>
                   </div>
@@ -159,7 +182,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Get the animal image at the specified index</p>
 
                       </div>
                       <div class="declaration">
@@ -169,6 +192,29 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getAnimalImageAt</span><span class="p">(</span><span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIImage</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>index</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>index at which to find the animal at</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>image of the requested animal</p>
                       </div>
                     </section>
                   </div>
@@ -186,7 +232,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>returns the integer representation array of the pattern that is currently chosen</p>
 
                       </div>
                       <div class="declaration">
@@ -196,6 +242,10 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getPattern</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an array of integers representing the pattern</p>
                       </div>
                     </section>
                   </div>
@@ -213,7 +263,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>takes in an animal name as a string, and determines whether or not that animal is the correct answer given the current pattern</p>
 
                       </div>
                       <div class="declaration">
@@ -223,6 +273,29 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isAnswerCorrect</span><span class="p">(</span><span class="nv">animal</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animal</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>name of the animal chosen</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>true if correct animal, false if not</p>
                       </div>
                     </section>
                   </div>
@@ -240,7 +313,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p><q>randomly</q> chooses a new pattern, sets it as the current pattern, and returns the integer representation of the pattern; an all-in-one function!</p>
 
                       </div>
                       <div class="declaration">
@@ -250,6 +323,10 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setAndGetNewPattern</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the integer array representation of the pattern</p>
                       </div>
                     </section>
                   </div>
@@ -267,7 +344,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>NOTE: Not completely tested, so may have a bug. Desired functionality: input an animal name as a string and this will return the index of said animal in the array of animalNames; returns -1 if name not found</p>
 
                       </div>
                       <div class="declaration">
@@ -277,6 +354,29 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getAnimalIndex</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>name of the animal</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the index of the animal</p>
                       </div>
                     </section>
                   </div>
@@ -294,7 +394,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>an internal func that selects a <q>random</q> pattern from the array of possiblePatterns, and sets that as the current pattern</p>
 
                       </div>
                       <div class="declaration">
@@ -314,7 +414,7 @@
         </section>
         <section id="footer">
           <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-05-07)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

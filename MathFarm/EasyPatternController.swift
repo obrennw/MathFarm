@@ -32,6 +32,9 @@ class PatternController: UIViewController {
 
 ///this is the controller responsible for the easiest pattern level; all this controller does is alter the storyboard elements in the current view to create patterns
 class EasyPatternController: PatternController {
+    
+    
+    /// A pattern level easy variable for holding the PatternLevelEasy() class which has the code to generate random animals
     private let easyLevelGenerator = PatternLevelEasy()
     
     //each of the below outlets are connected to a UIButton element on the screen to be altered throughout the easy pattern game
@@ -152,6 +155,12 @@ class EasyPatternController: PatternController {
         answerSlot.accessibilityLabel = name
     }
     
+    
+    
+    
+    /// Prompts text to be spoken out by device
+    ///
+    /// - Parameter text: text to be spoken
     func speakString(text: String) {
         //let Utterance = AVSpeechUtterance(string: text)
         while(fx.isPlaying()){
