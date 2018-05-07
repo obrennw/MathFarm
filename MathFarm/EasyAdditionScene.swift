@@ -18,41 +18,66 @@ public func shiftFocus(node: SKNode) {
 }
 
 class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {
-    // reference to the scene's controller, used for calling back to level selection button
-    
+    /// A list of static objects
     private let staticImages = ["bucket2"]
+    /// A list of movable objects
     private let movableImages = ["apple", "orange", "peach", "broccoli", "lemon"]
     
+    /// The referenced GameViewController that created this scene. Weak storage is used so that the instance is deleted once the scene is deleted. If strong storage is used here, duplicate untouchable GameViewControllers will be created
     weak var game_delegate: GameViewController?
+    /// correctNum is the variable of the answer to the game task, randomly generated with a range btn 1 to 5
     var correctNum = arc4random_uniform(5)+1
+    /// one of the question number to appear in the question text, randomly generated within the range of correctNum
     var numA = UInt32(0)
+    
+    /// Keep track of the objects put in the bucket
     var answer = 0
+    /// Boolean that states whether selected Node is in contact with bucket or not
     var contactFlag = false
+    /// Boolean that states whether selected Node is moved (drageed) or not. If yes, change the zPosition of the node to be +2 than other nodes, so as to aboid collision
     var movingFlag = false
+    /// The sprite that is currently being touched (if any)
     var selectedNode = SKSpriteNode()
-    var winningStreak: Int?
+    /// Original position of node currently being moved
     var nodeOriginalPosition: CGPoint?
+    /// How many times the player has won the current game
+    var winningStreak: Int?
+    /// Accessibility label of the winning streak indicator on scene
     var winningStreakText: String?
+    /// the type of object that's asked, picked randomly from the list of movableImages
     var rightObjectType = ""
+    /// The label that shows the task (or question) for the given level
     var question = SKLabelNode(fontNamed: "Arial")
+    /// label that shows the current answer to question
     var answerText = SKLabelNode(fontNamed: "Arial")
+    /// Button to return to the memu
     var backButton = SKSpriteNode(imageNamed: "backButton")
+    /// Continue Button to go to next scene at same level
     var continueButton = SKSpriteNode(imageNamed: "continueArrow")
+    /// Node that displays the type of object asked for answer.
     var typeNode = SKSpriteNode()
-    
-    var audioPlayer = AVAudioPlayer()
-    
+    /// SoundFX object to play corresponding sounds
     private let fx = SoundFX()
     
+    /// Initialize the scene by NSCoder
+    ///
+    /// - Parameter coder: coder used to initialize the scene
     required init?(coder aDecorder: NSCoder){
         fatalError("init(coder: has not been implemented")
     }
     
+    /// Initialize the scene by size
+    ///
+    /// - Parameter size: size used to initialize the scene
     override init(size: CGSize) {
         super.init(size: size)
         
     }
 
+    
+    /// Set up sprites on the screen at their correct position
+    ///
+    /// - Parameter view: The SKView rendering the scene
     override func didMove(to view: SKView) {
         rightObjectType = movableImages[Int(arc4random_uniform(UInt32(movableImages.count)))]
         
@@ -152,7 +177,11 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
     
     
     
-    
+    /// Called when screen is touched
+    ///
+    /// - Parameters:
+    ///   - touches: Set of touches submitted by event
+    ///   - event: UIEvent triggering the fucntion
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let positionInScene = touch.location(in:self)
@@ -212,6 +241,12 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
         }
     }
     
+    
+    /// Handles single finger drag on device and moves touched object if it is a member of movableImages
+    ///
+    /// - Parameters:
+    ///   - touches: Set of touches that caused event
+    ///   - event: UIEvent that triggered function
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             //Drag sprite to new position if it is being touched
@@ -227,6 +262,11 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
         }
     }
     
+    /// Handles event when touch is lifted. Increments score if apple is in contact with pig. Returns object to original position if wrong object of pig or drag went outside of the screen's borders
+    ///
+    /// - Parameters:
+    ///   - touches: Set of touches that caused event
+    ///   - event: UIEvent that triggered function
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let adj = CGFloat(40)
         if(selectedNode.position.x > size.width - adj
@@ -276,6 +316,7 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
         }
     }
     
+    /// The function that randomly generates a list of 5 objects & 1 buckect to be added to the scene. Ensured that the list contains enough right objects to finish the tasks. Returns the generated object list
     private func generateObjectList() -> [String] {
         var objList = ["bucket2"]
         for i in 1...5 {
@@ -288,6 +329,7 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
         return objList
     }
     
+    /// Generate sprites for winning streak bar
     private func generateStreakBar() {
         //first eliminate existing streak bar nodes
         for child in self.children {
@@ -341,6 +383,9 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
 
     }
     
+    /// Clears out wobble action from selected node and makes touched node wobble
+    ///
+    /// - Parameter touchedNode: sprite being touched
     private func onSpriteTouch(touchedNode: SKSpriteNode) {
         selectedNode.run(SKAction.rotate(toAngle: 0.0, duration: 0.1))
         selectedNode.removeAllActions()
@@ -353,6 +398,7 @@ class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerD
         }
     }
     
+    /// evaluate the current answer and the correct number. If matched, remove all "fruit" objects and bucket object then display the victory text and the button to continue playing, or if winning streak is reached, the button to go to next level
     private func evaluate() {
         if(answer == correctNum){
             // do the following: increment the correct count -> load a new addition scene
