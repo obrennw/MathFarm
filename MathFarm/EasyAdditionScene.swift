@@ -17,6 +17,7 @@ public func shiftFocus(node: SKNode) {
     UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, node)
 }
 
+/// Module that renders a easy addition game’s current state and maintains its corresponding game logic
 class EasyAdditionScene: SKScene, SKPhysicsContactDelegate, AVSpeechSynthesizerDelegate {
     /// A list of static objects
     private let staticImages = ["bucket2"]
