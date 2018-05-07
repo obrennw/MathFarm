@@ -10,16 +10,23 @@ import UIKit
 
 ///a parent class that the PatternController classes extend
 class PatternController: UIViewController {
+    /// current pattern being used for scene
     var currentPattern = [Int]()
+    /// answer choice that is currently selected
     var currentSelectedAnswer = ""
+    /// row of buttons corresponding to answer
     var animalRow = [UIButton]()
+    /// SoundFX object to generate corresponding noises
     let fx = SoundFX()
+    /// Default empty answer box image
     let defaultEmptyAnswer = #imageLiteral(resourceName: "Unknown-2")
+    /// Default accessibility text for answer box (played when empty)
     let defaultAccessText = "Which animal comes next?"
-    
+    ///uses the currently selected pattern to fill in the appropriate images and accessibility labels in the view; also sets tag representing UIButton placement on the screen
     func fillAnimalDetails(){}
+    ///responsible for replacing the ? box with the selected answer
     func finishPatternWithImageAndName(image: UIImage, name: String){}
-    
+    /// Called when PatternController is destroyed
     deinit {}
 }
 
@@ -27,17 +34,26 @@ class PatternController: UIViewController {
 class EasyPatternController: PatternController {
     private let easyLevelGenerator = PatternLevelEasy()
     
-    ///each of the below outlets are connected to a UIButton element on the screen to be altered throughout the easy pattern game
+    //each of the below outlets are connected to a UIButton element on the screen to be altered throughout the easy pattern game
+    
+    /// Outlet for zeroAnimal button
     @IBOutlet weak var zeroAnimal: UIButton!
+    /// Outlet for firstAnimal button
     @IBOutlet weak var firstAnimal: UIButton!
+    /// Outlet for secondAnimal button
     @IBOutlet weak var secondAnimal: UIButton!
+    /// Outlet for answerSlot button
     @IBOutlet weak var answerSlot: UIButton!
+    /// Outlet for answerChoice0 button
     @IBOutlet weak var answerChoice0: UIButton!
+    /// Outlet for answerChoice1 button
     @IBOutlet weak var answerChoice1: UIButton!
+    /// Outlet for continueButton button
     @IBOutlet weak var continueButton: UIButton!
     
     
     
+    /// Prepares the view to be loaded
     override func viewDidLoad() {
         super.viewDidLoad()
         currentPattern = easyLevelGenerator.getPattern()
@@ -47,9 +63,9 @@ class EasyPatternController: PatternController {
         shiftFocusZeroAnimal()
     }
 
+    /// Dispose of any resources that can be recreated.
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     ///uses the currently selected pattern to fill in the appropriate images and accessibility labels in the view; also sets tag representing UIButton placement on the screen
@@ -143,7 +159,6 @@ class EasyPatternController: PatternController {
             print("waiting...")
         }
         UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
-        //speaker.speak(Utterance)
     }
     
     ///shifts focus of VoiceOver "selection box" to the first animal in the pattern
