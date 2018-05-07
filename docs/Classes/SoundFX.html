@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SoundFX Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/SoundFX" class="dashAnchor"></a>
+    <a title="SoundFX Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (49% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        SoundFX Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AdvAdditionScene.html">AdvAdditionScene</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CountingScene.html">CountingScene</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EasyAdditionScene.html">EasyAdditionScene</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EasyPatternController.html">EasyPatternController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GameViewController.html">GameViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LevelSelectController.html">LevelSelectController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MainMenuController.html">MainMenuController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MedAdditionScene.html">MedAdditionScene</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediumPatternController.html">MediumPatternController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PatternController.html">PatternController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PatternLevelEasy.html">PatternLevelEasy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PatternLevelMedium.html">PatternLevelMedium</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SoundFX.html">SoundFX</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:8MathFarm8degToRad12CoreGraphics7CGFloatVSd6degree_tF">degToRad(degree:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:8MathFarm10shiftFocusySo6SKNodeC4node_tF">shiftFocus(node:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/PatternLevel.html">PatternLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/ColliderType.html">ColliderType</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>SoundFX</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SoundFX</span></code></pre>
+
+                </div>
+              </div>
+            <p>an object that consists of multiple function calls to play sounds; how to use: instantiate SoundFX object, call functions to play sound&ndash;look for examples throughout code</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC11audioPlayer33_8DA3F0CE0618F2B3899BB7919DDB8631LLSo07AVAudioF0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/audioPlayer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC11audioPlayer33_8DA3F0CE0618F2B3899BB7919DDB8631LLSo07AVAudioF0CSgvp">audioPlayer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Audio player backing SoundFX object</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">audioPlayer</span> <span class="p">:</span> <span class="kt">AVAudioPlayer</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC6pigURL33_8DA3F0CE0618F2B3899BB7919DDB8631LL10Foundation0F0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/pigURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC6pigURL33_8DA3F0CE0618F2B3899BB7919DDB8631LL10Foundation0F0VSgvp">pigURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Location of Pig Sound</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">pigURL</span> <span class="o">=</span> <span class="kt">Bundle</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="nf">url</span><span class="p">(</span><span class="nv">forResource</span><span class="p">:</span> <span class="s">"pigfarm"</span><span class="p">,</span> <span class="nv">withExtension</span><span class="p">:</span> <span class="s">"mp3"</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC11pigShortURL33_8DA3F0CE0618F2B3899BB7919DDB8631LL10Foundation0G0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/pigShortURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC11pigShortURL33_8DA3F0CE0618F2B3899BB7919DDB8631LL10Foundation0G0VSgvp">pigShortURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Location of shortened Pig Sound</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">pigShortURL</span> <span class="o">=</span> <span class="kt">Bundle</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="nf">url</span><span class="p">(</span><span class="nv">forResource</span><span class="p">:</span> <span class="s">"pigShort"</span><span class="p">,</span> <span class="nv">withExtension</span><span class="p">:</span> <span class="s">"mp3"</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC6cowURL33_8DA3F0CE0618F2B3899BB7919DDB8631LL10Foundation0F0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/cowURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC6cowURL33_8DA3F0CE0618F2B3899BB7919DDB8631LL10Foundation0F0VSgvp">cowURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Location of Cow Sound</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">cowURL</span> <span class="o">=</span> <span class="kt">Bundle</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="nf">url</span><span class="p">(</span><span class="nv">forResource</span><span class="p">:</span> <span class="s">"cowmoo"</span><span class="p">,</span> <span class="nv">withExtension</span><span class="p">:</span> <span class="s">"mp3"</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC6catURL33_8DA3F0CE0618F2B3899BB7919DDB8631LL10Foundation0F0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/catURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC6catURL33_8DA3F0CE0618F2B3899BB7919DDB8631LL10Foundation0F0VSgvp">catURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Location of Cat Sound</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">catURL</span> <span class="o">=</span> <span class="kt">Bundle</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="nf">url</span><span class="p">(</span><span class="nv">forResource</span><span class="p">:</span> <span class="s">"meow"</span><span class="p">,</span> <span class="nv">withExtension</span><span class="p">:</span> <span class="s">"mp3"</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC7tadaURL33_8DA3F0CE0618F2B3899BB7919DDB8631LL10Foundation0F0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/tadaURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC7tadaURL33_8DA3F0CE0618F2B3899BB7919DDB8631LL10Foundation0F0VSgvp">tadaURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Location of Tada Sound</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">tadaURL</span> <span class="o">=</span> <span class="kt">Bundle</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="nf">url</span><span class="p">(</span><span class="nv">forResource</span><span class="p">:</span> <span class="s">"tada"</span><span class="p">,</span> <span class="nv">withExtension</span><span class="p">:</span> <span class="s">"mp3"</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC6dogURL33_8DA3F0CE0618F2B3899BB7919DDB8631LL10Foundation0F0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/dogURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC6dogURL33_8DA3F0CE0618F2B3899BB7919DDB8631LL10Foundation0F0VSgvp">dogURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Location of Dog Sound</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">dogURL</span> <span class="o">=</span> <span class="kt">Bundle</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="nf">url</span><span class="p">(</span><span class="nv">forResource</span><span class="p">:</span> <span class="s">"bark"</span><span class="p">,</span> <span class="nv">withExtension</span><span class="p">:</span> <span class="s">"mp3"</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC8happyURL33_8DA3F0CE0618F2B3899BB7919DDB8631LL10Foundation0F0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/happyURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC8happyURL33_8DA3F0CE0618F2B3899BB7919DDB8631LL10Foundation0F0VSgvp">happyURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Location of Happy <q>Woo Hoo!</q> Sound</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">happyURL</span> <span class="o">=</span> <span class="kt">Bundle</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="nf">url</span><span class="p">(</span><span class="nv">forResource</span><span class="p">:</span> <span class="s">"happy"</span><span class="p">,</span> <span class="nv">withExtension</span><span class="p">:</span> <span class="s">"mp3"</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC8countURL33_8DA3F0CE0618F2B3899BB7919DDB8631LL10Foundation0F0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/countURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC8countURL33_8DA3F0CE0618F2B3899BB7919DDB8631LL10Foundation0F0VSgvp">countURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Location of dinging Count Sound</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">countURL</span> <span class="o">=</span> <span class="kt">Bundle</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="nf">url</span><span class="p">(</span><span class="nv">forResource</span><span class="p">:</span> <span class="s">"count"</span><span class="p">,</span> <span class="nv">withExtension</span><span class="p">:</span> <span class="s">"mp3"</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC8clickURL33_8DA3F0CE0618F2B3899BB7919DDB8631LL10Foundation0F0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/clickURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC8clickURL33_8DA3F0CE0618F2B3899BB7919DDB8631LL10Foundation0F0VSgvp">clickURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Location of error indicating Click Sound</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">clickURL</span> <span class="o">=</span> <span class="kt">Bundle</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="nf">url</span><span class="p">(</span><span class="nv">forResource</span><span class="p">:</span> <span class="s">"click"</span><span class="p">,</span> <span class="nv">withExtension</span><span class="p">:</span> <span class="s">"mp3"</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC010playAnimalC0ySS6animal_tF"></a>
+                    <a name="//apple_ref/swift/Method/playAnimalSound(animal:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC010playAnimalC0ySS6animal_tF">playAnimalSound(animal:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Plays sound for corresponding animal</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">playAnimalSound</span><span class="p">(</span><span class="nv">animal</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animal</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>String indicating which animal sound to be played</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC9isPlayingSbyF"></a>
+                    <a name="//apple_ref/swift/Method/isPlaying()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC9isPlayingSbyF">isPlaying()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Tells whether audio player is currently playing an effect or not</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isPlaying</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>True boolean if audio player is playing, False boolean if audio player isn&rsquo;t playing</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC8playTadayyF"></a>
+                    <a name="//apple_ref/swift/Method/playTada()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC8playTadayyF">playTada()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Play Tada Sound</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">playTada</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC9playHappyyyF"></a>
+                    <a name="//apple_ref/swift/Method/playHappy()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC9playHappyyyF">playHappy()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Play Happy <q>Woo Hoo!</q> Sound</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">playHappy</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC07playPigC033_8DA3F0CE0618F2B3899BB7919DDB8631LLyyF"></a>
+                    <a name="//apple_ref/swift/Method/playPigSound()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC07playPigC033_8DA3F0CE0618F2B3899BB7919DDB8631LLyyF">playPigSound()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Play Pig Sound</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">playPigSound</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC07playPigC5ShortyyF"></a>
+                    <a name="//apple_ref/swift/Method/playPigSoundShort()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC07playPigC5ShortyyF">playPigSoundShort()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Play Pig Sound shortened</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">playPigSoundShort</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC07playCowC0yyF"></a>
+                    <a name="//apple_ref/swift/Method/playCowSound()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC07playCowC0yyF">playCowSound()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Play Cow Sound</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">playCowSound</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC07playDogC0yyF"></a>
+                    <a name="//apple_ref/swift/Method/playDogSound()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC07playDogC0yyF">playDogSound()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Play Dog Sound</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">playDogSound</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC07playCatC0yyF"></a>
+                    <a name="//apple_ref/swift/Method/playCatSound()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC07playCatC0yyF">playCatSound()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Play Cat Sound</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">playCatSound</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC09playCountC0yyF"></a>
+                    <a name="//apple_ref/swift/Method/playCountSound()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC09playCountC0yyF">playCountSound()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Play dinging Count Sound</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">playCountSound</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8MathFarm7SoundFXC09playClickC0yyF"></a>
+                    <a name="//apple_ref/swift/Method/playClickSound()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8MathFarm7SoundFXC09playClickC0yyF">playClickSound()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Play error indicating Click Sound</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">playClickSound</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-05-06)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

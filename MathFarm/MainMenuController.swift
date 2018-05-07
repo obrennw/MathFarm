@@ -10,7 +10,7 @@
 import UIKit
 import AVFoundation
 
-var audioPlayer = AVAudioPlayer()
+//var audioPlayer = AVAudioPlayer()
 
 /// ViewController for main menu
 class MainMenuController: UIViewController {
@@ -18,10 +18,6 @@ class MainMenuController: UIViewController {
     /// Do any additional setup after loading the view, typically from a nib.
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-
     }
     
     /// Dispose of any resources that can be recreated.

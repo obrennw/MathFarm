@@ -8,6 +8,7 @@
 
 import UIKit
 
+///this is the controller responsible for the medium ("pro") pattern level; all this controller does is alter the storyboard elements in the current view to create patterns...class is incredibly similar to EasyPatternController, but this accounts for the larger amount of animals
 class MediumPatternController: PatternController {
     private let mlg = PatternLevelMedium()
     
@@ -19,14 +20,15 @@ class MediumPatternController: PatternController {
     @IBOutlet weak var answerSlot: UIButton!
     @IBOutlet weak var answerChoice0: UIButton!
     @IBOutlet weak var answerChoice1: UIButton!
+    @IBOutlet weak var continueButton: UIButton!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         currentPattern = mlg.getPattern()
         animalRow = [zeroAnimal, firstAnimal, secondAnimal, thirdAnimal, fourthAnimal]
         fillAnimalDetails()
         fx.playAnimalSound(animal: mlg.getAnimalNameAt(index: currentPattern[0]))
+        shiftFocusZeroAnimal()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +36,7 @@ class MediumPatternController: PatternController {
         // Dispose of any resources that can be recreated.
     }
     
+    ///uses the currently selected pattern to fill in the appropriate images and accessibility labels in the view; also sets tag representing UIButton placement on the screen
     override func fillAnimalDetails() {
         var count = 0
         for animal in animalRow {
@@ -50,6 +53,7 @@ class MediumPatternController: PatternController {
         answerChoice1.accessibilityLabel = "Double tap to select " + mlg.getAnimalNameAt(index: currentPattern[7])
     }
     
+    ///func that is called when user selected first answer choice possible
     @IBAction func selectAnswer0(_ sender: UIButton) {
         let animalName = mlg.getAnimalNameAt(index: currentPattern[6])
         currentSelectedAnswer = animalName
@@ -59,8 +63,10 @@ class MediumPatternController: PatternController {
         answerChoice0.accessibilityLabel = ""
         answerChoice1.accessibilityLabel = "Double tap to select " + mlg.getAnimalNameAt(index: currentPattern[7])
         fx.playAnimalSound(animal: mlg.getAnimalNameAt(index: currentPattern[6]))
+        shiftFocusContinueButton()
     }
     
+    ///func that is called when user selected second answer choice possible
     @IBAction func selectAnswer1(_ sender: UIButton) {
         let animalName = mlg.getAnimalNameAt(index: currentPattern[7])
         currentSelectedAnswer = animalName
@@ -70,15 +76,17 @@ class MediumPatternController: PatternController {
         answerChoice1.accessibilityLabel = ""
         answerChoice0.accessibilityLabel = "Double tap to select " + mlg.getAnimalNameAt(index: currentPattern[6])
         fx.playAnimalSound(animal: mlg.getAnimalNameAt(index: currentPattern[7]))
+        shiftFocusContinueButton()
     }
     
+    ///plays an animal sound corresponding to the animal that has just been tapped
     @IBAction func tappedAnimal(_ sender: UIButton) {
         if(sender.tag < currentPattern.count){
             fx.playAnimalSound(animal: mlg.getAnimalNameAt(index: currentPattern[sender.tag]))
         }
     }
     
-    
+    ///called when user taps the "continue" arrow: if answer is correct, then segues to "great job" screen, else resets answer choice and resumes play of current pattern
     @IBAction func checkAnswer(_ sender: UIButton) {
         if(mlg.isAnswerCorrect(animal: currentSelectedAnswer)){
             fx.playTada()
@@ -90,12 +98,36 @@ class MediumPatternController: PatternController {
             answerSlot.accessibilityLabel = defaultAccessText
             answerSlot.setBackgroundImage(defaultEmptyAnswer, for: .normal)
             answerSlot.tag = 1000
+            fx.playClickSound()
+            speakString(text: "Wrong animal")
+            shiftFocusZeroAnimal()
         }
     }
     
+    ///responsible for replacing the ? box with the selected answer
     override func finishPatternWithImageAndName(image: UIImage, name: String){
         answerSlot.setBackgroundImage(image, for: .normal)
         answerSlot.accessibilityLabel = name
+    }
+    
+    func speakString(text: String) {
+        //let Utterance = AVSpeechUtterance(string: text)
+        while(fx.isPlaying()){
+            //wait for song to finish..
+            print("waiting...")
+        }
+        UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, text)
+        //speaker.speak(Utterance)
+    }
+    
+     ///shifts focus of VoiceOver "selection box" to the first animal in the pattern
+    private func shiftFocusZeroAnimal() {
+        UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, zeroAnimal)
+    }
+    
+    ///shifts focus of the VoiceOver "selection box" to the "continue arrow"; to be called after a user selects an answer choice
+    private func shiftFocusContinueButton() {
+        UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, continueButton)
     }
 
 }

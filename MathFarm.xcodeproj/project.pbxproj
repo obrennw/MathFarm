@@ -25,17 +25,15 @@
 		B23680E920923A190084CA83 /* cowmoo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B23680E320923A180084CA83 /* cowmoo.mp3 */; };
 		B23680EA20923A190084CA83 /* meow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B23680E420923A180084CA83 /* meow.mp3 */; };
 		B23680EB20923A190084CA83 /* pigfarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B23680E520923A190084CA83 /* pigfarm.mp3 */; };
-		B264906820632A1000AB782B /* PatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B264906720632A1000AB782B /* PatternViewController.swift */; };
+		B23E3329209971B60037A13C /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B23E3328209971B60037A13C /* click.mp3 */; };
 		B28E578D20900552004CCD69 /* PatternDifficulties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28E578C20900552004CCD69 /* PatternDifficulties.swift */; };
 		B28E578F20900650004CCD69 /* EasyPatternController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28E578E20900650004CCD69 /* EasyPatternController.swift */; };
 		B2E2B65D204B814F00AF12E0 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2B65C204B814F00AF12E0 /* GameViewController.swift */; };
 		B2E2B662204B908500AF12E0 /* LevelSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2B661204B908500AF12E0 /* LevelSelectController.swift */; };
 		FA1077E02062597D001CC811 /* EasyAdditionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1077DF2062597D001CC811 /* EasyAdditionScene.swift */; };
 		FA1296EE206948C200412DDC /* AdvAdditionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1296ED206948C200412DDC /* AdvAdditionScene.swift */; };
-		FA1979622067633F0065687B /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1979612067633F0065687B /* LevelScene.swift */; };
 		FA8360DE20636A4A0058CBD1 /* AdditionScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */; };
 		FAA840322092AE2600303282 /* MedAdditionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA840312092AE2600303282 /* MedAdditionScene.swift */; };
-		FAD4CFED208946020090B21C /* SubLevelSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CFEC208946020090B21C /* SubLevelSelectController.swift */; };
 		FAE28DF820994ED100621800 /* count.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAE28DF720994ED100621800 /* count.mp3 */; };
 		FAE28DFA20994EE100621800 /* backgroundmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAE28DF920994EE100621800 /* backgroundmusic.mp3 */; };
 /* End PBXBuildFile section */
@@ -82,19 +80,17 @@
 		B23680E320923A180084CA83 /* cowmoo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cowmoo.mp3; sourceTree = "<group>"; };
 		B23680E420923A180084CA83 /* meow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meow.mp3; sourceTree = "<group>"; };
 		B23680E520923A190084CA83 /* pigfarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pigfarm.mp3; sourceTree = "<group>"; };
-		B264906720632A1000AB782B /* PatternViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternViewController.swift; sourceTree = "<group>"; };
+		B23E3328209971B60037A13C /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
 		B28E578C20900552004CCD69 /* PatternDifficulties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternDifficulties.swift; sourceTree = "<group>"; };
 		B28E578E20900650004CCD69 /* EasyPatternController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyPatternController.swift; sourceTree = "<group>"; };
 		B2E2B65C204B814F00AF12E0 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		B2E2B661204B908500AF12E0 /* LevelSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectController.swift; sourceTree = "<group>"; };
 		FA1077DF2062597D001CC811 /* EasyAdditionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyAdditionScene.swift; sourceTree = "<group>"; };
 		FA1296ED206948C200412DDC /* AdvAdditionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvAdditionScene.swift; sourceTree = "<group>"; };
-		FA1979612067633F0065687B /* LevelScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
 		FA8360DD20636A4A0058CBD1 /* AdditionScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AdditionScene.sks; sourceTree = "<group>"; };
 		FAA840312092AE2600303282 /* MedAdditionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedAdditionScene.swift; sourceTree = "<group>"; };
-		FAD4CFEC208946020090B21C /* SubLevelSelectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubLevelSelectController.swift; sourceTree = "<group>"; };
-		FAE28DF720994ED100621800 /* count.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = count.mp3; sourceTree = "<group>"; };
-		FAE28DF920994EE100621800 /* backgroundmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundmusic.mp3; sourceTree = "<group>"; };
+		FAE28DF720994ED100621800 /* count.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = count.mp3; path = ../count.mp3; sourceTree = "<group>"; };
+		FAE28DF920994EE100621800 /* backgroundmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = backgroundmusic.mp3; path = ../backgroundmusic.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +122,16 @@
 			isa = PBXGroup;
 			children = (
 				29A76DF9208A629400DE899B /* count.mp3 */,
+				B23E3328209971B60037A13C /* click.mp3 */,
+				B23680E220923A180084CA83 /* bark.mp3 */,
+				B23680E320923A180084CA83 /* cowmoo.mp3 */,
+				B23680E420923A180084CA83 /* meow.mp3 */,
+				29A76DFA208A629400DE899B /* happy.mp3 */,
+				FAE28DF920994EE100621800 /* backgroundmusic.mp3 */,
+				B23680E520923A190084CA83 /* pigfarm.mp3 */,
+				FAE28DF720994ED100621800 /* count.mp3 */,
+				29390C2B20990B510081FA1A /* pigShort.mp3 */,
+				B23680E020923A170084CA83 /* tada.mp3 */,
 				29A76DFB208A629400DE899B /* backgroundmusic.mp3 */,
 			);
 			path = Sound;
@@ -156,7 +162,6 @@
 			children = (
 				FA1077DF2062597D001CC811 /* EasyAdditionScene.swift */,
 				29C8D6C62040A72600E4C122 /* AppDelegate.swift */,
-				B264906720632A1000AB782B /* PatternViewController.swift */,
 				29C8D6C82040A72600E4C122 /* MainMenuController.swift */,
 				29A76DF8208A629400DE899B /* Sound */,
 				B2E2B661204B908500AF12E0 /* LevelSelectController.swift */,
@@ -170,18 +175,7 @@
 				B2192EEE209244C30078B348 /* MediumPatternController.swift */,
 				B28E578E20900650004CCD69 /* EasyPatternController.swift */,
 				B23680D2209239980084CA83 /* SoundFX.swift */,
-				FAD4CFEC208946020090B21C /* SubLevelSelectController.swift */,
 				FAA840312092AE2600303282 /* MedAdditionScene.swift */,
-				B23680E220923A180084CA83 /* bark.mp3 */,
-				B23680E320923A180084CA83 /* cowmoo.mp3 */,
-				B23680E420923A180084CA83 /* meow.mp3 */,
-				29A76DFA208A629400DE899B /* happy.mp3 */,
-				FAE28DF920994EE100621800 /* backgroundmusic.mp3 */,
-				B23680E520923A190084CA83 /* pigfarm.mp3 */,
-				FAE28DF720994ED100621800 /* count.mp3 */,
-				29390C2B20990B510081FA1A /* pigShort.mp3 */,
-				B23680E020923A170084CA83 /* tada.mp3 */,
-				FA1979612067633F0065687B /* LevelScene.swift */,
 				FA1296ED206948C200412DDC /* AdvAdditionScene.swift */,
 			);
 			path = MathFarm;
@@ -319,6 +313,7 @@
 				B23680E820923A190084CA83 /* bark.mp3 in Resources */,
 				FAE28DF820994ED100621800 /* count.mp3 in Resources */,
 				B23680EB20923A190084CA83 /* pigfarm.mp3 in Resources */,
+				B23E3329209971B60037A13C /* click.mp3 in Resources */,
 				291B6C51207802AD00D865BD /* Assets.xcassets in Resources */,
 				29390C2C20990B510081FA1A /* pigShort.mp3 in Resources */,
 				29A76DFD208A629400DE899B /* happy.mp3 in Resources */,
@@ -354,13 +349,10 @@
 				B23680D3209239980084CA83 /* SoundFX.swift in Sources */,
 				B28E578D20900552004CCD69 /* PatternDifficulties.swift in Sources */,
 				B2E2B662204B908500AF12E0 /* LevelSelectController.swift in Sources */,
-				FA1979622067633F0065687B /* LevelScene.swift in Sources */,
 				FA1296EE206948C200412DDC /* AdvAdditionScene.swift in Sources */,
 				B2192EEF209244C30078B348 /* MediumPatternController.swift in Sources */,
-				FAD4CFED208946020090B21C /* SubLevelSelectController.swift in Sources */,
 				29C8D6C92040A72600E4C122 /* MainMenuController.swift in Sources */,
 				298E634D2087D0B10037A73F /* CountingScene.swift in Sources */,
-				B264906820632A1000AB782B /* PatternViewController.swift in Sources */,
 				B2E2B65D204B814F00AF12E0 /* GameViewController.swift in Sources */,
 				FA1077E02062597D001CC811 /* EasyAdditionScene.swift in Sources */,
 				B28E578F20900650004CCD69 /* EasyPatternController.swift in Sources */,
@@ -530,11 +522,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P65B97BWKC;
+				DEVELOPMENT_TEAM = P7TZH87BWL;
 				INFOPLIST_FILE = MathFarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -550,11 +542,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P65B97BWKC;
+				DEVELOPMENT_TEAM = P7TZH87BWL;
 				INFOPLIST_FILE = MathFarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MathFarm.oscar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
